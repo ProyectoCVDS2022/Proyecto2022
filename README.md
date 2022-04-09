@@ -14,3 +14,6 @@ URI: postgres://ttlpdzwqtuszgz:91521990bffc598c3c02c525232ae99b73beeeec7db54d4f9
 
 Heroku CLI: heroku pg:psql postgresql-lively-75408 --app proyect2022cdvs
 --Drops
+
+Ejemplo bases de datos (Basura)
+![Capture](https://user-images.githubusercontent.com/87088730/162579424-ee389b12-a3ec-4d7e-a5c1-62ab7cba2b6a.PNG)
