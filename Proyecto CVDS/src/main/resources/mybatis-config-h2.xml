@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="test.properties">
+	</properties>
+
+	<typeAliases>
+		<typeAlias type='edu.eci.cvds.entities.Author' alias='Decanatura' />
+		<typeAlias type='edu.eci.cvds.entities.Review' alias='Programa' />
+		<typeAlias type='edu.eci.cvds.entities.Book' alias='Materia' />
+	</typeAliases>
+
+	<environments default="test">
+		<environment id="test">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="mappers/DecanaturaMapper.xml"></mapper>
+		<mapper resource="mappers/ProgramaMapper.xml"></mapper>
+	</mappers>
+
+</configuration>
