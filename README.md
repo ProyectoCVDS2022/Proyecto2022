@@ -30,7 +30,8 @@ CREATE TABLE "Proyecto".recursos (\
 	id int NOT NULL,\
 	tipo int NOT NULL,\
 	fechaIncio DATE not null,\
-	fechaFin DATE not null\
+	fechaFin DATE not null,\
+	observaciones varchar(30) NOT NULL
 );\
 create table "Proyecto".tipoRecursos(\
 	id int NOT NULL,\
