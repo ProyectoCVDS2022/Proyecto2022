@@ -34,7 +34,7 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
                 bind(ReservaDAO.class).to(MyBatisReservaDAO.class);
                 bind(TipoRecursoDAO.class).to(MyBatisTipoRecursoDAO.class);
-                bind(UbicacionRecursoDAO.class).to(MyBatisUbicacionRecursoDAO.class);
+                bind(UbicacionDAO.class).to(MyBatisUbicacionDAO.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
                 bind(LibraryServices.class).to(LibraryServicesImpl.class);
                 //bind(BasePageBean.class).to(LoginBean.class);

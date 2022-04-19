@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper">
+
+    <resultMap type='Recurso' id='RecursoResult'>
+        <result property='id' column='id'/>
+        <result property='fechaInicio' column='fechaInicio'/>
+        <result property='fechaFin' column='fechaFin'/>
+        <result property='observaciones' column='observaciones'/>
+        <association property='tipo' javaType="TipoRecurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.TipoRecursoMapper.TipoRecursoResult" columnPrefix='tipo_'></association>
+        <association property='ubicacion' javaType="Ubicacion"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper.UbicacionResult" columnPrefix='ubicacion_'></association>
+    </resultMap>
+
+</mapper>

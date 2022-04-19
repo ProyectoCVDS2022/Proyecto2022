@@ -1,4 +1,4 @@
 package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
-public interface UbicacionRecursoMapper {
+public interface UbicacionMapper {
 }
