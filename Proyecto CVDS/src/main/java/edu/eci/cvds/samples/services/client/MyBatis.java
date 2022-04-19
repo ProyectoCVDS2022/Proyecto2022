@@ -1,4 +1,4 @@
-package edu.eci.cvds.samples.services;
+package edu.eci.cvds.samples.services.client;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
