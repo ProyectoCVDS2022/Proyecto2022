@@ -1,18 +1,13 @@
 --Drops
-drop table "Proyecto".usuarios;
-drop table "Proyecto".recursos;
-drop table "Proyecto".tipoRecurso;
-drop table "Proyecto".ubicacionRecursos;
-drop table "Proyecto".reservas;
 --Crear tablas
-CREATE TABLE  "Proyecto".usuarios(
+CREATE TABLE USUARIOS(
 	id INT not null,
 	rol VARCHAR(30) not null,
 	correo VARCHAR(30) not null,
 	clave VARCHAR(30) not null
 );
 
-CREATE TABLE "Proyecto".recursos(
+CREATE TABLE RECURSOS(
 	id int NOT NULL,
 	tipo int NOT NULL,
 	fechaInicio DATE not null,
@@ -20,16 +15,16 @@ CREATE TABLE "Proyecto".recursos(
 	ubicacion int NOT NULL,
 	observaciones varchar(30) NOT NULL
 );
-create table "Proyecto".tipoRecursos(
+create table TIPO_RECURSOS(
 	id int NOT NULL,
 	nombre varchar(30) NOT NULL,
 	descripcion varchar(30)
 );
-create table "Proyecto".ubicaciones(
+create table UBICACIONES(
 	id int NOT NULL,
 	lugar varchar(30) NOT NULL
 );
-create table "Proyecto".reservas(
+create table RESERVAS(
 	id int NOT NULL,
 	usuario INT not null,
 	recurso INT NOT NULL,

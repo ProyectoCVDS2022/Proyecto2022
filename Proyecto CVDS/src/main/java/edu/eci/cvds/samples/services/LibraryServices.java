@@ -1,4 +1,9 @@
 package edu.eci.cvds.samples.services;
 
+import edu.eci.cvds.entities.*;
+import edu.eci.cvds.persistence.PersistenceException;
+
 public interface LibraryServices {
+
+    public Usuario consultarUsuario(String username, String password) throws PersistenceException;
 }
