@@ -10,7 +10,9 @@ CREATE TABLE USUARIOS(
 
 CREATE TABLE RECURSOS(
 	id int NOT NULL,
+	nombre varchar(30) NOT NULL,
 	tipo int NOT NULL,
+	capacidad int NOT NULL,
 	fechaInicio DATE not null,
 	fechaFin DATE not null,
 	ubicacion int NOT NULL,

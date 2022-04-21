@@ -20,20 +20,28 @@
 	html {
         background: url(fondo.jpg) no-repeat center fixed;
         background-size: cover;
-}
+    }
 
     div.a {
 		position: absolute;
-		top: 50%;
-		left: 40%;
+		top: 35%;
+		left: 35%;
 		margin: -150px 0 0 -150px;
-		width:600px;
-		height:350px;
+		width:800px;
+		height:550px;
 		background-color: rgba(170,170,170,0.6);
         justify-content: center;
         align-items: center;
         text-align: center;
 	}
+
+	SELECT {
+        color: #787878;
+        font-size: 16px;
+        margin: 0px 0px 7px 0px;
+        padding: 4px 0px 4px 5px;
+        width: 200px;
+    }
 
 </style>
 </h:head>
@@ -47,7 +55,26 @@
                 <p:autoUpdate />
             </p:messages>
 
-            <h1>gono</h1>
+            <h1>Agregar recurso</h1>
+
+            <p:inputText id="id" placeholder="Identificador" required="true" type="String" value="#{adminBean.id}"/>
+            <br> </br>
+            <p:inputText id="nombre" placeholder="Nombre" required="true" type="String" value="#{adminBean.nombre}"/>
+            <br> </br>
+            <select name="tipo" id="tipo">
+                <option> - Tipo de recurso - </option>
+                <option value="libro">Libro</option>
+                <option value="sala">Sala de estudio</option>
+                <option value="pc">Computador</option>
+                <option value="pc">Equipo multimedia</option>
+            </select>
+            <br> </br>
+            <p:inputText id="capacidad" placeholder="Capacidad" required="true" type="String" value="#{adminBean.capacidad}"/>
+            <br> </br>
+            <p:inputText id="ubicacion" placeholder="Ubicacion" required="true" type="String" value="#{adminBean.ubicacion}"/>
+            <br> </br>
+            <p:commandButton id="boton_agregar" value="Agregar" actionListener="#{adminBean.agregar()}"/>
+
 
         </div>
 

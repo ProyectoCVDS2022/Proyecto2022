@@ -5,8 +5,14 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper">
 
+    <insert id="agregarRecurso" parameterType="map" >
+        INSERT INTO RECURSOS values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.observaciones});
+    </insert>
+
     <resultMap type='Recurso' id='RecursoResult'>
         <result property='id' column='id'/>
+        <result property='nombre' column='nombre'/>
+        <result property='capacidad' column='capacidad'/>
         <result property='fechaInicio' column='fechaInicio'/>
         <result property='fechaFin' column='fechaFin'/>
         <result property='observaciones' column='observaciones'/>
