@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 @SuppressWarnings("deprecation")
-@ManagedBean(name = "loginBean")
+@ManagedBean(name = "adminBean")
 @ApplicationScoped
 
 public class AdminBean extends BasePageBean{
@@ -36,5 +36,77 @@ public class AdminBean extends BasePageBean{
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al registrar el Cliente", ex);
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public int getUbicacion() {
+        return ubicacion;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public LibraryServices getServices() {
+        return services;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setUbicacion(int ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public void setServices(LibraryServices services) {
+        this.services = services;
     }
 }
