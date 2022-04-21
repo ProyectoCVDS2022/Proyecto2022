@@ -9,6 +9,15 @@ public class Recurso {
     private int ubicacion;
     private String observaciones;
 
+    public Recurso(int id, int tipo, Date fechaInicio, Date fechaFin, int ubicacion, String observaciones) {
+        this.id = id;
+        this.tipo = tipo;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.ubicacion = ubicacion;
+        this.observaciones = observaciones;
+    }
+
     public int getId() {
         return id;
     }

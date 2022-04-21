@@ -5,6 +5,11 @@ public class Ubicacion {
     private int id;
     private String lugar;
 
+    public Ubicacion(int id, String lugar) {
+        this.id = id;
+        this.lugar = lugar;
+    }
+
     public int getId() {
         return id;
     }
