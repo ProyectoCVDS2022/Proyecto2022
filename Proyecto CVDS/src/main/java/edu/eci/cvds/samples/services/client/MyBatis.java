@@ -1,5 +1,6 @@
 package edu.eci.cvds.samples.services.client;
 
+import edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -40,7 +41,10 @@ public class MyBatis {
     public static void main(String args[]) throws SQLException, ParseException {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
-        /*IniciativaMapper i=sqlss.getMapper(IniciativaMapper.class);*/
+
+        UsuarioMapper usuarioMapper = sqlss.getMapper(UsuarioMapper.class);
+        System.out.println(usuarioMapper.consultarUsuario("admon", "admon"));
+
         sqlss.commit();
         sqlss.close();
     }
