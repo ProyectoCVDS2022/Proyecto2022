@@ -8,7 +8,7 @@
     <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
         select *
         from USUARIOS
-        where USUARIOS.id = #{user} AND USUARIOS.clave = #{password}
+        where USUARIOS.correo = #{user} AND USUARIOS.clave = #{password}
     </select>
 
     <resultMap type='Usuario' id='UsuarioResult'>

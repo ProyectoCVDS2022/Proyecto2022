@@ -43,9 +43,6 @@
     <body>
     <h:form id="login_user" prependId="false">
         <div class = "a">
-            <p:messages>
-                <p:autoUpdate />
-            </p:messages>
 
                 <h1>Gestión Servicios Biblioteca</h1>
 
@@ -54,8 +51,13 @@
                 <p:password id="contraseña" placeholder="Contraseña" required="false" type="String" value="#{loginBean.password}"/>
                 <br> </br>
                 <br></br>
-
-                <p:commandButton id="boton_login" value="Iniciar sesion" action="#{loginBean.login()}"/>
+                <p:outputLabel>Usuario = "#{loginBean.getUsername()}"</p:outputLabel>
+                <br></br>
+                <p:outputLabel>Clave = "#{loginBean.getPassword()}"</p:outputLabel>
+                <br></br>
+                <p:outputLabel>Rol = "#{loginBean.getRol()}"</p:outputLabel>
+                <br></br>
+                <p:commandButton id="boton_login" value="Iniciar sesion" actionListener="#{loginBean.login()}"/>
         </div>
 
     </h:form>

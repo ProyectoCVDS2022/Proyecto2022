@@ -22,13 +22,15 @@ public class LoginBean extends BasePageBean{
     @Inject
     private String username;
     private String password;
+    private String rol;
     private LibraryServices services;
 
     public String login() throws PersistenceException {
         String redireccion = null;
         Usuario usuario = services.consultarUsuario(username, password);
         if(usuario != null){
-            if(usuario.getRol().equals("Administrador")){
+            if(usuario.getRol().equals("administrador")){
+                setRol(usuario.getRol());
                 redireccion = "administrador.xhtml?faces-redirect=true";
             }else{
                 redireccion = "comunidad.xhtml?faces-redirect=true";
@@ -49,6 +51,14 @@ public class LoginBean extends BasePageBean{
 
     public String getUsername() {
         return username;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getPassword() {
