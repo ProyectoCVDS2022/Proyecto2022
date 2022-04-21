@@ -1,8 +1,9 @@
 package edu.eci.cvds.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Recurso {
+public class Recurso implements Serializable {
 
     private int id;
     private int tipo;

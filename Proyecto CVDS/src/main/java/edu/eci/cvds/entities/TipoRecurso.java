@@ -1,6 +1,8 @@
 package edu.eci.cvds.entities;
 
-public class TipoRecurso {
+import java.io.Serializable;
+
+public class TipoRecurso implements Serializable {
 
     private int id;
     private String nombre;

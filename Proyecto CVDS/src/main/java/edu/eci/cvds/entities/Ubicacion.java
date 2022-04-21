@@ -1,6 +1,8 @@
 package edu.eci.cvds.entities;
 
-public class Ubicacion {
+import java.io.Serializable;
+
+public class Ubicacion implements Serializable {
 
     private int id;
     private String lugar;
