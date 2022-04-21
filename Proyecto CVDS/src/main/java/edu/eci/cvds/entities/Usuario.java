@@ -47,4 +47,5 @@ public class Usuario implements Serializable {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
 }
