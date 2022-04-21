@@ -1,5 +1,7 @@
 package edu.eci.cvds.entities;
 
+import java.util.Date;
+
 public class Recurso {
 
     private int id;
