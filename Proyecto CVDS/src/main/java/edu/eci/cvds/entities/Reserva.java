@@ -1,6 +1,6 @@
 package edu.eci.cvds.entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Reserva {
 
