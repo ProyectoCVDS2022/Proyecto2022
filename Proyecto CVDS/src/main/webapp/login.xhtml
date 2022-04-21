@@ -50,13 +50,6 @@
                 <br> </br>
                 <p:password id="contraseña" placeholder="Contraseña" required="false" type="String" value="#{loginBean.password}"/>
                 <br> </br>
-                <br></br>
-                <p:outputLabel>Usuario = "#{loginBean.getUsername()}"</p:outputLabel>
-                <br></br>
-                <p:outputLabel>Clave = "#{loginBean.getPassword()}"</p:outputLabel>
-                <br></br>
-                <p:outputLabel>Rol = "#{loginBean.getRol()}"</p:outputLabel>
-                <br></br>
                 <p:commandButton id="boton_login" value="Iniciar sesion" actionListener="#{loginBean.login()}"/>
         </div>
 
