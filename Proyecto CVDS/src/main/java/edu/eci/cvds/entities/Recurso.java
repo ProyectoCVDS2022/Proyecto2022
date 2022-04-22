@@ -98,4 +98,18 @@ public class Recurso implements Serializable {
     public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
+
+    @Override
+    public String toString() {
+        return "Recurso{id= " + id +
+                ", tipo= " + tipo +
+                ", nombre= " + nombre +
+                ", capacidad= " + capacidad +
+                ", fechaInicio= " + fechaInicio.toString() +
+                ", fechaFin= " + fechaFin.toString() +
+                ", ubicacion= " + ubicacion +
+                ", disponibilidad= " + disponibilidad +
+                ", observaciones= " + observaciones +
+                '}';
+    }
 }

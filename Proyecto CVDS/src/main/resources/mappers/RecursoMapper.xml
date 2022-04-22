@@ -11,12 +11,12 @@
 
     <select parameterType="map" id="buscarRecurso" resultMap="RecursoResult">
         select *
-        FROM RECURSOS
+        FROM "Proyecto"."recursos"
         WHERE id=#{idrecurso};
     </select>
 
     <update parameterType="map" id="cambiarDisponibilidad">
-        update RECURSOS set disponibilidad=#{dispo} where id=#{idrecurso};
+        update "Proyecto"."recursos" set disponibilidad=#{dispo} where id=#{idrecurso};
     </update>
 
     <resultMap type='Recurso' id='RecursoResult'>

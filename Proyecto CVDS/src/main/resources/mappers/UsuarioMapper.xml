@@ -14,7 +14,7 @@
 
     <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult" >
         select *
-        from USUARIOS as u
+        from "Proyecto"."usuarios" as u
         where u.correo = #{user} AND u.clave = #{password}
     </select>
 

@@ -48,4 +48,12 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{id= " + id +
+                ", rol= " + rol +
+                ", correo= " + correo +
+                ", clave= " + clave +
+                '}';
+    }
 }
