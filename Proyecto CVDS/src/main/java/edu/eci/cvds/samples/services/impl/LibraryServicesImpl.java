@@ -14,6 +14,7 @@ public class LibraryServicesImpl implements LibraryServices {
 
     @Inject
     private UsuarioDAO usuarioDAO;
+    @Inject
     private RecursoDAO recursoDAO;
 
     @Override
@@ -35,7 +36,7 @@ public class LibraryServicesImpl implements LibraryServices {
         try{
             recursoDAO.agregarRecurso(r);
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al registrar el recurso" , ex);
+            throw new PersistenceException("Error al registrar el recursos" , ex);
         }
     }
 

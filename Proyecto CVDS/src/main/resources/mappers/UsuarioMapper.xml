@@ -13,15 +13,9 @@
     </resultMap>
 
     <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult" >
-<<<<<<< HEAD
-        SELECT *
-        FROM "usuarios" AS u
-        WHERE u.correo = #{user} AND u.clave = #{password}
-=======
         select *
         from "Proyecto"."usuarios" as u
         where u.correo = #{user} AND u.clave = #{password}
->>>>>>> 5910524cdc73b15abaed54909668344efc5c36b0
     </select>
 
 </mapper>

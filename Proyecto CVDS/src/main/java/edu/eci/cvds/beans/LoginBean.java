@@ -28,11 +28,8 @@ public class LoginBean extends BasePageBean{
     public String login() throws PersistenceException {
         String redireccion = null;
         Usuario usuario = services.consultarUsuario(username, password);
-        System.out.println("Sexo");
         if(usuario != null){
-            System.out.println("Sexo1");
             if(usuario.getRol().equals("administrador")){
-                System.out.println("Sexo2");
                 setRol(usuario.getRol());
                 redireccion = "administrador.xhtml?faces-redirect=true";
             }else{

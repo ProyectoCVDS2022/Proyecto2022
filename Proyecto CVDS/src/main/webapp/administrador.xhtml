@@ -65,7 +65,7 @@
 
 <h:body>
     <body>
-    <h:form id="login_user" prependId="false">
+    <h:form id="admin_agregar" prependId="false">
         <div class = "a">
             <p:messages>
                 <p:autoUpdate />
@@ -92,7 +92,9 @@
             <p:commandButton id="boton_agregar" value="Agregar" actionListener="#{adminBean.agregarRecurso()}"/>
 
         </div>
+    </h:form>
 
+    <h:form id="admin_cambiar" prependId="false">
         <div class = "b">
             <h1>Editar disponibilidad de recursos</h1>
             <br></br>
