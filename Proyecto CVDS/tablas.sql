@@ -1,9 +1,3 @@
---Drops
-drop table USUARIOS cascade;
-drop table RECURSOS cascade;
-drop table TIPO_RECURSOS cascade;
-drop table UBICACIONES cascade;
-drop table RESERVAS cascade;
 --Crear tablas
 CREATE TABLE USUARIOS(
 	id INT not null,
