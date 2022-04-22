@@ -1,5 +1,6 @@
 package edu.eci.cvds.samples.services.client;
 
+import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -43,7 +44,9 @@ public class MyBatis {
         SqlSession sqlss = sessionfact.openSession();
 
         UsuarioMapper usuarioMapper = sqlss.getMapper(UsuarioMapper.class);
+        RecursoMapper recursoMapper = sqlss.getMapper(RecursoMapper.class);
         System.out.println(usuarioMapper.consultarUsuario("admon", "admon"));
+        System.out.println(recursoMapper.buscarRecurso(254));
 
         sqlss.commit();
         sqlss.close();

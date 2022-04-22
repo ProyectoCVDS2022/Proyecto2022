@@ -9,13 +9,13 @@ CREATE TABLE usuarios(
 CREATE TABLE RECURSOS(
 	id int NOT NULL,
 	nombre varchar(30) NOT NULL,
-	tipo int NOT NULL,
 	capacidad int NOT NULL,
 	fechaInicio DATE not null,
 	fechaFin DATE not null,
-	ubicacion int NOT NULL,
 	disponibilidad varchar(15),
-	observaciones varchar(30) NOT NULL
+	observaciones varchar(30) NOT NULL,
+	tipo int NOT NULL,
+	ubicacion int NOT NULL
 );
 
 CREATE TABLE TIPO_RECURSOS(
@@ -61,13 +61,8 @@ FOREIGN KEY (recurso) REFERENCES RECURSOS(id);
 
 --Poblar
 insert into usuarios (id, rol, correo, clave) values (1, 'administrador', 'admon', 'admon');
-insert into usuarios (id, rol, correo, clave) values (2, 'secretaria', 'secre@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (3, 'Juanksexo', 'pedro@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (4, 'Laura', 'laura@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (5, 'Andres', 'andres@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (6, 'Felipe', 'felipe@gmial.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (7, 'David', 'david@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (8, 'Alejandra', 'alejandra@gmail.com', 'admon');
+insert into usuarios (id, rol, correo, clave) values (2, 'comunidad', 'julian@gmail.com', '12345');
+insert into usuarios (id, rol, correo, clave) values (3, 'comunidad', 'Juank@gmail.com', '12345');
 
 insert into tipo_recursos (	id, nombre, descripcion) values (1, 'Libros', 'Libros de la escuela');
 insert into tipo_recursos (	id, nombre, descripcion) values (2, 'Sala de estudio', '');
@@ -78,16 +73,8 @@ insert into tipo_recursos (	id, nombre, descripcion) values (5, 'Computador de m
 insert into ubicaciones ( id, lugar) values (1, 'Biblioteca del edificio B');
 insert into ubicaciones ( id, lugar) values (2, 'Biblioteca del edificio G');
 
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (25478, 'Probabilidad y estadistica', 1, 1, '2022-02-02', '2022-03-03', 1, 'Pasta en mal estado');
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (58749, 'Fisica para ingenieros', 1, 1, '2022-01-02', '2022-02-03', 2, 'Perdida de hojas');
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (79451, 'Sala de estudio 1', 2, 1, '2022-04-02', '2022-07-20', 1, 'Borrador dañado');
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (23058, 'Portatil026', 3, 1, '2022-02-02', '2022-03-03', 2, '');
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (95847, 'tablet78', 4, 1, '2022-02-08', '2022-09-03', 1, 'Pantalla rayada');
-insert into recursos (	id, nombre, tipo, capacidad, fechaInicio, fechaFin, ubicacion, observaciones) values (28748, 'computador21', 5, 1, '2022-02-02', '2022-03-03', 2, 'tecla A dañada');
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (254, 'Probabilidad y estadistica', 1, '2022-02-02', '2022-03-03', 'Disponible', 'Pasta en mal estado', 1, 1);
 
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (134, 3, 25478, '2022-02-02', '2022-03-03');
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (135, 4, 58749, '2022-01-02', '2022-01-03');
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (136, 5, 79451, '2022-02-23', '2022-03-24');
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (137, 8, 23058, '2022-04-08', '2022-03-10');
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (138, 6, 95847, '2022-02-15', '2022-03-15');
-insert into reservas (	id, usuario, recurso, fechaIncio, fechaFin) values (139, 7, 28748, '2022-08-02', '2022-08-02');
+
+
+--no está en la db

@@ -15,7 +15,7 @@ public class Recurso implements Serializable {
     private String disponibilidad;
     private String observaciones;
 
-    public Recurso(int id, int tipo, String nombre, int capacidad, Date fechaInicio, Date fechaFin, int ubicacion, String disponibilidad, String observaciones) {
+    public Recurso(int id, String nombre, int capacidad, Date fechaInicio, Date fechaFin, String disponibilidad, String observaciones, int tipo, int ubicacion) {
         this.id = id;
         this.tipo = tipo;
         this.nombre = nombre;

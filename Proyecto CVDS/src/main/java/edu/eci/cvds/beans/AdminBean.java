@@ -35,15 +35,15 @@ public class AdminBean extends BasePageBean{
 
     public void agregarRecurso() throws PersistenceException {
         try{
-            services.agregarRecurso(new Recurso(id, tipo, nombre, capacidad, fechaInicio, fechaFin, ubicacion, "disponible", observaciones));
+            services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "disponible", observaciones, tipo, ubicacion));
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al agregar el recurso", ex);
         }
     }
 
-    public Recurso buscarRecurso(int id) throws PersistenceException {
+    public Recurso buscarRecurso() throws PersistenceException {
         try{
-            return services.buscarRecurso(id);
+            return services.buscarRecurso(idBuscar);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el recurso", ex);
         }
