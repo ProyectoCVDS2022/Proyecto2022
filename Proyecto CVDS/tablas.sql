@@ -1,5 +1,5 @@
 --Crear tablas
-CREATE TABLE `usuarios`(
+CREATE TABLE usuarios(
 	`id` INT not null,
 	`rol` VARCHAR(30) not null,
 	`correo` VARCHAR(30) not null,
@@ -62,7 +62,7 @@ FOREIGN KEY (recurso) REFERENCES RECURSOS(id);
 --Poblar
 insert into usuarios (id, rol, correo, clave) values (1, 'administrador', 'admon', 'admon');
 insert into usuarios (id, rol, correo, clave) values (2, 'secretaria', 'secre@gmail.com', 'admon');
-insert into usuarios (id, rol, correo, clave) values (3, 'Pedro', 'pedro@gmail.com', 'admon');
+insert into usuarios (id, rol, correo, clave) values (3, 'Juanksexo', 'pedro@gmail.com', 'admon');
 insert into usuarios (id, rol, correo, clave) values (4, 'Laura', 'laura@gmail.com', 'admon');
 insert into usuarios (id, rol, correo, clave) values (5, 'Andres', 'andres@gmail.com', 'admon');
 insert into usuarios (id, rol, correo, clave) values (6, 'Felipe', 'felipe@gmial.com', 'admon');
