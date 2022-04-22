@@ -16,6 +16,7 @@ CREATE TABLE RECURSOS(
 	fechaInicio DATE not null,
 	fechaFin DATE not null,
 	ubicacion int NOT NULL,
+	disponibilidad varchar(15),
 	observaciones varchar(30) NOT NULL,
 	CONSTRAINT RECURSOS_PK PRIMARY KEY (id)
 );

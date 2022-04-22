@@ -38,4 +38,22 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al registrar el recurso" , ex);
         }
     }
+
+    @Override
+    public Recurso buscarRecurso(int id) throws PersistenceException {
+        try{
+            return recursoDAO.buscarRecurso(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recurso" , ex);
+        }
+    }
+
+    @Override
+    public void cambiarDisponibilidad(String disp, int id) throws PersistenceException {
+        try{
+           recursoDAO.cambiarDisponibilidad(disp, id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso" , ex);
+        }
+    }
 }

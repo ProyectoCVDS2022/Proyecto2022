@@ -20,10 +20,10 @@ import java.io.IOException;
 public class LoginBean extends BasePageBean{
 
     @Inject
+    private LibraryServices services;
     private String username;
     private String password;
     private String rol;
-    private LibraryServices services;
 
     public String login() throws PersistenceException {
         String redireccion = null;

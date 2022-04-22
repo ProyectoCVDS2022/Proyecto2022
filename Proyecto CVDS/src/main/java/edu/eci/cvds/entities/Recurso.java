@@ -12,9 +12,10 @@ public class Recurso implements Serializable {
     private Date fechaInicio;
     private Date fechaFin;
     private int ubicacion;
+    private String disponibilidad;
     private String observaciones;
 
-    public Recurso(int id, int tipo, String nombre, int capacidad, Date fechaInicio, Date fechaFin, int ubicacion, String observaciones) {
+    public Recurso(int id, int tipo, String nombre, int capacidad, Date fechaInicio, Date fechaFin, int ubicacion, String disponibilidad, String observaciones) {
         this.id = id;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -22,6 +23,7 @@ public class Recurso implements Serializable {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.ubicacion = ubicacion;
+        this.disponibilidad = disponibilidad;
         this.observaciones = observaciones;
     }
 
@@ -87,5 +89,13 @@ public class Recurso implements Serializable {
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    public String getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public void setDisponibilidad(String disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
 }

@@ -20,4 +20,24 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             throw new PersistenceException("Error al agregar el recurso",e);
         }
     }
+
+    @Override
+    public Recurso buscarRecurso(int id) throws PersistenceException {
+        try{
+            return recursoMapper.buscarRecurso(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar el recurso",e);
+        }
+    }
+
+    @Override
+    public void cambiarDisponibilidad(String disp, int id) throws PersistenceException {
+        try{
+            recursoMapper.cambiarDisponibilidad(disp, id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso",e);
+        }
+    }
 }

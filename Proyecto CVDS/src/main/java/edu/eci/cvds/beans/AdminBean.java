@@ -20,6 +20,8 @@ import java.sql.Date;
 
 public class AdminBean extends BasePageBean{
 
+    @Inject
+    private LibraryServices services;
     private int id;
     private int tipo;
     private String nombre;
@@ -28,13 +30,30 @@ public class AdminBean extends BasePageBean{
     private Date fechaFin;
     private int ubicacion;
     private String observaciones;
-    private LibraryServices services;
+    private int idBuscar;
+    private String nuevaDisponibilidad;
 
     public void agregarRecurso() throws PersistenceException {
         try{
-            services.agregarRecurso(new Recurso(id, tipo, nombre, capacidad, fechaInicio, fechaFin, ubicacion, observaciones));
+            services.agregarRecurso(new Recurso(id, tipo, nombre, capacidad, fechaInicio, fechaFin, ubicacion, "disponible", observaciones));
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al registrar el Cliente", ex);
+            throw new PersistenceException("Error al agregar el recurso", ex);
+        }
+    }
+
+    public Recurso buscarRecurso(int id) throws PersistenceException {
+        try{
+            return services.buscarRecurso(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recurso", ex);
+        }
+    }
+
+    public void cambiarDisponibilidad(String nuevaDisponibilidad, int idBuscar) throws PersistenceException {
+        try{
+            services.cambiarDisponibilidad(nuevaDisponibilidad, idBuscar);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }
     }
 
@@ -74,6 +93,14 @@ public class AdminBean extends BasePageBean{
         return services;
     }
 
+    public int getIdBuscar() {
+        return idBuscar;
+    }
+
+    public String getNuevaDisponibilidad() {
+        return nuevaDisponibilidad;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -108,5 +135,13 @@ public class AdminBean extends BasePageBean{
 
     public void setServices(LibraryServices services) {
         this.services = services;
+    }
+
+    public void setIdBuscar(int idBuscar) {
+        this.idBuscar = idBuscar;
+    }
+
+    public void setNuevaDisponibilidad(String nuevaDisponibilidad) {
+        this.nuevaDisponibilidad = nuevaDisponibilidad;
     }
 }

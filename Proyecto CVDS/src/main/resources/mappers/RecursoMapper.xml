@@ -6,8 +6,18 @@
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper">
 
     <insert id="agregarRecurso" parameterType="map" >
-        INSERT INTO RECURSOS values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.observaciones});
+        INSERT INTO RECURSOS values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.disponibilidad},#{recurso.observaciones});
     </insert>
+
+    <select parameterType="map" id="buscarRecurso" resultMap="RecursoResult">
+        select *
+        FROM RECURSOS
+        WHERE id=#{idrecurso};
+    </select>
+
+    <update parameterType="map" id="cambiarDisponibilidad">
+        update RECURSOS set disponibilidad=#{dispo} where id=#{idrecurso};
+    </update>
 
     <resultMap type='Recurso' id='RecursoResult'>
         <result property='id' column='id'/>
@@ -15,6 +25,7 @@
         <result property='capacidad' column='capacidad'/>
         <result property='fechaInicio' column='fechaInicio'/>
         <result property='fechaFin' column='fechaFin'/>
+        <result property='disponibilidad' column='disponibilidad'/>
         <result property='observaciones' column='observaciones'/>
         <association property='tipo' javaType="TipoRecurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.TipoRecursoMapper.TipoRecursoResult" columnPrefix='tipo_'></association>
         <association property='ubicacion' javaType="Ubicacion"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper.UbicacionResult" columnPrefix='ubicacion_'></association>
