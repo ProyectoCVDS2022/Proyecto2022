@@ -1,9 +1,9 @@
 --Crear tablas
-CREATE TABLE USUARIOS(
-	id INT not null,
-	rol VARCHAR(30) not null,
-	correo VARCHAR(30) not null,
-	clave VARCHAR(30) not null
+CREATE TABLE `usuarios`(
+	`id` INT not null,
+	`rol` VARCHAR(30) not null,
+	`correo` VARCHAR(30) not null,
+	`clave` VARCHAR(30) not null
 );
 
 CREATE TABLE RECURSOS(

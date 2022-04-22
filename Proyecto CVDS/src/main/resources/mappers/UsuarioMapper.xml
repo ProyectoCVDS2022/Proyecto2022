@@ -14,8 +14,8 @@
 
     <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult" >
         select *
-        from USUARIOS
-        where USUARIOS.correo = #{user} AND USUARIOS.clave = #{password}
+        from USUARIOS as u
+        where u.correo = #{user} AND u.clave = #{password}
     </select>
 
 </mapper>
