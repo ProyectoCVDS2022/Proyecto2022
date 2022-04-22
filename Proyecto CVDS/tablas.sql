@@ -15,7 +15,7 @@ CREATE TABLE RECURSOS(
 	fechaFin DATE not null,
 	ubicacion int NOT NULL,
 	disponibilidad varchar(15),
-	observaciones varchar(30) NOT NULL,
+	observaciones varchar(30) NOT NULL
 );
 
 CREATE TABLE TIPO_RECURSOS(
