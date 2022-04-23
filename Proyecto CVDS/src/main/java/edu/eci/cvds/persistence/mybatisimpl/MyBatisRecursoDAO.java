@@ -22,9 +22,9 @@ public class MyBatisRecursoDAO implements RecursoDAO {
     }
 
     @Override
-    public Recurso buscarRecurso(int id) throws PersistenceException {
+    public Recurso buscarRecurso(String nombre) throws PersistenceException {
         try{
-            return recursoMapper.buscarRecurso(id);
+            return recursoMapper.buscarRecurso(nombre);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al buscar el recurso",e);
@@ -32,9 +32,9 @@ public class MyBatisRecursoDAO implements RecursoDAO {
     }
 
     @Override
-    public void cambiarDisponibilidad(String disp, int id) throws PersistenceException {
+    public void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException {
         try{
-            recursoMapper.cambiarDisponibilidad(disp, id);
+            recursoMapper.cambiarDisponibilidad(disp, nombre);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso",e);

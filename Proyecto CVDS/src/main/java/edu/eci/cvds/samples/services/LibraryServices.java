@@ -9,8 +9,8 @@ public interface LibraryServices {
 
     public abstract void agregarRecurso(Recurso r) throws PersistenceException;
 
-    public abstract Recurso buscarRecurso(int id) throws PersistenceException;
+    public abstract Recurso buscarRecurso(String nombre) throws PersistenceException;
 
-    public abstract void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
+    public abstract void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException;
 
 }

@@ -12,11 +12,11 @@
     <select parameterType="map" id="buscarRecurso" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        WHERE id=#{idrecurso};
+        WHERE nombre like '%#{nombrerecurso}%';
     </select>
 
     <update parameterType="map" id="cambiarDisponibilidad">
-        update "Proyecto"."recursos" set disponibilidad=#{dispo} where id=#{idrecurso};
+        update "Proyecto"."recursos" set disponibilidad=#{dispo} where like '%#{nombreRecurso}%';
     </update>
 
     <resultMap type='Recurso' id='RecursoResult'>

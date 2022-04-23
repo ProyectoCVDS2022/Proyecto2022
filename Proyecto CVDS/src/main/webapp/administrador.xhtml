@@ -105,7 +105,7 @@
             <h1>Editar disponibilidad de recursos</h1>
             <br></br>
             <p:outputLabel for="@next" value="Identificador único del recurso: " />
-            <p:inputText id="idBuscar" required="false" type="int" value="#{adminBean.idBuscar}"/>
+            <p:inputText id="nombreBuscar" required="false" type="String" value="#{adminBean.nombreBuscar}"/>
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecurso()}"/>
             <br> </br>

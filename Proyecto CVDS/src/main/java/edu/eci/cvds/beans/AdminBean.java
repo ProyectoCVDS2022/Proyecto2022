@@ -30,7 +30,7 @@ public class AdminBean extends BasePageBean{
     private Date fechaFin;
     private int ubicacion;
     private String observaciones;
-    private int idBuscar;
+    private String nombreBuscar;
     private String nuevaDisponibilidad;
     private Recurso recursoEncontrado;
 
@@ -44,7 +44,7 @@ public class AdminBean extends BasePageBean{
 
     public Recurso buscarRecurso() throws PersistenceException {
         try{
-            Recurso recurso = services.buscarRecurso(idBuscar);
+            Recurso recurso = services.buscarRecurso(nombreBuscar);
             recursoEncontrado = recurso;
             return recurso;
         } catch (PersistenceException ex) {
@@ -54,7 +54,7 @@ public class AdminBean extends BasePageBean{
 
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
-            services.cambiarDisponibilidad(nuevaDisponibilidad, idBuscar);
+            services.cambiarDisponibilidad(nuevaDisponibilidad, nombreBuscar);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }
@@ -96,8 +96,8 @@ public class AdminBean extends BasePageBean{
         return services;
     }
 
-    public int getIdBuscar() {
-        return idBuscar;
+    public String getnombreBuscar() {
+        return nombreBuscar;
     }
 
     public String getNuevaDisponibilidad() {
@@ -144,8 +144,8 @@ public class AdminBean extends BasePageBean{
         this.services = services;
     }
 
-    public void setIdBuscar(int idBuscar) {
-        this.idBuscar = idBuscar;
+    public void setnombreBuscar(String nombreBuscar) {
+        this.nombreBuscar = nombreBuscar;
     }
 
     public void setNuevaDisponibilidad(String nuevaDisponibilidad) {
