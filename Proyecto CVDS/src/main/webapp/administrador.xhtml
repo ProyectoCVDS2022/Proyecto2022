@@ -31,7 +31,7 @@
 		left: 35%;
 		margin: -150px 0 0 -150px;
 		width:800px;
-		height:550px;
+		height:750px;
 		background-color: rgba(150,150,150,0.7);
         justify-content: center;
         align-items: center;
@@ -40,7 +40,7 @@
 
 	div.b {
 		position: absolute;
-		top: 125%;
+		top: 150%;
 		left: 23%;
 		margin: -150px 0 0 -150px;
 		width:1160px;
@@ -77,6 +77,14 @@
             <br> </br>
             <p:inputText id="nombre" placeholder="Nombre" required="false" type="String" value="#{adminBean.nombre}"/>
             <br> </br>
+            <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
+            <br> </br>
+            <p:datePicker id="horaini" placeholder="Hora de inicio" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+            <br> </br>
+            <p:datePicker id="horafin" placeholder="Hora de fin" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+            <br> </br>
+            <p:inputText id="observaciones" placeholder="Observaciones" required="false" type="String" value="#{adminBean.observaciones}"/>
+            <br> </br>
             <select name="tipo" id="tipo">
                 <option> - Tipo de recurso - </option>
                 <option value="libro">Libro</option>
@@ -84,8 +92,6 @@
                 <option value="pc">Computador</option>
                 <option value="equipo">Equipo multimedia</option>
             </select>
-            <br> </br>
-            <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
             <br> </br>
             <p:inputText id="ubicacion" placeholder="Ubicacion" required="false" type="String" value="#{adminBean.ubicacion}"/>
             <br> </br>
@@ -133,13 +139,14 @@
                 </p:column>
             </p:dataTable>
             <br> </br>
-            <select name="tipo" id="nuevaDisponibilidad">
-                <option> - Estado - </option>
-                <option value="disponible">Disponible</option>
-                <option value="noDisponible">No disponible</option>
-            </select>
+            <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty selectOneMenuView.hideNoSelectOption}" value="#{adminBean.nuevaDisponibilidad}" >
+                <p:ajax update="@this" process="@this"/>
+                <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
+                <f:selectItem itemValue = "1" itemLabel = "Disponible" />
+                <f:selectItem itemValue = "2" itemLabel = "No disponible" />
+            </h:selectOneMenu>
             <br> </br>
-            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad(nuevaDisponibilidad)}"/>
+            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
         </div>
 
     </h:form>

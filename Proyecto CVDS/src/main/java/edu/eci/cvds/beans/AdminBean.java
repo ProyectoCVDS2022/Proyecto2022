@@ -52,7 +52,7 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void cambiarDisponibilidad(String nuevaDisponibilidad, int idBuscar) throws PersistenceException {
+    public void cambiarDisponibilidad() throws PersistenceException {
         try{
             services.cambiarDisponibilidad(nuevaDisponibilidad, idBuscar);
         } catch (PersistenceException ex) {
