@@ -41,10 +41,10 @@
 	div.b {
 		position: absolute;
 		top: 125%;
-		left: 35%;
+		left: 23%;
 		margin: -150px 0 0 -150px;
-		width:800px;
-		height:550px;
+		width:1160px;
+		height:650px;
 		background-color: rgba(150,150,150,0.7);
         justify-content: center;
         align-items: center;
@@ -101,8 +101,37 @@
             <p:outputLabel for="@next" value="Identificador único del recurso: " />
             <p:inputText id="idBuscar" required="false" type="int" value="#{adminBean.idBuscar}"/>
             <br> </br>
-            <p:commandButton id="boton_buscar" value="Buscar" actionListener="#{adminBean.buscarRecurso()}"/>
+            <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecurso()}"/>
             <br> </br>
+            <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursoEncontrado}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{recurso.id}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{recurso.nombre}" />
+                </p:column>
+                <p:column headerText="Capacidad">
+                    <h:outputText value="#{recurso.capacidad}" />
+                </p:column>
+                <p:column headerText="Hora de inicio">
+                    <h:outputText value="#{recurso.fechaInicio}" />
+                </p:column>
+                <p:column headerText="Hora de finalización">
+                    <h:outputText value="#{recurso.fechaFin}" />
+                </p:column>
+                <p:column headerText="Disponibilidad">
+                    <h:outputText value="#{recurso.disponibilidad}" />
+                </p:column>
+                <p:column headerText="Observaciones">
+                    <h:outputText value="#{recurso.observaciones}" />
+                </p:column>
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{recurso.tipo}" />
+                </p:column>
+                <p:column headerText="Ubicación">
+                    <h:outputText value="#{recurso.ubicacion}" />
+                </p:column>
+            </p:dataTable>
             <br> </br>
             <select name="tipo" id="nuevaDisponibilidad">
                 <option> - Estado - </option>

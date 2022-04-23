@@ -74,6 +74,7 @@ insert into ubicaciones ( id, lugar) values (1, 'Biblioteca del edificio B');
 insert into ubicaciones ( id, lugar) values (2, 'Biblioteca del edificio G');
 
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (254, 'Probabilidad y estadistica', 1, '2022-02-02', '2022-03-03', 'Disponible', 'Pasta en mal estado', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (254, 'Cáculo en varias variables', 1, '2022-02-02', '2022-03-03', 'Disponible', '.', 1, 1);
 
 
 

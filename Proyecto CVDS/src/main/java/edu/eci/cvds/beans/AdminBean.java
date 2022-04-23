@@ -32,6 +32,7 @@ public class AdminBean extends BasePageBean{
     private String observaciones;
     private int idBuscar;
     private String nuevaDisponibilidad;
+    private Recurso recursoEncontrado;
 
     public void agregarRecurso() throws PersistenceException {
         try{
@@ -43,7 +44,9 @@ public class AdminBean extends BasePageBean{
 
     public Recurso buscarRecurso() throws PersistenceException {
         try{
-            return services.buscarRecurso(idBuscar);
+            Recurso recurso = services.buscarRecurso(idBuscar);
+            recursoEncontrado = recurso;
+            return recurso;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el recurso", ex);
         }
@@ -101,6 +104,10 @@ public class AdminBean extends BasePageBean{
         return nuevaDisponibilidad;
     }
 
+    public Recurso getRecursoEncontrado() {
+        return recursoEncontrado;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -143,5 +150,9 @@ public class AdminBean extends BasePageBean{
 
     public void setNuevaDisponibilidad(String nuevaDisponibilidad) {
         this.nuevaDisponibilidad = nuevaDisponibilidad;
+    }
+
+    public void setRecursoEncontrado(Recurso recursoEncontrado) {
+        this.recursoEncontrado = recursoEncontrado;
     }
 }
