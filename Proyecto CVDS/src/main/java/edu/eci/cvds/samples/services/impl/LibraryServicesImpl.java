@@ -41,9 +41,9 @@ public class LibraryServicesImpl implements LibraryServices {
     }
 
     @Override
-    public Recurso buscarRecurso(String nombre) throws PersistenceException {
+    public Recurso buscarRecurso(String nombreBuscar) throws PersistenceException {
         try{
-            return recursoDAO.buscarRecurso(nombre);
+            return recursoDAO.buscarRecurso(nombreBuscar);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el recurso" , ex);
         }

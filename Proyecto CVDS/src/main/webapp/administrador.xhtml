@@ -104,7 +104,7 @@
         <div class = "b">
             <h1>Editar disponibilidad de recursos</h1>
             <br></br>
-            <p:outputLabel for="@next" value="Identificador único del recurso: " />
+            <p:outputLabel for="@next" value="Nombre del recurso: " />
             <p:inputText id="nombreBuscar" required="false" type="String" value="#{adminBean.nombreBuscar}"/>
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecurso()}"/>
@@ -142,8 +142,8 @@
             <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty selectOneMenuView.hideNoSelectOption}" value="#{adminBean.nuevaDisponibilidad}" >
                 <p:ajax update="@this" process="@this"/>
                 <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
-                <f:selectItem itemValue = "1" itemLabel = "Disponible" />
-                <f:selectItem itemValue = "2" itemLabel = "No disponible" />
+                <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
+                <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
             </h:selectOneMenu>
             <br> </br>
             <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>

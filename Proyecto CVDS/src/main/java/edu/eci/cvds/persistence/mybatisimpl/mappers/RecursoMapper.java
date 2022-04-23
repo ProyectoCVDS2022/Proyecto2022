@@ -8,7 +8,7 @@ public interface RecursoMapper {
 
     public void agregarRecurso(Recurso r);
 
-    public Recurso buscarRecurso(@Param("nombrerecurso") String nombre);
+    public Recurso buscarRecurso(@Param("nombrerecurso") String nombreBuscar);
 
     public void cambiarDisponibilidad(@Param("dispo") String disp, @Param("nombreRecurso") String nombre);
 

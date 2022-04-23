@@ -22,9 +22,9 @@ public class MyBatisRecursoDAO implements RecursoDAO {
     }
 
     @Override
-    public Recurso buscarRecurso(String nombre) throws PersistenceException {
+    public Recurso buscarRecurso(String nombreBuscar) throws PersistenceException {
         try{
-            return recursoMapper.buscarRecurso(nombre);
+            return recursoMapper.buscarRecurso(nombreBuscar);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al buscar el recurso",e);

@@ -54,6 +54,7 @@ public class AdminBean extends BasePageBean{
 
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
+            System.out.println(nuevaDisponibilidad);
             services.cambiarDisponibilidad(nuevaDisponibilidad, nombreBuscar);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
@@ -96,7 +97,7 @@ public class AdminBean extends BasePageBean{
         return services;
     }
 
-    public String getnombreBuscar() {
+    public String getNombreBuscar() {
         return nombreBuscar;
     }
 
@@ -144,7 +145,7 @@ public class AdminBean extends BasePageBean{
         this.services = services;
     }
 
-    public void setnombreBuscar(String nombreBuscar) {
+    public void setNombreBuscar(String nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
     }
 
