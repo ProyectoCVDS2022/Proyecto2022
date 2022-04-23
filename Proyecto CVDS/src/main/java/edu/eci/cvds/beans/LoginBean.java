@@ -25,20 +25,21 @@ public class LoginBean extends BasePageBean{
     private String password;
     private String rol;
 
-    public String login() throws PersistenceException {
-        String redireccion = null;
+    public void login() throws PersistenceException, IOException {
         Usuario usuario = services.consultarUsuario(username, password);
         if(usuario != null){
             if(usuario.getRol().equals("administrador")){
                 setRol(usuario.getRol());
-                redireccion = "administrador.xhtml?faces-redirect=true";
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/administrador.xhtml?faces-redirect=true");
             }else{
-                redireccion = "comunidad.xhtml?faces-redirect=true";
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/comunidad.xhtml?faces-redirect=true");
             }
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
         }
-        return redireccion;
+
+
+
     }
 
     public void setUsername(String username) {
