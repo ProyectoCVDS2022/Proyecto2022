@@ -4,6 +4,6 @@ machine:
 
 deployment:
   staging:
-    branch: master
+    branch: main
     heroku: 
-      appname: lab06cvds2022
+      appname: proyecto2022cvds
