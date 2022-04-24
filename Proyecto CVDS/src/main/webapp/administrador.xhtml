@@ -109,7 +109,7 @@
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecurso()}"/>
             <br> </br>
-            <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursoEncontrado}">
+            <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
                 </p:column>
@@ -136,6 +136,9 @@
                 </p:column>
                 <p:column headerText="Ubicación">
                     <h:outputText value="#{recurso.ubicacion}" />
+                </p:column>
+                <p:column headerText="Seleccionar">
+                    <input type="checkbox"></input>
                 </p:column>
             </p:dataTable>
             <br> </br>

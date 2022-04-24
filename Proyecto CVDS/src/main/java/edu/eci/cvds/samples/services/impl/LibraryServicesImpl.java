@@ -48,7 +48,13 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al buscar el recurso" , ex);
         }
     }
-
+    public List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException {
+        try{
+            return recursoDAO.buscarRecursos(nombreBuscar);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recurso" , ex);
+        }
+    }
     @Override
     public void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException {
         try{
