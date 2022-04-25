@@ -9,12 +9,11 @@
         INSERT INTO RECURSOS values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.disponibilidad},#{recurso.observaciones});
     </insert>
 
-    <select id="buscarRecurso" resultMap="RecursoResult">
+    <select id="buscarRecursos" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
         WHERE nombre like '%'||#{nombrerecurso}||'%';
     </select>
-
     <update parameterType="map" id="cambiarDisponibilidad">
         update "Proyecto"."recursos" set disponibilidad=#{dispo} where nombre like '%'||#{nombreRecurso}||'%';
     </update>

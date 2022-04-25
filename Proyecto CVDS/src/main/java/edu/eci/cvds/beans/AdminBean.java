@@ -13,6 +13,7 @@ import edu.eci.cvds.samples.services.LibraryServices;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "adminBean")
@@ -34,6 +35,8 @@ public class AdminBean extends BasePageBean{
     private String nuevaDisponibilidad;
     private Recurso recursoEncontrado;
 
+    private List<Recurso> recursosEncontrados;
+
     public void agregarRecurso() throws PersistenceException {
         try{
             services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "disponible", observaciones, tipo, ubicacion));
@@ -51,7 +54,14 @@ public class AdminBean extends BasePageBean{
             throw new PersistenceException("Error al buscar el recurso", ex);
         }
     }
-
+    public List<Recurso> buscarRecursos() throws PersistenceException {
+        try{
+            recursosEncontrados = services.buscarRecursos(nombreBuscar);
+            return recursosEncontrados;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recursos", ex);
+        }
+    }
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
             System.out.println(nuevaDisponibilidad);

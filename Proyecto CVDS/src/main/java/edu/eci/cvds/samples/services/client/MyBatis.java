@@ -46,7 +46,7 @@ public class MyBatis {
         UsuarioMapper usuarioMapper = sqlss.getMapper(UsuarioMapper.class);
         RecursoMapper recursoMapper = sqlss.getMapper(RecursoMapper.class);
         System.out.println(usuarioMapper.consultarUsuario("admon", "admon"));
-        System.out.println(recursoMapper.buscarRecurso("Proba"));
+        System.out.println(recursoMapper.buscarRecursos("varias"));
 
         sqlss.commit();
         sqlss.close();

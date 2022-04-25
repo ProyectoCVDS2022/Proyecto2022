@@ -6,6 +6,8 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 
+import java.util.List;
+
 public class MyBatisRecursoDAO implements RecursoDAO {
 
     @Inject
@@ -30,7 +32,15 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             throw new PersistenceException("Error al buscar el recurso",e);
         }
     }
-
+    @Override
+    public List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException {
+        try{
+            return recursoMapper.buscarRecursos(nombreBuscar);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar el recurso",e);
+        }
+    }
     @Override
     public void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException {
         try{
