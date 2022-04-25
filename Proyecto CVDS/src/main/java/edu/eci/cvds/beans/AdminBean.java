@@ -166,4 +166,12 @@ public class AdminBean extends BasePageBean{
     public void setRecursoEncontrado(Recurso recursoEncontrado) {
         this.recursoEncontrado = recursoEncontrado;
     }
+
+    public List<Recurso> getRecursosEncontrados() {
+        return recursosEncontrados;
+    }
+
+    public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {
+        this.recursosEncontrados = recursosEncontrados;
+    }
 }

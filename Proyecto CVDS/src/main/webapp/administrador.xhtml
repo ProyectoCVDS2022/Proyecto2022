@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui" xmlns:pe="">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="https://www.primefaces.org">
 
 <h:head>
     <style type = "text/css">
@@ -108,9 +109,9 @@
             <p:outputLabel for="@next" value="Nombre del recurso: " />
             <p:inputText id="nombreBuscar" required="false" type="String" value="#{adminBean.nombreBuscar}"/>
             <br> </br>
-            <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecurso()}"/>
+            <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecursos()}"/>
             <br> </br>
-            <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
+            <p:dataTable id="resultado" var="recurso" value="#{adminBean.buscarRecursos()}">
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
                 </p:column>
