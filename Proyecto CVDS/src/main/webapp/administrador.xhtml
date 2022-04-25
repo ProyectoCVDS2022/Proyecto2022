@@ -4,7 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:pe="">
 
 <h:head>
     <style type = "text/css">
@@ -79,7 +79,8 @@
             <br> </br>
             <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
             <br> </br>
-            <p:datePicker id="horaini" placeholder="Hora de inicio" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+            <pe:timePicker value="#{timePickerController.time2}" mode="popup" widgetVar="popupTimeWidget"
+                           label="Popup time picker"/>
             <br> </br>
             <p:datePicker id="horafin" placeholder="Hora de fin" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
             <br> </br>
