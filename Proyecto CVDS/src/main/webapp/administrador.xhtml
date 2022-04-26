@@ -8,6 +8,17 @@
       xmlns:pe="https://www.primefaces.org">
 
 <h:head>
+
+    <script>
+        var inputfocused = "nombreBuscar";
+
+        document.getElementById("boton_buscar").onclick = limpiaCampo;
+
+        function limpiaCampo() {
+          document.getElementById(inputfocused).value = "";
+        }
+    </script>9
+
     <style type = "text/css">
 
     html { overflow-y: scroll; }
@@ -121,7 +132,9 @@
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecursos()}"/>
             <br> </br>
-            <p:dataTable id="resultado" var="recurso" value="#{adminBean.buscarRecursos()}">
+            <p:dataTable id="resultado" var="recurso" value="#{adminBean.buscarRecursos()}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
+                         style="margin-bottom:0" selectionPageOnly="false">
+                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
                 </p:column>
@@ -149,9 +162,6 @@
                 <p:column headerText="Ubicación">
                     <h:outputText value="#{recurso.ubicacion}" />
                 </p:column>
-                <p:column headerText="Seleccionar">
-                    <input type="checkbox" id="capturarid" value = "#{recurso.id}" onclick="check(#{recurso.id})"/>
-                </p:column>
             </p:dataTable>
             <br> </br>
             <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty selectOneMenuView.hideNoSelectOption}" value="#{adminBean.nuevaDisponibilidad}" >
@@ -161,7 +171,7 @@
                 <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
             </h:selectOneMenu>
             <br> </br>
-            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
+            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" onclick="window.location.reload();" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
 
         </div>
 

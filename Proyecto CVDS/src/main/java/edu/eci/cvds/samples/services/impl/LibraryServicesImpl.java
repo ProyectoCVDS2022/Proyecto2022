@@ -56,9 +56,9 @@ public class LibraryServicesImpl implements LibraryServices {
         }
     }
     @Override
-    public void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException {
+    public void cambiarDisponibilidad(String disp, int id) throws PersistenceException {
         try{
-           recursoDAO.cambiarDisponibilidad(disp, nombre);
+           recursoDAO.cambiarDisponibilidad(disp, id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso" , ex);
         }

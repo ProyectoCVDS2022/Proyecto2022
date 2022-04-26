@@ -12,6 +12,6 @@ public interface RecursoDAO {
 
     public List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException;
 
-    public void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException;
+    public void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
 
 }

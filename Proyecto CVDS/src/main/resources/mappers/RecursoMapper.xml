@@ -15,7 +15,7 @@
         WHERE nombre like '%'||#{nombrerecurso}||'%';
     </select>
     <update parameterType="map" id="cambiarDisponibilidad">
-        update "Proyecto"."recursos" set disponibilidad=#{dispo} where nombre like '%'||#{nombreRecurso}||'%';
+        update "Proyecto"."recursos" set disponibilidad=#{dispo} where id = #{idRecurso};
     </update>
 
     <resultMap type='Recurso' id='RecursoResult'>

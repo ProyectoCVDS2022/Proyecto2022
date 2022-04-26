@@ -15,6 +15,6 @@ public interface LibraryServices {
     public abstract List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException;
 
 
-    public abstract void cambiarDisponibilidad(String disp, String nombre) throws PersistenceException;
+    public abstract void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
 
 }

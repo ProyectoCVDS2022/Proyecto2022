@@ -37,6 +37,8 @@ public class AdminBean extends BasePageBean{
 
     private List<Recurso> recursosEncontrados;
 
+    private List<Recurso> recursosSeleccionados;
+
     public void agregarRecurso() throws PersistenceException {
         try{
             services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "disponible", observaciones, tipo, ubicacion));
@@ -64,8 +66,10 @@ public class AdminBean extends BasePageBean{
     }
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
-            System.out.println(nuevaDisponibilidad);
-            services.cambiarDisponibilidad(nuevaDisponibilidad, nombreBuscar);
+            for(Recurso r: recursosSeleccionados){
+                services.cambiarDisponibilidad(nuevaDisponibilidad, r.getId());
+            }
+
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }
@@ -171,7 +175,15 @@ public class AdminBean extends BasePageBean{
         return recursosEncontrados;
     }
 
+    public List<Recurso> getRecursosSeleccionados() {
+        return recursosSeleccionados;
+    }
+
     public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {
         this.recursosEncontrados = recursosEncontrados;
+    }
+
+    public void setRecursosSeleccionados(List<Recurso> recursosSeleccionados) {
+        this.recursosSeleccionados = recursosSeleccionados;
     }
 }
