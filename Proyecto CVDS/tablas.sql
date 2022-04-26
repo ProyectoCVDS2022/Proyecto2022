@@ -74,6 +74,22 @@ insert into ubicaciones ( id, lugar) values (1, 'Biblioteca del edificio B');
 insert into ubicaciones ( id, lugar) values (2, 'Biblioteca del edificio G');
 
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (254, 'Probabilidad y estadistica', 1, '2022-02-02', '2022-03-03', 'Disponible', 'Pasta en mal estado', 1, 1);
-insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (666, 'Cáculo en varias variables', 1, '2022-02-02', '2022-03-03', 'Disponible', '.', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (666, 'Calculo en varias variables', 1, '2022-02-02', '2022-03-03', 'Disponible', '.', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (784, 'Laptop acer', 1, '2022-02-02', '2022-03-03', 'Disponible', 'Tecla a no sirve', 3, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (451, 'Ingles 2', 1, '2022-05-02', '2022-05-03', 'Disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (101, 'Sala de estudio 06', 1, '2022-01-22', '2022-05-03', 'Disponible', '', 2, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (102, 'Sala de estudio 05', 1, '2022-05-12', '2022-05-13', 'Disponible', '', 2, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (100, 'Sala de estudio 04', 1, '2022-01-22', '2022-05-03', 'Disponible', '', 2, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (990, 'Sala de estudio 03', 1, '2022-10-01', '2022-10-03', 'Disponible', '', 2, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (245, 'Precalculo ', 1, '2022-05-02', '2022-05-03', 'Disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (789, 'Calculo integral', 1, '2022-05-25', '2022-05-26', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (157, 'Calculo diferencial', 1, '2022-05-14', '2022-05-16', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (935, 'Calculo vectorial', 1, '2022-05-14', '2022-05-15', 'Disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (521, 'Tablet asus', 1, '2022-01-22', '2022-05-03', 'Disponible', '', 4, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (511, 'Tablet note 8', 1, '2022-04-22', '2022-05-03', 'Disponible', 'Pantalla rayada', 4, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (571, 'Computador 8', 1, '2022-01-22', '2022-05-03', 'Disponible', 'Computador lento', 5, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (851, 'Computador 1', 1, '2022-01-22', '2022-05-22', 'Disponible', 'Mouse con cable roto', 5, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (365, 'Fisica 1', 1, '2022-05-14', '2022-05-15', 'Disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (388, 'Fisica 2', 1, '2022-05-14', '2022-05-15', 'Disponible', '', 1, 1);
 
 --no está en la db
