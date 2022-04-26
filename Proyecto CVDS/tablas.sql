@@ -91,5 +91,8 @@ insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilid
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (851, 'Computador 1', 1, '2022-01-22', '2022-05-22', 'Disponible', 'Mouse con cable roto', 5, 1);
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (365, 'Fisica 1', 1, '2022-05-14', '2022-05-15', 'Disponible', '', 1, 2);
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (388, 'Fisica 2', 1, '2022-05-14', '2022-05-15', 'Disponible', '', 1, 1);
-
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (461, 'Ingles 2', 1, '2022-05-22', '2022-05-23', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (488, 'Ingles 3', 1, '2022-05-02', '2022-05-03', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (499, 'Ingles 4', 1, '2022-08-02', '2022-08-23', 'Disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (454, 'Ingles 1', 1, '2022-05-02', '2022-05-03', 'Disponible', '', 1, 2);
 --no está en la db
