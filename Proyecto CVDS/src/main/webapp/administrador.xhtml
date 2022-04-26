@@ -66,6 +66,16 @@
 
 <h:body>
     <body>
+    <script type="text/javascript">
+            var ids = new Array();
+            function check(id){
+                if (document.getElementById('capturarid').checked)
+                {
+                    ids.push(id);
+                    alert(id);
+                }
+             }
+    </script>
     <h:form id="admin_agregar" prependId="false">
         <div class = "a">
             <p:messages>
@@ -140,7 +150,7 @@
                     <h:outputText value="#{recurso.ubicacion}" />
                 </p:column>
                 <p:column headerText="Seleccionar">
-                    <input type="checkbox" value = "#{null}"/>
+                    <input type="checkbox" id="capturarid" value = "#{recurso.id}" onclick="check(#{recurso.id})"/>
                 </p:column>
             </p:dataTable>
             <br> </br>
@@ -152,12 +162,11 @@
             </h:selectOneMenu>
             <br> </br>
             <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
-            <h:outputText value="#{adminBean.seleccion}" />
 
         </div>
 
     </h:form>
+
     </body>
 </h:body>
-
 </html>
