@@ -1,7 +1,7 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Recurso implements Serializable {
 
@@ -31,64 +31,56 @@ public class Recurso implements Serializable {
         return id;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public Date getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public int getUbicacion() {
-        return ubicacion;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTipo() {
+        return tipo;
     }
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    public void setUbicacion(int ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public int getCapacidad() {
+        return capacidad;
+    }
+
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public int getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(int ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public String getDisponibilidad() {
@@ -97,6 +89,14 @@ public class Recurso implements Serializable {
 
     public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 
     @Override

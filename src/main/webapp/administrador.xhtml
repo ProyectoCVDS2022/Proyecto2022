@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="https://www.primefaces.org">
+      xmlns:pe="http://primefaces.org/pe">
 
 <h:head>
 
@@ -101,20 +101,19 @@
             <br> </br>
             <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
             <br> </br>
-            <pe:timePicker value="#{timePickerController.time2}" mode="popup" widgetVar="popupTimeWidget"
-                           label="Popup time picker"/>
+            <p:datePicker id="horainicio" placeholder="Hora de inicio" value="#{adminBean.fechaInicio}" timeOnly="true" pattern="HH:mm"/>
             <br> </br>
-            <p:datePicker id="horafin" placeholder="Hora de fin" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+            <p:datePicker id="horafin" placeholder="Hora de fin" value="#{adminBean.fechaFin}" timeOnly="true" pattern="HH:mm"/>
             <br> </br>
             <p:inputText id="observaciones" placeholder="Observaciones" required="false" type="String" value="#{adminBean.observaciones}"/>
             <br> </br>
-            <select name="tipo" id="tipo">
-                <option> - Tipo de recurso - </option>
-                <option value="libro">Libro</option>
-                <option value="sala">Sala de estudio</option>
-                <option value="pc">Computador</option>
-                <option value="equipo">Equipo multimedia</option>
-            </select>
+            <h:selectOneMenu name="tipo_recurso"  value="#{adminBean.tipo}" >
+                <p:ajax update="@this" process="@this"/>
+                <f:selectItem itemLabel="- Tipo -" itemValue="#{null}" noSelectionOption="true"/>
+                <f:selectItem itemValue = "1" itemLabel = "Libro" />
+                <f:selectItem itemValue = "2" itemLabel = "Sala de estudio" />
+                <f:selectItem itemValue = "3" itemLabel = "Computador"/>
+            </h:selectOneMenu>
             <br> </br>
             <p:inputText id="ubicacion" placeholder="Ubicacion" required="false" type="String" value="#{adminBean.ubicacion}"/>
             <br> </br>

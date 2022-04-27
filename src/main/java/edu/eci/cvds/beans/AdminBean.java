@@ -1,18 +1,20 @@
 package edu.eci.cvds.beans;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.bean.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
+import org.primefaces.PrimeFaces;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -41,6 +43,8 @@ public class AdminBean extends BasePageBean{
 
     public void agregarRecurso() throws PersistenceException {
         try{
+            System.out.println(fechaInicio);
+            System.out.println(fechaFin);
             services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "disponible", observaciones, tipo, ubicacion));
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al agregar el recurso", ex);
