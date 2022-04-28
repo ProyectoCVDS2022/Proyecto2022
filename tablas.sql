@@ -26,7 +26,7 @@ CREATE TABLE TIPO_RECURSOS(
 
 CREATE TABLE UBICACIONES(
 	id int NOT NULL,
-	lugar varchar(30) NOT NULL
+	lugar varchar(50) NOT NULL
 );
 
 CREATE TABLE RESERVAS(
@@ -79,6 +79,6 @@ insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilid
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (302, 'Portatil 2', 1, '07:00', '17:00', 'No disponible', '', 3, 1);
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (303, 'Portatil 3', 1, '07:00', '17:00', 'Disponible', '', 3, 1);
 insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 1', 5, '08:00', '17:00', 'Disponible', '', 1, 1);
-insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 2', 5, '08:00', '17:00', 'Disponible', '', 1, 1);
-insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 3', 5, '08:00', '17:00', 'No disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (202, 'Sala de estudio 2', 5, '08:00', '17:00', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (203, 'Sala de estudio 3', 5, '08:00', '17:00', 'No disponible', '', 1, 1);
 --no está en la db

@@ -9,6 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
@@ -73,7 +74,14 @@ public class AdminBean extends BasePageBean{
             for(Recurso r: recursosSeleccionados){
                 services.cambiarDisponibilidad(nuevaDisponibilidad, r.getId());
             }
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
+        }
+    }
 
+    public Ubicacion nombreUbicacion() throws PersistenceException{
+        try{
+            return services.nombreUbicacion(ubicacion);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }

@@ -2,9 +2,11 @@ package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
+import edu.eci.cvds.persistence.UbicacionDAO;
 import edu.eci.cvds.persistence.UsuarioDAO;
 import edu.eci.cvds.samples.services.LibraryServices;
 
@@ -16,6 +18,8 @@ public class LibraryServicesImpl implements LibraryServices {
     private UsuarioDAO usuarioDAO;
     @Inject
     private RecursoDAO recursoDAO;
+    @Inject
+    private UbicacionDAO ubicacionDAO;
 
     @Override
     public Usuario consultarUsuario(String username, String password) throws PersistenceException {
@@ -61,6 +65,15 @@ public class LibraryServicesImpl implements LibraryServices {
            recursoDAO.cambiarDisponibilidad(disp, id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso" , ex);
+        }
+    }
+
+    @Override
+    public Ubicacion nombreUbicacion(int id) throws PersistenceException {
+        try{
+            return ubicacionDAO.nombreUbicacion(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación" , ex);
         }
     }
 }

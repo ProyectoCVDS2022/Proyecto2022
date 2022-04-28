@@ -5,6 +5,12 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper">
 
+    <select id="nombreUbicacion" resultMap="UbicacionResult" parameterType="int">
+        select *
+        FROM "Proyecto"."ubicaciones"
+        WHERE id = #{id};
+    </select>
+
     <resultMap type='Ubicacion' id='UbicacionResult'>
         <result property='id' column='id'/>
         <result property='lugar' column='lugar'/>
