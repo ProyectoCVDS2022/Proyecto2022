@@ -64,14 +64,21 @@ insert into usuarios (id, rol, correo, clave) values (1, 'administrador', 'admon
 insert into usuarios (id, rol, correo, clave) values (2, 'comunidad', 'julian@gmail.com', '12345');
 insert into usuarios (id, rol, correo, clave) values (3, 'comunidad', 'Juank@gmail.com', '12345');
 
-insert into tipo_recursos (	id, nombre, descripcion) values (1, 'Libros', 'Libros de la escuela');
+insert into tipo_recursos (	id, nombre, descripcion) values (1, 'Libro', '');
 insert into tipo_recursos (	id, nombre, descripcion) values (2, 'Sala de estudio', '');
 insert into tipo_recursos (	id, nombre, descripcion) values (3, 'Portatil', '');
-insert into tipo_recursos (	id, nombre, descripcion) values (4, 'Tablet', '');
-insert into tipo_recursos (	id, nombre, descripcion) values (5, 'Computador de mesa', '');
+insert into tipo_recursos (	id, nombre, descripcion) values (4, 'Computador de escritorio', '');
 
-insert into ubicaciones ( id, lugar) values (1, 'Biblioteca del edificio B');
+insert into ubicaciones ( id, lugar) values (1, 'Biblioteca Jorge Álvarez Lleras');
 insert into ubicaciones ( id, lugar) values (2, 'Biblioteca del edificio G');
 
-insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (254, 'Probabilidad y estadistica', 1, '07:00', '17:00', 'Disponible', 'Pasta en mal estado', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (101, 'Probabilidad y estadistica', 1, '07:00', '17:00', 'Disponible', 'Pasta en mal estado', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (102, 'Cálculo integral', 1, '07:00', '17:00', 'No disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (103, 'Cálculo diferencial', 1, '07:00', '17:00', 'No disponible', '', 1, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (301, 'Portatil 1', 1, '07:00', '17:00', 'Disponible', '', 3, 2);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (302, 'Portatil 2', 1, '07:00', '17:00', 'No disponible', '', 3, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (303, 'Portatil 3', 1, '07:00', '17:00', 'Disponible', '', 3, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 1', 5, '08:00', '17:00', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 2', 5, '08:00', '17:00', 'Disponible', '', 1, 1);
+insert into recursos (id, nombre, capacidad, fechaInicio, fechaFin, disponibilidad, observaciones, tipo, ubicacion) values (201, 'Sala de estudio 3', 5, '08:00', '17:00', 'No disponible', '', 1, 1);
 --no está en la db

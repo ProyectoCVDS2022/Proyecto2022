@@ -85,7 +85,7 @@
 
             <h1>Agregar recurso</h1>
 
-                <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+
                     <p:inputText id="id" placeholder="Identificador" required="false" type="String" value="#{adminBean.id}"/>
                     <br> </br>
                     <p:inputText id="nombre" placeholder="Nombre" required="false" type="String" value="#{adminBean.nombre}"/>
@@ -102,12 +102,17 @@
                         <f:selectItem itemLabel="- Tipo -" itemValue="#{null}" noSelectionOption="true"/>
                         <f:selectItem itemValue = "1" itemLabel = "Libro" />
                         <f:selectItem itemValue = "2" itemLabel = "Sala de estudio" />
-                        <f:selectItem itemValue = "3" itemLabel = "Computador"/>
+                        <f:selectItem itemValue = "3" itemLabel = "Portatil"/>
+                        <f:selectItem itemValue = "3" itemLabel = "Computador de escritorio"/>
                     </h:selectOneMenu>
                     <br> </br>
-                    <p:inputText id="ubicacion" placeholder="Ubicacion" required="false" type="String" value="#{adminBean.ubicacion}"/>
+                <h:selectOneMenu name="ubicacion"  value="#{adminBean.ubicacion}" >
+                    <f:selectItem itemLabel="- Ubicación -" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItem itemValue = "1" itemLabel = "Biblioteca Jorge Álvarez Lleras" />
+                    <f:selectItem itemValue = "2" itemLabel = "Biblioteca del edificio G" />
+                </h:selectOneMenu>
                     <br> </br>
-                    <p:commandButton id="boton_agregar" value="Agregar" update="msgs" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
+                    <p:commandButton id="boton_agregar" value="Agregar" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
 
                     <p:dialog modal="true" resizable="false" header="Recurso Agregado" widgetVar="dlg" showEffect="fold">
                         <p:panelGrid id="display" columns="2" columnClasses="label,value">
