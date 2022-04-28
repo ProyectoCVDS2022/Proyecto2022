@@ -6,7 +6,7 @@
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper">
 
     <insert id="agregarRecurso" parameterType="map" >
-        INSERT INTO RECURSOS values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.disponibilidad},#{recurso.observaciones});
+        INSERT INTO "Proyecto"."recursos" values (#{recurso.id},#{recurso.nombre},#{recurso.tipo},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.ubicacion},#{recurso.disponibilidad},#{recurso.observaciones});
     </insert>
 
     <select id="buscarRecursos" resultMap="RecursoResult">
@@ -14,6 +14,7 @@
         FROM "Proyecto"."recursos"
         WHERE nombre like '%'||#{nombrerecurso}||'%';
     </select>
+
     <update parameterType="map" id="cambiarDisponibilidad">
         update "Proyecto"."recursos" set disponibilidad=#{dispo} where id = #{idRecurso};
     </update>

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RecursoMapper {
 
-    public void agregarRecurso(Recurso r);
+    public void agregarRecurso(@Param("recurso") Recurso r);
 
     public Recurso buscarRecurso(@Param("nombrerecurso") String nombreBuscar);
 

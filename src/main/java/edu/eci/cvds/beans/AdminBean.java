@@ -14,7 +14,7 @@ import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalTime;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -29,8 +29,8 @@ public class AdminBean extends BasePageBean{
     private int tipo;
     private String nombre;
     private int capacidad;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalTime fechaInicio;
+    private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
     private String nombreBuscar;
@@ -79,6 +79,10 @@ public class AdminBean extends BasePageBean{
         }
     }
 
+    public void click() {
+        PrimeFaces.current().executeScript("PF('dlg').show()");
+    }
+
     public int getId() {
         return id;
     }
@@ -95,11 +99,11 @@ public class AdminBean extends BasePageBean{
         return capacidad;
     }
 
-    public Date getFechaInicio() {
+    public LocalTime getFechaInicio() {
         return fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalTime getFechaFin() {
         return fechaFin;
     }
 
@@ -143,11 +147,11 @@ public class AdminBean extends BasePageBean{
         this.capacidad = capacidad;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalTime fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalTime fechaFin) {
         this.fechaFin = fechaFin;
     }
 

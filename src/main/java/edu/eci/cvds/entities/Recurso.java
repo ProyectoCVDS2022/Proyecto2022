@@ -1,7 +1,7 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalTime;
 
 public class Recurso implements Serializable {
 
@@ -9,13 +9,13 @@ public class Recurso implements Serializable {
     private int tipo;
     private String nombre;
     private int capacidad;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalTime fechaInicio;
+    private LocalTime fechaFin;
     private int ubicacion;
     private String disponibilidad;
     private String observaciones;
 
-    public Recurso(int id, String nombre, int capacidad, Date fechaInicio, Date fechaFin, String disponibilidad, String observaciones, int tipo, int ubicacion) {
+    public Recurso(int id, String nombre, int capacidad, LocalTime fechaInicio, LocalTime fechaFin, String disponibilidad, String observaciones, int tipo, int ubicacion) {
         this.id = id;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -59,19 +59,19 @@ public class Recurso implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public Date getFechaInicio() {
+    public LocalTime getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalTime fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalTime getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalTime fechaFin) {
         this.fechaFin = fechaFin;
     }
 

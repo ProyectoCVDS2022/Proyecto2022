@@ -1,5 +1,6 @@
 package edu.eci.cvds.samples.services.client;
 
+import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper;
 import org.apache.ibatis.io.Resources;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.time.LocalTime;
 
 
 public class MyBatis {
@@ -45,8 +47,6 @@ public class MyBatis {
 
         UsuarioMapper usuarioMapper = sqlss.getMapper(UsuarioMapper.class);
         RecursoMapper recursoMapper = sqlss.getMapper(RecursoMapper.class);
-        System.out.println(usuarioMapper.consultarUsuario("admon", "admon"));
-        System.out.println(recursoMapper.buscarRecursos("varias"));
 
         sqlss.commit();
         sqlss.close();
