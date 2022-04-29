@@ -69,7 +69,7 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             }
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error al buscar los recuursos",e);
+            throw new PersistenceException("Error al buscar los recursos",e);
         }
     }
 }
