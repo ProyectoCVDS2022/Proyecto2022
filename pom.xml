@@ -15,44 +15,49 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>        
                 
-  
-  <dependencies>
+    <dependencies>
         <!-- My Batis dependencies -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-guice</artifactId>
-			<version>3.10</version>
+			<version>3.17</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.6</version>
+			<version>3.5.9</version>
 		</dependency>
 <!-- 		TODO Required? -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
+			<version>20030825.184428</version>
 		</dependency>
 
 		<!-- Guice Dependencies -->
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
-			<version>4.2.0</version>
+			<version>5.1.0</version>
 		</dependency>
 
 		<!-- Database connection dependencies -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.44</version>
+			<version>8.0.28</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.191</version>
+			<version>2.1.210</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.3</version>
+        </dependency>
 
 		<!-- Faces dependencies -->
 		<dependency>
@@ -63,36 +68,91 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>8.0</version>
+			<version>8.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>2.2.18</version>
+			<version>2.2.20</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.2.18</version>
+			<version>2.2.20</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.2</version>
+			<version>11.0.0</version>
 		</dependency>
+
+        <!-- Security -->
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+        <!-- Logger -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.7</version>
+        </dependency>
+
 
 		<!-- Test dependencies -->
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
-		    <version>4.12</version>
+		    <version>4.13.2</version>
             <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.quicktheories</groupId>
 			<artifactId>quicktheories</artifactId>
-			<version>0.25</version>
+			<version>0.26</version>
 			<scope>test</scope>
 		</dependency>
         <dependency>
@@ -110,7 +170,7 @@
             <!-- clean project (also local H2 database)-->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.6.1</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>
@@ -131,16 +191,15 @@
                     <dependency>
                         <groupId>com.h2database</groupId>
                         <artifactId>h2</artifactId> 
-                        <version>1.4.184</version>
+                        <version>2.1.210</version>
                     </dependency>
                 </dependencies>
                 <configuration>
                     <driver>org.h2.Driver</driver>
-                    <url>jdbc:h2:file:./target/db/testdb;MODE=MYSQL</url>
+                    <url>jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL</url>
                     <username>anonymous</username>
                     <password>anonymous</password>
                     <autocommit>false</autocommit>
-                    <skip>${maven.test.skip}</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -151,19 +210,17 @@
                         </goals>
                         <configuration>
                             <srcFiles>                                
-                                <srcFile>tables.sql</srcFile>                                
+                                <srcFile>tablas.sql</srcFile>
                             </srcFiles>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.10.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -175,7 +232,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
@@ -183,7 +240,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
