@@ -46,7 +46,7 @@ public class AdminBean extends BasePageBean{
         try{
             System.out.println(fechaInicio);
             System.out.println(fechaFin);
-            services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "disponible", observaciones, tipo, ubicacion));
+            services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "Disponible", observaciones, tipo, ubicacion));
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al agregar el recurso", ex);
         }

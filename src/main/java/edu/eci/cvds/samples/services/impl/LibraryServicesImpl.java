@@ -76,4 +76,13 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al buscar el nombre de la ubicación" , ex);
         }
     }
+
+    @Override
+    public List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException {
+        try{
+            return recursoDAO.buscarRecursosComunidad(filtro);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar los recursos" , ex);
+        }
+    }
 }

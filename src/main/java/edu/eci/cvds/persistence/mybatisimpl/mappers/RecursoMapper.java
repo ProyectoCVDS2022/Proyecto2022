@@ -16,4 +16,19 @@ public interface RecursoMapper {
 
     public void cambiarDisponibilidad(@Param("dispo") String disp, @Param("idRecurso") int id);
 
+    public List<Recurso> buscarRecursosTodos();
+
+    public List<Recurso> buscarRecursosDisponibles();
+
+    public List<Recurso> buscarRecursosLibros();
+
+    public List<Recurso> buscarRecursosPortatiles();
+
+    public List<Recurso> buscarRecursosPcs();
+
+    public List<Recurso> buscarRecursosSalas();
+
+
+
+
 }

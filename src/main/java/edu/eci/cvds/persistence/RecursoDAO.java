@@ -14,4 +14,6 @@ public interface RecursoDAO {
 
     public void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
 
+    public List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException;
+
 }

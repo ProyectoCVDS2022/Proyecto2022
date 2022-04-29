@@ -184,7 +184,7 @@
                 </p:column>
             </p:dataTable>
             <br> </br>
-            <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty selectOneMenuView.hideNoSelectOption}" value="#{adminBean.nuevaDisponibilidad}" >
+            <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty adminBean.nuevaDisponibilidad}" value="#{adminBean.nuevaDisponibilidad}" >
                 <p:ajax update="@this" process="@this"/>
                 <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
                 <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
