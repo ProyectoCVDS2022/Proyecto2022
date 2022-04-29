@@ -60,7 +60,7 @@
             <p:outputLabel for="@next" value="Buscar por: " />
 
             <br> </br>
-            <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{comunidadBean.buscarRecursos()}"/>
+            <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{comunidadBean.buscarRecursos()}"/>
             <br> </br>
             <p:dataTable id="resultado" var="recurso" rows="10" paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -69,8 +69,7 @@
 
                 <f:facet name="header">
                     <p:outputPanel>
-                        <h:selectOneMenu name="filtro" hideNoSelectionOption="#{not empty comunidadBean.filtro}" value="#{comunidadBean.filtro}" >
-                            <p:ajax update="@this" process="@this"/>
+                        <h:selectOneMenu name="filtro" value="#{comunidadBean.filtro}" update="resultado">
                             <f:selectItem itemLabel="- Filtro -" itemValue="#{null}" noSelectionOption="true"/>
                             <f:selectItem itemValue = "1" itemLabel = "Mostrar todos" />
                             <f:selectItem itemValue = "2" itemLabel = "Disponibles" />
@@ -104,11 +103,8 @@
                 <p:column headerText="Observaciones">
                     <h:outputText value="#{recurso.observaciones}" />
                 </p:column>
-                <p:column headerText="Tipo">
-                    <h:outputText value="#{recurso.tipo}" />
-                </p:column>
                 <p:column headerText="Ubicación">
-                    <h:outputText value="#{recurso.ubicacion}" />
+                    <h:outputText value="#{comunidadBean.nombreUbicacion().getLugar()}" />
                 </p:column>
             </p:dataTable>
 

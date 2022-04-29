@@ -35,19 +35,19 @@
     <select id="buscarRecursosPortatiles" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        where tipo = 2
+        where tipo = 3
     </select>
 
     <select id="buscarRecursosPcs" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        where tipo = 3
+        where tipo = 4
     </select>
 
     <select id="buscarRecursosSalas" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        where tipo = 4
+        where tipo = 2
     </select>
 
     <update parameterType="map" id="cambiarDisponibilidad">

@@ -61,12 +61,16 @@ public class AdminBean extends BasePageBean{
             throw new PersistenceException("Error al buscar el recurso", ex);
         }
     }
+
     public List<Recurso> buscarRecursos() throws PersistenceException {
         try{
             recursosEncontrados = services.buscarRecursos(nombreBuscar);
+            for(Recurso r: recursosEncontrados){
+                System.out.println(r.getId());
+            }
             return recursosEncontrados;
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el recursos", ex);
+            throw new PersistenceException("Error al buscar los recursos", ex);
         }
     }
     public void cambiarDisponibilidad() throws PersistenceException {
@@ -83,7 +87,7 @@ public class AdminBean extends BasePageBean{
         try{
             return services.nombreUbicacion(ubicacion);
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }
     }
 

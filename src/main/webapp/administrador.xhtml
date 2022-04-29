@@ -8,16 +8,6 @@
 
 <h:head>
 
-    <script>
-        var inputfocused = "nombreBuscar";
-
-        document.getElementById("boton_buscar").onclick = limpiaCampo;
-
-        function limpiaCampo() {
-          document.getElementById(inputfocused).value = "";
-        }
-    </script>
-
     <style type = "text/css">
 
     html { overflow-y: scroll; }
@@ -148,10 +138,11 @@
             <h1>Editar disponibilidad de recursos</h1>
             <br></br>
             <p:outputLabel for="@next" value="Nombre del recurso: " />
-            <p:inputText id="nombreBuscar" required="false" type="String" value="#{adminBean.nombreBuscar}"/>
+            <p:inputText id="nombreBuscar" required="true" type="String" value="#{adminBean.nombreBuscar}"/>
             <br> </br>
-            <p:commandButton id="boton_buscar" value="Buscar" onclick="window.location.reload();" actionListener="#{adminBean.buscarRecursos()}"/>
+            <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
             <br> </br>
+
             <p:dataTable id="resultado" var="recurso" value="#{adminBean.buscarRecursos()}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
                          style="margin-bottom:0" selectionPageOnly="false">
                 <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
@@ -184,14 +175,13 @@
                 </p:column>
             </p:dataTable>
             <br> </br>
-            <h:selectOneMenu name="tipo" hideNoSelectionOption="#{not empty adminBean.nuevaDisponibilidad}" value="#{adminBean.nuevaDisponibilidad}" >
-                <p:ajax update="@this" process="@this"/>
+            <h:selectOneMenu name="tipo" value="#{adminBean.nuevaDisponibilidad}" >
                 <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
                 <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
                 <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
             </h:selectOneMenu>
             <br> </br>
-            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" onclick="window.location.reload();" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
+            <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" update="resultado" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
 
         </div>
 

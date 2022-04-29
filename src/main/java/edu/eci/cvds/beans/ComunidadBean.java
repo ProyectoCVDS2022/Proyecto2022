@@ -34,6 +34,7 @@ public class ComunidadBean extends BasePageBean{
     private LocalTime fechaInicio;
     private LocalTime fechaFin;
     private int ubicacion;
+    private String ubicacionNombre;
     private String observaciones;
     private String nombreBuscar;
     private List<Recurso> recursosEncontrados;
@@ -46,6 +47,14 @@ public class ComunidadBean extends BasePageBean{
             return recursosEncontrados;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos", ex);
+        }
+    }
+
+    public void nombreUbicacion() throws PersistenceException{
+        try{
+            ubicacionNombre = services.nombreUbicacion(ubicacion).getLugar();
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }
     }
 
