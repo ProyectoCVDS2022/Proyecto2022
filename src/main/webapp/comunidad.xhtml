@@ -57,19 +57,19 @@
 
             <h1>Reservar recursos</h1>
 
-            <p:outputLabel for="@next" value="Buscar por: " />
+            <p:inputText id="buscar" placeholder="Nombre del recurso" required="false" type="String" value="#{comunidadBean.nombreBuscar}"/>
 
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{comunidadBean.buscarRecursos()}"/>
             <br> </br>
             <p:dataTable id="resultado" var="recurso" rows="10" paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         value="#{comunidadBean.buscarRecursos()}" selection="#{comunidadBean.recursosSeleccionados}" rowKey="#{recurso.id}"
+                         value="#{comunidadBean.recursosEncontrados}" selection="#{comunidadBean.recursosSeleccionados}" rowKey="#{recurso.id}"
                          style="margin-bottom:0" selectionPageOnly="false">
 
                 <f:facet name="header">
                     <p:outputPanel>
-                        <h:selectOneMenu name="filtro" value="#{comunidadBean.filtro}" update="resultado">
+                        <h:selectOneMenu name="filtro" value="#{comunidadBean.filtro}">
                             <f:selectItem itemLabel="- Filtro -" itemValue="#{null}" noSelectionOption="true"/>
                             <f:selectItem itemValue = "1" itemLabel = "Mostrar todos" />
                             <f:selectItem itemValue = "2" itemLabel = "Disponibles" />

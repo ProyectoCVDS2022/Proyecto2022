@@ -143,7 +143,7 @@
             <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
             <br> </br>
 
-            <p:dataTable id="resultado" var="recurso" value="#{adminBean.buscarRecursos()}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
+            <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
                          style="margin-bottom:0" selectionPageOnly="false">
                 <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
                 <p:column headerText="ID">

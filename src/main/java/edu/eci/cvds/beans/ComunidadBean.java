@@ -43,7 +43,11 @@ public class ComunidadBean extends BasePageBean{
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
         try{
-            recursosEncontrados = services.buscarRecursosComunidad(filtro);
+            if(!nombreBuscar.equals("")){
+                recursosEncontrados = services.buscarRecursos(nombreBuscar);
+            }else{
+                recursosEncontrados = services.buscarRecursosComunidad(filtro);
+            }
             return recursosEncontrados;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos", ex);
