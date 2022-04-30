@@ -2,12 +2,10 @@ package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.entities.Usuario;
-import edu.eci.cvds.persistence.PersistenceException;
-import edu.eci.cvds.persistence.RecursoDAO;
-import edu.eci.cvds.persistence.UbicacionDAO;
-import edu.eci.cvds.persistence.UsuarioDAO;
+import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.samples.services.LibraryServices;
 
 import java.util.List;
@@ -20,6 +18,8 @@ public class LibraryServicesImpl implements LibraryServices {
     private RecursoDAO recursoDAO;
     @Inject
     private UbicacionDAO ubicacionDAO;
+    @Inject
+    private TipoRecursoDAO tipoRecursoDAO;
 
     @Override
     public Usuario consultarUsuario(String username, String password) throws PersistenceException {
@@ -83,6 +83,15 @@ public class LibraryServicesImpl implements LibraryServices {
             return recursoDAO.buscarRecursosComunidad(filtro);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos" , ex);
+        }
+    }
+
+    @Override
+    public TipoRecurso nombreTipo(int id) throws PersistenceException {
+        try{
+            return tipoRecursoDAO.nombreTipo(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del tipo" , ex);
         }
     }
 }

@@ -5,6 +5,12 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.TipoRecursoMapper">
 
+    <select id="nombreTipo" resultMap="TipoRecursoResult" parameterType="int">
+        select *
+        FROM "Proyecto"."tipo_recursos"
+        WHERE id = #{id};
+    </select>
+
     <resultMap type='TipoRecurso' id='TipoRecursoResult'>
         <result property='id' column='id'/>
         <result property='nombre' column='nombre'/>

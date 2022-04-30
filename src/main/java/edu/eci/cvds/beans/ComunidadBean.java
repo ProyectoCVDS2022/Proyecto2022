@@ -38,7 +38,7 @@ public class ComunidadBean extends BasePageBean{
     private String observaciones;
     private String nombreBuscar;
     private List<Recurso> recursosEncontrados;
-    private List<Recurso> recursosSeleccionados;
+    private Recurso recursosSeleccionados;
 
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
@@ -146,11 +146,11 @@ public class ComunidadBean extends BasePageBean{
         this.recursosEncontrados = recursosEncontrados;
     }
 
-    public List<Recurso> getRecursosSeleccionados() {
+    public Recurso getRecursosSeleccionados() {
         return recursosSeleccionados;
     }
 
-    public void setRecursosSeleccionados(List<Recurso> recursosSeleccionados) {
+    public void setRecursosSeleccionados(Recurso recursosSeleccionados) {
         this.recursosSeleccionados = recursosSeleccionados;
     }
 

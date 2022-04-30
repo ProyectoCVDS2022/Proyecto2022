@@ -121,7 +121,7 @@
                     <h:outputText value="#{adminBean.observaciones}"/>
 
                     <h:outputText value="Tipo:" />
-                    <h:outputText value="#{adminBean.tipo}"/>
+                    <h:outputText value="#{adminBean.nombreTipo().getNombre()}"/>
 
                     <h:outputText value="Ubicación:" />
                     <h:outputText value="#{adminBean.nombreUbicacion().getLugar()}"/>
@@ -176,7 +176,6 @@
             </p:dataTable>
             <br> </br>
             <h:selectOneMenu name="tipo" value="#{adminBean.nuevaDisponibilidad}" >
-                <p:ajax update="@this" process="@this"/>
                 <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
                 <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
                 <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />

@@ -9,6 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
@@ -16,6 +17,7 @@ import org.primefaces.PrimeFaces;
 
 import java.io.IOException;
 import java.time.LocalTime;
+import java.sql.Date;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -85,6 +87,14 @@ public class AdminBean extends BasePageBean{
     public Ubicacion nombreUbicacion() throws PersistenceException{
         try{
             return services.nombreUbicacion(ubicacion);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public TipoRecurso nombreTipo() throws PersistenceException{
+        try{
+            return services.nombreTipo(ubicacion);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }

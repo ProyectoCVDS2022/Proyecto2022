@@ -20,4 +20,6 @@ public interface LibraryServices {
 
     public abstract List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException;
 
+    public abstract TipoRecurso nombreTipo(int id) throws PersistenceException;
+
 }

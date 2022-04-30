@@ -20,11 +20,12 @@
 	html {
         background: url(fondo.jpg) no-repeat center fixed;
         background-size: cover;
+        overflow-y: scroll;
 }
 
     div.a {
 		position: absolute;
-		top: 40%;
+		top: 20%;
 		left: 21%;
 		margin: -150px 0 0 -150px;
 		width:1200px;
@@ -70,6 +71,7 @@
                 <f:facet name="header">
                     <p:outputPanel>
                         <h:selectOneMenu name="filtro" value="#{comunidadBean.filtro}">
+                            <p:ajax event="change" listener="#{comunidadBean.buscarRecursos}" update="resultado"/>
                             <f:selectItem itemLabel="- Filtro -" itemValue="#{null}" noSelectionOption="true"/>
                             <f:selectItem itemValue = "1" itemLabel = "Mostrar todos" />
                             <f:selectItem itemValue = "2" itemLabel = "Disponibles" />
@@ -81,7 +83,7 @@
                     </p:outputPanel>
                 </f:facet>
 
-                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                <p:column selectionMode="single" style="width:16px;text-align:center"/>
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
                 </p:column>
@@ -107,6 +109,17 @@
                     <h:outputText value="#{recurso.ubicacion}" />
                 </p:column>
             </p:dataTable>
+
+            <br> </br>
+
+            <p:dialog modal="true" resizable="false" header="Recurso reservado exitosamente" widgetVar="dlg" showEffect="fold">
+                <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                    <h:outputText value="Id:" />
+
+                </p:panelGrid>
+            </p:dialog>
+
+            <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" actionListener="#{comunidadBean.buscarRecursos()}" action="#{comunidadBean.click()}"/>
 
         </div>
 
