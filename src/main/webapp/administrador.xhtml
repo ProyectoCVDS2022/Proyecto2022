@@ -132,9 +132,9 @@
 
         </div>
     </h:form>
+    <div class = "b">
+        <h:form id="admin_cambiar" prependId="false">
 
-    <h:form id="admin_cambiar" prependId="false">
-        <div class = "b">
             <h1>Editar disponibilidad de recursos</h1>
             <br></br>
             <p:outputLabel for="@next" value="Nombre del recurso: " />
@@ -176,6 +176,7 @@
             </p:dataTable>
             <br> </br>
             <h:selectOneMenu name="tipo" value="#{adminBean.nuevaDisponibilidad}" >
+                <p:ajax update="@this" process="@this"/>
                 <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
                 <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
                 <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
@@ -183,10 +184,8 @@
             <br> </br>
             <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" update="resultado" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
 
-        </div>
-
-    </h:form>
-
+        </h:form>
+    </div>
     </body>
 </h:body>
 </html>

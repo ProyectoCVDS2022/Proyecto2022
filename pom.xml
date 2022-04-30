@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.eci.cvds</groupId>
-    <artifactId>proyectocvds</artifactId>
+    <artifactId>Recursos-biblioteca</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-	<name>Proyecto Cvds 2022</name>
+	<name>Proyecto cvds 2022</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

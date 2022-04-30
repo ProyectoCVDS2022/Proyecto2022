@@ -65,9 +65,6 @@ public class AdminBean extends BasePageBean{
     public List<Recurso> buscarRecursos() throws PersistenceException {
         try{
             recursosEncontrados = services.buscarRecursos(nombreBuscar);
-            for(Recurso r: recursosEncontrados){
-                System.out.println(r.getId());
-            }
             return recursosEncontrados;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos", ex);
@@ -76,6 +73,8 @@ public class AdminBean extends BasePageBean{
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
             for(Recurso r: recursosSeleccionados){
+                System.out.println(nuevaDisponibilidad);
+                System.out.println(r.getId());
                 services.cambiarDisponibilidad(nuevaDisponibilidad, r.getId());
             }
         } catch (PersistenceException ex) {
