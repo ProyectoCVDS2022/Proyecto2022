@@ -5,12 +5,29 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaMapper">
 
+    <insert id="crearReserva" parameterType="map" >
+        INSERT INTO "Proyecto"."reservas"
+        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaInicio},#{reserva.fechaFin});
+    </insert>
+
+    <select id="buscarReservasId" resultMap="ReservaResult">
+        select *
+        FROM "Proyecto"."reservas"
+        WHERE id = #{id};
+    </select>
+
+    <select id="buscarReservasUsuario" resultMap="ReservaResult">
+        select *
+        FROM "Proyecto"."reservas"
+        WHERE id = #{id};
+    </select>
+
     <resultMap type='Reserva' id='ReservaResult'>
         <result property='id' column='id'/>
         <result property='fechaInicio' column='fechaInicio'/>
         <result property='fechaFin' column='fechaFin'/>
-        <association property='usuario' javaType="Usuario"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult" columnPrefix='usuario_'></association>
-        <association property='recurso' javaType="Recurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix='recurso_'></association>
+        <association property='usuario' javaType="Usuario"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult" columnPrefix='usuario_'/>
+        <association property='recurso' javaType="Recurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix='recurso_'/>
     </resultMap>
 
 </mapper>

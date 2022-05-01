@@ -1,7 +1,9 @@
 package edu.eci.cvds.samples.services.client;
 
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
+import edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaMapper;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -9,9 +11,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
+
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalTime;
 
 
 public class MyBatis {
@@ -47,8 +50,11 @@ public class MyBatis {
 
         UsuarioMapper usuarioMapper = sqlss.getMapper(UsuarioMapper.class);
         RecursoMapper recursoMapper = sqlss.getMapper(RecursoMapper.class);
+        ReservaMapper reservaMapper = sqlss.getMapper(ReservaMapper.class);
 
         System.out.println(recursoMapper.buscarRecursos("Proba"));
+        System.out.println(reservaMapper.buscarReservasId(1));
+        reservaMapper.crearReserva(new Reserva(1, 1, 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis())));
 
         sqlss.commit();
         sqlss.close();

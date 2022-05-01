@@ -22,4 +22,10 @@ public interface LibraryServices {
 
     public abstract TipoRecurso nombreTipo(int id) throws PersistenceException;
 
+    public abstract void crearReserva(Reserva reserva) throws PersistenceException;
+
+    public abstract List<Reserva> buscarReservasId(int id) throws PersistenceException;
+
+    public abstract List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException;
+
 }

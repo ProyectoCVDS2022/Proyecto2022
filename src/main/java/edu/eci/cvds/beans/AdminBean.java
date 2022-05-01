@@ -9,6 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -36,11 +37,15 @@ public class AdminBean extends BasePageBean{
     private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
+
     private String nombreBuscar;
     private String nuevaDisponibilidad;
-    private Recurso recursoEncontrado;
+    private String usuarioBuscarReservas;
+    private int idBuscarReservas;
 
+    private Recurso recursoEncontrado;
     private List<Recurso> recursosEncontrados;
+    private List<Reserva> reservasEncontradas;
 
     private List<Recurso> recursosSeleccionados;
 
@@ -72,8 +77,10 @@ public class AdminBean extends BasePageBean{
             throw new PersistenceException("Error al buscar los recursos", ex);
         }
     }
+
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
+            System.out.println(recursosSeleccionados.size());
             for(Recurso r: recursosSeleccionados){
                 System.out.println(nuevaDisponibilidad);
                 System.out.println(r.getId());
@@ -97,6 +104,24 @@ public class AdminBean extends BasePageBean{
             return services.nombreTipo(ubicacion);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public List<Reserva> buscarReservasId() throws PersistenceException {
+        try{
+            reservasEncontradas = services.buscarReservasId(idBuscarReservas);
+            return reservasEncontradas;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al consultar las reservas", ex);
+        }
+    }
+
+    public List<Reserva> buscarReservasUsuario() throws PersistenceException {
+        try{
+            reservasEncontradas = services.buscarReservasUsuario(usuarioBuscarReservas);
+            return reservasEncontradas;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al consultar las reservas", ex);
         }
     }
 
@@ -214,5 +239,29 @@ public class AdminBean extends BasePageBean{
 
     public void setRecursosSeleccionados(List<Recurso> recursosSeleccionados) {
         this.recursosSeleccionados = recursosSeleccionados;
+    }
+
+    public List<Reserva> getReservasEncontradas() {
+        return reservasEncontradas;
+    }
+
+    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
+        this.reservasEncontradas = reservasEncontradas;
+    }
+
+    public String getUsuarioBuscarReservas() {
+        return usuarioBuscarReservas;
+    }
+
+    public void setUsuarioBuscarReservas(String usuarioBuscarReservas) {
+        this.usuarioBuscarReservas = usuarioBuscarReservas;
+    }
+
+    public int getIdBuscarReservas() {
+        return idBuscarReservas;
+    }
+
+    public void setIdBuscarReservas(int idBuscarReservas) {
+        this.idBuscarReservas = idBuscarReservas;
     }
 }

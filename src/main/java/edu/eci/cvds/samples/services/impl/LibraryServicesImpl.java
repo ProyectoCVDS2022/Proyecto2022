@@ -1,10 +1,7 @@
 package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.TipoRecurso;
-import edu.eci.cvds.entities.Ubicacion;
-import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.entities.*;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.samples.services.LibraryServices;
 
@@ -20,6 +17,8 @@ public class LibraryServicesImpl implements LibraryServices {
     private UbicacionDAO ubicacionDAO;
     @Inject
     private TipoRecursoDAO tipoRecursoDAO;
+    @Inject
+    private ReservaDAO reservaDAO;
 
     @Override
     public Usuario consultarUsuario(String username, String password) throws PersistenceException {
@@ -92,6 +91,33 @@ public class LibraryServicesImpl implements LibraryServices {
             return tipoRecursoDAO.nombreTipo(id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre del tipo" , ex);
+        }
+    }
+
+    @Override
+    public void crearReserva(Reserva reserva) throws PersistenceException {
+        try{
+            reservaDAO.crearReserva(reserva);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al reservar el recurso" , ex);
+        }
+    }
+
+    @Override
+    public List<Reserva> buscarReservasId(int id) throws PersistenceException {
+        try{
+            return reservaDAO.buscarReservasId(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al consultar las reservas" , ex);
+        }
+    }
+
+    @Override
+    public List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException {
+        try{
+            return reservaDAO.buscarReservasUsuario(usuario);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al consultar las reservas" , ex);
         }
     }
 }

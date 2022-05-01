@@ -2,20 +2,21 @@ package edu.eci.cvds.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalTime;
 
 public class Reserva implements Serializable{
 
     private int id;
-    private String usuario;
-    private String recurso;
-    private Date fechaIncio;
+    private int usuario;
+    private int recurso;
+    private Date fechaInicio;
     private Date fechaFin;
 
-    public Reserva(int id, String usuario, String recurso, Date fechaIncio, Date fechaFin) {
+    public Reserva(int id, int usuario, int recurso, Date fechaInicio, Date fechaFin) {
         this.id = id;
         this.usuario = usuario;
         this.recurso = recurso;
-        this.fechaIncio = fechaIncio;
+        this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
@@ -23,16 +24,16 @@ public class Reserva implements Serializable{
         return id;
     }
 
-    public String getUsuario() {
+    public int getUsuario() {
         return usuario;
     }
 
-    public String getRecurso() {
+    public int getRecurso() {
         return recurso;
     }
 
-    public Date getFechaIncio() {
-        return fechaIncio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
     public Date getFechaFin() {
@@ -43,20 +44,30 @@ public class Reserva implements Serializable{
         this.id = id;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(int usuario) {
         this.usuario = usuario;
     }
 
-    public void setRecurso(String recurso) {
+    public void setRecurso(int recurso) {
         this.recurso = recurso;
     }
 
-    public void setFechaIncio(Date fechaIncio) {
-        this.fechaIncio = fechaIncio;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserva{id= " + id +
+                ", usuario= " + usuario +
+                ", recurso= " + recurso +
+                ", fechaInicio= " + fechaInicio.toString() +
+                ", fechaFin= " + fechaFin.toString() +
+                '}';
     }
 
 }

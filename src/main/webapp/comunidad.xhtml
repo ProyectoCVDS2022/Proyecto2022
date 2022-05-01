@@ -49,8 +49,8 @@
 
 
 <h:body>
-    <body>
     <h:form id="buscar_recursos" prependId="false">
+        <body>
         <div class = "a">
             <p:messages>
                 <p:autoUpdate />
@@ -63,10 +63,12 @@
             <br> </br>
             <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{comunidadBean.buscarRecursos()}"/>
             <br> </br>
-            <p:dataTable id="resultado" var="recurso" rows="10" paginator="true"
+
+            <p:dataTable id="resultado" var="recurso" rows="10" paginator="true" selectionMode="single"
+                         selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         value="#{comunidadBean.recursosEncontrados}" selection="#{comunidadBean.recursosSeleccionados}" rowKey="#{recurso.id}"
-                         style="margin-bottom:0" selectionPageOnly="false">
+                         value="#{comunidadBean.recursosEncontrados}" style="margin-bottom:0" selectionPageOnly="false"
+                         paginatorPosition="bottom">
 
                 <f:facet name="header">
                     <p:outputPanel>
@@ -83,7 +85,6 @@
                     </p:outputPanel>
                 </f:facet>
 
-                <p:column selectionMode="single" style="width:16px;text-align:center"/>
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
                 </p:column>
@@ -105,6 +106,9 @@
                 <p:column headerText="Observaciones">
                     <h:outputText value="#{recurso.observaciones}" />
                 </p:column>
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{recurso.tipo}" />
+                </p:column>
                 <p:column headerText="Ubicación">
                     <h:outputText value="#{recurso.ubicacion}" />
                 </p:column>
@@ -119,12 +123,12 @@
                 </p:panelGrid>
             </p:dialog>
 
-            <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" actionListener="#{comunidadBean.buscarRecursos()}" action="#{comunidadBean.click()}"/>
+            <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" actionListener="#{comunidadBean.reservarRecurso()}" action="#{comunidadBean.click()}"/>
 
         </div>
 
+        </body>
     </h:form>
-    </body>
 </h:body>
 
 </html>

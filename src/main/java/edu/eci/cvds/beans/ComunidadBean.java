@@ -1,21 +1,17 @@
 package edu.eci.cvds.beans;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-import javax.faces.bean.SessionScoped;
-import javax.faces.view.ViewScoped;
-import javax.servlet.http.HttpSession;
+
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.Ubicacion;
+import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
-import java.io.IOException;
 import java.time.LocalTime;
+import java.sql.Date;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -26,7 +22,11 @@ public class ComunidadBean extends BasePageBean{
 
     @Inject
     private LibraryServices services;
+    private int idReserva = 1;
+    private int usuario;
     private int filtro;
+    private String nombreBuscar = "";
+
     private int id;
     private int tipo;
     private String nombre;
@@ -34,11 +34,15 @@ public class ComunidadBean extends BasePageBean{
     private LocalTime fechaInicio;
     private LocalTime fechaFin;
     private int ubicacion;
-    private String ubicacionNombre;
     private String observaciones;
-    private String nombreBuscar;
+
+    private String ubicacionNombre;
+
     private List<Recurso> recursosEncontrados;
-    private Recurso recursosSeleccionados;
+    private Recurso recursoSeleccionado;
+
+    private Date fechaInicioReserva;
+    private Date fechaFinReserva;
 
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
@@ -54,11 +58,20 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-    public void nombreUbicacion() throws PersistenceException{
+    public String nombreUbicacion() throws PersistenceException{
+        if(ubicacion == 1){
+            return "Biblioteca Jorge Álvarez Lleras";
+        }else{
+            return "Biblioteca del edificio G";
+        }
+    }
+
+    public void reservarRecurso() throws PersistenceException{
         try{
-            ubicacionNombre = services.nombreUbicacion(ubicacion).getLugar();
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
+            services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), fechaInicioReserva, fechaFinReserva));
+            idReserva += 1;
+        }catch (PersistenceException ex) {
+            throw new PersistenceException("Error al reservar el recurso", ex);
         }
     }
 
@@ -146,12 +159,12 @@ public class ComunidadBean extends BasePageBean{
         this.recursosEncontrados = recursosEncontrados;
     }
 
-    public Recurso getRecursosSeleccionados() {
-        return recursosSeleccionados;
+    public Recurso getRecursoSeleccionado() {
+        return recursoSeleccionado;
     }
 
-    public void setRecursosSeleccionados(Recurso recursosSeleccionados) {
-        this.recursosSeleccionados = recursosSeleccionados;
+    public void setRecursoSeleccionado(Recurso recursoSeleccionado) {
+        this.recursoSeleccionado = recursoSeleccionado;
     }
 
     public int getFiltro() {
@@ -160,5 +173,37 @@ public class ComunidadBean extends BasePageBean{
 
     public void setFiltro(int filtro) {
         this.filtro = filtro;
+    }
+
+    public int getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(int idUsuario) {
+        this.usuario = idUsuario;
+    }
+
+    public int getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
+    }
+
+    public Date getFechaInicioReserva() {
+        return fechaInicioReserva;
+    }
+
+    public void setFechaInicioReserva(Date horaInicioReserva) {
+        this.fechaInicioReserva = horaInicioReserva;
+    }
+
+    public Date getFechaFinReserva() {
+        return fechaFinReserva;
+    }
+
+    public void setFechaFinReserva(Date horaFinReserva) {
+        this.fechaFinReserva = horaFinReserva;
     }
 }
