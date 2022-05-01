@@ -17,9 +17,8 @@
     </select>
 
     <select id="buscarReservasUsuario" resultMap="ReservaResult">
-        select *
-        FROM "Proyecto"."reservas"
-        WHERE id = #{id};
+        select * from "Proyecto"."reservas"
+        where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%');
     </select>
 
     <resultMap type='Reserva' id='ReservaResult'>

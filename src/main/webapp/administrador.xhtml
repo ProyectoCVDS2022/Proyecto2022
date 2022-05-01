@@ -52,6 +52,19 @@
         text-align: center;
 	}
 
+	div.c {
+		position: absolute;
+		top: 251%;
+		left: 23%;
+		margin: -150px 0 0 -150px;
+		width:1160px;
+		height:650px;
+		background-color: rgba(150,150,150,0.7);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+	}
+
 	SELECT {
         color: #787878;
         font-size: 16px;
@@ -128,9 +141,10 @@
 
                 </p:panelGrid>
             </p:dialog>
-            <p:commandButton id="boton_agregar" value="Agregar" update=":display" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
+            <p:commandButton id="boton_agregar" value="Agregar" icon="pi pi-check" update=":display" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
 
         </div>
+
     </h:form>
     <div class = "b">
         <h:form id="admin_cambiar" prependId="false">
@@ -185,6 +199,70 @@
 
         </h:form>
     </div>
+
+    <h:form id="admin_reservas" prependId="false">
+        <div class = "c">
+
+            <h1>Consultar reservas</h1>
+            <br></br>
+            <p:inputText id="reservaBuscar" placeholder="Nombre de usuario" required="false" type="String" value="#{adminBean.usuarioBuscarReservas}"/>
+            <br> </br>
+            <p:commandButton id="boton_buscarReserva" value="Buscar" update="reservas" actionListener="#{adminBean.buscarReservasUsuario()}"/>
+            <br> </br>
+
+            <p:dataTable id="reservas" var="reserva" value="#{adminBean.reservasEncontradas}" style="margin-bottom:0">
+                <p:column headerText="ID">
+                    <h:outputText value="#{reserva.id}" />
+                </p:column>
+                <p:column headerText="Usuario">
+                    <h:outputText value="#{reserva.usuario}" />
+                </p:column>
+                <p:column headerText="Recurso">
+                    <h:outputText value="#{reserva.recurso}" />
+                </p:column>
+                <p:column headerText="Fecha de inicio">
+                    <h:outputText value="#{reserva.fechaInicio}" />
+                </p:column>
+                <p:column headerText="Fecha de finalización">
+                    <h:outputText value="#{reserva.fechaFin}" />
+                </p:column>
+                <p:column style="width:3rem;text-align: center">
+                    <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
+                                     icon="pi pi-search" title="View">
+                        <f:setPropertyActionListener value="#{reserva}"
+                                                     target="#{adminBean.reservaSeleccionada}"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+
+        </div>
+        <p:dialog header="Detalles de la reserva" widgetVar="dialogoReserva" modal="true" showEffect="fold"
+                  hideEffect="fade" resizable="false">
+            <p:outputPanel id="detalleReserva" style="text-align:center;">
+                <p:panelGrid id="displayReserva" columns="2" columnClasses="label,value" style="text-align:center;">
+                    <h:outputText value="Id" />
+                    <h:outputText value="#{adminBean.reservaSeleccionada.id}"/>
+
+                    <h:outputText value="Usuario" />
+                    <h:outputText value="#{adminBean.reservaSeleccionada.usuario}"/>
+
+                    <h:outputText value="Recurso" />
+                    <h:outputText value="#{adminBean.reservaSeleccionada.recurso}"/>
+
+                    <h:outputText value="Fecha de inicio" />
+                    <h:outputText value="#{adminBean.reservaSeleccionada.fechaFin}"/>
+
+                    <h:outputText value="Fecha de finalización" />
+                    <h:outputText value="#{adminBean.reservaSeleccionada.fechaFin}"/>
+                </p:panelGrid>
+                <br> </br>
+                <p:commandButton value="Eliminar reserva" icon="pi pi-times" actionListener="adminBean.prueba()"/>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+
+
     </body>
 </h:body>
 </html>

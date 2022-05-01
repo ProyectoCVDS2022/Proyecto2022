@@ -63,8 +63,8 @@
         <result property='fechaFin' column='fechaFin'/>
         <result property='disponibilidad' column='disponibilidad'/>
         <result property='observaciones' column='observaciones'/>
-        <association property='tipo' javaType="TipoRecurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.TipoRecursoMapper.TipoRecursoResult" columnPrefix='tipo_'></association>
-        <association property='ubicacion' javaType="Ubicacion"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper.UbicacionResult" columnPrefix='ubicacion_'></association>
+        <association property='tipo' javaType="TipoRecurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.TipoRecursoMapper.TipoRecursoResult" columnPrefix='tipo_'/>
+        <association property='ubicacion' javaType="Ubicacion"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper.UbicacionResult" columnPrefix='ubicacion_'/>
     </resultMap>
 
 </mapper>

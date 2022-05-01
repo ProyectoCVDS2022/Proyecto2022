@@ -48,6 +48,7 @@ public class AdminBean extends BasePageBean{
     private List<Reserva> reservasEncontradas;
 
     private List<Recurso> recursosSeleccionados;
+    private Reserva reservaSeleccionada;
 
     public void agregarRecurso() throws PersistenceException {
         try{
@@ -123,6 +124,10 @@ public class AdminBean extends BasePageBean{
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al consultar las reservas", ex);
         }
+    }
+
+    public void prueba(){
+        System.out.println(reservaSeleccionada.getId());
     }
 
     public void click() {
@@ -263,5 +268,13 @@ public class AdminBean extends BasePageBean{
 
     public void setIdBuscarReservas(int idBuscarReservas) {
         this.idBuscarReservas = idBuscarReservas;
+    }
+
+    public Reserva getReservaSeleccionada() {
+        return reservaSeleccionada;
+    }
+
+    public void setReservaSeleccionada(Reserva reservaSeleccionada) {
+        this.reservaSeleccionada = reservaSeleccionada;
     }
 }

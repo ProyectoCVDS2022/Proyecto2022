@@ -54,7 +54,9 @@ public class MyBatis {
 
         System.out.println(recursoMapper.buscarRecursos("Proba"));
         System.out.println(reservaMapper.buscarReservasId(1));
-        reservaMapper.crearReserva(new Reserva(1, 1, 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis())));
+        System.out.println(reservaMapper.buscarReservasUsuario("Juank"));
+
+        //reservaMapper.crearReserva(new Reserva(2, 3, 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis())));
 
         sqlss.commit();
         sqlss.close();
