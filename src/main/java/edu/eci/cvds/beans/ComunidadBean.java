@@ -6,10 +6,13 @@ import javax.faces.bean.ManagedBean;
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.Reserva;
+import edu.eci.cvds.entities.TipoRecurso;
+import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.sql.Date;
 import java.util.List;
@@ -41,8 +44,8 @@ public class ComunidadBean extends BasePageBean{
     private List<Recurso> recursosEncontrados;
     private Recurso recursoSeleccionado;
 
-    private Date fechaInicioReserva;
-    private Date fechaFinReserva;
+    private LocalDateTime fechaInicioReserva;
+    private LocalDateTime fechaFinReserva;
 
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
@@ -58,7 +61,7 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-    public String nombreUbicacion() throws PersistenceException{
+    public String nombreUbicacionAntes() throws PersistenceException{
         if(ubicacion == 1){
             return "Biblioteca Jorge Álvarez Lleras";
         }else{
@@ -68,10 +71,32 @@ public class ComunidadBean extends BasePageBean{
 
     public void reservarRecurso() throws PersistenceException{
         try{
-            services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), fechaInicioReserva, fechaFinReserva));
-            idReserva += 1;
+            System.out.println(fechaInicioReserva);
+            System.out.println(fechaFinReserva);
+            if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
+                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), fechaInicioReserva, fechaFinReserva));
+                services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
+                idReserva += 1;
+            }
+            System.out.println("mensaje de error");
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
+        }
+    }
+
+    public Ubicacion nombreUbicacion() throws PersistenceException{
+        try{
+            return services.nombreUbicacion(recursoSeleccionado.getUbicacion());
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public TipoRecurso nombreTipo() throws PersistenceException{
+        try{
+            return services.nombreTipo(recursoSeleccionado.getTipo());
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }
     }
 
@@ -191,19 +216,19 @@ public class ComunidadBean extends BasePageBean{
         this.idReserva = idReserva;
     }
 
-    public Date getFechaInicioReserva() {
+    public LocalDateTime getFechaInicioReserva() {
         return fechaInicioReserva;
     }
 
-    public void setFechaInicioReserva(Date horaInicioReserva) {
+    public void setFechaInicioReserva(LocalDateTime horaInicioReserva) {
         this.fechaInicioReserva = horaInicioReserva;
     }
 
-    public Date getFechaFinReserva() {
+    public LocalDateTime getFechaFinReserva() {
         return fechaFinReserva;
     }
 
-    public void setFechaFinReserva(Date horaFinReserva) {
+    public void setFechaFinReserva(LocalDateTime horaFinReserva) {
         this.fechaFinReserva = horaFinReserva;
     }
 }

@@ -102,7 +102,7 @@ public class AdminBean extends BasePageBean{
 
     public TipoRecurso nombreTipo() throws PersistenceException{
         try{
-            return services.nombreTipo(ubicacion);
+            return services.nombreTipo(tipo);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }

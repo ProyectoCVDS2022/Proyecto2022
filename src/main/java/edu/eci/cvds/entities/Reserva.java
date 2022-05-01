@@ -2,17 +2,17 @@ package edu.eci.cvds.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Reserva implements Serializable{
 
     private int id;
     private int usuario;
     private int recurso;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
 
-    public Reserva(int id, int usuario, int recurso, Date fechaInicio, Date fechaFin) {
+    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
         this.id = id;
         this.usuario = usuario;
         this.recurso = recurso;
@@ -32,11 +32,11 @@ public class Reserva implements Serializable{
         return recurso;
     }
 
-    public Date getFechaInicio() {
+    public LocalDateTime getFechaInicio() {
         return fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDateTime getFechaFin() {
         return fechaFin;
     }
 
@@ -52,11 +52,11 @@ public class Reserva implements Serializable{
         this.recurso = recurso;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDateTime fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDateTime fechaFin) {
         this.fechaFin = fechaFin;
     }
 

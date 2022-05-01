@@ -74,13 +74,15 @@
                     <p:outputPanel>
                         <h:selectOneMenu name="filtro" value="#{comunidadBean.filtro}">
                             <p:ajax event="change" listener="#{comunidadBean.buscarRecursos}" update="resultado"/>
-                            <f:selectItem itemLabel="- Filtro -" itemValue="#{null}" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="- Filtro -" itemValue="null" noSelectionOption="true"/>
                             <f:selectItem itemValue = "1" itemLabel = "Mostrar todos" />
                             <f:selectItem itemValue = "2" itemLabel = "Disponibles" />
                             <f:selectItem itemValue = "3" itemLabel = "Libros" />
                             <f:selectItem itemValue = "4" itemLabel = "Portatiles" />
                             <f:selectItem itemValue = "5" itemLabel = "Computadores de escritorio" />
-                            <f:selectItem itemValue = "6" itemLabel = "Salas de estudio" />
+                            <f:selectItem itemValue = "6" itemLabel = "Salas de estudio"/>
+                            <f:selectItem itemValue = "7" itemLabel = "Biblioteca Jorge Álvarez Lleras" />
+                            <f:selectItem itemValue = "8" itemLabel = "Biblioteca del edificio G" />
                         </h:selectOneMenu>
                     </p:outputPanel>
                 </f:facet>
@@ -116,14 +118,35 @@
 
             <br> </br>
 
-            <p:dialog modal="true" resizable="false" header="Recurso reservado exitosamente" widgetVar="dlg" showEffect="fold">
+            <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold">
                 <p:panelGrid id="display" columns="2" columnClasses="label,value">
                     <h:outputText value="Id:" />
+                    <h:outputText value="#{comunidadBean.recursoSeleccionado.id}"/>
+
+                    <h:outputText value="Nombre" />
+                    <h:outputText value="#{comunidadBean.recursoSeleccionado.nombre}"/>
+
+                    <h:outputText value="Capacidad" />
+                    <h:outputText value="#{comunidadBean.recursoSeleccionado.capacidad}"/>
+
+                    <h:outputText value="Hora de inicio" />
+                    <p:datePicker id="horainicio" value="#{comunidadBean.fechaInicioReserva}" showTime="true"/>
+
+                    <h:outputText value="Hora de finalización" />
+                    <p:datePicker id="horafin" value="#{comunidadBean.fechaFinReserva}" showTime="true"/>
+
+                    <h:outputText value="Tipo:" />
+                    <h:outputText value=""/>
+
+                    <h:outputText value="Ubicación:" />
+                    <h:outputText value=""/>
 
                 </p:panelGrid>
+                <br> </br>
+                <p:commandButton value="Crear reserva" icon="pi pi-check" actionListener="#{comunidadBean.reservarRecurso()}"/>
             </p:dialog>
 
-            <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" actionListener="#{comunidadBean.reservarRecurso()}" action="#{comunidadBean.click()}"/>
+            <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" action="#{comunidadBean.click()}"/>
 
         </div>
 

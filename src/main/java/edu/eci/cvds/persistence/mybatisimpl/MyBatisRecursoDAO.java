@@ -64,8 +64,12 @@ public class MyBatisRecursoDAO implements RecursoDAO {
                 return recursoMapper.buscarRecursosPortatiles();
             }else if(filtro == 5){
                 return recursoMapper.buscarRecursosPcs();
-            }else{
+            }else if(filtro == 6){
                 return recursoMapper.buscarRecursosSalas();
+            }else if(filtro == 7){
+                return recursoMapper.buscarRecursosUbicacion(1);
+            }else{
+                return recursoMapper.buscarRecursosUbicacion(2);
             }
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){

@@ -51,6 +51,13 @@
         where tipo = 2
     </select>
 
+    <select id="buscarRecursosUbicacion" resultMap="RecursoResult">
+        select *
+        FROM "Proyecto"."recursos"
+        where ubicacion = #{id}
+    </select>
+
+
     <update parameterType="map" id="cambiarDisponibilidad">
         update "Proyecto"."recursos" set disponibilidad=#{dispo} where id = #{idRecurso};
     </update>

@@ -28,7 +28,6 @@ public interface RecursoMapper {
 
     public List<Recurso> buscarRecursosSalas();
 
-
-
+    public List<Recurso> buscarRecursosUbicacion(@Param("id") int id);
 
 }
