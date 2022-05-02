@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.time.LocalDateTime;
 
 
 public class MyBatis {
@@ -54,9 +55,9 @@ public class MyBatis {
 
         System.out.println(recursoMapper.buscarRecursos("Proba"));
         System.out.println(reservaMapper.buscarReservasId(1));
-        System.out.println(reservaMapper.buscarReservasUsuario("Juank"));
+        System.out.println(reservaMapper.buscarReservasUsuario("juank"));
 
-        //reservaMapper.crearReserva(new Reserva(2, 3, 1, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis())));
+        //reservaMapper.crearReserva(new Reserva(2, 3, 1, LocalDateTime.now(), LocalDateTime.now()));
 
         sqlss.commit();
         sqlss.close();

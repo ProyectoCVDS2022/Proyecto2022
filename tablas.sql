@@ -33,8 +33,8 @@ CREATE TABLE RESERVAS(
 	id int NOT NULL,
 	usuario INT not null,
 	recurso INT NOT NULL,
-	fechaIncio DATE not null,
-	fechaFin DATE not null
+	fechaIncio TIMESTAMP not null,
+	fechaFin TIMESTAMP not null
 );
 --Primarias
 alter table usuarios add constraint USUARIOS_PK primary key (id);

@@ -78,7 +78,7 @@ public class ComunidadBean extends BasePageBean{
                 services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                 idReserva += 1;
             }
-            System.out.println("mensaje de error");
+            System.out.println("hacer mensaje de error recurso no disponible");
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
         }
@@ -96,7 +96,7 @@ public class ComunidadBean extends BasePageBean{
         try{
             return services.nombreTipo(recursoSeleccionado.getTipo());
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+            throw new PersistenceException("Error al buscar el nombre del tipo del recurso", ex);
         }
     }
 
@@ -184,14 +184,6 @@ public class ComunidadBean extends BasePageBean{
         this.recursosEncontrados = recursosEncontrados;
     }
 
-    public Recurso getRecursoSeleccionado() {
-        return recursoSeleccionado;
-    }
-
-    public void setRecursoSeleccionado(Recurso recursoSeleccionado) {
-        this.recursoSeleccionado = recursoSeleccionado;
-    }
-
     public int getFiltro() {
         return filtro;
     }
@@ -230,5 +222,13 @@ public class ComunidadBean extends BasePageBean{
 
     public void setFechaFinReserva(LocalDateTime horaFinReserva) {
         this.fechaFinReserva = horaFinReserva;
+    }
+
+    public Recurso getRecursoSeleccionado() {
+        return recursoSeleccionado;
+    }
+
+    public void setRecursoSeleccionado(Recurso recursoSeleccionado) {
+        this.recursoSeleccionado = recursoSeleccionado;
     }
 }

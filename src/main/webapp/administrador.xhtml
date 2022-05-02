@@ -221,10 +221,10 @@
                     <h:outputText value="#{reserva.recurso}" />
                 </p:column>
                 <p:column headerText="Fecha de inicio">
-                    <h:outputText value="#{reserva.fechaInicio}" />
+                    <h:outputText value="#{reserva.getFechaInicioF()}" />
                 </p:column>
                 <p:column headerText="Fecha de finalización">
-                    <h:outputText value="#{reserva.fechaFin}" />
+                    <h:outputText value="#{reserva.getFechaFinF()}" />
                 </p:column>
                 <p:column style="width:3rem;text-align: center">
                     <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
@@ -250,10 +250,10 @@
                     <h:outputText value="#{adminBean.reservaSeleccionada.recurso}"/>
 
                     <h:outputText value="Fecha de inicio" />
-                    <h:outputText value="#{adminBean.reservaSeleccionada.fechaFin}"/>
+                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}"/>
 
                     <h:outputText value="Fecha de finalización" />
-                    <h:outputText value="#{adminBean.reservaSeleccionada.fechaFin}"/>
+                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}"/>
                 </p:panelGrid>
                 <br> </br>
                 <p:commandButton value="Eliminar reserva" icon="pi pi-times" actionListener="adminBean.prueba()"/>

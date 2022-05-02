@@ -44,6 +44,7 @@
         width: 200px;
     }
 
+
 </style>
 </h:head>
 
@@ -118,7 +119,7 @@
 
             <br> </br>
 
-            <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold">
+            <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold" hideEffect="fade">
                 <p:panelGrid id="display" columns="2" columnClasses="label,value">
                     <h:outputText value="Id:" />
                     <h:outputText value="#{comunidadBean.recursoSeleccionado.id}"/>

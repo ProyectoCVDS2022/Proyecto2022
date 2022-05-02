@@ -3,9 +3,11 @@ package edu.eci.cvds.entities;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Reserva implements Serializable{
 
+    private static final String DATE_FORMATTER= "yyyy-MM-dd HH:mm:ss";
     private int id;
     private int usuario;
     private int recurso;
@@ -18,6 +20,14 @@ public class Reserva implements Serializable{
         this.recurso = recurso;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+    }
+
+    public String getFechaInicioF(){
+        return fechaInicio.format(DateTimeFormatter.ofPattern(DATE_FORMATTER));
+    }
+
+    public String getFechaFinF(){
+        return fechaFin.format(DateTimeFormatter.ofPattern(DATE_FORMATTER));
     }
 
     public int getId() {
