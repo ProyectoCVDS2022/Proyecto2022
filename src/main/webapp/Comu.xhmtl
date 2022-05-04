@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <script src="https://kit.fontawesome.com/311a2545f8.js" crossorigin="anonymous"></script>
+    <title>Recursos biblioteca</title>
+    <style type = "text/css">
+	html {
+        background: url(fondo3.jpg) no-repeat center fixed;
+        background-size: cover;
+    }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

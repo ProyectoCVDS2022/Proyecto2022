@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Administrador</title>
+    <style type = "text/css">
+	html {
+        background: url(fondo2.jpg) no-repeat center fixed;
+        background-size: cover;
+    }
+    #main-header {
+        background: #900;
+        color: Red;
+        height: 70px;
+		font-family: Ubuntu,sans-serif;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+}
+#main-header a {
+		color: white;
+}
+
+#logo-header {
+	    float: left;
+	    padding: 15px 0 0 20px;
+	    text-decoration: none;
+}
+
+#logo-header .site-name {
+		font-weight: 1000;
+		font-size: 1.6em;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+.container{
+    position:relative;
+    width: 1200px;
+    height: 300px;
+    margin: 240px auto;
+    background:trasnparent;
+}
+
+.container .box{
+    position: relative;
+    width: calc(400px - 30px);
+    height: calc(300px - 30px);
+    background: #900;
+    float: left;
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius:10px;
+}
+.container .box:hover{
+	background: transparent;
+}
+.container .box .content h3{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Ubuntu,sans-serif;
+    font-size: 1.25em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Ubuntu,sans-serif;
+}
+.container .box .content p{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: Ubuntu,sans-serif;
+}
+    </style>
+</head>
+<body>
+<header id="main-header">
+    <a id="logo-header" href="inicio.xhtml">
+        <span class="site-name">ADMINISTRADOR</span>
+    </a>
+</header>
+<div class="rox">
+    <div class="container">
+        <a href="registrarrecurso.xhtml">
+            <div class="box">
+                <div class="content">
+                    <h3>Registrar recursos</h3>
+                </div>
+            </div>
+        </a>
+        <a href="login.xhtml">
+            <div class="box">
+                <div class="content">
+                    <h3>Modificar estado</h3>
+                </div>
+            </div>
+        </a>
+        <a href="login.xhtml">
+            <div class="box">
+                <div class="content">
+                    <h3>Reporte ocupacion</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

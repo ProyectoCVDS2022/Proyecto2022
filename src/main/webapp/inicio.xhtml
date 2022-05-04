@@ -10,14 +10,14 @@
     <title>Recursos biblioteca</title>
     <style type = "text/css">
 	html {
-        background: url(fondo.jpg) no-repeat center fixed;
+        background: url(fondo3.jpg) no-repeat center fixed;
         background-size: cover;
     }
 #main-header {
         background: #900;
         color: Red;
         height: 70px;
-
+		font-family: Ubuntu,sans-serif;
         width: 100%;
         left: 0;
         top: 0;
@@ -34,35 +34,12 @@
 }
 
 #logo-header .site-name {
-		display: block;
 		font-weight: 1000;
-		font-size: 1.8em;
-		text-align:center;
-}
-
-nav.hd {
-	    float: right;
-}
-nav.hd ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		padding-right: 20px;
-}
-
-nav.hd ul li {
-		display: inline-block;
-		line-height: 70px;
-}
-
-nav.hd ul li a {
-		display: block;
-		padding: 0 10px;
-		text-decoration: none;
-}
-
-nav.hd ul li a:hover {
-		background: #0b76a6;
+		font-size: 1.6em;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 }
 .container{
     position:relative;
@@ -76,7 +53,7 @@ nav.hd ul li a:hover {
     position: relative;
     width: calc(350px - 30px);
     height: calc(350px - 30px);
-    background: #cddc39;
+    background: #900;
     float: left;
     margin: 15px;
     box-sizing: border-box;
@@ -93,11 +70,14 @@ nav.hd ul li a:hover {
     transition: 0.5s;
     z-index: 1;
 }
+.container .a{
+    color: black;
+}
 .container .box .icon:hover{
     top: 20px;
-    left: calc(50% - 40px);
-    width: 80px;
-    height: 80px;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 
 }
@@ -106,8 +86,8 @@ nav.hd ul li a:hover {
     position: absolute;
     top:50%;
     left:50%;
-    transform: translate(-50%,-95%);
-    transition: 0.5s;
+    transform: translate(-50%,-50%);
+    transition: 2s;
     font-size: 100px;
 }
 .container .box:hover .icon .ic{
@@ -131,49 +111,46 @@ nav.hd ul li a:hover {
     margin: 0;
     padding: 0;
     color: black;
+    font-family: Ubuntu,sans-serif;
 }
 .container .box .content p{
     margin: 0;
     padding: 0;
     color: black;
+    font-family: Ubuntu,sans-serif;
 }
 .container .box:nth-child(1) .icon{
     background: transparent;
-}
-.container .box:nth-child(2) .icon{
-    background: transparent;
+    color: white;
 }
     </style>
 </head>
 <body>
 <header id="main-header">
-    <a id="logo-header" href="#">
+    <a id="logo-header" href="inicio.xhtml">
         <span class="site-name">RECURSOS BIBLIOTECA</span>
     </a>
-    <nav class="hd">
-        <ul class="head">
-            <li><a href="login.xhtml">Iniciar sesión</a></li>
-        </ul>
-    </nav>
 </header>
 <div class="rox">
     <div class="container">
-        <a href="comunidad.xhtml">
-        <div class="box">
-            <div class="icon"><i class="ic fa-solid fa-users-between-lines"></i></div>
-            <div class="content">
-                <h3>Comunidad</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid eos, ullam consectetur enim iure accusantium sint, illo rem rerum deleniti nihil iste? Debitis dolores quibusdam rem placeat aut voluptatum?</p>
+        <a href="login.xhtml">
+            <div class="box">
+                <div class="icon"><i class="ic fa-solid fa-users-between-lines"></i></div>
+                <div class="content">
+                    <h3>Comunidad</h3>
+                    <p>Como usuario de la comunidad de la escuela puede consultar recursos, realizar reservas, ver horarios de sus reservas, consultar sus reservas, cancelar reservas y vizualizar las mismas</p>
+                </div>
             </div>
-        </div>
         </a>
-        <div class="box">
-            <div class="icon"><i class="ic fa-solid fa-user-tie"></i></div>
-            <div class="content">
-                <h3>Administrador</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid eos, ullam consectetur enim iure accusantium sint, illo rem rerum deleniti nihil iste? Debitis dolores quibusdam rem placeat aut voluptatum?</p>
+        <a href="login.xhtml">
+            <div class="box">
+                <div class="icon"><i class="ic fa-solid fa-user-tie"></i></div>
+                <div class="content">
+                    <h3>Administrador</h3>
+                    <p>Como usuario administrador de la biblioteca podra registrar recursos, cambiar el estado de los recursos y ver reporte de ocupacion</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 </body>
