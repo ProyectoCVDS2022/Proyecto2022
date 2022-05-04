@@ -158,7 +158,7 @@
             <br> </br>
 
             <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
-                         style="margin-bottom:0" selectionPageOnly="false">
+                         style="margin-bottom:0" selectionPageOnly="false" ajax="true">
                 <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
                 <p:column headerText="ID">
                     <h:outputText value="#{recurso.id}" />
