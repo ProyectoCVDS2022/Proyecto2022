@@ -8,13 +8,12 @@ import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
-import edu.eci.cvds.persistence.PersistenceException;
+import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.sql.Date;
 import java.util.List;
 
 @SuppressWarnings("deprecation")

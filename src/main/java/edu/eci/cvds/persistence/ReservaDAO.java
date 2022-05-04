@@ -1,6 +1,7 @@
 package edu.eci.cvds.persistence;
 
 import edu.eci.cvds.entities.Reserva;
+import edu.eci.cvds.exceptions.PersistenceException;
 
 import java.util.List;
 
