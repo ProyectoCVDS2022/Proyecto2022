@@ -32,7 +32,7 @@ public class LoginBean extends BasePageBean{
                 setRol(usuario.getRol());
                 FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/administrador.xhtml?faces-redirect=true");
             }else{
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/comunidad.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/Comunidad.xhtml?faces-redirect=true");
             }
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
