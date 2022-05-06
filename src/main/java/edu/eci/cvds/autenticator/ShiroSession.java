@@ -1,6 +1,8 @@
 package edu.eci.cvds.autenticator;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.exceptions.PersistenceException;
+import edu.eci.cvds.samples.services.UserServices;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -21,16 +23,17 @@ public class ShiroSession implements SessionLogger {
         this.userServices = userServices;
     }
     @Override
-    public void login(String nombre,String clave) throws TimeLimitExceptions {
+    public void login(String nombre,String clave) throws PersistenceException {
         try{
             Subject currentUser = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(nombre,new Sha256Hash(clave).toHex());
+            System.out.println(currentUser);
             currentUser.getSession().setAttribute("Correo",nombre);
             currentUser.login( token );
         } catch ( UnknownAccountException a ) {
-            throw new TimeLimitExceptions("Usuario o contraseña incorrectos",a);
+            throw new PersistenceException("Usuario o contraseña incorrectos",a);
         } catch ( IncorrectCredentialsException b ) {
-            throw new TimeLimitExceptions("Usuario o contraseña incorrectos",b);
+            throw new PersistenceException("Usuario o contraseña incorrectos",b);
         }
     }
 

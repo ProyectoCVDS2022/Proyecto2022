@@ -6,7 +6,6 @@ import edu.eci.cvds.exceptions.PersistenceException;
 
 public interface LibraryServices {
 
-    public abstract Usuario consultarUsuario(String username, String password) throws PersistenceException;
 
     public abstract void agregarRecurso(Recurso r) throws PersistenceException;
 

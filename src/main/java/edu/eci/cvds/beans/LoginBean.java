@@ -6,9 +6,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.autenticator.SessionLogger;
 import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
+import edu.eci.cvds.samples.services.UserServices;
+import edu.eci.cvds.samples.services.impl.LibraryServicesFactory;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.annotation.RequiresGuest;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 
 import java.io.IOException;
 
@@ -18,27 +24,51 @@ import java.io.IOException;
 
 public class LoginBean extends BasePageBean{
 
-    @Inject
-    private LibraryServices services;
     private String username;
     private String password;
     private String rol;
+    private boolean logg;
+    private SessionLogger logger = LibraryServicesFactory.getInstance().getLoginServices();
 
-    public void login() throws PersistenceException, IOException {
-        Usuario usuario = services.consultarUsuario(username, password);
-        if(usuario != null){
-            if(usuario.getRol().equals("administrador")){
-                setRol(usuario.getRol());
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/administrador.xhtml?faces-redirect=true");
-            }else{
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/Comunidad.xhtml?faces-redirect=true");
+
+    public void setLogg(boolean logg) {
+        this.logg = logg;
+    }
+
+    @RequiresGuest
+    public void login() throws  PersistenceException{
+        System.out.println("1");
+        try {
+            System.out.println("U :" + username);
+            System.out.println("P :" + password);
+            logger.login(username, password);
+            System.out.println(logger.toString());
+            setLogg(true);
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/index2.xhtml");
+
+        }catch (NullPointerException e) {
+                System.err.println("Null Pointer");
             }
-        }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
+        catch (UnknownAccountException ex) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Usuario desconocido."));
+
+            }
+        catch (IncorrectCredentialsException ex) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Contraseña incorrecta."));
+            }
+        catch (LockedAccountException ex) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Cuenta bloqueada."));
+            }
+        catch (AuthenticationException | IOException ex) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Todos los campos son obligatorios."));
         }
-
-
-
+        catch (PersistenceException e){
+            FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no registrado", "Este usuario no se encuentra en nuestra base de datos"));
+        }
     }
 
     public void setUsername(String username) {

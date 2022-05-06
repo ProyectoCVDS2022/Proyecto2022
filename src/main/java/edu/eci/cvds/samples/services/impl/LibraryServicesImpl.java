@@ -21,19 +21,7 @@ public class LibraryServicesImpl implements LibraryServices {
     @Inject
     private ReservaDAO reservaDAO;
 
-    @Override
-    public Usuario consultarUsuario(String username, String password) throws PersistenceException {
-        Usuario usuario = null;
-        try{
-            List<Usuario> lista = usuarioDAO.consultarUsuario(username, password);
-            if(!lista.isEmpty()) {
-                usuario = lista.get(0);
-            }
-        }catch (PersistenceException e){
-            throw new PersistenceException("Error", e);
-        }
-        return usuario;
-    }
+
 
     @Override
     public void agregarRecurso(Recurso r) throws PersistenceException {
