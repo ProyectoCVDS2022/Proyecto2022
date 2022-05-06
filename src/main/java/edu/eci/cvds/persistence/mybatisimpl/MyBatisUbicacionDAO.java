@@ -2,9 +2,8 @@ package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Ubicacion;
-import edu.eci.cvds.persistence.PersistenceException;
+import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.UbicacionDAO;
-import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.UbicacionMapper;
 
 public class MyBatisUbicacionDAO implements UbicacionDAO {

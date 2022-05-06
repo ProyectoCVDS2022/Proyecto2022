@@ -4,11 +4,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.faces.bean.SessionScoped;
-import javax.servlet.http.HttpSession;
+
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.Usuario;
-import edu.eci.cvds.persistence.PersistenceException;
+import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 
 import java.io.IOException;

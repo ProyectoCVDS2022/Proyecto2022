@@ -1,4 +1,4 @@
-package edu.eci.cvds.persistence;
+package edu.eci.cvds.exceptions;
 
 public class PersistenceException extends Exception{
 

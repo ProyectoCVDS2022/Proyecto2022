@@ -1,6 +1,7 @@
 package edu.eci.cvds.persistence;
 
 import edu.eci.cvds.entities.Usuario;
+import edu.eci.cvds.exceptions.PersistenceException;
 
 import java.util.List;
 

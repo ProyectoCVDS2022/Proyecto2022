@@ -2,6 +2,7 @@ package edu.eci.cvds.samples.services.impl;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.*;
+import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.samples.services.LibraryServices;
 

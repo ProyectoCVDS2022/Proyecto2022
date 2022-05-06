@@ -2,7 +2,7 @@ package edu.eci.cvds.samples.services;
 
 import java.util.List;
 import edu.eci.cvds.entities.*;
-import edu.eci.cvds.persistence.PersistenceException;
+import edu.eci.cvds.exceptions.PersistenceException;
 
 public interface LibraryServices {
 
