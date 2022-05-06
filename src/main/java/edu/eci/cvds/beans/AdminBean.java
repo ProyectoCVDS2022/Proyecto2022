@@ -16,10 +16,7 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
-import java.io.IOException;
 import java.time.LocalTime;
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
