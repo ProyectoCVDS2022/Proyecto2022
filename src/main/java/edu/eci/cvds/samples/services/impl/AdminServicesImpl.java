@@ -4,11 +4,11 @@ import com.google.inject.Inject;
 import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.*;
-import edu.eci.cvds.samples.services.LibraryServices;
+import edu.eci.cvds.samples.services.AdminServices;
 
 import java.util.List;
 
-public class LibraryServicesImpl implements LibraryServices {
+public class AdminServicesImpl implements AdminServices {
 
     @Inject
     private UsuarioDAO usuarioDAO;
@@ -20,7 +20,6 @@ public class LibraryServicesImpl implements LibraryServices {
     private TipoRecursoDAO tipoRecursoDAO;
     @Inject
     private ReservaDAO reservaDAO;
-
 
 
     @Override
@@ -40,6 +39,7 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al buscar el recurso" , ex);
         }
     }
+
     public List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException {
         try{
             return recursoDAO.buscarRecursos(nombreBuscar);
@@ -47,10 +47,11 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al buscar el recurso" , ex);
         }
     }
+
     @Override
     public void cambiarDisponibilidad(String disp, int id) throws PersistenceException {
         try{
-           recursoDAO.cambiarDisponibilidad(disp, id);
+            recursoDAO.cambiarDisponibilidad(disp, id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso" , ex);
         }
@@ -66,29 +67,11 @@ public class LibraryServicesImpl implements LibraryServices {
     }
 
     @Override
-    public List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException {
-        try{
-            return recursoDAO.buscarRecursosComunidad(filtro);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar los recursos" , ex);
-        }
-    }
-
-    @Override
     public TipoRecurso nombreTipo(int id) throws PersistenceException {
         try{
             return tipoRecursoDAO.nombreTipo(id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre del tipo" , ex);
-        }
-    }
-
-    @Override
-    public void crearReserva(Reserva reserva) throws PersistenceException {
-        try{
-            reservaDAO.crearReserva(reserva);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al reservar el recurso" , ex);
         }
     }
 
@@ -109,4 +92,5 @@ public class LibraryServicesImpl implements LibraryServices {
             throw new PersistenceException("Error al consultar las reservas" , ex);
         }
     }
+
 }

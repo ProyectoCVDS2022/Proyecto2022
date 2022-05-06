@@ -1,11 +1,14 @@
 package edu.eci.cvds.samples.services;
 
-import java.util.List;
-import edu.eci.cvds.entities.*;
+import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.Reserva;
+import edu.eci.cvds.entities.TipoRecurso;
+import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.exceptions.PersistenceException;
 
-public interface LibraryServices {
+import java.util.List;
 
+public interface AdminServices {
 
     public abstract void agregarRecurso(Recurso r) throws PersistenceException;
 
@@ -17,14 +20,9 @@ public interface LibraryServices {
 
     public abstract Ubicacion nombreUbicacion(int id) throws PersistenceException;
 
-    public abstract List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException;
-
     public abstract TipoRecurso nombreTipo(int id) throws PersistenceException;
-
-    public abstract void crearReserva(Reserva reserva) throws PersistenceException;
 
     public abstract List<Reserva> buscarReservasId(int id) throws PersistenceException;
 
     public abstract List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException;
-
 }

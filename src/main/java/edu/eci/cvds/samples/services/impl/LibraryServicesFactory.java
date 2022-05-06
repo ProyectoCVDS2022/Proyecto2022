@@ -5,12 +5,10 @@ import edu.eci.cvds.autenticator.SessionLogger;
 import edu.eci.cvds.autenticator.ShiroSession;
 import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.persistence.mybatisimpl.*;
-import edu.eci.cvds.samples.services.LibraryServices;
+import edu.eci.cvds.samples.services.AdminServices;
+import edu.eci.cvds.samples.services.ComunityServices;
 import edu.eci.cvds.samples.services.UserServices;
-import org.apache.ibatis.transaction.TransactionFactory;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.XMLMyBatisModule;
-import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import java.util.Optional;
 
@@ -33,7 +31,9 @@ public class LibraryServicesFactory {
                 bind(TipoRecursoDAO.class).to(MyBatisTipoRecursoDAO.class);
                 bind(UbicacionDAO.class).to(MyBatisUbicacionDAO.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
-                bind(LibraryServices.class).to(LibraryServicesImpl.class);
+                bind(AdminServices.class).to(AdminServicesImpl.class);
+                bind(ComunityServices.class).to(ComunityServicesImpl.class);
+                bind(UserServices.class).to(UserServicesImpl.class);
                 bind(SessionLogger.class).to(ShiroSession.class);
             }
         });
