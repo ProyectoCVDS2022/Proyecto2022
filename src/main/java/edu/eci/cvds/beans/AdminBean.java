@@ -9,7 +9,7 @@ import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.exceptions.PersistenceException;
-import edu.eci.cvds.samples.services.AdminServices;
+import edu.eci.cvds.samples.services.LibraryServices;
 import org.primefaces.PrimeFaces;
 
 import java.time.LocalTime;
@@ -22,7 +22,7 @@ import java.util.List;
 public class AdminBean extends BasePageBean{
 
     @Inject
-    private AdminServices services;
+    private LibraryServices services;
     private int id;
     private int tipo;
     private String nombre;
@@ -160,7 +160,7 @@ public class AdminBean extends BasePageBean{
         return observaciones;
     }
 
-    public AdminServices getServices() {
+    public LibraryServices getServices() {
         return services;
     }
 
@@ -208,7 +208,7 @@ public class AdminBean extends BasePageBean{
         this.observaciones = observaciones;
     }
 
-    public void setServices(AdminServices services) {
+    public void setServices(LibraryServices services) {
         this.services = services;
     }
 
