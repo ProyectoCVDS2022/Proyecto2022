@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+        <style type = "text/css">
+
+            html { overflow-y: scroll; }
+
+            body {
+            position: absolute;
+            width: 100%;
+            height:100%;
+            font-family: 'Candara';
+            font-size: 24px;
+            color: white;
+            }
+
+            html {
+            background: url(fondo.jpg) no-repeat center fixed;
+            background-size: cover;
+            }
+
+            div.a {
+            position: absolute;
+            top: 35%;
+            left: 35%;
+            margin: -150px 0 0 -150px;
+            width:800px;
+            height:750px;
+            background-color: rgba(150,150,150,0.7);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+
+            div.b {
+            position: absolute;
+            top: 151%;
+            left: 23%;
+            margin: -150px 0 0 -150px;
+            width:1160px;
+            height:650px;
+            background-color: rgba(150,150,150,0.7);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+
+            div.c {
+            position: absolute;
+            top: 251%;
+            left: 23%;
+            margin: -150px 0 0 -150px;
+            width:1160px;
+            height:650px;
+            background-color: rgba(150,150,150,0.7);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            }
+
+            SELECT {
+            color: #787878;
+            font-size: 16px;
+            margin: 0px 0px 7px 0px;
+            padding: 4px 0px 4px 5px;
+            width: 200px;
+            }
+
+        </style>
+    </h:head>
+
+        <h:form id="admin_cambiar" prependId="false">
+            <div>
+                <h1>Editar disponibilidad de recursos</h1>
+                <br></br>
+                <p:outputLabel for="@next" value="Nombre del recurso: " />
+                <p:inputText id="nombreBuscar" required="true" type="String" value="#{adminBean.nombreBuscar}"/>
+                <br> </br>
+                <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
+                <br> </br>
+
+                <p:dataTable id="resultado" var="recurso" value="#{pruebaBean.recursosEncontrados}" selection="#{pruebaBean.recursosSeleccionados}" rowKey="#{recurso.id}"
+                             style="margin-bottom:0" selectionPageOnly="false" ajax="true">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="ID">
+                        <h:outputText value="#{recurso.id}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{recurso.nombre}" />
+                    </p:column>
+                    <p:column headerText="Capacidad">
+                        <h:outputText value="#{recurso.capacidad}" />
+                    </p:column>
+                    <p:column headerText="Hora de inicio">
+                        <h:outputText value="#{recurso.fechaInicio}" />
+                    </p:column>
+                    <p:column headerText="Hora de finalización">
+                        <h:outputText value="#{recurso.fechaFin}" />
+                    </p:column>
+                    <p:column headerText="Disponibilidad">
+                        <h:outputText value="#{recurso.disponibilidad}" />
+                    </p:column>
+                    <p:column headerText="Observaciones">
+                        <h:outputText value="#{recurso.observaciones}" />
+                    </p:column>
+                    <p:column headerText="Tipo">
+                        <h:outputText value="#{recurso.tipo}" />
+                    </p:column>
+                    <p:column headerText="Ubicación">
+                        <h:outputText value="#{recurso.ubicacion}" />
+                    </p:column>
+                </p:dataTable>
+                <br> </br>
+                <h:selectOneMenu name="tipo" value="#{pruebaBean.nuevaDisponibilidad}" >
+                    <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
+                    <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
+                </h:selectOneMenu>
+                <br> </br>
+                <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{pruebaBean.cambiarDisponibilidad()}"/>
+            </div>
+        </h:form>
+    <h:head/>
+</html>

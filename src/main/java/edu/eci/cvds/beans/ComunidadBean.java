@@ -9,7 +9,7 @@ import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.entities.TipoRecurso;
 import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.exceptions.PersistenceException;
-import edu.eci.cvds.samples.services.LibraryServices;
+import edu.eci.cvds.samples.services.ComunityServices;
 import org.primefaces.PrimeFaces;
 
 import java.time.LocalDateTime;
@@ -23,7 +23,7 @@ import java.util.List;
 public class ComunidadBean extends BasePageBean{
 
     @Inject
-    private LibraryServices services;
+    private ComunityServices services;
     private int idReserva = 1;
     private int usuario;
     private int filtro;
