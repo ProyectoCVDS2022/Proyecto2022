@@ -27,7 +27,7 @@ public class ShiroSession implements SessionLogger {
         try{
             Subject currentUser = SecurityUtils.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(nombre,new Sha256Hash(clave).toHex());
-            System.out.println(currentUser);
+            System.out.println(currentUser.getSession().getId());
             currentUser.getSession().setAttribute("Correo",nombre);
             currentUser.login( token );
         } catch ( UnknownAccountException a ) {

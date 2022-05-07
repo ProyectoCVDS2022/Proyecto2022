@@ -37,31 +37,10 @@ public class LoginBean extends BasePageBean{
             System.out.println("U :" + username);
             System.out.println("P :" + password);
             logger.login(username, password);
-            System.out.println(logger.toString());
             setLogg(true);
             FacesContext.getCurrentInstance().getExternalContext().redirect("/index2.xhtml");
 
-        }catch (NullPointerException e) {
-                System.err.println("Null Pointer");
-            }
-        catch (UnknownAccountException ex) {
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Usuario desconocido."));
-
-            }
-        catch (IncorrectCredentialsException ex) {
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Contraseña incorrecta."));
-            }
-        catch (LockedAccountException ex) {
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Cuenta bloqueada."));
-            }
-        catch (AuthenticationException | IOException ex) {
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login", "Todos los campos son obligatorios."));
-        }
-        catch (PersistenceException e){
+        } catch (PersistenceException | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no registrado", "Este usuario no se encuentra en nuestra base de datos"));
         }
     }
