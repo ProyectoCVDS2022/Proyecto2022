@@ -300,9 +300,10 @@
                     <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
                     <br> </br>
 
-                    <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
-                                 style="margin-bottom:0" selectionPageOnly="false" ajax="true">
-                        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:growl id="msg"/>
+
+                    <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
+
                         <p:column headerText="ID" style="text-align: center;">
                             <h:outputText value="#{recurso.id}" />
                         </p:column>
@@ -330,14 +331,13 @@
                         <p:column headerText="Ubicación" style="text-align: center;">
                             <h:outputText value="#{adminBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                         </p:column>
+                        <p:column headerText="Disponible" style="text-align: center;">
+                            <p:toggleSwitch value="#{adminBean.disponible}" onchange="#{adminBean.cambiarDisponibilidad()}"/>
+                        </p:column>
+
                     </p:dataTable>
                     <br> </br>
-                    <h:selectOneMenu name="tipo" value="#{adminBean.nuevaDisponibilidad}" >
-                        <f:selectItem itemLabel="- Estado -" itemValue="#{null}" noSelectionOption="true"/>
-                        <f:selectItem itemValue = "Disponible" itemLabel = "Disponible" />
-                        <f:selectItem itemValue = "No disponible" itemLabel = "No disponible" />
-                    </h:selectOneMenu>
-                    <br> </br>
+
                     <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
                 </div>
             </div>

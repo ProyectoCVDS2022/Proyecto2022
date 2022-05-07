@@ -224,9 +224,9 @@
                         <br> </br>
 
                         <p:dataTable id="resultado" var="recurso" rows="10" paginator="true" selectionMode="single"
-                                     selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
-                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     value="#{comunidadBean.recursosEncontrados}" style="margin-bottom:0" selectionPageOnly="false"
+                                     selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.nombre}"
+                                     paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
+                                     value="#{comunidadBean.recursosEncontrados}" selectionPageOnly="false"
                                      paginatorPosition="bottom" scrollable="true">
 
                             <f:facet name="header">

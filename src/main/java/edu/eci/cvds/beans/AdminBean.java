@@ -1,7 +1,9 @@
 package edu.eci.cvds.beans;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.*;
@@ -28,9 +30,9 @@ public class AdminBean extends BasePageBean{
     private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
+    private boolean disponible;
 
     private String nombreBuscar;
-    private String nuevaDisponibilidad;
     private String usuarioBuscarReservas;
     private int idBuscarReservas;
 
@@ -49,6 +51,11 @@ public class AdminBean extends BasePageBean{
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al agregar el recurso", ex);
         }
+    }
+
+    public void addMessage() {
+        String summary = disponible ? "Checked" : "Unchecked";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 
     public Recurso buscarRecurso() throws PersistenceException {
@@ -71,16 +78,7 @@ public class AdminBean extends BasePageBean{
     }
 
     public void cambiarDisponibilidad() throws PersistenceException {
-        try{
-            System.out.println(recursosSeleccionados.size());
-            for(Recurso r: recursosSeleccionados){
-                System.out.println(nuevaDisponibilidad);
-                System.out.println(r.getId());
-                services.cambiarDisponibilidad(nuevaDisponibilidad, r.getId());
-            }
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
-        }
+        System.out.println(disponible);
     }
 
     public Usuario infoUsuario(int idUsuario) throws PersistenceException{
@@ -149,6 +147,8 @@ public class AdminBean extends BasePageBean{
         }
     }
 
+
+
     public void prueba(){
         System.out.println(reservaSeleccionada.getId());
     }
@@ -197,10 +197,6 @@ public class AdminBean extends BasePageBean{
         return nombreBuscar;
     }
 
-    public String getNuevaDisponibilidad() {
-        return nuevaDisponibilidad;
-    }
-
     public Recurso getRecursoEncontrado() {
         return recursoEncontrado;
     }
@@ -243,10 +239,6 @@ public class AdminBean extends BasePageBean{
 
     public void setNombreBuscar(String nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
-    }
-
-    public void setNuevaDisponibilidad(String nuevaDisponibilidad) {
-        this.nuevaDisponibilidad = nuevaDisponibilidad;
     }
 
     public void setRecursoEncontrado(Recurso recursoEncontrado) {
@@ -299,5 +291,13 @@ public class AdminBean extends BasePageBean{
 
     public void setReservaSeleccionada(Reserva reservaSeleccionada) {
         this.reservaSeleccionada = reservaSeleccionada;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 }
