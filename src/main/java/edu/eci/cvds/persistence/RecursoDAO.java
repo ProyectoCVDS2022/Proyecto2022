@@ -17,4 +17,6 @@ public interface RecursoDAO {
 
     public List<Recurso> buscarRecursosComunidad(int filtro) throws PersistenceException;
 
+    public Recurso nombreRecurso(int id) throws PersistenceException;
+
 }

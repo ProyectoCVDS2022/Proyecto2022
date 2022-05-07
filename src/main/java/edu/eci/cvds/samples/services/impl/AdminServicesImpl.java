@@ -93,4 +93,22 @@ public class AdminServicesImpl implements AdminServices {
         }
     }
 
+    @Override
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException {
+        try{
+            return usuarioDAO.infoUsuario(idUsuario);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del usuario" , ex);
+        }
+    }
+
+    @Override
+    public Recurso nombreRecurso(int id) throws PersistenceException {
+        try{
+            return recursoDAO.nombreRecurso(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del recurso" , ex);
+        }
+    }
+
 }

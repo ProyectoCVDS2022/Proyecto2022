@@ -2,6 +2,7 @@ package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.exceptions.PersistenceException;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -29,5 +30,7 @@ public interface RecursoMapper {
     public List<Recurso> buscarRecursosSalas();
 
     public List<Recurso> buscarRecursosUbicacion(@Param("id") int id);
+
+    public Recurso nombreRecurso(@Param("id") int id);
 
 }

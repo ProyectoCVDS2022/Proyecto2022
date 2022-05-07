@@ -13,11 +13,13 @@ public class Reserva implements Serializable{
     private int recurso;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
+    private LocalDateTime fechaSolicitud;
 
-    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaSolicitud, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
         this.id = id;
         this.usuario = usuario;
         this.recurso = recurso;
+        this.fechaSolicitud = fechaSolicitud;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
@@ -28,6 +30,10 @@ public class Reserva implements Serializable{
 
     public String getFechaFinF(){
         return fechaFin.format(DateTimeFormatter.ofPattern(DATE_FORMATTER));
+    }
+
+    public String getFechaSolicitudF(){
+        return fechaSolicitud.format(DateTimeFormatter.ofPattern(DATE_FORMATTER));
     }
 
     public int getId() {
@@ -68,6 +74,14 @@ public class Reserva implements Serializable{
 
     public void setFechaFin(LocalDateTime fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    public LocalDateTime getFechaSolicitud() {
+        return fechaSolicitud;
+    }
+
+    public void setFechaSolicitud(LocalDateTime fechaSolicitud) {
+        this.fechaSolicitud = fechaSolicitud;
     }
 
     @Override

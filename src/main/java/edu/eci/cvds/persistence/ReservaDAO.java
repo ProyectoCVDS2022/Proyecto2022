@@ -13,4 +13,6 @@ public interface ReservaDAO {
 
     public List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException;
 
+    public List<Reserva> buscarReservasComunidad(String usuario) throws PersistenceException;
+
 }

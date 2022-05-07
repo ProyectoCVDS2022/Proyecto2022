@@ -5,17 +5,24 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper">
 
-    <resultMap type='Usuario' id='UsuarioResult'>
-        <result property='id' column='id'/>
-        <result property='rol' column='rol'/>
-        <result property='correo' column='correo'/>
-        <result property='clave' column='clave'/>
-    </resultMap>
-
     <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult" >
         select *
         from "Proyecto"."usuarios" as u
         where u.correo = #{user} AND u.clave = #{password}
     </select>
+
+    <select parameterType="map" id="infoUsuario" resultMap="UsuarioResult" >
+        select *
+        from "Proyecto"."usuarios"
+        where id = #{user}
+    </select>
+
+    <resultMap type='Usuario' id='UsuarioResult'>
+        <result property='id' column='id'/>
+        <result property='rol' column='rol'/>
+        <result property='correo' column='correo'/>
+        <result property='clave' column='clave'/>
+        <result property='programa' column='programa'/>
+    </resultMap>
 
 </mapper>

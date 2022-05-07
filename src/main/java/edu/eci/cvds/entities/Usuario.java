@@ -8,12 +8,14 @@ public class Usuario implements Serializable {
     private String rol;
     private String clave;
     private String correo;
+    private String programa;
 
-    public Usuario(int id, String rol, String clave, String correo) {
+    public Usuario(int id, String rol, String clave, String correo, String programa) {
         this.id = id;
         this.clave = clave;
         this.rol = rol;
         this.correo = correo;
+        this.programa = programa;
     }
 
     public int getId() {
@@ -46,6 +48,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(String programa) {
+        this.programa = programa;
     }
 
     @Override

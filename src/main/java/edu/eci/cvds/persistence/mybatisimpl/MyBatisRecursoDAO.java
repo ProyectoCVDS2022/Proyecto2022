@@ -76,6 +76,16 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             throw new PersistenceException("Error al buscar los recursos",e);
         }
     }
+
+    @Override
+    public Recurso nombreRecurso(int id) throws PersistenceException {
+        try{
+            return recursoMapper.nombreRecurso(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar el nombre del recurso",e);
+        }
+    }
 }
 
 /**

@@ -43,4 +43,14 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
     }
 
+    @Override
+    public List<Reserva> buscarReservasComunidad(String usuario) throws PersistenceException {
+        try{
+            return reservaMapper.buscarReservasComunidad(usuario);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al consultar las reservas",e);
+        }
+    }
+
 }

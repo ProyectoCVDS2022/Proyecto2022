@@ -8,4 +8,6 @@ import java.util.List;
 public interface UsuarioDAO {
 
     public List<Usuario> consultarUsuario(String username, String password) throws PersistenceException;
+
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException;
 }

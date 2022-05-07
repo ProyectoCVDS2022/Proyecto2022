@@ -24,4 +24,8 @@ public interface ComunityServices {
 
     public abstract void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
 
+    public abstract List<Reserva> buscarReservas(String usuario) throws PersistenceException;
+
+    public Recurso nombreRecurso(int id) throws PersistenceException;
+
 }

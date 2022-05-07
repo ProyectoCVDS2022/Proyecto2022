@@ -1,9 +1,6 @@
 package edu.eci.cvds.samples.services;
 
-import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.Reserva;
-import edu.eci.cvds.entities.TipoRecurso;
-import edu.eci.cvds.entities.Ubicacion;
+import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 
 import java.util.List;
@@ -25,4 +22,8 @@ public interface AdminServices {
     public abstract List<Reserva> buscarReservasId(int id) throws PersistenceException;
 
     public abstract List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException;
+
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException;
+
+    public Recurso nombreRecurso(int id) throws PersistenceException;
 }

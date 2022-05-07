@@ -15,4 +15,6 @@ public interface ReservaMapper {
 
     public List<Reserva> buscarReservasUsuario(@Param("usuario") String usuario);
 
+    public List<Reserva> buscarReservasComunidad(@Param("usuario") String usuario);
+
 }

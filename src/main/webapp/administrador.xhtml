@@ -270,10 +270,10 @@
                                 <h:outputText value="#{adminBean.observaciones}"/>
 
                                 <h:outputText value="Tipo:" />
-                                <h:outputText value="#{adminBean.nombreTipo().getNombre()}"/>
+                                <h:outputText value="#{adminBean.nombreTipoDialogo().getNombre()}"/>
 
                                 <h:outputText value="Ubicación:" />
-                                <h:outputText value="#{adminBean.nombreUbicacion().getLugar()}"/>
+                                <h:outputText value="#{adminBean.nombreUbicacionDialogo().getLugar()}"/>
 
                             </p:panelGrid>
                         </p:dialog>
@@ -303,32 +303,32 @@
                     <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}" selection="#{adminBean.recursosSeleccionados}" rowKey="#{recurso.id}"
                                  style="margin-bottom:0" selectionPageOnly="false" ajax="true">
                         <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-                        <p:column headerText="ID">
+                        <p:column headerText="ID" style="text-align: center;">
                             <h:outputText value="#{recurso.id}" />
                         </p:column>
-                        <p:column headerText="Nombre">
+                        <p:column headerText="Nombre" style="text-align: center;">
                             <h:outputText value="#{recurso.nombre}" />
                         </p:column>
-                        <p:column headerText="Capacidad">
+                        <p:column headerText="Capacidad" style="text-align: center;">
                             <h:outputText value="#{recurso.capacidad}" />
                         </p:column>
-                        <p:column headerText="Hora de inicio">
+                        <p:column headerText="Hora de inicio" style="text-align: center;">
                             <h:outputText value="#{recurso.fechaInicio}" />
                         </p:column>
-                        <p:column headerText="Hora de finalización">
+                        <p:column headerText="Hora de finalización" style="text-align: center;">
                             <h:outputText value="#{recurso.fechaFin}" />
                         </p:column>
-                        <p:column headerText="Disponibilidad">
+                        <p:column headerText="Disponibilidad" style="text-align: center;">
                             <h:outputText value="#{recurso.disponibilidad}" />
                         </p:column>
-                        <p:column headerText="Observaciones">
+                        <p:column headerText="Observaciones" style="text-align: center;">
                             <h:outputText value="#{recurso.observaciones}" />
                         </p:column>
-                        <p:column headerText="Tipo">
-                            <h:outputText value="#{recurso.tipo}" />
+                        <p:column headerText="Tipo" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreTipo(recurso.tipo).getNombre()}" />
                         </p:column>
-                        <p:column headerText="Ubicación">
-                            <h:outputText value="#{recurso.ubicacion}" />
+                        <p:column headerText="Ubicación" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                         </p:column>
                     </p:dataTable>
                     <br> </br>
@@ -361,20 +361,29 @@
                         <p:commandButton id="boton_buscarReserva" value="Buscar" update="reservas" actionListener="#{adminBean.buscarReservasUsuario()}"/>
                         <br> </br>
 
-                        <p:dataTable id="reservas" var="reserva" value="#{adminBean.reservasEncontradas}" style="margin-bottom:0">
-                            <p:column headerText="ID">
+                        <p:dataTable id="reservas" var="reserva" value="#{adminBean.reservasEncontradas}">
+                            <p:column headerText="ID" style="text-align: center;">
                                 <h:outputText value="#{reserva.id}" />
                             </p:column>
-                            <p:column headerText="Usuario">
-                                <h:outputText value="#{reserva.usuario}" />
+                            <p:column headerText="Usuario" style="text-align: center;">
+                                <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getCorreo()}" />
                             </p:column>
-                            <p:column headerText="Recurso">
-                                <h:outputText value="#{reserva.recurso}" />
+                            <p:column headerText="Programa" style="text-align: center;">
+                                <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getPrograma()}" />
                             </p:column>
-                            <p:column headerText="Fecha de inicio">
+                            <p:column headerText="Recurso" style="text-align: center;">
+                                <h:outputText value="#{adminBean.nombreRecurso(reserva.recurso).getNombre()}" />
+                            </p:column>
+                            <p:column headerText="Tipo" style="text-align: center;">
+                                <h:outputText value="#{adminBean.nombreTipo(adminBean.nombreRecurso(reserva.recurso).getTipo()).getNombre()}" />
+                            </p:column>
+                            <p:column headerText="Fecha de solicitud" style="text-align: center;">
+                                <h:outputText value="#{reserva.getFechaSolicitudF()}" />
+                            </p:column>
+                            <p:column headerText="Fecha de inicio" style="text-align: center;">
                                 <h:outputText value="#{reserva.getFechaInicioF()}" />
                             </p:column>
-                            <p:column headerText="Fecha de finalización">
+                            <p:column headerText="Fecha de finalización" style="text-align: center;">
                                 <h:outputText value="#{reserva.getFechaFinF()}" />
                             </p:column>
                             <p:column style="width:3rem;text-align: center">

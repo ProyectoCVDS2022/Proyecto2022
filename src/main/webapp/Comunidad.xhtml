@@ -66,7 +66,7 @@
     }
 
     .toggle:checked + .lbl-toggle + .collapsible-content {
-        max-height: 100vh;
+        max-height: 100%;
     }
 
     .toggle:checked + .lbl-toggle {
@@ -200,7 +200,7 @@
             <h1>Comunidad</h1>
 
             <p> Como usuario de la comunidad de la escuela puede consultar y reservar recursos, </p>
-            <p>     consultar, cancelar y visualizar los horarios de sus reservas activas.</p>
+            <p>      cancelar, consultar y visualizar los horarios de sus reservas activas.</p>
 
         </div>
 
@@ -227,7 +227,7 @@
                                      selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      value="#{comunidadBean.recursosEncontrados}" style="margin-bottom:0" selectionPageOnly="false"
-                                     paginatorPosition="bottom">
+                                     paginatorPosition="bottom" scrollable="true">
 
                             <f:facet name="header">
                                 <p:outputPanel>
@@ -246,32 +246,32 @@
                                 </p:outputPanel>
                             </f:facet>
 
-                            <p:column headerText="ID">
+                            <p:column headerText="ID" style="text-align: center;">
                                 <h:outputText value="#{recurso.id}" />
                             </p:column>
-                            <p:column headerText="Nombre">
+                            <p:column headerText="Nombre" style="text-align: center;">
                                 <h:outputText value="#{recurso.nombre}" />
                             </p:column>
-                            <p:column headerText="Capacidad">
+                            <p:column headerText="Capacidad" style="text-align: center;">
                                 <h:outputText value="#{recurso.capacidad}" />
                             </p:column>
-                            <p:column headerText="Hora de inicio">
+                            <p:column headerText="Hora de inicio" style="text-align: center;">
                                 <h:outputText value="#{recurso.fechaInicio}" />
                             </p:column>
-                            <p:column headerText="Hora de finalización">
+                            <p:column headerText="Hora de finalización" style="text-align: center;">
                                 <h:outputText value="#{recurso.fechaFin}" />
                             </p:column>
-                            <p:column headerText="Disponibilidad">
+                            <p:column headerText="Disponibilidad" style="text-align: center;">
                                 <h:outputText value="#{recurso.disponibilidad}" />
                             </p:column>
-                            <p:column headerText="Observaciones">
+                            <p:column headerText="Observaciones" style="text-align: center;">
                                 <h:outputText value="#{recurso.observaciones}" />
                             </p:column>
-                            <p:column headerText="Tipo">
-                                <h:outputText value="#{recurso.tipo}" />
+                            <p:column headerText="Tipo" style="text-align: center;">
+                                <h:outputText value="#{comunidadBean.nombreTipo(recurso.tipo).getNombre()}" />
                             </p:column>
-                            <p:column headerText="Ubicación">
-                                <h:outputText value="#{recurso.ubicacion}" />
+                            <p:column headerText="Ubicación" style="text-align: center;">
+                                <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
                         </p:dataTable>
 
@@ -306,6 +306,52 @@
                         </p:dialog>
 
                         <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" action="#{comunidadBean.click()}"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+        <br></br>
+
+        <h:form id="consultar_reservas">
+            <div class="wrap-collabsible">
+                <input id="collapsible1" class="toggle" type="checkbox"/>
+                <label for="collapsible1" class="lbl-toggle">Mis reservas</label>
+                <div class="collapsible-content">
+                    <div class="content1-inner">
+                        <h1> Consultar reservas </h1>
+
+                        <br></br>
+                        <p:commandButton id="boton_buscar_reservas" value="Buscar" update="reservas" actionListener="#{comunidadBean.buscarReservas()}"/>
+                        <br> </br>
+
+                        <p:dataTable id="reservas" var="reserva" rows="10" paginator="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     value="#{comunidadBean.reservasEncontradas}" style="margin-bottom:0" selectionPageOnly="false"
+                                     paginatorPosition="bottom">
+
+                            <p:column headerText="ID" style="text-align: center;">
+                                <h:outputText value="#{reserva.id}" />
+                            </p:column>
+
+                            <p:column headerText="Recurso" style="text-align: center;">
+                                <h:outputText value="#{comunidadBean.nombreRecurso(reserva.recurso)}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha de solicitud" style="text-align: center;">
+                                <h:outputText value="#{reserva.getFechaSolicitudF()}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha de inicio" style="text-align: center;">
+                                <h:outputText value="#{reserva.getFechaInicioF()}" />
+                            </p:column>
+
+                            <p:column headerText="Fecha de finalización" style="text-align: center;">
+                                <h:outputText value="#{reserva.getFechaFinF()}" />
+                            </p:column>
+
+                        </p:dataTable>
+
                     </div>
                 </div>
             </div>

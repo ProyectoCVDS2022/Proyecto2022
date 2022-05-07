@@ -4,10 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.Reserva;
-import edu.eci.cvds.entities.TipoRecurso;
-import edu.eci.cvds.entities.Ubicacion;
+import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.AdminServices;
 import org.primefaces.PrimeFaces;
@@ -86,7 +83,39 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public Ubicacion nombreUbicacion() throws PersistenceException{
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException{
+        try{
+            return services.infoUsuario(idUsuario);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del usuario", ex);
+        }
+    }
+
+    public Ubicacion nombreUbicacion(int idUbicacion) throws PersistenceException{
+        try{
+            return services.nombreUbicacion(idUbicacion);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public TipoRecurso nombreTipo(int idTipo) throws PersistenceException{
+        try{
+            return services.nombreTipo(idTipo);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public Recurso nombreRecurso(int id) throws PersistenceException{
+        try{
+            return services.nombreRecurso(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del recurso", ex);
+        }
+    }
+
+    public Ubicacion nombreUbicacionDialogo() throws PersistenceException{
         try{
             return services.nombreUbicacion(ubicacion);
         } catch (PersistenceException ex) {
@@ -94,7 +123,7 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public TipoRecurso nombreTipo() throws PersistenceException{
+    public TipoRecurso nombreTipoDialogo() throws PersistenceException{
         try{
             return services.nombreTipo(tipo);
         } catch (PersistenceException ex) {

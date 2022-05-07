@@ -7,7 +7,7 @@
 
     <insert id="crearReserva" parameterType="map" >
         INSERT INTO "Proyecto"."reservas"
-        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaInicio},#{reserva.fechaFin});
+        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaSolicitud},#{reserva.fechaInicio},#{reserva.fechaFin});
     </insert>
 
     <select id="buscarReservasId" resultMap="ReservaResult">
@@ -21,10 +21,16 @@
         where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%');
     </select>
 
+    <select id="buscarReservasComunidad" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario});
+    </select>
+
     <resultMap type='Reserva' id='ReservaResult'>
         <result property='id' column='id'/>
         <result property='fechaInicio' column='fechaInicio'/>
         <result property='fechaFin' column='fechaFin'/>
+        <result property='fechaSolicitud' column='fechaSolicitud'/>
         <association property='usuario' javaType="Usuario"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult" columnPrefix='usuario_'/>
         <association property='recurso' javaType="Recurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix='recurso_'/>
     </resultMap>

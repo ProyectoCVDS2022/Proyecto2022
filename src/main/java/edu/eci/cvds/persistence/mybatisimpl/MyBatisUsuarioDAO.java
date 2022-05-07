@@ -22,4 +22,14 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
             throw new PersistenceException("Error", e);
         }
     }
+
+    @Override
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException {
+        try{
+            return usuarioMapper.infoUsuario(idUsuario);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error", e);
+        }
+    }
 }

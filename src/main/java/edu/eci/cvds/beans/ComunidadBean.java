@@ -23,6 +23,9 @@ import java.util.List;
 public class ComunidadBean extends BasePageBean{
 
     @Inject
+    private LoginBean loginBean;
+
+    @Inject
     private ComunityServices services;
     private int idReserva = 1;
     private int usuario;
@@ -40,6 +43,7 @@ public class ComunidadBean extends BasePageBean{
 
     private String ubicacionNombre;
 
+    private List<Reserva> reservasEncontradas;
     private List<Recurso> recursosEncontrados;
     private Recurso recursoSeleccionado;
 
@@ -60,20 +64,10 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-    public String nombreUbicacionAntes() throws PersistenceException{
-        if(ubicacion == 1){
-            return "Biblioteca Jorge Álvarez Lleras";
-        }else{
-            return "Biblioteca del edificio G";
-        }
-    }
-
     public void reservarRecurso() throws PersistenceException{
         try{
-            System.out.println(fechaInicioReserva);
-            System.out.println(fechaFinReserva);
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), fechaInicioReserva, fechaFinReserva));
+                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva));
                 services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                 idReserva += 1;
             }
@@ -83,19 +77,37 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-    public Ubicacion nombreUbicacion() throws PersistenceException{
+    public Ubicacion nombreUbicacion(int idUbicacion) throws PersistenceException{
         try{
-            return services.nombreUbicacion(recursoSeleccionado.getUbicacion());
+            return services.nombreUbicacion(idUbicacion);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }
     }
 
-    public TipoRecurso nombreTipo() throws PersistenceException{
+    public TipoRecurso nombreTipo(int idTipo) throws PersistenceException{
         try{
-            return services.nombreTipo(recursoSeleccionado.getTipo());
+            return services.nombreTipo(idTipo);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre del tipo del recurso", ex);
+        }
+    }
+
+    public List<Reserva> buscarReservas() throws PersistenceException {
+        try{
+            //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
+            reservasEncontradas = services.buscarReservas("julian");
+            return reservasEncontradas;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar las reservas", ex);
+        }
+    }
+
+    public String nombreRecurso(int id) throws PersistenceException{
+        try{
+            return services.nombreRecurso(id).getNombre();
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del recurso", ex);
         }
     }
 
@@ -229,5 +241,13 @@ public class ComunidadBean extends BasePageBean{
 
     public void setRecursoSeleccionado(Recurso recursoSeleccionado) {
         this.recursoSeleccionado = recursoSeleccionado;
+    }
+
+    public List<Reserva> getReservasEncontradas() {
+        return reservasEncontradas;
+    }
+
+    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
+        this.reservasEncontradas = reservasEncontradas;
     }
 }
