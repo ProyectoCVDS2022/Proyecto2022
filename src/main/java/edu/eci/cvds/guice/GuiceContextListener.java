@@ -4,9 +4,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import edu.eci.cvds.samples.services.LibraryServices;
+import edu.eci.cvds.samples.services.AdminServices;
+import edu.eci.cvds.samples.services.ComunityServices;
 import edu.eci.cvds.samples.services.UserServices;
-import edu.eci.cvds.samples.services.impl.LibraryServicesImpl;
+import edu.eci.cvds.samples.services.impl.AdminServicesImpl;
+import edu.eci.cvds.samples.services.impl.ComunityServicesImpl;
 import edu.eci.cvds.samples.services.impl.UserServicesImpl;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
@@ -38,7 +40,9 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(TipoRecursoDAO.class).to(MyBatisTipoRecursoDAO.class);
                 bind(UbicacionDAO.class).to(MyBatisUbicacionDAO.class);
                 bind(UsuarioDAO.class).to(MyBatisUsuarioDAO.class);
-                bind(LibraryServices.class).to(LibraryServicesImpl.class);
+                bind(AdminServices.class).to(AdminServicesImpl.class);
+                bind(ComunityServices.class).to(ComunityServicesImpl.class);
+                bind(UserServices.class).to(UserServicesImpl.class);
                 //bind(BasePageBean.class).to(LoginBean.class);
                 //bind(Logger.class).to(ShiroLogger.class);
 
