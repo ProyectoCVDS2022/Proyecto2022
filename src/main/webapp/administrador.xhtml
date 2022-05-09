@@ -286,7 +286,7 @@
     <br></br>
 
     <h:form id="admin_cambiar" prependId="false">
-
+        <p:growl id="msg"/>
         <div class="wrap-collabsible">
             <input id="collapsible1" class="toggle" type="checkbox"/>
             <label for="collapsible1" class="lbl-toggle">Editar recursos</label>
@@ -300,7 +300,7 @@
                     <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
                     <br> </br>
 
-                    <p:growl id="msg"/>
+
 
                     <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
 
@@ -332,13 +332,15 @@
                             <h:outputText value="#{adminBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                         </p:column>
                         <p:column headerText="Disponible" style="text-align: center;">
-                            <p:toggleSwitch value="#{adminBean.disponible}" onchange="#{adminBean.cambiarDisponibilidad()}"/>
+                            <p:inputSwitch value="#{adminBean.disponible}">
+                                <p:ajax listener="#{adminBean.addMessage}" update="msg"/>
+                            </p:inputSwitch>
                         </p:column>
 
                     </p:dataTable>
                     <br> </br>
 
-                    <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
+                    <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad(101)}"/>
                 </div>
             </div>
         </div>
@@ -385,6 +387,9 @@
                             </p:column>
                             <p:column headerText="Fecha de finalización" style="text-align: center;">
                                 <h:outputText value="#{reserva.getFechaFinF()}" />
+                            </p:column>
+                            <p:column headerText="Recurrente" style="text-align: center;">
+                                <h:outputText value="#{reserva.recurrente}" />
                             </p:column>
                             <p:column style="width:3rem;text-align: center">
                                 <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"

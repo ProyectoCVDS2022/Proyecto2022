@@ -11,17 +11,19 @@ public class Reserva implements Serializable{
     private int id;
     private int usuario;
     private int recurso;
+    private boolean recurrente;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private LocalDateTime fechaSolicitud;
 
-    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaSolicitud, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaSolicitud, LocalDateTime fechaInicio, LocalDateTime fechaFin, boolean recurrente) {
         this.id = id;
         this.usuario = usuario;
         this.recurso = recurso;
         this.fechaSolicitud = fechaSolicitud;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.recurrente = recurrente;
     }
 
     public String getFechaInicioF(){
@@ -82,6 +84,14 @@ public class Reserva implements Serializable{
 
     public void setFechaSolicitud(LocalDateTime fechaSolicitud) {
         this.fechaSolicitud = fechaSolicitud;
+    }
+
+    public boolean isRecurrente() {
+        return recurrente;
+    }
+
+    public void setRecurrente(boolean recurrente) {
+        this.recurrente = recurrente;
     }
 
     @Override

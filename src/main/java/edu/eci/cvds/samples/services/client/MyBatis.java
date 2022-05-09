@@ -58,7 +58,7 @@ public class MyBatis {
         System.out.println(reservaMapper.buscarReservasUsuario("juank"));
         recursoMapper.cambiarDisponibilidad("No disponible", 101);
 
-        reservaMapper.crearReserva(new Reserva(4, 2, 102, LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now()));
+        reservaMapper.crearReserva(new Reserva(4, 2, 102, LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), false));
 
         sqlss.commit();
         sqlss.close();

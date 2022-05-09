@@ -11,6 +11,10 @@ import edu.eci.cvds.entities.Ubicacion;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.ComunityServices;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -40,6 +44,7 @@ public class ComunidadBean extends BasePageBean{
     private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
+    private boolean recurrente;
 
     private String ubicacionNombre;
 
@@ -67,7 +72,7 @@ public class ComunidadBean extends BasePageBean{
     public void reservarRecurso() throws PersistenceException{
         try{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva));
+                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
                 services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                 idReserva += 1;
             }
@@ -250,4 +255,13 @@ public class ComunidadBean extends BasePageBean{
     public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
         this.reservasEncontradas = reservasEncontradas;
     }
+
+    public boolean isRecurrente() {
+        return recurrente;
+    }
+
+    public void setRecurrente(boolean recurrente) {
+        this.recurrente = recurrente;
+    }
+
 }

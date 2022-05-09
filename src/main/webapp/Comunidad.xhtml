@@ -273,20 +273,29 @@
                             <p:column headerText="Ubicación" style="text-align: center;">
                                 <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
+                            <p:column headerText="Ocupación" style="width:3rem;text-align: center">
+                                <p:commandButton actionListener="#{CalendarView.jijija()}" oncomplete="PF('dlg_ocupacion').show(); #{CalendarView.jijija()} "
+                                                 icon="pi pi-search" title="View">
+                                    <f:setPropertyActionListener value="#{recurso}"
+                                                                 target="#{CalendarView.recursoSeleccionado}"/>
+                                </p:commandButton>
+                            </p:column>
                         </p:dataTable>
 
                         <br> </br>
 
+                        <p:dialog modal="true" resizable="false" header="Ocupación del recurso" widgetVar="dlg_ocupacion" showEffect="fold" hideEffect="clip">
+                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;"/>
+                        </p:dialog>
+
                         <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold" hideEffect="fade">
                             <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                                <h:outputText value="Id:" />
-                                <h:outputText value="#{comunidadBean.recursoSeleccionado.id}"/>
 
                                 <h:outputText value="Nombre" />
                                 <h:outputText value="#{comunidadBean.recursoSeleccionado.nombre}"/>
 
-                                <h:outputText value="Capacidad" />
-                                <h:outputText value="#{comunidadBean.recursoSeleccionado.capacidad}"/>
+                                <h:outputText value="Tipo:" />
+                                <h:outputText value=""/>
 
                                 <h:outputText value="Hora de inicio" />
                                 <p:datePicker id="horainicio" value="#{comunidadBean.fechaInicioReserva}" showTime="true"/>
@@ -294,11 +303,8 @@
                                 <h:outputText value="Hora de finalización" />
                                 <p:datePicker id="horafin" value="#{comunidadBean.fechaFinReserva}" showTime="true"/>
 
-                                <h:outputText value="Tipo:" />
-                                <h:outputText value=""/>
-
-                                <h:outputText value="Ubicación:" />
-                                <h:outputText value=""/>
+                                <h:outputText value="Recurrente:" />
+                                <p:toggleSwitch value="#{comunidadBean.recurrente}"/>
 
                             </p:panelGrid>
                             <br> </br>

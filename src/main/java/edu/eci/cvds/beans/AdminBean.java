@@ -10,6 +10,7 @@ import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.AdminServices;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.ScheduleModel;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -30,7 +31,7 @@ public class AdminBean extends BasePageBean{
     private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
-    private boolean disponible;
+    private Boolean disponible = false;
 
     private String nombreBuscar;
     private String usuarioBuscarReservas;
@@ -53,11 +54,6 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void addMessage() {
-        String summary = disponible ? "Checked" : "Unchecked";
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
-    }
-
     public Recurso buscarRecurso() throws PersistenceException {
         try{
             Recurso recurso = services.buscarRecurso(nombreBuscar);
@@ -77,15 +73,20 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void cambiarDisponibilidad() throws PersistenceException {
-        System.out.println(disponible);
+    public void cambiarDisponibilidad(int id) throws PersistenceException {
+        try{
+            System.out.println(disponible);
+            services.cambiarDisponibilidad("Disponible", id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
+        }
     }
 
     public Usuario infoUsuario(int idUsuario) throws PersistenceException{
         try{
             return services.infoUsuario(idUsuario);
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el nombre del usuario", ex);
+            throw new PersistenceException("Error al buscar la información del usuario", ex);
         }
     }
 
@@ -147,6 +148,10 @@ public class AdminBean extends BasePageBean{
         }
     }
 
+    public void addMessage() {
+        String summary = disponible ? "Checked" : "Unchecked";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+    }
 
 
     public void prueba(){
@@ -293,7 +298,7 @@ public class AdminBean extends BasePageBean{
         this.reservaSeleccionada = reservaSeleccionada;
     }
 
-    public boolean isDisponible() {
+    public boolean getDisponible() {
         return disponible;
     }
 
