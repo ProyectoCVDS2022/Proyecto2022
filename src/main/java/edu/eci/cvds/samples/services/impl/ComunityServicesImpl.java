@@ -101,14 +101,4 @@ public class ComunityServicesImpl implements ComunityServices {
         }
     }
 
-    @Override
-    public int maxIdReserva() throws PersistenceException {
-        try{
-            return reservaDAO.maxIdReserva();
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el numero de la reserva maxima" , ex);
-        }
-    }
-
-
 }

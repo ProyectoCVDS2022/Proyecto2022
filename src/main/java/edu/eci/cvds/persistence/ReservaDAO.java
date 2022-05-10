@@ -15,5 +15,4 @@ public interface ReservaDAO {
 
     public List<Reserva> buscarReservasComunidad(String usuario) throws PersistenceException;
 
-    public int maxIdReserva() throws PersistenceException;
 }

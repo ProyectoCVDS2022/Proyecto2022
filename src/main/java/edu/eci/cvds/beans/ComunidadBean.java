@@ -33,6 +33,7 @@ public class ComunidadBean extends BasePageBean{
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinReserva;
     private boolean recurrente;
+    private int idReserva = 2;
     private List<Reserva> reservasEncontradas;
 
 
@@ -70,7 +71,7 @@ public class ComunidadBean extends BasePageBean{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
                 if(fechaFinReserva.isEqual(fechaInicioReserva.plusHours(2)) || (fechaFinReserva.isBefore(fechaInicioReserva.plusHours(2)) && fechaFinReserva.isAfter(fechaInicioReserva))){
                     if(fechaInicioReserva.getHour() >= recursoSeleccionado.getFechaInicio().getHour() && fechaFinReserva.getHour() <= recursoSeleccionado.getFechaFin().getHour()){
-                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
+                        services.crearReserva(new Reserva(idReserva, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
                         services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                         addMessage("¡Recurso reservado exitosamente!");
                     }else{
@@ -92,14 +93,6 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-
-    public int maxIdReserva() throws PersistenceException {
-        try{
-            return services.maxIdReserva();
-        }catch (PersistenceException e){
-            throw new PersistenceException("Error en la busqueda del numero de reservas",e);
-        }
-    }
     public List<Reserva> buscarReservas() throws PersistenceException {
         try{
             //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
