@@ -228,5 +228,4 @@ public class AdminBean extends BasePageBean{
 
     public void setServices(AdminServices services) {this.services = services;}
 
-
 }

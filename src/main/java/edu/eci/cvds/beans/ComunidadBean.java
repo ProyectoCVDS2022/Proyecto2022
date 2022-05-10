@@ -1,21 +1,17 @@
 package edu.eci.cvds.beans;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.Reserva;
-import edu.eci.cvds.entities.TipoRecurso;
-import edu.eci.cvds.entities.Ubicacion;
+import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
+import edu.eci.cvds.samples.services.AdminServices;
 import edu.eci.cvds.samples.services.ComunityServices;
 import org.primefaces.PrimeFaces;
-import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
-import org.primefaces.model.ScheduleEvent;
-import org.primefaces.model.ScheduleModel;
 
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -27,33 +23,18 @@ import java.util.List;
 public class ComunidadBean extends BasePageBean{
 
     @Inject
-    private LoginBean loginBean;
-
-    @Inject
     private ComunityServices services;
-    private int idReserva = 1;
-    private int usuario;
-    private int filtro;
+    @Inject
+    private CalendarBean calendarBean;
     private String nombreBuscar = "";
-
-    private int id;
-    private int tipo;
-    private String nombre;
-    private int capacidad;
-    private LocalTime fechaInicio;
-    private LocalTime fechaFin;
-    private int ubicacion;
-    private String observaciones;
-    private boolean recurrente;
-
-    private String ubicacionNombre;
-
-    private List<Reserva> reservasEncontradas;
     private List<Recurso> recursosEncontrados;
+    private int filtro;
     private Recurso recursoSeleccionado;
-
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinReserva;
+    private boolean recurrente;
+    private int idReserva = 2;
+    private List<Reserva> reservasEncontradas;
 
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
@@ -66,19 +47,6 @@ public class ComunidadBean extends BasePageBean{
             return recursosEncontrados;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos", ex);
-        }
-    }
-
-    public void reservarRecurso() throws PersistenceException{
-        try{
-            if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                services.crearReserva(new Reserva(idReserva, usuario, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
-                services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
-                idReserva += 1;
-            }
-            System.out.println("hacer mensaje de error recurso no disponible");
-        }catch (PersistenceException ex) {
-            throw new PersistenceException("Error al reservar el recurso", ex);
         }
     }
 
@@ -98,10 +66,22 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
+    public void reservarRecurso() throws PersistenceException{
+        try{
+            if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
+                services.crearReserva(new Reserva(idReserva, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
+                services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
+                idReserva += 1;
+            }
+        }catch (PersistenceException ex) {
+            throw new PersistenceException("Error al reservar el recurso", ex);
+        }
+    }
+
     public List<Reserva> buscarReservas() throws PersistenceException {
         try{
             //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
-            reservasEncontradas = services.buscarReservas("julian");
+            reservasEncontradas = services.buscarReservas("julian@gmail.com");
             return reservasEncontradas;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar las reservas", ex);
@@ -116,72 +96,21 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
+    public void addMessage() {
+        String summary = recursoSeleccionado.getDisponibilidad().equals("Disponible") ? "Recurso reservado" : "No se puede reservar el recurso";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+    }
+
     public void click() {
         PrimeFaces.current().executeScript("PF('dlg').show()");
     }
 
-    public int getId() {
-        return id;
+    public ComunityServices getServices() {
+        return services;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
-    }
-
-    public LocalTime getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(LocalTime fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public LocalTime getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(LocalTime fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    public int getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(int ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void setServices(ComunityServices services) {
+        this.services = services;
     }
 
     public String getNombreBuscar() {
@@ -208,38 +137,6 @@ public class ComunidadBean extends BasePageBean{
         this.filtro = filtro;
     }
 
-    public int getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(int idUsuario) {
-        this.usuario = idUsuario;
-    }
-
-    public int getIdReserva() {
-        return idReserva;
-    }
-
-    public void setIdReserva(int idReserva) {
-        this.idReserva = idReserva;
-    }
-
-    public LocalDateTime getFechaInicioReserva() {
-        return fechaInicioReserva;
-    }
-
-    public void setFechaInicioReserva(LocalDateTime horaInicioReserva) {
-        this.fechaInicioReserva = horaInicioReserva;
-    }
-
-    public LocalDateTime getFechaFinReserva() {
-        return fechaFinReserva;
-    }
-
-    public void setFechaFinReserva(LocalDateTime horaFinReserva) {
-        this.fechaFinReserva = horaFinReserva;
-    }
-
     public Recurso getRecursoSeleccionado() {
         return recursoSeleccionado;
     }
@@ -248,12 +145,28 @@ public class ComunidadBean extends BasePageBean{
         this.recursoSeleccionado = recursoSeleccionado;
     }
 
-    public List<Reserva> getReservasEncontradas() {
-        return reservasEncontradas;
+    public CalendarBean getCalendarBean() {
+        return calendarBean;
     }
 
-    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
-        this.reservasEncontradas = reservasEncontradas;
+    public void setCalendarBean(CalendarBean calendarBean) {
+        this.calendarBean = calendarBean;
+    }
+
+    public LocalDateTime getFechaInicioReserva() {
+        return fechaInicioReserva;
+    }
+
+    public void setFechaInicioReserva(LocalDateTime fechaInicioReserva) {
+        this.fechaInicioReserva = fechaInicioReserva;
+    }
+
+    public LocalDateTime getFechaFinReserva() {
+        return fechaFinReserva;
+    }
+
+    public void setFechaFinReserva(LocalDateTime fechaFinReserva) {
+        this.fechaFinReserva = fechaFinReserva;
     }
 
     public boolean isRecurrente() {
@@ -264,4 +177,11 @@ public class ComunidadBean extends BasePageBean{
         this.recurrente = recurrente;
     }
 
+    public List<Reserva> getReservasEncontradas() {
+        return reservasEncontradas;
+    }
+
+    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
+        this.reservasEncontradas = reservasEncontradas;
+    }
 }

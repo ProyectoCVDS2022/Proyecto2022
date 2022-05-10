@@ -223,8 +223,10 @@
                         <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{comunidadBean.buscarRecursos()}"/>
                         <br> </br>
 
+                        <p:growl id="msg"/>
+
                         <p:dataTable id="resultado" var="recurso" rows="10" paginator="true" selectionMode="single"
-                                     selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.nombre}"
+                                     selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
                                      paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
                                      value="#{comunidadBean.recursosEncontrados}" selectionPageOnly="false"
                                      paginatorPosition="bottom" scrollable="true">
@@ -274,7 +276,7 @@
                                 <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
                             <p:column headerText="Ocupación" style="width:3rem;text-align: center">
-                                <p:commandButton actionListener="#{CalendarView.jijija()}" oncomplete="PF('dlg_ocupacion').show(); #{CalendarView.jijija()} "
+                                <p:commandButton oncomplete="PF('dlg_ocupacion').show();"
                                                  icon="pi pi-search" title="View">
                                     <f:setPropertyActionListener value="#{recurso}"
                                                                  target="#{CalendarView.recursoSeleccionado}"/>
@@ -295,7 +297,10 @@
                                 <h:outputText value="#{comunidadBean.recursoSeleccionado.nombre}"/>
 
                                 <h:outputText value="Tipo:" />
-                                <h:outputText value=""/>
+                                <h:outputText value="#{comunidadBean.nombreTipo(comunidadBean.recursoSeleccionado.getTipo()).getNombre()}"/>
+
+                                <h:outputText value="Ubicación:" />
+                                <h:outputText value="#{comunidadBean.nombreUbicacion(comunidadBean.recursoSeleccionado.getUbicacion()).getLugar()}"/>
 
                                 <h:outputText value="Hora de inicio" />
                                 <p:datePicker id="horainicio" value="#{comunidadBean.fechaInicioReserva}" showTime="true"/>
@@ -308,7 +313,7 @@
 
                             </p:panelGrid>
                             <br> </br>
-                            <p:commandButton value="Crear reserva" icon="pi pi-check" actionListener="#{comunidadBean.reservarRecurso()}"/>
+                            <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" action="comunidadBean.addMessage()" actionListener="#{comunidadBean.reservarRecurso()}"/>
                         </p:dialog>
 
                         <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" action="#{comunidadBean.click()}"/>
@@ -317,7 +322,7 @@
             </div>
         </h:form>
 
-        <br></br>
+        <br> </br>
 
         <h:form id="consultar_reservas">
             <div class="wrap-collabsible">
@@ -362,6 +367,7 @@
                 </div>
             </div>
         </h:form>
+
     </body>
 </h:body>
 

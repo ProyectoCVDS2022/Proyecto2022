@@ -1,5 +1,6 @@
 package edu.eci.cvds.beans;
 
+import com.google.inject.Inject;
 import edu.eci.cvds.entities.Recurso;
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @ManagedBean(name = "CalendarView")
 @ApplicationScoped
 
-public class CalendarBean implements Serializable {
+public class CalendarBean extends BasePageBean implements Serializable {
 
     private ScheduleModel eventModel;
     private ScheduleEvent<?> event = new DefaultScheduleEvent<>();
@@ -38,8 +39,8 @@ public class CalendarBean implements Serializable {
         eventModel.addEvent(event);
     }
 
-    public void jijija(){
-        System.out.println("sexo");
+    public void jijija(ScheduleEvent<?> event){
+        eventModel.addEvent(event);
     }
 
     public ScheduleModel getEventModel() {

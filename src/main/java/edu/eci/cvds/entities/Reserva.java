@@ -94,6 +94,14 @@ public class Reserva implements Serializable{
         this.recurrente = recurrente;
     }
 
+    public String getRecurrenteF(){
+        if(recurrente){
+            return "Sí";
+        }else{
+            return "No";
+        }
+    }
+
     @Override
     public String toString() {
         return "Reserva{id= " + id +

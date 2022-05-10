@@ -377,19 +377,7 @@
                             <p:column headerText="Tipo" style="text-align: center;">
                                 <h:outputText value="#{adminBean.nombreTipo(adminBean.nombreRecurso(reserva.recurso).getTipo()).getNombre()}" />
                             </p:column>
-                            <p:column headerText="Fecha de solicitud" style="text-align: center;">
-                                <h:outputText value="#{reserva.getFechaSolicitudF()}" />
-                            </p:column>
-                            <p:column headerText="Fecha de inicio" style="text-align: center;">
-                                <h:outputText value="#{reserva.getFechaInicioF()}" />
-                            </p:column>
-                            <p:column headerText="Fecha de finalización" style="text-align: center;">
-                                <h:outputText value="#{reserva.getFechaFinF()}" />
-                            </p:column>
-                            <p:column headerText="Recurrente" style="text-align: center;">
-                                <h:outputText value="#{reserva.recurrente}" />
-                            </p:column>
-                            <p:column style="width:3rem;text-align: center">
+                            <p:column headerText="Ver detalles" style="width:3rem;text-align: center">
                                 <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
                                                  icon="pi pi-search" title="View">
                                     <f:setPropertyActionListener value="#{reserva}"
@@ -405,20 +393,18 @@
                                     <h:outputText value="Id" />
                                     <h:outputText value="#{adminBean.reservaSeleccionada.id}"/>
 
-                                    <h:outputText value="Usuario" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.usuario}"/>
-
-                                    <h:outputText value="Recurso" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.recurso}"/>
+                                    <h:outputText value="Fecha de solicitud" />
+                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaSolicitudF()}" />
 
                                     <h:outputText value="Fecha de inicio" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}"/>
+                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}" />
 
                                     <h:outputText value="Fecha de finalización" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}"/>
+                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}" />
+
+                                    <h:outputText value="Recurrente" />
+                                    <h:outputText value="#{adminBean.reservaSeleccionada.getRecurrenteF()}"/>
                                 </p:panelGrid>
-                                <br> </br>
-                                <p:commandButton value="Eliminar reserva" icon="pi pi-times" actionListener="adminBean.prueba()"/>
                             </p:outputPanel>
                         </p:dialog>
                     </div>
