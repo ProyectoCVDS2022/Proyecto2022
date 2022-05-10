@@ -19,18 +19,12 @@ import java.time.LocalDateTime;
 
 public class CalendarBean extends BasePageBean implements Serializable {
 
-    private ScheduleModel eventModel;
+    private ScheduleModel eventModel = new DefaultScheduleModel();
     private ScheduleEvent<?> event = new DefaultScheduleEvent<>();
-    private Recurso recursoSeleccionado;
 
     @PostConstruct
     public void init(){
-        eventModel = new DefaultScheduleModel();
-        crearCalendario();
-    }
-
-    public void crearCalendario(){
-        DefaultScheduleEvent<?> event = DefaultScheduleEvent.builder()
+        event = DefaultScheduleEvent.builder()
                 .title("Reservado")
                 .startDate(LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0))
                 .endDate(LocalDateTime.now().minusDays(1).withHour(23).withMinute(0).withSecond(0).withNano(0))
@@ -39,7 +33,14 @@ public class CalendarBean extends BasePageBean implements Serializable {
         eventModel.addEvent(event);
     }
 
-    public void jijija(ScheduleEvent<?> event){
+    public void crearCalendario(Recurso recurso){
+        System.out.println(recurso.getDisponibilidad());
+        event = DefaultScheduleEvent.builder()
+                .title("Reservado prueba")
+                .startDate(LocalDateTime.now().minusDays(1).withHour(10).withMinute(0).withSecond(0).withNano(0))
+                .endDate(LocalDateTime.now().minusDays(1).withHour(13).withMinute(0).withSecond(0).withNano(0))
+                .borderColor("orange")
+                .build();
         eventModel.addEvent(event);
     }
 
@@ -57,13 +58,5 @@ public class CalendarBean extends BasePageBean implements Serializable {
 
     public void setEvent(ScheduleEvent<?> event) {
         this.event = event;
-    }
-
-    public Recurso getRecursoSeleccionado() {
-        return recursoSeleccionado;
-    }
-
-    public void setRecursoSeleccionado(Recurso recursoSeleccionado) {
-        this.recursoSeleccionado = recursoSeleccionado;
     }
 }

@@ -276,11 +276,8 @@
                                 <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
                             <p:column headerText="Ocupación" style="width:3rem;text-align: center">
-                                <p:commandButton oncomplete="PF('dlg_ocupacion').show();"
-                                                 icon="pi pi-search" title="View">
-                                    <f:setPropertyActionListener value="#{recurso}"
-                                                                 target="#{CalendarView.recursoSeleccionado}"/>
-                                </p:commandButton>
+                                <p:commandButton actionListener="#{CalendarView.crearCalendario(recurso)}" oncomplete="PF('dlg_ocupacion').show(); "
+                                                 icon="pi pi-search" title="View"/>
                             </p:column>
                         </p:dataTable>
 
@@ -313,7 +310,7 @@
 
                             </p:panelGrid>
                             <br> </br>
-                            <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" action="comunidadBean.addMessage()" actionListener="#{comunidadBean.reservarRecurso()}"/>
+                            <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" actionListener="#{comunidadBean.reservarRecurso()}"/>
                         </p:dialog>
 
                         <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" action="#{comunidadBean.click()}"/>
@@ -322,7 +319,7 @@
             </div>
         </h:form>
 
-        <br> </br>
+        <br></br>
 
         <h:form id="consultar_reservas">
             <div class="wrap-collabsible">

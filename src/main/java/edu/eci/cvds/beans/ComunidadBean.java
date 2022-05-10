@@ -69,9 +69,24 @@ public class ComunidadBean extends BasePageBean{
     public void reservarRecurso() throws PersistenceException{
         try{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                services.crearReserva(new Reserva(idReserva, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
-                services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
-                idReserva += 1;
+                if(fechaFinReserva.isEqual(fechaInicioReserva.plusHours(2)) || (fechaFinReserva.isBefore(fechaInicioReserva.plusHours(2)) && fechaFinReserva.isAfter(fechaInicioReserva))){
+                    if(fechaInicioReserva.getHour() >= recursoSeleccionado.getFechaInicio().getHour() && fechaFinReserva.getHour() <= recursoSeleccionado.getFechaFin().getHour()){
+                        services.crearReserva(new Reserva(idReserva, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
+                        services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
+                        addMessage("¡Recurso reservado exitosamente!");
+                    }else{
+                        addMessage("La hora seleccionada debe estar en el horario de disponibilidad del recurso");
+                    }
+
+                }else{
+                    if(fechaFinReserva.isAfter(fechaInicioReserva.plusHours(2))){
+                        addMessage("El tiempo máximo de la reserva es de dos horas");
+                    }else if(fechaFinReserva.isBefore(fechaInicioReserva)){
+                        addMessage("La fecha de fin debe ser mayor a la fecha de inicio");
+                    }
+                }
+            }else{
+                addMessage("El recurso ya se encuentra reservado en el horario seleccionado");
             }
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
@@ -96,8 +111,7 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-    public void addMessage() {
-        String summary = recursoSeleccionado.getDisponibilidad().equals("Disponible") ? "Recurso reservado" : "No se puede reservar el recurso";
+    public void addMessage(String summary) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 
