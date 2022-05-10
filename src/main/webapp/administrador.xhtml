@@ -208,7 +208,8 @@
 
     </div>
 
-    <br> </br>
+
+    <br></br>
 
     <h:form id="admin_agregar" prependId="false">
 
@@ -217,67 +218,67 @@
             <label for="collapsible" class="lbl-toggle">Agregar Recurso</label>
             <div class="collapsible-content">
                 <div class="content-inner">
-                        <p:messages>
-                            <p:autoUpdate />
-                        </p:messages>
+                    <p:messages>
+                        <p:autoUpdate />
+                    </p:messages>
 
-                        <h1>Datos del recurso</h1>
+                    <h1>Datos del recurso</h1>
 
-                        <p:inputText id="id" placeholder="Identificador" required="false" type="String" value="#{adminBean.id}"/>
-                        <br> </br>
-                        <p:inputText id="nombre" placeholder="Nombre" required="false" type="String" value="#{adminBean.nombre}"/>
-                        <br> </br>
-                        <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
-                        <br> </br>
-                        <p:datePicker id="horainicio" placeholder="Hora de inicio" value="#{adminBean.fechaInicio}" timeOnly="true" pattern="HH:mm"/>
-                        <br> </br>
-                        <p:datePicker id="horafin" placeholder="Hora de fin" value="#{adminBean.fechaFin}" timeOnly="true" pattern="HH:mm"/>
-                        <br> </br>
-                        <p:inputText id="observaciones" placeholder="Observaciones" required="false" type="String" value="#{adminBean.observaciones}"/>
-                        <br> </br>
-                        <h:selectOneMenu name="tipo_recurso"  value="#{adminBean.tipo}" >
-                            <f:selectItem itemLabel="- Tipo -" itemValue="#{null}" noSelectionOption="true"/>
-                            <f:selectItem itemValue = "1" itemLabel = "Libro" />
-                            <f:selectItem itemValue = "2" itemLabel = "Sala de estudio" />
-                            <f:selectItem itemValue = "3" itemLabel = "Portatil"/>
-                            <f:selectItem itemValue = "3" itemLabel = "Computador de escritorio"/>
-                        </h:selectOneMenu>
-                        <br> </br>
-                        <h:selectOneMenu name="ubicacion"  value="#{adminBean.ubicacion}" >
-                            <f:selectItem itemLabel="- Ubicación -" itemValue="#{null}" noSelectionOption="true"/>
-                            <f:selectItem itemValue = "1" itemLabel = "Biblioteca Jorge Álvarez Lleras" />
-                            <f:selectItem itemValue = "2" itemLabel = "Biblioteca del edificio G" />
-                        </h:selectOneMenu>
-                        <br> </br>
-                        <p:dialog modal="true" resizable="false" header="Recurso agregado exitosamente" widgetVar="dlg" showEffect="fold">
-                            <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                                <h:outputText value="Id:" />
-                                <h:outputText value="#{adminBean.id}"/>
+                    <p:inputText id="id" placeholder="Identificador" required="false" type="String" value="#{adminBean.id}"/>
+                    <br> </br>
+                    <p:inputText id="nombre" placeholder="Nombre" required="false" type="String" value="#{adminBean.nombre}"/>
+                    <br> </br>
+                    <p:inputText id="capacidad" placeholder="Capacidad" required="false" type="String" value="#{adminBean.capacidad}"/>
+                    <br> </br>
+                    <p:datePicker id="horainicio" placeholder="Hora de inicio" value="#{adminBean.fechaInicio}" timeOnly="true" pattern="HH:mm"/>
+                    <br> </br>
+                    <p:datePicker id="horafin" placeholder="Hora de fin" value="#{adminBean.fechaFin}" timeOnly="true" pattern="HH:mm"/>
+                    <br> </br>
+                    <p:inputText id="observaciones" placeholder="Observaciones" required="false" type="String" value="#{adminBean.observaciones}"/>
+                    <br> </br>
+                    <h:selectOneMenu name="tipo_recurso"  value="#{adminBean.tipo}" >
+                        <f:selectItem itemLabel="- Tipo -" itemValue="#{null}" noSelectionOption="true"/>
+                        <f:selectItem itemValue = "1" itemLabel = "Libro" />
+                        <f:selectItem itemValue = "2" itemLabel = "Sala de estudio" />
+                        <f:selectItem itemValue = "3" itemLabel = "Portatil"/>
+                        <f:selectItem itemValue = "3" itemLabel = "Computador de escritorio"/>
+                    </h:selectOneMenu>
+                    <br> </br>
+                    <h:selectOneMenu name="ubicacion"  value="#{adminBean.ubicacion}" >
+                        <f:selectItem itemLabel="- Ubicación -" itemValue="#{null}" noSelectionOption="true"/>
+                        <f:selectItem itemValue = "1" itemLabel = "Biblioteca Jorge Álvarez Lleras" />
+                        <f:selectItem itemValue = "2" itemLabel = "Biblioteca del edificio G" />
+                    </h:selectOneMenu>
+                    <br> </br>
+                    <p:dialog modal="true" resizable="false" header="Recurso agregado exitosamente" widgetVar="dlg" showEffect="fold">
+                        <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                            <h:outputText value="Id:" />
+                            <h:outputText value="#{adminBean.id}"/>
 
-                                <h:outputText value="Nombre:" />
-                                <h:outputText value="#{adminBean.nombre}"/>
+                            <h:outputText value="Nombre:" />
+                            <h:outputText value="#{adminBean.nombre}"/>
 
-                                <h:outputText value="Capacidad:" />
-                                <h:outputText value="#{adminBean.capacidad}"/>
+                            <h:outputText value="Capacidad:" />
+                            <h:outputText value="#{adminBean.capacidad}"/>
 
-                                <h:outputText value="Hora de inicio:" />
-                                <h:outputText value="#{adminBean.fechaInicio}"/>
+                            <h:outputText value="Hora de inicio:" />
+                            <h:outputText value="#{adminBean.fechaInicio}"/>
 
-                                <h:outputText value="Hora de finalización:" />
-                                <h:outputText value="#{adminBean.fechaFin}"/>
+                            <h:outputText value="Hora de finalización:" />
+                            <h:outputText value="#{adminBean.fechaFin}"/>
 
-                                <h:outputText value="Observaciones:" />
-                                <h:outputText value="#{adminBean.observaciones}"/>
+                            <h:outputText value="Observaciones:" />
+                            <h:outputText value="#{adminBean.observaciones}"/>
 
-                                <h:outputText value="Tipo:" />
-                                <h:outputText value="#{adminBean.nombreTipoDialogo().getNombre()}"/>
+                            <h:outputText value="Tipo:" />
+                            <h:outputText value="#{adminBean.nombreTipoDialogo().getNombre()}"/>
 
-                                <h:outputText value="Ubicación:" />
-                                <h:outputText value="#{adminBean.nombreUbicacionDialogo().getLugar()}"/>
+                            <h:outputText value="Ubicación:" />
+                            <h:outputText value="#{adminBean.nombreUbicacionDialogo().getLugar()}"/>
 
-                            </p:panelGrid>
-                        </p:dialog>
-                        <p:commandButton id="boton_agregar" value="Agregar" icon="pi pi-check" update=":display" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
+                        </p:panelGrid>
+                    </p:dialog>
+                    <p:commandButton id="boton_agregar" value="Agregar" icon="pi pi-check" update=":display" actionListener="#{adminBean.agregarRecurso()}" action="#{adminBean.click()}"/>
                 </div>
             </div>
         </div>
@@ -286,7 +287,6 @@
     <br></br>
 
     <h:form id="admin_cambiar" prependId="false">
-        <p:growl id="msg"/>
         <div class="wrap-collabsible">
             <input id="collapsible1" class="toggle" type="checkbox"/>
             <label for="collapsible1" class="lbl-toggle">Editar recursos</label>
@@ -295,50 +295,48 @@
                     <h1>Editar disponibilidad de recursos</h1>
                     <br></br>
                     <p:outputLabel value="Nombre del recurso: " />
-                    <p:inputText id="nombreBuscar" required="true" type="String" value="#{adminBean.nombreBuscar}"/>
+                    <p:inputText id="nombreBuscar" required="false" type="String" value="#{adminBean.nombreBuscar}"/>
                     <br> </br>
                     <p:commandButton id="boton_buscar" value="Buscar" update="resultado" actionListener="#{adminBean.buscarRecursos()}"/>
                     <br> </br>
 
+                    <p:growl id="msg"/>
 
-
-                    <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
-
+                    <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}" rowKey="#{recurso.id}"
+                                 selection = "#{adminBean.recursoSeleccionado}">
                         <p:column selectionMode="single" style="text-align: center;"/>
-
-                        <p:column headerText="ID" style="text-align: center;">
+                        <p:column headerText="ID">
                             <h:outputText value="#{recurso.id}" />
                         </p:column>
-
-                        <p:column headerText="Nombre" style="text-align: center;">
+                        <p:column headerText="Nombre">
                             <h:outputText value="#{recurso.nombre}" />
                         </p:column>
-                        <p:column headerText="Capacidad" style="text-align: center;">
+                        <p:column headerText="Capacidad">
                             <h:outputText value="#{recurso.capacidad}" />
                         </p:column>
-                        <p:column headerText="Hora de inicio" style="text-align: center;">
+                        <p:column headerText="Hora de inicio">
                             <h:outputText value="#{recurso.fechaInicio}" />
                         </p:column>
-                        <p:column headerText="Hora de finalización" style="text-align: center;">
+                        <p:column headerText="Hora de finalización">
                             <h:outputText value="#{recurso.fechaFin}" />
                         </p:column>
-                        <p:column headerText="Disponibilidad" style="text-align: center;">
+                        <p:column headerText="Disponibilidad">
                             <h:outputText value="#{recurso.disponibilidad}" />
                         </p:column>
-                        <p:column headerText="Observaciones" style="text-align: center;">
+                        <p:column headerText="Observaciones">
                             <h:outputText value="#{recurso.observaciones}" />
                         </p:column>
-                        <p:column headerText="Tipo" style="text-align: center;">
+                        <p:column headerText="Tipo">
                             <h:outputText value="#{adminBean.nombreTipo(recurso.tipo).getNombre()}" />
                         </p:column>
-                        <p:column headerText="Ubicación" style="text-align: center;">
+                        <p:column headerText="Ubicación">
                             <h:outputText value="#{adminBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                         </p:column>
-
                     </p:dataTable>
                     <br> </br>
 
-                    <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" actionListener="#{adminBean.cambiarDisponibilidad(101)}"/>
+                    <p:commandButton id="boton_cambiar" value="Cambiar disponibilidad" update="msg" actionListener="#{adminBean.cambiarDisponibilidad()}"/>
+
                 </div>
             </div>
         </div>
@@ -346,75 +344,85 @@
     </h:form>
 
     <br></br>
-
     <h:form id="admin_reservas" prependId="false">
 
-            <div class="wrap-collabsible">
-                <input id="collapsible2" class="toggle" type="checkbox"/>
-                <label for="collapsible2" class="lbl-toggle">Consultar reservas</label>
-                <div class="collapsible-content">
-                    <div class="content2-inner">
-                        <h1>Consulta de reservas</h1>
-                        <br></br>
-                        <p:inputText id="reservaBuscar" placeholder="Nombre de usuario" required="false" type="String" value="#{adminBean.usuarioBuscarReservas}"/>
-                        <br> </br>
-                        <p:commandButton id="boton_buscarReserva" value="Buscar" update="reservas" actionListener="#{adminBean.buscarReservasUsuario()}"/>
-                        <br> </br>
+        <div class="wrap-collabsible">
+            <input id="collapsible2" class="toggle" type="checkbox"/>
+            <label for="collapsible2" class="lbl-toggle">Consultar reservas</label>
+            <div class="collapsible-content">
+                <div class="content2-inner">
+                    <h1>Consulta de reservas</h1>
+                    <br></br>
+                    <p:inputText id="reservaBuscar" placeholder="Nombre de usuario" required="false" type="String" value="#{adminBean.usuarioBuscarReservas}"/>
+                    <br> </br>
+                    <p:commandButton id="boton_buscarReserva" value="Buscar" update="reservas" actionListener="#{adminBean.buscarReservasUsuario()}"/>
+                    <br> </br>
 
-                        <p:dataTable id="reservas" var="reserva" value="#{adminBean.reservasEncontradas}">
-                            <p:column headerText="ID" style="text-align: center;">
-                                <h:outputText value="#{reserva.id}" />
-                            </p:column>
-                            <p:column headerText="Usuario" style="text-align: center;">
-                                <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getCorreo()}" />
-                            </p:column>
-                            <p:column headerText="Programa" style="text-align: center;">
-                                <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getPrograma()}" />
-                            </p:column>
-                            <p:column headerText="Recurso" style="text-align: center;">
-                                <h:outputText value="#{adminBean.nombreRecurso(reserva.recurso).getNombre()}" />
-                            </p:column>
-                            <p:column headerText="Tipo" style="text-align: center;">
-                                <h:outputText value="#{adminBean.nombreTipo(adminBean.nombreRecurso(reserva.recurso).getTipo()).getNombre()}" />
-                            </p:column>
-                            <p:column headerText="Ver detalles" style="width:3rem;text-align: center">
-                                <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
-                                                 icon="pi pi-search" title="View">
-                                    <f:setPropertyActionListener value="#{reserva}"
-                                                                 target="#{adminBean.reservaSeleccionada}"/>
-                                </p:commandButton>
-                            </p:column>
-                        </p:dataTable>
+                    <p:dataTable id="reservas" var="reserva" value="#{adminBean.reservasEncontradas}">
+                        <p:column headerText="ID" style="text-align: center;">
+                            <h:outputText value="#{reserva.id}" />
+                        </p:column>
+                        <p:column headerText="Usuario" style="text-align: center;">
+                            <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getCorreo()}" />
+                        </p:column>
+                        <p:column headerText="Programa" style="text-align: center;">
+                            <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getPrograma()}" />
+                        </p:column>
+                        <p:column headerText="Recurso" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreRecurso(reserva.recurso).getNombre()}" />
+                        </p:column>
+                        <p:column headerText="Tipo" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreTipo(adminBean.nombreRecurso(reserva.recurso).getTipo()).getNombre()}" />
+                        </p:column>
+                        <p:column headerText="Fecha de solicitud" style="text-align: center;">
+                            <h:outputText value="#{reserva.getFechaSolicitudF()}" />
+                        </p:column>
+                        <p:column headerText="Fecha de inicio" style="text-align: center;">
+                            <h:outputText value="#{reserva.getFechaInicioF()}" />
+                        </p:column>
+                        <p:column headerText="Fecha de finalización" style="text-align: center;">
+                            <h:outputText value="#{reserva.getFechaFinF()}" />
+                        </p:column>
+                        <p:column headerText="Recurrente" style="text-align: center;">
+                            <h:outputText value="#{reserva.recurrente}" />
+                        </p:column>
+                        <p:column style="width:3rem;text-align: center">
+                            <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
+                                             icon="pi pi-search" title="View">
+                                <f:setPropertyActionListener value="#{reserva}"
+                                                             target="#{adminBean.reservaSeleccionada}"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
 
-                        <p:dialog header="Detalles de la reserva" widgetVar="dialogoReserva" modal="true" showEffect="fold"
-                                  hideEffect="fade" resizable="false">
-                            <p:outputPanel id="detalleReserva" style="text-align:center;">
-                                <p:panelGrid id="displayReserva" columns="2" columnClasses="label,value" style="text-align:center;">
-                                    <h:outputText value="Id" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.id}"/>
+                    <p:dialog header="Detalles de la reserva" widgetVar="dialogoReserva" modal="true" showEffect="fold"
+                              hideEffect="fade" resizable="false">
+                        <p:outputPanel id="detalleReserva" style="text-align:center;">
+                            <p:panelGrid id="displayReserva" columns="2" columnClasses="label,value" style="text-align:center;">
+                                <h:outputText value="Id" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.id}"/>
 
-                                    <h:outputText value="Fecha de solicitud" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaSolicitudF()}" />
+                                <h:outputText value="Usuario" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.usuario}"/>
 
-                                    <h:outputText value="Fecha de inicio" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}" />
+                                <h:outputText value="Recurso" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.recurso}"/>
 
-                                    <h:outputText value="Fecha de finalización" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}" />
+                                <h:outputText value="Fecha de inicio" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}"/>
 
-                                    <h:outputText value="Recurrente" />
-                                    <h:outputText value="#{adminBean.reservaSeleccionada.getRecurrenteF()}"/>
-                                </p:panelGrid>
-                            </p:outputPanel>
-                        </p:dialog>
-                    </div>
+                                <h:outputText value="Fecha de finalización" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}"/>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
                 </div>
             </div>
+        </div>
 
     </h:form>
-
-
 
     </body>
 </h:body>
 </html>
+

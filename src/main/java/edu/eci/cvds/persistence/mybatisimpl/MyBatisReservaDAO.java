@@ -53,4 +53,14 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
     }
 
+    @Override
+    public int maxIdReserva() throws PersistenceException {
+        try{
+            return reservaMapper.maxIdReserva();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar el nombre del recurso",e);
+        }
+    }
+
 }

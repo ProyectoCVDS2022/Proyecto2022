@@ -7,8 +7,10 @@ import edu.eci.cvds.samples.services.AdminServices;
 import org.primefaces.PrimeFaces;
 
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -52,6 +54,17 @@ public class AdminBean extends BasePageBean{
     /*
      * Segundo Servicio
      */
+
+    public Recurso buscarRecurso() throws PersistenceException {
+        try{
+            Recurso recurso = services.buscarRecurso(nombreBuscar);
+            recursoEncontrado = recurso;
+            return recurso;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recurso", ex);
+        }
+    }
+
     public void buscarRecursos() throws PersistenceException {
         try{
             recursosEncontrados = services.buscarRecursos(nombreBuscar);
@@ -61,13 +74,12 @@ public class AdminBean extends BasePageBean{
     }
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
-            System.out.println(recursoSeleccionado.getDisponibilidad());
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
                 services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
             }else{
                 services.cambiarDisponibilidad("Disponible", recursoSeleccionado.getId());
             }
-
+            addMessage("Nuevo estado del recurso: "+ (services.nombreRecurso(recursoSeleccionado.getId())).getDisponibilidad());
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
         }
@@ -105,10 +117,6 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void click() {
-        PrimeFaces.current().executeScript("PF('dlg').show()");
-    }
-
     /*
      * Tercer Servicio
      */
@@ -135,6 +143,17 @@ public class AdminBean extends BasePageBean{
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el nombre del recurso", ex);
         }
+    }
+
+    /*
+     * Cosas adicionales jijija
+     */
+    public void click() {
+        PrimeFaces.current().executeScript("PF('dlg').show()");
+    }
+
+    public void addMessage(String summary) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 
 
