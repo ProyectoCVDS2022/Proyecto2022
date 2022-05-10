@@ -1,7 +1,6 @@
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.ReservaDAO;
@@ -51,16 +50,6 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al consultar las reservas",e);
-        }
-    }
-
-    @Override
-    public int maxIdReserva() throws PersistenceException {
-        try{
-            return reservaMapper.maxIdReserva();
-        }
-        catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error al buscar el nombre del recurso",e);
         }
     }
 

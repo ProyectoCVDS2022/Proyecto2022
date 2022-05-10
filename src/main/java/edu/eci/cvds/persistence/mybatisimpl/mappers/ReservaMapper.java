@@ -17,6 +17,4 @@ public interface ReservaMapper {
 
     public List<Reserva> buscarReservasComunidad(@Param("usuario") String usuario);
 
-    public int maxIdReserva();
-
 }
