@@ -304,9 +304,12 @@
 
                     <p:dataTable id="resultado" var="recurso" value="#{adminBean.recursosEncontrados}">
 
+                        <p:column selectionMode="single" style="text-align: center;"/>
+
                         <p:column headerText="ID" style="text-align: center;">
                             <h:outputText value="#{recurso.id}" />
                         </p:column>
+
                         <p:column headerText="Nombre" style="text-align: center;">
                             <h:outputText value="#{recurso.nombre}" />
                         </p:column>
@@ -330,11 +333,6 @@
                         </p:column>
                         <p:column headerText="Ubicación" style="text-align: center;">
                             <h:outputText value="#{adminBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
-                        </p:column>
-                        <p:column headerText="Disponible" style="text-align: center;">
-                            <p:inputSwitch value="#{adminBean.disponible}">
-                                <p:ajax listener="#{adminBean.addMessage}" update="msg"/>
-                            </p:inputSwitch>
                         </p:column>
 
                     </p:dataTable>

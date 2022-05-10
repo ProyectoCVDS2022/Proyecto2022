@@ -7,7 +7,7 @@
 
     <insert id="crearReserva" parameterType="map" >
         INSERT INTO "Proyecto"."reservas"
-        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaSolicitud},#{reserva.fechaInicio},#{reserva.fechaFin});
+        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaSolicitud},#{reserva.fechaInicio},#{reserva.fechaFin},#{reserva.recurrente});
     </insert>
 
     <select id="buscarReservasId" resultMap="ReservaResult">

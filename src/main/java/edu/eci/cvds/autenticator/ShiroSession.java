@@ -26,7 +26,7 @@ public class ShiroSession implements SessionLogger {
     public void login(String nombre,String clave) throws PersistenceException {
         try{
             Subject currentUser = SecurityUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(nombre,new Sha256Hash(clave).toHex());
+            UsernamePasswordToken token = new UsernamePasswordToken(nombre,clave);
             System.out.println(currentUser.getSession().getId());
             currentUser.getSession().setAttribute("Correo",nombre);
             currentUser.login( token );

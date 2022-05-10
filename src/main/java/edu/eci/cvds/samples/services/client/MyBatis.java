@@ -57,9 +57,9 @@ public class MyBatis {
         System.out.println(reservaMapper.buscarReservasId(1));
         System.out.println(reservaMapper.buscarReservasUsuario("juank"));
         recursoMapper.cambiarDisponibilidad("No disponible", 101);
-
-        reservaMapper.crearReserva(new Reserva(4, 2, 102, LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), false));
-
+        Reserva r = new Reserva(4, 2, 102, LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), Boolean.FALSE);
+        System.out.println(r.isRecurrente());
+        reservaMapper.crearReserva(r);
         sqlss.commit();
         sqlss.close();
     }

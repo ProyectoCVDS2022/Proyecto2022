@@ -1,18 +1,18 @@
 --Crear tablas
 CREATE TABLE usuarios(
-	id INT not null,
-	rol VARCHAR(30) not null,
-	correo VARCHAR(30) not null,
-	clave VARCHAR(30) not null
+	id INT NOT NULL,
+	rol VARCHAR(30) NOT NULL,
+	correo VARCHAR(30) NOT NULL,
+	clave VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE RECURSOS(
 	id int NOT NULL,
 	nombre varchar(30) NOT NULL,
 	capacidad int NOT NULL,
-	fechaInicio TIME not null,
-	fechaFin TIME not null,
-	disponibilidad varchar(15),
+	fechaInicio TIME NOT NULL,
+	fechaFin TIME NOT NULL,
+	disponibilidad varchar(15) NOT NULL,
 	observaciones varchar(30) NOT NULL,
 	tipo int NOT NULL,
 	ubicacion int NOT NULL
@@ -31,10 +31,12 @@ CREATE TABLE UBICACIONES(
 
 CREATE TABLE RESERVAS(
 	id int NOT NULL,
-	usuario INT not null,
+	usuario INT NOT NULL,
 	recurso INT NOT NULL,
-	fechaIncio TIMESTAMP not null,
-	fechaFin TIMESTAMP not null
+	fechaSolicitud TIMESTAMP NOT NULL,
+	fechaIncio TIMESTAMP NOT NULL,
+	fechaFin TIMESTAMP NOT NULL,
+	recurrente bool NOT NULL
 );
 --Primarias
 alter table usuarios add constraint USUARIOS_PK primary key (id);

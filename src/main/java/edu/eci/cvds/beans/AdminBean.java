@@ -1,17 +1,14 @@
 package edu.eci.cvds.beans;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-
 import com.google.inject.Inject;
 import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.AdminServices;
 import org.primefaces.PrimeFaces;
-import org.primefaces.model.ScheduleModel;
 
+
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -24,6 +21,7 @@ public class AdminBean extends BasePageBean{
     @Inject
     private AdminServices services;
     private int id;
+    private Recurso recursoSeleccionado;
     private int tipo;
     private String nombre;
     private int capacidad;
@@ -31,86 +29,47 @@ public class AdminBean extends BasePageBean{
     private LocalTime fechaFin;
     private int ubicacion;
     private String observaciones;
-    private Boolean disponible = false;
-
     private String nombreBuscar;
-    private String usuarioBuscarReservas;
-    private int idBuscarReservas;
-
     private Recurso recursoEncontrado;
+
+
     private List<Recurso> recursosEncontrados;
     private List<Reserva> reservasEncontradas;
-
-    private List<Recurso> recursosSeleccionados;
+    private String usuarioBuscarReservas;
     private Reserva reservaSeleccionada;
 
+    /*
+     * Primer Servicio
+     */
     public void agregarRecurso() throws PersistenceException {
         try{
-            System.out.println(fechaInicio);
-            System.out.println(fechaFin);
             services.agregarRecurso(new Recurso(id, nombre, capacidad, fechaInicio, fechaFin, "Disponible", observaciones, tipo, ubicacion));
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al agregar el recurso", ex);
         }
     }
 
-    public Recurso buscarRecurso() throws PersistenceException {
-        try{
-            Recurso recurso = services.buscarRecurso(nombreBuscar);
-            recursoEncontrado = recurso;
-            return recurso;
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el recurso", ex);
-        }
-    }
-
-    public List<Recurso> buscarRecursos() throws PersistenceException {
+    /*
+     * Segundo Servicio
+     */
+    public void buscarRecursos() throws PersistenceException {
         try{
             recursosEncontrados = services.buscarRecursos(nombreBuscar);
-            return recursosEncontrados;
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar los recursos", ex);
+            throw new PersistenceException("Error al buscar el recursos", ex);
         }
     }
-
-    public void cambiarDisponibilidad(int id) throws PersistenceException {
+    public void cambiarDisponibilidad() throws PersistenceException {
         try{
-            System.out.println(disponible);
-            services.cambiarDisponibilidad("Disponible", id);
+            System.out.println(recursoSeleccionado.getDisponibilidad());
+            if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
+                services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
+            }else{
+                services.cambiarDisponibilidad("Disponible", recursoSeleccionado.getId());
+            }
+
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al cambiar la disponibilidad del recurso", ex);
-        }
-    }
-
-    public Usuario infoUsuario(int idUsuario) throws PersistenceException{
-        try{
-            return services.infoUsuario(idUsuario);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar la información del usuario", ex);
-        }
-    }
-
-    public Ubicacion nombreUbicacion(int idUbicacion) throws PersistenceException{
-        try{
-            return services.nombreUbicacion(idUbicacion);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
-        }
-    }
-
-    public TipoRecurso nombreTipo(int idTipo) throws PersistenceException{
-        try{
-            return services.nombreTipo(idTipo);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
-        }
-    }
-
-    public Recurso nombreRecurso(int id) throws PersistenceException{
-        try{
-            return services.nombreRecurso(id);
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el nombre del recurso", ex);
         }
     }
 
@@ -130,15 +89,29 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public List<Reserva> buscarReservasId() throws PersistenceException {
+    public Ubicacion nombreUbicacion(int idUbicacion) throws PersistenceException{
         try{
-            reservasEncontradas = services.buscarReservasId(idBuscarReservas);
-            return reservasEncontradas;
+            return services.nombreUbicacion(idUbicacion);
         } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al consultar las reservas", ex);
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
         }
     }
 
+    public TipoRecurso nombreTipo(int idTipo) throws PersistenceException{
+        try{
+            return services.nombreTipo(idTipo);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre de la ubicación", ex);
+        }
+    }
+
+    public void click() {
+        PrimeFaces.current().executeScript("PF('dlg').show()");
+    }
+
+    /*
+     * Tercer Servicio
+     */
     public List<Reserva> buscarReservasUsuario() throws PersistenceException {
         try{
             reservasEncontradas = services.buscarReservasUsuario(usuarioBuscarReservas);
@@ -148,63 +121,60 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void addMessage() {
-        String summary = disponible ? "Checked" : "Unchecked";
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+    public Usuario infoUsuario(int idUsuario) throws PersistenceException{
+        try{
+            return services.infoUsuario(idUsuario);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar la información del usuario", ex);
+        }
+    }
+
+    public Recurso nombreRecurso(int id) throws PersistenceException{
+        try{
+            return services.nombreRecurso(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el nombre del recurso", ex);
+        }
     }
 
 
-    public void prueba(){
-        System.out.println(reservaSeleccionada.getId());
-    }
+    public List<Reserva> getReservasEncontradas() {return reservasEncontradas;}
 
-    public void click() {
-        PrimeFaces.current().executeScript("PF('dlg').show()");
-    }
+    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {this.reservasEncontradas = reservasEncontradas;}
 
-    public int getId() {
-        return id;
-    }
+    public String getUsuarioBuscarReservas() {return usuarioBuscarReservas;}
 
-    public int getTipo() {
-        return tipo;
-    }
+    public void setUsuarioBuscarReservas(String usuarioBuscarReservas) {this.usuarioBuscarReservas = usuarioBuscarReservas;}
 
-    public String getNombre() {
-        return nombre;
-    }
+    public Reserva getReservaSeleccionada() {return reservaSeleccionada;}
 
-    public int getCapacidad() {
-        return capacidad;
-    }
+    public void setReservaSeleccionada(Reserva reservaSeleccionada) {this.reservaSeleccionada = reservaSeleccionada;}
 
-    public LocalTime getFechaInicio() {
-        return fechaInicio;
-    }
+    public Recurso getRecursoSeleccionado() {return recursoSeleccionado;}
 
-    public LocalTime getFechaFin() {
-        return fechaFin;
-    }
+    public void setRecursoSeleccionado(Recurso recursoSeleccionado) {this.recursoSeleccionado = recursoSeleccionado;}
 
-    public int getUbicacion() {
-        return ubicacion;
-    }
+    public int getId() {return id;}
 
-    public String getObservaciones() {
-        return observaciones;
-    }
+    public int getTipo() {return tipo;}
 
-    public AdminServices getServices() {
-        return services;
-    }
+    public String getNombre() {return nombre;}
 
-    public String getNombreBuscar() {
-        return nombreBuscar;
-    }
+    public int getCapacidad() {return capacidad;}
 
-    public Recurso getRecursoEncontrado() {
-        return recursoEncontrado;
-    }
+    public LocalTime getFechaInicio() {return fechaInicio;}
+
+    public LocalTime getFechaFin() {return fechaFin;}
+
+    public int getUbicacion() {return ubicacion;}
+
+    public String getObservaciones() {return observaciones;}
+
+
+    public String getNombreBuscar() {return nombreBuscar;}
+
+
+    public Recurso getRecursoEncontrado() {return recursoEncontrado;}
 
     public void setId(int id) {
         this.id = id;
@@ -238,13 +208,11 @@ public class AdminBean extends BasePageBean{
         this.observaciones = observaciones;
     }
 
-    public void setServices(AdminServices services) {
-        this.services = services;
-    }
 
     public void setNombreBuscar(String nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
     }
+
 
     public void setRecursoEncontrado(Recurso recursoEncontrado) {
         this.recursoEncontrado = recursoEncontrado;
@@ -254,55 +222,11 @@ public class AdminBean extends BasePageBean{
         return recursosEncontrados;
     }
 
-    public List<Recurso> getRecursosSeleccionados() {
-        return recursosSeleccionados;
-    }
+    public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {this.recursosEncontrados = recursosEncontrados;}
 
-    public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {
-        this.recursosEncontrados = recursosEncontrados;
-    }
+    public AdminServices getServices() {return services;}
 
-    public void setRecursosSeleccionados(List<Recurso> recursosSeleccionados) {
-        this.recursosSeleccionados = recursosSeleccionados;
-    }
+    public void setServices(AdminServices services) {this.services = services;}
 
-    public List<Reserva> getReservasEncontradas() {
-        return reservasEncontradas;
-    }
 
-    public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
-        this.reservasEncontradas = reservasEncontradas;
-    }
-
-    public String getUsuarioBuscarReservas() {
-        return usuarioBuscarReservas;
-    }
-
-    public void setUsuarioBuscarReservas(String usuarioBuscarReservas) {
-        this.usuarioBuscarReservas = usuarioBuscarReservas;
-    }
-
-    public int getIdBuscarReservas() {
-        return idBuscarReservas;
-    }
-
-    public void setIdBuscarReservas(int idBuscarReservas) {
-        this.idBuscarReservas = idBuscarReservas;
-    }
-
-    public Reserva getReservaSeleccionada() {
-        return reservaSeleccionada;
-    }
-
-    public void setReservaSeleccionada(Reserva reservaSeleccionada) {
-        this.reservaSeleccionada = reservaSeleccionada;
-    }
-
-    public boolean getDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
 }
