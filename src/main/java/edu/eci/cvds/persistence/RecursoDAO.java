@@ -19,4 +19,5 @@ public interface RecursoDAO {
 
     public Recurso nombreRecurso(int id) throws PersistenceException;
 
+
 }

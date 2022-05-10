@@ -28,4 +28,5 @@ public interface ComunityServices {
 
     public Recurso nombreRecurso(int id) throws PersistenceException;
 
+    public int maxIdReserva() throws PersistenceException;
 }
