@@ -31,13 +31,16 @@ CREATE TABLE UBICACIONES(
 
 CREATE TABLE RESERVAS(
 	id int NOT NULL,
-	usuario INT NOT NULL,
+	usuario INT not null,
 	recurso INT NOT NULL,
-	fechaSolicitud TIMESTAMP NOT NULL,
-	fechaIncio TIMESTAMP NOT NULL,
-	fechaFin TIMESTAMP NOT NULL,
-	recurrente bool NOT NULL
+	fechaSolicitud TIMESTAMP not null,
+	fechaIncio TIMESTAMP not null,
+	fechaFin TIMESTAMP  not null,
+	recurrente bool not null,
+	recurrencia varchar(30),
+	cancelada bool not null
 );
+
 --Primarias
 alter table usuarios add constraint USUARIOS_PK primary key (id);
 alter table recursos add constraint RECURSOS_PK primary key (id);

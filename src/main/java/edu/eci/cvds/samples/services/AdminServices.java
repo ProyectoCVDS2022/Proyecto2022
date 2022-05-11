@@ -26,4 +26,6 @@ public interface AdminServices {
     public Usuario infoUsuario(int idUsuario) throws PersistenceException;
 
     public Recurso nombreRecurso(int id) throws PersistenceException;
+
+    public List<Reserva> estaDisponible(int id) throws PersistenceException;
 }

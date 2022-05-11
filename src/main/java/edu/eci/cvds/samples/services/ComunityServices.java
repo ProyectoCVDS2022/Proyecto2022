@@ -24,10 +24,12 @@ public interface ComunityServices {
 
     public abstract void cambiarDisponibilidad(String disp, int id) throws PersistenceException;
 
-    public abstract List<Reserva> buscarReservas(String usuario) throws PersistenceException;
+    public abstract List<Reserva> buscarReservas(int id, String usuario) throws PersistenceException;
 
     public Recurso nombreRecurso(int id) throws PersistenceException;
 
     public int maxIdReserva() throws PersistenceException;
+
+    public List<Reserva> estaDisponible(int id) throws PersistenceException;
 
 }

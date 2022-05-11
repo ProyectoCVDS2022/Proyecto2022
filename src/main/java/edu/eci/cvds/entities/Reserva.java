@@ -12,11 +12,13 @@ public class Reserva implements Serializable{
     private int usuario;
     private int recurso;
     private boolean recurrente;
+    private String recurrencia;
+    private boolean cancelada;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private LocalDateTime fechaSolicitud;
 
-    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaSolicitud, LocalDateTime fechaInicio, LocalDateTime fechaFin, boolean recurrente) {
+    public Reserva(int id, int usuario, int recurso, LocalDateTime fechaSolicitud, LocalDateTime fechaInicio, LocalDateTime fechaFin, boolean recurrente, String recurrencia, boolean cancelada) {
         this.id = id;
         this.usuario = usuario;
         this.recurso = recurso;
@@ -24,6 +26,8 @@ public class Reserva implements Serializable{
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.recurrente = recurrente;
+        this.recurrencia = recurrencia;
+        this.cancelada = cancelada;
     }
 
     public String getFechaInicioF(){
@@ -100,6 +104,22 @@ public class Reserva implements Serializable{
         }else{
             return "No";
         }
+    }
+
+    public String getRecurrencia() {
+        return recurrencia;
+    }
+
+    public void setRecurrencia(String recurrencia) {
+        this.recurrencia = recurrencia;
+    }
+
+    public boolean isCancelada() {
+        return cancelada;
+    }
+
+    public void setCancelada(boolean cancelada) {
+        this.cancelada = cancelada;
     }
 
     @Override

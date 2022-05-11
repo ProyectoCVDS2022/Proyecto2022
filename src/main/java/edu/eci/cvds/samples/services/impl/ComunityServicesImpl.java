@@ -84,9 +84,9 @@ public class ComunityServicesImpl implements ComunityServices {
     }
 
     @Override
-    public List<Reserva> buscarReservas(String usuario) throws PersistenceException {
+    public List<Reserva> buscarReservas(int id, String usuario) throws PersistenceException {
         try{
-            return reservaDAO.buscarReservasComunidad(usuario);
+            return reservaDAO.buscarReservasComunidad(id, usuario);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar las reservas" , ex);
         }
@@ -107,6 +107,15 @@ public class ComunityServicesImpl implements ComunityServices {
             return reservaDAO.maxIdReserva();
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar el numero de la reserva maxima" , ex);
+        }
+    }
+
+    @Override
+    public List<Reserva> estaDisponible(int id) throws PersistenceException {
+        try{
+            return reservaDAO.estaDisponible(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar la disponibilidad del recurso" , ex);
         }
     }
 

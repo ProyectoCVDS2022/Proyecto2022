@@ -72,6 +72,22 @@ public class AdminBean extends BasePageBean{
             throw new PersistenceException("Error al buscar el recursos", ex);
         }
     }
+
+    public String estaDisponible(int id) throws PersistenceException{
+        try{
+            List<Reserva> reservas = services.estaDisponible(id);
+            if(reservas.size() == 0){
+                services.cambiarDisponibilidad("Disponible", id);
+                return "Disponible";
+            }else{
+                services.cambiarDisponibilidad("No disponible", id);
+                return "No disponible";
+            }
+        }catch (PersistenceException ex){
+            throw new PersistenceException("Error al buscar la disponibilidad de los recursos", ex);
+        }
+    }
+
     public void cambiarDisponibilidad() throws PersistenceException {
         try{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){

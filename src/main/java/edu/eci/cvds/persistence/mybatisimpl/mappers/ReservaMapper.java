@@ -15,8 +15,13 @@ public interface ReservaMapper {
 
     public List<Reserva> buscarReservasUsuario(@Param("usuario") String usuario);
 
-    public List<Reserva> buscarReservasComunidad(@Param("usuario") String usuario);
+    public List<Reserva> buscarReservasActivas(@Param("usuario") String usuario);
+
+    public List<Reserva> buscarReservasPasadas(@Param("usuario") String usuario);
+
+    public List<Reserva> buscarReservasCanceladas(@Param("usuario") String usuario);
 
     public int maxIdReserva();
 
+    public List<Reserva> estaDisponible(@Param("id") int id);
 }

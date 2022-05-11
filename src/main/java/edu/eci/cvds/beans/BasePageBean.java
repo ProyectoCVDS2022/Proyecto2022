@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import com.google.inject.Injector;
+import edu.eci.cvds.exceptions.PersistenceException;
 
 public abstract class BasePageBean implements Serializable {
 
@@ -23,7 +24,7 @@ public abstract class BasePageBean implements Serializable {
     }
 
     @PostConstruct
-    public void init() {
+    public void init(){
         getInjector().injectMembers(this);
     }
 

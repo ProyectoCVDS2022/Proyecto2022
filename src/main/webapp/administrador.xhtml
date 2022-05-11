@@ -321,7 +321,7 @@
                             <h:outputText value="#{recurso.fechaFin}" />
                         </p:column>
                         <p:column headerText="Disponibilidad">
-                            <h:outputText value="#{recurso.disponibilidad}" />
+                            <h:outputText value="#{adminBean.estaDisponible(recurso.id)}" />
                         </p:column>
                         <p:column headerText="Observaciones">
                             <h:outputText value="#{recurso.observaciones}" />

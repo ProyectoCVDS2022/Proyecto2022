@@ -7,7 +7,7 @@
 
     <insert id="crearReserva" parameterType="map" >
         INSERT INTO "Proyecto"."reservas"
-        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaSolicitud},#{reserva.fechaInicio},#{reserva.fechaFin},#{reserva.recurrente});
+        values (#{reserva.id},#{reserva.usuario},#{reserva.recurso},#{reserva.fechaSolicitud},#{reserva.fechaInicio},#{reserva.fechaFin},#{reserva.recurrente},#{reserva.recurrencia},#{reserva.cancelada});
     </insert>
 
     <select id="buscarReservasId" resultMap="ReservaResult">
@@ -21,14 +21,29 @@
         where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%');
     </select>
 
-    <select id="buscarReservasComunidad" resultMap="ReservaResult">
+    <select id="buscarReservasActivas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario});
+    </select>
+
+    <select id="buscarReservasPasadas" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario});
+    </select>
+
+    <select id="buscarReservasCanceladas" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario}) and cancelada = true;
     </select>
 
     <select id="maxIdReserva" resultType="java.lang.Integer">
         select count(*)
         FROM "Proyecto"."reservas";
+    </select>
+
+    <select id="estaDisponible" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where recurso = #{id};
     </select>
 
     <resultMap type='Reserva' id='ReservaResult'>
@@ -37,6 +52,8 @@
         <result property='fechaFin' column='fechaFin'/>
         <result property='fechaSolicitud' column='fechaSolicitud'/>
         <result property='recurrente' column='recurrente'/>
+        <result property='recurrencia' column='recurrencia'/>
+        <result property='cancelada' column='cancelada'/>
         <association property='usuario' javaType="Usuario"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.UsuarioMapper.UsuarioResult" columnPrefix='usuario_'/>
         <association property='recurso' javaType="Recurso"  resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix='recurso_'/>
     </resultMap>

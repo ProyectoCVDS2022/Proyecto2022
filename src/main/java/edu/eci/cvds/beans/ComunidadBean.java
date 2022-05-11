@@ -29,11 +29,13 @@ public class ComunidadBean extends BasePageBean{
     private String nombreBuscar = "";
     private List<Recurso> recursosEncontrados;
     private int filtro;
+    private int filtroReservas;
     private Recurso recursoSeleccionado;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinReserva;
     private boolean recurrente;
     private List<Reserva> reservasEncontradas;
+    private String recurrencia;
 
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
@@ -46,6 +48,21 @@ public class ComunidadBean extends BasePageBean{
             return recursosEncontrados;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar los recursos", ex);
+        }
+    }
+
+    public String estaDisponible(int id) throws PersistenceException{
+        try{
+            List<Reserva> reservas = services.estaDisponible(id);
+            if(reservas.size() == 0){
+                services.cambiarDisponibilidad("Disponible", id);
+                return "Disponible";
+            }else{
+                services.cambiarDisponibilidad("No disponible", id);
+                return "No disponible";
+            }
+        }catch (PersistenceException ex){
+            throw new PersistenceException("Error al buscar la disponibilidad de los recursos", ex);
         }
     }
 
@@ -70,9 +87,11 @@ public class ComunidadBean extends BasePageBean{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
                 if(fechaFinReserva.isEqual(fechaInicioReserva.plusHours(2)) || (fechaFinReserva.isBefore(fechaInicioReserva.plusHours(2)) && fechaFinReserva.isAfter(fechaInicioReserva))){
                     if(fechaInicioReserva.getHour() >= recursoSeleccionado.getFechaInicio().getHour() && fechaFinReserva.getHour() <= recursoSeleccionado.getFechaFin().getHour()){
-                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente));
+                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente, recurrencia, false));
                         services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                         addMessage("¡Recurso reservado exitosamente!");
+                        PrimeFaces.current().executeScript("PF('dlg').hide();");
+                        System.out.println("Hacer colisiones con otras reservas");
                     }else{
                         addMessage("La hora seleccionada debe estar en el horario de disponibilidad del recurso");
                     }
@@ -85,7 +104,7 @@ public class ComunidadBean extends BasePageBean{
                     }
                 }
             }else{
-                addMessage("El recurso ya se encuentra reservado en el horario seleccionado");
+                addMessage("El recurso no se encuentra disponible actualmente");
             }
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
@@ -103,7 +122,7 @@ public class ComunidadBean extends BasePageBean{
     public List<Reserva> buscarReservas() throws PersistenceException {
         try{
             //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
-            reservasEncontradas = services.buscarReservas("julian@gmail.com");
+            reservasEncontradas = services.buscarReservas(1, "julian@gmail.com");
             return reservasEncontradas;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar las reservas", ex);
@@ -204,5 +223,21 @@ public class ComunidadBean extends BasePageBean{
 
     public void setReservasEncontradas(List<Reserva> reservasEncontradas) {
         this.reservasEncontradas = reservasEncontradas;
+    }
+
+    public String getRecurrencia() {
+        return recurrencia;
+    }
+
+    public void setRecurrencia(String recurrencia) {
+        this.recurrencia = recurrencia;
+    }
+
+    public int getFiltroReservas() {
+        return filtroReservas;
+    }
+
+    public void setFiltroReservas(int filtroReservas) {
+        this.filtroReservas = filtroReservas;
     }
 }

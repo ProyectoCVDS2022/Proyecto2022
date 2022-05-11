@@ -13,8 +13,10 @@ public interface ReservaDAO {
 
     public List<Reserva> buscarReservasUsuario(String usuario) throws PersistenceException;
 
-    public List<Reserva> buscarReservasComunidad(String usuario) throws PersistenceException;
+    public List<Reserva> buscarReservasComunidad(int id, String usuario) throws PersistenceException;
 
     public int maxIdReserva() throws PersistenceException;
+
+    public List<Reserva> estaDisponible(int id) throws PersistenceException;
 
 }

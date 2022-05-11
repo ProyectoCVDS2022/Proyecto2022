@@ -225,6 +225,10 @@
 
                         <p:growl id="msg"/>
 
+                        <p:dialog modal="true" resizable="false" header="Ocupación del recurso" widgetVar="dlg_ocupacion" showEffect="fold" hideEffect="clip">
+                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;"/>
+                        </p:dialog>
+
                         <p:dataTable id="resultado" var="recurso" rows="10" paginator="true" selectionMode="single"
                                      selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
                                      paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
@@ -264,7 +268,7 @@
                                 <h:outputText value="#{recurso.fechaFin}" />
                             </p:column>
                             <p:column headerText="Disponibilidad" style="text-align: center;">
-                                <h:outputText value="#{recurso.disponibilidad}" />
+                                <h:outputText value="#{comunidadBean.estaDisponible(recurso.id)}" />
                             </p:column>
                             <p:column headerText="Observaciones" style="text-align: center;">
                                 <h:outputText value="#{recurso.observaciones}" />
@@ -276,16 +280,12 @@
                                 <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
                             <p:column headerText="Ocupación" style="width:3rem;text-align: center">
-                                <p:commandButton actionListener="#{CalendarView.crearCalendario(recurso)}" oncomplete="PF('dlg_ocupacion').show(); "
+                                <p:commandButton action="#{CalendarView.crearCalendario}" oncomplete="PF('dlg_ocupacion').show()"
                                                  icon="pi pi-search" title="View"/>
                             </p:column>
                         </p:dataTable>
 
                         <br> </br>
-
-                        <p:dialog modal="true" resizable="false" header="Ocupación del recurso" widgetVar="dlg_ocupacion" showEffect="fold" hideEffect="clip">
-                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;"/>
-                        </p:dialog>
 
                         <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold" hideEffect="fade">
                             <p:panelGrid id="display" columns="2" columnClasses="label,value">
@@ -308,6 +308,14 @@
                                 <h:outputText value="Recurrente:" />
                                 <p:toggleSwitch value="#{comunidadBean.recurrente}"/>
 
+                                <h:outputText value="Recurrencia:" />
+                                <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}">
+                                    <f:selectItem itemLabel="- Seleccione -" itemValue="null" noSelectionOption="true"/>
+                                    <f:selectItem itemValue = "Diaria" itemLabel = "Diaria" />
+                                    <f:selectItem itemValue = "Semanal" itemLabel = "Semanal" />
+                                    <f:selectItem itemValue = "Mensual" itemLabel = "Mensual" />
+                                </h:selectOneMenu>
+
                             </p:panelGrid>
                             <br> </br>
                             <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" actionListener="#{comunidadBean.reservarRecurso()}"/>
@@ -329,14 +337,22 @@
                     <div class="content1-inner">
                         <h1> Consultar reservas </h1>
 
-                        <br></br>
-                        <p:commandButton id="boton_buscar_reservas" value="Buscar" update="reservas" actionListener="#{comunidadBean.buscarReservas()}"/>
-                        <br> </br>
-
                         <p:dataTable id="reservas" var="reserva" rows="10" paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      value="#{comunidadBean.reservasEncontradas}" style="margin-bottom:0" selectionPageOnly="false"
                                      paginatorPosition="bottom">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:selectOneMenu name="filtro_reservas" value="#{comunidadBean.filtroReservas}">
+                                        <p:ajax event="change" listener="#{comunidadBean.buscarReservas}" update="reservas"/>
+                                        <f:selectItem itemLabel="- Filtro -" itemValue="null" noSelectionOption="true"/>
+                                        <f:selectItem itemValue = "1" itemLabel = "Activas" />
+                                        <f:selectItem itemValue = "2" itemLabel = "Pasadas" />
+                                        <f:selectItem itemValue = "3" itemLabel = "Canceladas" />
+                                    </h:selectOneMenu>
+                                </p:outputPanel>
+                            </f:facet>
 
                             <p:column headerText="ID" style="text-align: center;">
                                 <h:outputText value="#{reserva.id}" />
