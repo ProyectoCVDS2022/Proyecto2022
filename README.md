@@ -22,6 +22,4 @@ Despliegue https://proyectociclos2022.herokuapp.com/
 
 
 ### CircleCI Badge
-
-> _CIRCLECI_
-[![CircleCI](https://circleci.com/gh/davidleon03/Proyecto2022.svg?style=svg)](https://circleci.com/gh/davidleon03/Proyecto2022)
+[![CircleCI](https://circleci.com/gh/ProyectoCVDS2022/Proyecto2022/tree/main.svg?style=svg)](https://circleci.com/gh/ProyectoCVDS2022/Proyecto2022/tree/main)
