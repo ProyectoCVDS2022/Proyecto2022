@@ -17,7 +17,7 @@ Heroku CLI: heroku pg:psql postgresql-lively-75408 --app proyect2022cdvs
 Despliegue https://proyectociclos2022.herokuapp.com/
 ### Codacy Badge
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2819c37d9b8b4a8fbc585411614a3933)](https://www.codacy.com/manual/davidleon03/ProyectoCVDS2022?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=davidleon03/ProyectoCVDS2022&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2819c37d9b8b4a8fbc585411614a3933)](https://www.codacy.com/manual/davidleon03/Proyecto2022?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=davidleon03/Proyecto2022&amp;utm_campaign=Badge_Grade)
 >
 
 
