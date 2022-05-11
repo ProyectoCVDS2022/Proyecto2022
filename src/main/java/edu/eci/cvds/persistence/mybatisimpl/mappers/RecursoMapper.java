@@ -21,13 +21,7 @@ public interface RecursoMapper {
 
     public List<Recurso> buscarRecursosDisponibles();
 
-    public List<Recurso> buscarRecursosLibros();
-
-    public List<Recurso> buscarRecursosPortatiles();
-
-    public List<Recurso> buscarRecursosPcs();
-
-    public List<Recurso> buscarRecursosSalas();
+    public List<Recurso> buscarRecursosTipo(@Param("tipo") int tipo);
 
     public List<Recurso> buscarRecursosUbicacion(@Param("id") int id);
 

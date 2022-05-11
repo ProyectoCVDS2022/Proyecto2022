@@ -4,6 +4,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import edu.eci.cvds.autenticator.SessionLogger;
+import edu.eci.cvds.autenticator.ShiroSession;
+import edu.eci.cvds.beans.BasePageBean;
+import edu.eci.cvds.beans.LoginBean;
 import edu.eci.cvds.samples.services.AdminServices;
 import edu.eci.cvds.samples.services.ComunityServices;
 import edu.eci.cvds.samples.services.UserServices;
@@ -43,8 +47,8 @@ public class GuiceContextListener implements ServletContextListener {
                 bind(AdminServices.class).to(AdminServicesImpl.class);
                 bind(ComunityServices.class).to(ComunityServicesImpl.class);
                 bind(UserServices.class).to(UserServicesImpl.class);
-                //bind(BasePageBean.class).to(LoginBean.class);
-                //bind(Logger.class).to(ShiroLogger.class);
+                bind(BasePageBean.class).to(LoginBean.class);
+                bind(SessionLogger.class).to(ShiroSession.class);
 
             }
         });

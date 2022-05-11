@@ -13,7 +13,9 @@
     <select id="buscarRecursos" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        WHERE nombre like '%'||#{nombrerecurso}||'%';
+        INNER JOIN "Proyecto"."tipo_recursos"
+        ON "Proyecto"."recursos".tipo = "Proyecto"."tipo_recursos".id
+        WHERE "Proyecto"."recursos".nombre like '%'||#{nombrerecurso}||'%';
     </select>
 
     <select id="buscarRecursosTodos" resultMap="RecursoResult">
@@ -27,28 +29,12 @@
         where disponibilidad = 'Disponible'
     </select>
 
-    <select id="buscarRecursosLibros" resultMap="RecursoResult">
+    <select id="buscarRecursosTipo" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
-        where tipo = 1
-    </select>
-
-    <select id="buscarRecursosPortatiles" resultMap="RecursoResult">
-        select *
-        FROM "Proyecto"."recursos"
-        where tipo = 3
-    </select>
-
-    <select id="buscarRecursosPcs" resultMap="RecursoResult">
-        select *
-        FROM "Proyecto"."recursos"
-        where tipo = 4
-    </select>
-
-    <select id="buscarRecursosSalas" resultMap="RecursoResult">
-        select *
-        FROM "Proyecto"."recursos"
-        where tipo = 2
+        INNER JOIN "Proyecto"."tipo_recursos"
+        ON "Proyecto"."recursos".tipo = "Proyecto"."tipo_recursos".id
+        where tipo = #{tipo}
     </select>
 
     <select id="buscarRecursosUbicacion" resultMap="RecursoResult">

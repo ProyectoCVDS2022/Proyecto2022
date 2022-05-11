@@ -59,13 +59,13 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             }else if(filtro == 2){
                 return recursoMapper.buscarRecursosDisponibles();
             }else if(filtro == 3){
-                return recursoMapper.buscarRecursosLibros();
+                return recursoMapper.buscarRecursosTipo(1);
             }else if(filtro == 4){
-                return recursoMapper.buscarRecursosPortatiles();
+                return recursoMapper.buscarRecursosTipo(3);
             }else if(filtro == 5){
-                return recursoMapper.buscarRecursosPcs();
+                return recursoMapper.buscarRecursosTipo(4);
             }else if(filtro == 6){
-                return recursoMapper.buscarRecursosSalas();
+                return recursoMapper.buscarRecursosTipo(2);
             }else if(filtro == 7){
                 return recursoMapper.buscarRecursosUbicacion(1);
             }else{

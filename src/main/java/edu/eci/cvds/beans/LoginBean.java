@@ -5,6 +5,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import com.google.inject.Inject;
 import edu.eci.cvds.autenticator.SessionLogger;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.impl.LibraryServicesFactory;
@@ -22,13 +23,9 @@ public class LoginBean extends BasePageBean{
     private String username;
     private String password;
     private String rol;
-    private boolean logg;
-    private SessionLogger logger = LibraryServicesFactory.getInstance().getLoginServices();
+    @Inject
+    SessionLogger sessionLogger;
 
-
-    public void setLogg(boolean logg) {
-        this.logg = logg;
-    }
 
     @RequiresGuest
     public void login() throws  PersistenceException{
@@ -36,12 +33,10 @@ public class LoginBean extends BasePageBean{
         try {
             System.out.println("U :" + username);
             System.out.println("P :" + password);
-            logger.login(username, password);
-            setLogg(true);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/index2.xhtml");
+            sessionLogger.login(username, password);
 
-        } catch (PersistenceException | IOException e){
-            FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no registrado", "Este usuario no se encuentra en nuestra base de datos"));
+        } catch (PersistenceException e){
+            throw e;
         }
     }
 
