@@ -10,6 +10,14 @@
         values (#{recurso.id},#{recurso.nombre},#{recurso.capacidad},#{recurso.fechaInicio},#{recurso.fechaFin},#{recurso.disponibilidad},#{recurso.observaciones},#{recurso.tipo},#{recurso.ubicacion});
     </insert>
 
+    <select id="buscarRecurso" resultMap="RecursoResult">
+        select *
+        FROM "Proyecto"."recursos"
+        INNER JOIN "Proyecto"."tipo_recursos"
+        ON "Proyecto"."recursos".tipo = "Proyecto"."tipo_recursos".id
+        WHERE "Proyecto"."recursos".nombre like '%'||#{nombrerecurso}||'%';
+    </select>
+
     <select id="buscarRecursos" resultMap="RecursoResult">
         select *
         FROM "Proyecto"."recursos"
@@ -29,7 +37,7 @@
         where disponibilidad = 'Disponible'
     </select>
 
-    <select id="buscarRecursosTipo" resultMap="RecursoResult">
+    <select id="buscarRecursosTipo" resultMap="RecursoResult" parameterType="int">
         select *
         FROM "Proyecto"."recursos"
         INNER JOIN "Proyecto"."tipo_recursos"
@@ -37,13 +45,13 @@
         where tipo = #{tipo}
     </select>
 
-    <select id="buscarRecursosUbicacion" resultMap="RecursoResult">
+    <select id="buscarRecursosUbicacion" resultMap="RecursoResult" parameterType="int">
         select *
         FROM "Proyecto"."recursos"
         where ubicacion = #{id}
     </select>
 
-    <select id="nombreRecurso" resultMap="RecursoResult">
+    <select id="nombreRecurso" resultMap="RecursoResult" parameterType="int">
         select *
         FROM "Proyecto"."recursos"
         where id = #{id}

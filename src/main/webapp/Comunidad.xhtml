@@ -359,22 +359,57 @@
                             </p:column>
 
                             <p:column headerText="Recurso" style="text-align: center;">
-                                <h:outputText value="#{comunidadBean.nombreRecurso(reserva.recurso)}" />
+                                <h:outputText value="#{comunidadBean.nombreRecurso(reserva.recurso).getNombre()}" />
                             </p:column>
 
                             <p:column headerText="Fecha de solicitud" style="text-align: center;">
                                 <h:outputText value="#{reserva.getFechaSolicitudF()}" />
                             </p:column>
 
-                            <p:column headerText="Fecha de inicio" style="text-align: center;">
-                                <h:outputText value="#{reserva.getFechaInicioF()}" />
-                            </p:column>
-
-                            <p:column headerText="Fecha de finalización" style="text-align: center;">
-                                <h:outputText value="#{reserva.getFechaFinF()}" />
+                            <p:column headerText="Detalles" style="width:3rem;text-align: center">
+                                <p:commandButton update=":consultar_reservas:detalleReserva" oncomplete="PF('dlg_detalles').show()"
+                                                 icon="pi pi-search" title="View">
+                                    <f:setPropertyActionListener value="#{reserva}"
+                                                                 target="#{comunidadBean.reservaSeleccionada}"/>
+                                </p:commandButton>
                             </p:column>
 
                         </p:dataTable>
+
+                        <p:dialog resizable="false" header="Detalles de la reserva" widgetVar="dlg_detalles" showEffect="fold" hideEffect="fade">
+                            <p:outputPanel id="detalleReserva" style="text-align:center;">
+                                <p:panelGrid id="displaydetallesReserva" columns="2" columnClasses="label,value">
+
+                                    <h:outputText value="Recurso reservado" />
+                                    <h:outputText value="#{comunidadBean.nombreRecurso(comunidadBean.reservaSeleccionada.getRecurso()).getNombre()}"/>
+
+                                    <h:outputText value="Tipo" />
+                                    <h:outputText value="#{comunidadBean.nombreTipo(comunidadBean.nombreRecurso(comunidadBean.reservaSeleccionada.getRecurso()).getTipo()).getNombre()}"/>
+
+                                    <h:outputText value="Ubicación" />
+                                    <h:outputText value="#{comunidadBean.nombreUbicacion(comunidadBean.nombreRecurso(comunidadBean.reservaSeleccionada.recurso).getUbicacion()).getLugar()}"/>
+
+                                    <h:outputText value="Fecha de solicitud" />
+                                    <h:outputText value="#{comunidadBean.reservaSeleccionada.getFechaSolicitudF()}"/>
+
+                                    <h:outputText value="Fecha de inicio" />
+                                    <h:outputText value="#{comunidadBean.reservaSeleccionada.getFechaInicioF()}"/>
+
+                                    <h:outputText value="Fecha de finalización" />
+                                    <h:outputText value="#{comunidadBean.reservaSeleccionada.getFechaFinF()}"/>
+
+                                    <h:outputText value="Recurrente" />
+                                    <h:outputText value="#{comunidadBean.reservaSeleccionada.getRecurrenteF()}"/>
+
+                                    <h:outputText value="Recurrencia" />
+                                    <h:outputText value="#{comunidadBean.reservaSeleccionada.recurrencia}"/>
+
+                                </p:panelGrid>
+                                <br> </br>
+                                <p:commandButton value="Cancelar reserva" icon="pi pi-times" update="msg"/>
+                            </p:outputPanel>
+                        </p:dialog>
+
 
                     </div>
                 </div>
