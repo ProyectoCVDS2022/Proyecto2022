@@ -21,14 +21,14 @@
         where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%');
     </select>
 
-    <select id="buscarReservasActivas" resultMap="ReservaResult">
+    <select id="buscarReservasActivas" resultMap="ReservaResult" parameterType="java.time.LocalDateTime">
         select * from "Proyecto"."reservas"
-        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario});
+        where fechaincio >= #{fechactual};
     </select>
 
     <select id="buscarReservasPasadas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
-        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario});
+        where #{fechactual} >= fechaincio;
     </select>
 
     <select id="buscarReservasCanceladas" resultMap="ReservaResult">

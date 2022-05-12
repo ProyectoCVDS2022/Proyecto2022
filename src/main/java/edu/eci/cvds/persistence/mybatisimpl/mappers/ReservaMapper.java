@@ -5,6 +5,7 @@ import edu.eci.cvds.entities.Reserva;
 import org.apache.ibatis.annotations.Param;
 
 import java.rmi.server.RemoteServer;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ReservaMapper {
@@ -15,9 +16,9 @@ public interface ReservaMapper {
 
     public List<Reserva> buscarReservasUsuario(@Param("usuario") String usuario);
 
-    public List<Reserva> buscarReservasActivas(@Param("usuario") String usuario);
+    public List<Reserva> buscarReservasActivas(@Param("fechactual")LocalDateTime fechactual);
 
-    public List<Reserva> buscarReservasPasadas(@Param("usuario") String usuario);
+    public List<Reserva> buscarReservasPasadas(@Param("fechactual")LocalDateTime fechactual);
 
     public List<Reserva> buscarReservasCanceladas(@Param("usuario") String usuario);
 

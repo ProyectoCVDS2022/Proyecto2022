@@ -54,7 +54,8 @@ public class MyBatis {
         ReservaMapper reservaMapper = sqlss.getMapper(ReservaMapper.class);
 
         recursoMapper.cambiarDisponibilidad("Disponible", 401);
-
+        reservaMapper.crearReserva(new Reserva(999,2,401,LocalDateTime.now().minusDays(5),
+                LocalDateTime.now().minusDays(5),LocalDateTime.now().minusDays(5).plusHours(1),false,"",false));
         sqlss.commit();
         sqlss.close();
     }
