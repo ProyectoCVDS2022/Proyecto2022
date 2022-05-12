@@ -122,7 +122,7 @@ public class ComunidadBean extends BasePageBean{
     public List<Reserva> buscarReservas() throws PersistenceException {
         try{
             //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
-            reservasEncontradas = services.buscarReservas(1, "julian@gmail.com");
+            reservasEncontradas = services.buscarReservas(filtroReservas, "julian@gmail.com");
             return reservasEncontradas;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar las reservas", ex);

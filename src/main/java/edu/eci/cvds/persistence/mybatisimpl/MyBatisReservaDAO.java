@@ -6,6 +6,7 @@ import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.ReservaDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaMapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class MyBatisReservaDAO implements ReservaDAO {
@@ -47,9 +48,9 @@ public class MyBatisReservaDAO implements ReservaDAO {
     public List<Reserva> buscarReservasComunidad(int id, String usuario) throws PersistenceException {
         try{
             if(id == 1){
-                return reservaMapper.buscarReservasActivas(usuario);
+                return reservaMapper.buscarReservasActivas(LocalDateTime.now());
             }else if(id == 2){
-                return reservaMapper.buscarReservasPasadas(usuario);
+                return reservaMapper.buscarReservasPasadas(LocalDateTime.now());
             }else{
                 return reservaMapper.buscarReservasCanceladas(usuario);
             }
