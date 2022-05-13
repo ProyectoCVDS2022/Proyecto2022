@@ -309,7 +309,7 @@
                                 <p:toggleSwitch value="#{comunidadBean.recurrente}"/>
 
                                 <h:outputText value="Recurrencia:" />
-                                <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}">
+                                <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}" disabled="#{!comunidadBean.recurrente}">
                                     <f:selectItem itemLabel="- Seleccione -" itemValue="null" noSelectionOption="true"/>
                                     <f:selectItem itemValue = "Diaria" itemLabel = "Diaria" />
                                     <f:selectItem itemValue = "Semanal" itemLabel = "Semanal" />
