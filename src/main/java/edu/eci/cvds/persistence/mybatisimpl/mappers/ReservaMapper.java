@@ -2,6 +2,7 @@ package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.Reserva;
+import edu.eci.cvds.exceptions.PersistenceException;
 import org.apache.ibatis.annotations.Param;
 
 import java.rmi.server.RemoteServer;
@@ -24,5 +25,7 @@ public interface ReservaMapper {
 
     public int maxIdReserva();
 
-    public List<Reserva> estaDisponible(@Param("id") int id);
+    public List<Reserva> reservasRecurso(@Param("id") int id);
+
+    public void cancelarReserva(@Param("id") int id) throws PersistenceException;
 }

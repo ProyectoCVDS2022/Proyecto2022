@@ -71,12 +71,22 @@ public class MyBatisReservaDAO implements ReservaDAO {
     }
 
     @Override
-    public List<Reserva> estaDisponible(int id) throws PersistenceException {
+    public List<Reserva> reservasRecurso(int id) throws PersistenceException {
         try{
-            return reservaMapper.estaDisponible(id);
+            return reservaMapper.reservasRecurso(id);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al buscar la disponibilidad del recurso",e);
+        }
+    }
+
+    @Override
+    public void cancelarReserva(int id) throws PersistenceException {
+        try{
+            reservaMapper.cancelarReserva(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al cancelar la reserva",e);
         }
     }
 

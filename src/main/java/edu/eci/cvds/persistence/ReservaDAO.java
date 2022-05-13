@@ -17,6 +17,8 @@ public interface ReservaDAO {
 
     public int maxIdReserva() throws PersistenceException;
 
-    public List<Reserva> estaDisponible(int id) throws PersistenceException;
+    public List<Reserva> reservasRecurso(int id) throws PersistenceException;
+
+    public void cancelarReserva(int id) throws PersistenceException;
 
 }

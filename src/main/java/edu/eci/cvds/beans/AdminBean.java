@@ -75,7 +75,7 @@ public class AdminBean extends BasePageBean{
 
     public String estaDisponible(int id) throws PersistenceException{
         try{
-            List<Reserva> reservas = services.estaDisponible(id);
+            List<Reserva> reservas = services.reservasRecurso(id);
             if(reservas.size() == 0){
                 services.cambiarDisponibilidad("Disponible", id);
                 return "Disponible";

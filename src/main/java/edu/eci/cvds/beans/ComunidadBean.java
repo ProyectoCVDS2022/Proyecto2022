@@ -31,6 +31,7 @@ public class ComunidadBean extends BasePageBean{
     private Recurso recursoSeleccionado;
     private LocalDateTime fechaInicioReserva;
     private LocalDateTime fechaFinReserva;
+    private LocalDateTime fechaCancelacion;
     private boolean recurrente;
     private List<Reserva> reservasEncontradas;
     private String recurrencia;
@@ -73,13 +74,23 @@ public class ComunidadBean extends BasePageBean{
 
     public String estaDisponible(int id) throws PersistenceException{
         try{
-            List<Reserva> reservas = services.estaDisponible(id);
+            List<Reserva> reservas = services.reservasRecurso(id);
             if(reservas.size() == 0){
                 services.cambiarDisponibilidad("Disponible", id);
                 return "Disponible";
             }else{
-                services.cambiarDisponibilidad("No disponible", id);
-                return "No disponible";
+                if(reservas.get(0).isCancelada()){
+                    services.cambiarDisponibilidad("Disponible", id);
+                    return "Disponible";
+                }else{
+                    if(reservas.get(0).getFechaInicio().isAfter(LocalDateTime.now())){
+                        services.cambiarDisponibilidad("Disponible", id);
+                        return "Disponible";
+                    }else{
+                        services.cambiarDisponibilidad("No disponible", id);
+                        return "No disponible";
+                    }
+                }
             }
         }catch (PersistenceException ex){
             throw new PersistenceException("Error al buscar la disponibilidad de los recursos", ex);
@@ -136,6 +147,39 @@ public class ComunidadBean extends BasePageBean{
             }
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
+        }
+    }
+
+    public void cancelarReserva() throws PersistenceException{
+        try{
+            if(reservaSeleccionada.getFechaInicio().isBefore(LocalDateTime.now()) && reservaSeleccionada.getFechaFin().isAfter(LocalDateTime.now())){
+                addMessage("No se puede cancelar una reserva que ya ha iniciado");
+            }else{
+                if(!reservaSeleccionada.isRecurrente()){
+                    services.cancelarReserva(reservaSeleccionada.getId());
+                    PrimeFaces.current().executeScript("PF('dlg_detalles').hide();");
+                    addMessage("¡Reserva cancelada exitosamente!");
+                }
+
+            }
+        }catch (PersistenceException e){
+            throw new PersistenceException("Error al cancelar la reserva",e);
+        }
+    }
+
+    public void cancelarReservaRecurrente(){
+        addMessage("¡Reserva cancelada exitosamente!");
+    }
+
+    public boolean botonCancelar(){
+        return filtroReservas != 1;
+    }
+
+    public void cancelacion(){
+        if(reservaSeleccionada.isRecurrente()){
+            PrimeFaces.current().executeScript("PF('dlg_cancelacion_recurrente').show()");
+        }else{
+            PrimeFaces.current().executeScript("PF('dlg_confirmacion').show()");
         }
     }
 
@@ -275,5 +319,13 @@ public class ComunidadBean extends BasePageBean{
 
     public void setRecursoEncontrado(Recurso recursoEncontrado) {
         this.recursoEncontrado = recursoEncontrado;
+    }
+
+    public LocalDateTime getFechaCancelacion() {
+        return fechaCancelacion;
+    }
+
+    public void setFechaCancelacion(LocalDateTime fechaCancelacion) {
+        this.fechaCancelacion = fechaCancelacion;
     }
 }

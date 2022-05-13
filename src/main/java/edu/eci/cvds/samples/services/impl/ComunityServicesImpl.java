@@ -111,11 +111,20 @@ public class ComunityServicesImpl implements ComunityServices {
     }
 
     @Override
-    public List<Reserva> estaDisponible(int id) throws PersistenceException {
+    public List<Reserva> reservasRecurso(int id) throws PersistenceException {
         try{
-            return reservaDAO.estaDisponible(id);
+            return reservaDAO.reservasRecurso(id);
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar la disponibilidad del recurso" , ex);
+        }
+    }
+
+    @Override
+    public void cancelarReserva(int id) throws PersistenceException {
+        try{
+            reservaDAO.cancelarReserva(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al cancelar la reserva" , ex);
         }
     }
 

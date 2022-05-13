@@ -406,7 +406,42 @@
 
                                 </p:panelGrid>
                                 <br> </br>
-                                <p:commandButton value="Cancelar reserva" icon="pi pi-times" update="msg"/>
+                                <p:commandButton value="Cancelar reserva" disabled="#{comunidadBean.botonCancelar()}" icon="pi pi-times" actionListener="#{comunidadBean.cancelacion()}"/>
+                            </p:outputPanel>
+                        </p:dialog>
+
+                        <p:dialog resizable="false" header="Confirmación" widgetVar="dlg_confirmacion" showEffect="clip" hideEffect="fade">
+                            <p:outputPanel id="confirmacion" style="text-align:center;">
+                                <h:outputText value="¿Desea confirmar la cancelación de la reserva?" />
+                                <br> </br>
+                                <p:commandButton value="No" oncomplete="PF('dlg_confirmacion').hide()" styleClass="ui-button-danger" style="margin-right:10px"/>
+                                <p:commandButton value="Sí" oncomplete="PF('dlg_confirmacion').hide()" update="msg" actionListener="#{comunidadBean.cancelarReserva()}" styleClass="ui-button-success"/>
+                            </p:outputPanel>
+                        </p:dialog>
+
+                        <p:dialog resizable="false" header="Confirmación" widgetVar="dlg_confirmacion_recurrente" showEffect="clip" hideEffect="fade">
+                            <p:outputPanel id="confirmacion_recurrente" style="text-align:center;">
+                                <h:outputText value="¿Desea confirmar la cancelación de la reserva?" />
+                                <br> </br>
+                                <p:commandButton value="No" oncomplete="PF('dlg_confirmacion_recurrente').hide()" styleClass="ui-button-danger" style="margin-right:10px"/>
+                                <p:commandButton value="Sí" oncomplete="PF('dlg_confirmacion_recurrente').hide(); PF('dlg_cancelacion_recurrente').hide(); PF('dlg_detalles').hide()" update="msg" actionListener="#{comunidadBean.cancelarReservaRecurrente()}" styleClass="ui-button-success"/>
+                            </p:outputPanel>
+                        </p:dialog>
+
+                        <p:dialog resizable="false" header="¿Cómo desea continuar con la cancelación?" widgetVar="dlg_cancelacion_recurrente" showEffect="clip" hideEffect="fade">
+                            <p:outputPanel id="cancelacion_recurrente" style="text-align:center;">
+                                <h:outputText value="Cancelar toda la reserva" />
+                                <p:commandButton oncomplete="PF('dlg_confirmacion').show()" icon="pi pi-times" styleClass="rounded-button ui-button-danger" style="margin-left:40px"/>
+                                <br> </br>
+                                <p:panelGrid id="displayCancelacionRecurrente" columns="2" columnClasses="label,value">
+                                    <h:outputText value="Cancelar un evento particular" />
+                                    <p:commandButton oncomplete="PF('dlg_ocupacion').show()" icon="pi pi-search" styleClass="rounded-button"/>
+
+                                    <h:outputText value="Cancelar todos los eventos a partir de la fecha" />
+                                    <p:datePicker id="fechaCancelar" value="#{comunidadBean.fechaCancelacion}" showTime="true"/>
+                                </p:panelGrid>
+                                <br> </br>
+                                <p:commandButton value="Confirmar" icon="pi pi-check" oncomplete="PF('dlg_confirmacion_recurrente').show()"/>
                             </p:outputPanel>
                         </p:dialog>
 

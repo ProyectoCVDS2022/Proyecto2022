@@ -23,12 +23,12 @@
 
     <select id="buscarReservasActivas" resultMap="ReservaResult" parameterType="java.time.LocalDateTime">
         select * from "Proyecto"."reservas"
-        where fechaincio >= #{fechactual};
+        where fechaincio >= #{fechactual} and cancelada = false;
     </select>
 
     <select id="buscarReservasPasadas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
-        where #{fechactual} >= fechaincio;
+        where #{fechactual} >= fechaincio and cancelada = false;
     </select>
 
     <select id="buscarReservasCanceladas" resultMap="ReservaResult">
@@ -41,10 +41,16 @@
         FROM "Proyecto"."reservas";
     </select>
 
-    <select id="estaDisponible" resultMap="ReservaResult">
+    <select id="reservasRecurso" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where recurso = #{id};
     </select>
+
+    <update parameterType="int" id="cancelarReserva">
+        UPDATE "Proyecto"."reservas"
+        SET cancelada = true
+        WHERE id = #{id};
+    </update>
 
     <resultMap type='Reserva' id='ReservaResult'>
         <result property='id' column='id'/>
