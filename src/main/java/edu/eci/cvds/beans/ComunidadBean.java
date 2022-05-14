@@ -136,7 +136,7 @@ public class ComunidadBean extends BasePageBean{
                     }
 
                 }else{
-                    if(fechaFinReserva.isAfter(fechaInicioReserva.plusHours(2))){
+                    if(fechaFinReserva.isAfter(fechaInicioReserva.plusHours(2)) && !recurrente){
                         addMessage("El tiempo máximo de la reserva es de dos horas");
                     }else if(fechaFinReserva.isBefore(fechaInicioReserva)){
                         addMessage("La fecha de fin debe ser mayor a la fecha de inicio");
@@ -157,6 +157,7 @@ public class ComunidadBean extends BasePageBean{
             }else{
                 if(!reservaSeleccionada.isRecurrente()){
                     services.cancelarReserva(reservaSeleccionada.getId());
+                    services.cambiarDisponibilidad("Disponible", reservaSeleccionada.getRecurso());
                     PrimeFaces.current().executeScript("PF('dlg_detalles').hide();");
                     addMessage("¡Reserva cancelada exitosamente!");
                 }
