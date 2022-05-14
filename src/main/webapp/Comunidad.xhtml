@@ -226,11 +226,14 @@
                         <p:growl id="msg"/>
 
                         <p:dialog modal="true" resizable="false" header="Ocupación del recurso" widgetVar="dlg_ocupacion" showEffect="fold" hideEffect="clip">
-                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;"/>
+                            <p:outputPanel id = "calendarioAletoso" deferred="true">
+                                <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;">
+                                    <p:ajax event="dateSelect" listener="#{CalendarView.crearEvento}" update=":display" oncomplete="PF('dlg').show();"/>
+                                </p:schedule>
+                            </p:outputPanel>
                         </p:dialog>
 
-                        <p:dataTable id="resultado" var="recurso" rows="10" paginator="true" selectionMode="single"
-                                     selection="#{comunidadBean.recursoSeleccionado}" rowKey="#{recurso.id}"
+                        <p:dataTable id="resultado" var="recurso" rows="10" paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {PageLinks} {NextPageLink} {RowsPerPageDropdown}"
                                      value="#{comunidadBean.recursosEncontrados}" selectionPageOnly="false"
                                      paginatorPosition="bottom" scrollable="true">
@@ -280,48 +283,53 @@
                                 <h:outputText value="#{comunidadBean.nombreUbicacion(recurso.ubicacion).getLugar()}" />
                             </p:column>
                             <p:column headerText="Ocupación" style="width:3rem;text-align: center">
-                                <p:commandButton action="#{CalendarView.crearCalendario}" oncomplete="PF('dlg_ocupacion').show()"
-                                                 icon="pi pi-search" title="View"/>
+                                <p:commandButton action="#{CalendarView.crearCalendario}" update = "calendarioAletoso" oncomplete="PF('dlg_ocupacion').show()"
+                                                 icon="pi pi-search" title="View">
+                                    <f:setPropertyActionListener value="#{recurso}"
+                                                                 target="#{CalendarView.recursoSeleccionado}"/>
+                                </p:commandButton>
                             </p:column>
                         </p:dataTable>
 
                         <br> </br>
 
                         <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg" showEffect="fold" hideEffect="fade">
-                            <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                            <p:outputPanel id = "PanelReservas" deferred="true">
+                                <p:panelGrid id="display" columns="2" columnClasses="label,value">
 
-                                <h:outputText value="Nombre" />
-                                <h:outputText value="#{comunidadBean.recursoSeleccionado.nombre}"/>
+                                    <h:outputText value="Nombre" />
+                                    <h:outputText value="#{CalendarView.recursoSeleccionado.nombre}"/>
 
-                                <h:outputText value="Tipo:" />
-                                <h:outputText value="#{comunidadBean.nombreTipo(comunidadBean.recursoSeleccionado.getTipo()).getNombre()}"/>
+                                    <h:outputText value="Tipo:" />
+                                    <h:outputText value="#{CalendarView.nombreTipo(CalendarView.recursoSeleccionado.getTipo()).getNombre()}"/>
 
-                                <h:outputText value="Ubicación:" />
-                                <h:outputText value="#{comunidadBean.nombreUbicacion(comunidadBean.recursoSeleccionado.getUbicacion()).getLugar()}"/>
+                                    <h:outputText value="Ubicación:" />
+                                    <h:outputText value="#{CalendarView.nombreUbicacion(CalendarView.recursoSeleccionado.getUbicacion()).getLugar()}"/>
 
-                                <h:outputText value="Hora de inicio" />
-                                <p:datePicker id="horainicio" value="#{comunidadBean.fechaInicioReserva}" showTime="true"/>
+                                    <h:outputText value="Hora de inicio" />
+                                    <p:datePicker id="horainicio" value="#{CalendarView.event.startDate}" showTime="true"/>
 
-                                <h:outputText value="Hora de finalización" />
-                                <p:datePicker id="horafin" value="#{comunidadBean.fechaFinReserva}" showTime="true"/>
+                                    <h:outputText value="Hora de finalización" />
+                                    <p:datePicker id="horafin" value="#{CalendarView.event.endDate}" showTime="true"/>
 
-                                <h:outputText value="Recurrente:" />
-                                <p:toggleSwitch value="#{comunidadBean.recurrente}"/>
+                                    <h:outputText value="Recurrente:" />
+                                    <p:toggleSwitch value="#{CalendarView.recurrente}" update = "PanelReservas" />
 
-                                <h:outputText value="Recurrencia:" />
-                                <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}" disabled="#{!comunidadBean.recurrente}">
-                                    <f:selectItem itemLabel="- Seleccione -" itemValue="null" noSelectionOption="true"/>
-                                    <f:selectItem itemValue = "Diaria" itemLabel = "Diaria" />
-                                    <f:selectItem itemValue = "Semanal" itemLabel = "Semanal" />
-                                    <f:selectItem itemValue = "Mensual" itemLabel = "Mensual" />
-                                </h:selectOneMenu>
+                                    <h:outputText value="Recurrencia:" />
+                                    <h:selectOneMenu name="recurrencia" value="#{CalendarView.recurrencia}" disabled="#{!CalendarView.recurrente}">
+                                        <f:selectItem itemLabel="- Seleccione -" itemValue="null" noSelectionOption="true"/>
+                                        <f:selectItem itemValue = "Diaria" itemLabel = "Diaria" />
+                                        <f:selectItem itemValue = "Semanal" itemLabel = "Semanal" />
+                                        <f:selectItem itemValue = "Mensual" itemLabel = "Mensual" />
+                                    </h:selectOneMenu>
 
-                            </p:panelGrid>
+                                </p:panelGrid>
+                            </p:outputPanel>
                             <br> </br>
-                            <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" actionListener="#{comunidadBean.reservarRecurso()}"/>
-                        </p:dialog>
 
-                        <p:commandButton id="boton_reservar" value="Reservar recurso" update=":display" action="#{comunidadBean.click()}"/>
+                            <p:commandButton value="Crear reserva" icon="pi pi-check" update="msg" actionListener="#{comunidadBean.reservarRecurso()}"/>
+
+                        </p:dialog>
                     </div>
                 </div>
             </div>

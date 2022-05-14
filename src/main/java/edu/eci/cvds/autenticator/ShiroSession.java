@@ -1,6 +1,7 @@
 package edu.eci.cvds.autenticator;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.UserServices;
 import org.apache.shiro.SecurityUtils;
@@ -27,7 +28,7 @@ public class ShiroSession implements SessionLogger {
     public void setUserServices(UserServices userServices) {
         this.userServices = userServices;
     }
-    @Override
+    /*@Override
     public void login(String nombre,String clave) throws PersistenceException {
         //UsernamePasswordToken token = new UsernamePasswordToken(nombre,clave);
         System.out.println("--------SignIn--------");
@@ -67,6 +68,19 @@ public class ShiroSession implements SessionLogger {
         //say who they are:
         //print their identifying princip   al (in this case, a username):
         log.info("User [" + currentUser.getPrincipal() + "] logged in successfully.");
+    }*/
+
+    public void login(String username, String password) throws PersistenceException, IOException {
+        Usuario usuario = userServices.consultarUsuario(username, password);
+        if(usuario != null){
+            if(usuario.getRol().equals("administrador")){
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/administrador.xhtml?faces-redirect=true");
+            }else{
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/Comunidad.xhtml?faces-redirect=true");
+            }
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
+        }
     }
 
     @Override

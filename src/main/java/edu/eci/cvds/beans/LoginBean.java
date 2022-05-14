@@ -28,14 +28,15 @@ public class LoginBean extends BasePageBean{
 
 
     @RequiresGuest
-    public void login() throws  PersistenceException{
+    public void login() throws PersistenceException, IOException {
         System.out.println("1");
         try {
             System.out.println("U :" + username);
             System.out.println("P :" + password);
+
             sessionLogger.login(username, password);
 
-        } catch (PersistenceException e){
+        } catch (PersistenceException | IOException e){
             throw e;
         }
     }

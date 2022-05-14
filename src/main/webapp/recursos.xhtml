@@ -226,7 +226,9 @@
                         <p:growl id="msg"/>
 
                         <p:dialog modal="true" resizable="false" header="Ocupación del recurso" widgetVar="dlg_ocupacion" showEffect="fold" hideEffect="clip">
-                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;"/>
+                            <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myschedule" style="width:700px !important; height:800px !important;">
+
+                            </p:schedule>
                         </p:dialog>
 
                         <p:dataTable id="resultado" var="recurso" rows="10" paginator="true"
