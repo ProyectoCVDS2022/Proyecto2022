@@ -5,6 +5,9 @@ import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.ComunityServices;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.event.SelectEvent;
 
 
 import javax.faces.application.FacesMessage;
@@ -29,14 +32,13 @@ public class ComunidadBean extends BasePageBean{
     private int filtro;
     private int filtroReservas;
     private Recurso recursoSeleccionado;
-    private LocalDateTime fechaInicioReserva;
-    private LocalDateTime fechaFinReserva;
     private LocalDateTime fechaCancelacion;
     private boolean recurrente;
     private List<Reserva> reservasEncontradas;
     private String recurrencia;
     private Reserva reservaSeleccionada;
     private Recurso recursoEncontrado;
+    private ScheduleEvent<?> event = new DefaultScheduleEvent<>();
 
 
     public Recurso buscarRecurso(String nombreBuscar) throws PersistenceException {
@@ -124,9 +126,9 @@ public class ComunidadBean extends BasePageBean{
     public void reservarRecurso() throws PersistenceException{
         try{
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                if(fechaFinReserva.isEqual(fechaInicioReserva.plusHours(2)) || (fechaFinReserva.isBefore(fechaInicioReserva.plusHours(2)) && fechaFinReserva.isAfter(fechaInicioReserva))){
-                    if(fechaInicioReserva.getHour() >= recursoSeleccionado.getFechaInicio().getHour() && fechaFinReserva.getHour() <= recursoSeleccionado.getFechaFin().getHour()){
-                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), fechaInicioReserva, fechaFinReserva, recurrente, recurrencia, false));
+                if(event.getEndDate().isEqual(event.getStartDate().plusHours(2)) || (event.getEndDate().isBefore(event.getStartDate().plusHours(2)) && event.getEndDate().isAfter(event.getStartDate()))){
+                    if(event.getStartDate().getHour() >= recursoSeleccionado.getFechaInicio().getHour() && event.getEndDate().getHour() <= recursoSeleccionado.getFechaFin().getHour()){
+                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), event.getStartDate(), event.getEndDate(), recurrente, recurrencia, false));
                         services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
                         addMessage("¡Recurso reservado exitosamente!");
                         PrimeFaces.current().executeScript("PF('dlg').hide();");
@@ -136,9 +138,9 @@ public class ComunidadBean extends BasePageBean{
                     }
 
                 }else{
-                    if(fechaFinReserva.isAfter(fechaInicioReserva.plusHours(2)) && !recurrente){
+                    if(event.getEndDate().isAfter(event.getStartDate().plusHours(2)) && !recurrente){
                         addMessage("El tiempo máximo de la reserva es de dos horas");
-                    }else if(fechaFinReserva.isBefore(fechaInicioReserva)){
+                    }else if(event.getEndDate().isBefore(event.getStartDate())){
                         addMessage("La fecha de fin debe ser mayor a la fecha de inicio");
                     }
                 }
@@ -148,6 +150,14 @@ public class ComunidadBean extends BasePageBean{
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
         }
+    }
+
+    public void crearEvento(SelectEvent<LocalDateTime> selectEvent){
+        event = DefaultScheduleEvent.builder()
+                .startDate(selectEvent.getObject().plusHours(7))
+                .endDate(selectEvent.getObject().plusHours(9))
+                .build();
+        System.out.println("aaaa");
     }
 
     public void cancelarReserva() throws PersistenceException{
@@ -258,22 +268,6 @@ public class ComunidadBean extends BasePageBean{
         this.calendarBean = calendarBean;
     }
 
-    public LocalDateTime getFechaInicioReserva() {
-        return fechaInicioReserva;
-    }
-
-    public void setFechaInicioReserva(LocalDateTime fechaInicioReserva) {
-        this.fechaInicioReserva = fechaInicioReserva;
-    }
-
-    public LocalDateTime getFechaFinReserva() {
-        return fechaFinReserva;
-    }
-
-    public void setFechaFinReserva(LocalDateTime fechaFinReserva) {
-        this.fechaFinReserva = fechaFinReserva;
-    }
-
     public boolean isRecurrente() {
         return recurrente;
     }
@@ -328,5 +322,13 @@ public class ComunidadBean extends BasePageBean{
 
     public void setFechaCancelacion(LocalDateTime fechaCancelacion) {
         this.fechaCancelacion = fechaCancelacion;
+    }
+
+    public ScheduleEvent<?> getEvent() {
+        return event;
+    }
+
+    public void setEvent(ScheduleEvent<?> event) {
+        this.event = event;
     }
 }
