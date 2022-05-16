@@ -1,13 +1,13 @@
 # Proyecto Ciclillos | CVDS | 2022-1
 ## Integrantes:
--
--
--
--
--
--
+- Santiago Andrés Bayona Cardenas 
+- Juan Carlos Acosta López
+- Julian Esteban Torres Díaz
+- Jaime Nicolás Castro Acuña
+- David Alejandro Leon
 ## Descripcion del producto:
 - **Descripción general:**
+- 
 - **Manual de usuario:**
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado:
