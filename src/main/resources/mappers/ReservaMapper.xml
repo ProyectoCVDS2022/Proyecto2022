@@ -18,22 +18,26 @@
 
     <select id="buscarReservasUsuario" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
-        where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%');
+        where usuario = (select id from "Proyecto"."usuarios" where correo like '%'||#{usuario}||'%')
+        order by fechaincio ;
     </select>
 
     <select id="buscarReservasActivas" resultMap="ReservaResult" parameterType="java.time.LocalDateTime">
         select * from "Proyecto"."reservas"
-        where fechaincio >= #{fechactual} and cancelada = false;
+        where fechaincio >= #{fechactual} and cancelada = false
+        order by fechaincio ;
     </select>
 
     <select id="buscarReservasPasadas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
-        where #{fechactual} >= fechaincio and cancelada = false;
+        where #{fechactual} >= fechaincio and cancelada = false
+        order by fechaincio ;
     </select>
 
     <select id="buscarReservasCanceladas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
-        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario}) and cancelada = true;
+        where usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario}) and cancelada = true
+        order by fechaincio ;
     </select>
 
     <select id="maxIdReserva" resultType="java.lang.Integer">
@@ -44,6 +48,20 @@
     <select id="reservasRecurso" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where recurso = #{id};
+    </select>
+
+    <select id="recursosMasReservados" resultType="hashmap">
+        select count(*) as cantidadDeReservas, recurso
+        from "Proyecto"."reservas"
+        group by recurso
+        order by cantidadDeReservas desc;
+    </select>
+
+    <select id="recursosMenosReservados" resultMap="ReservaResult">
+        select count(*) as cantidadDeReservas, recurso
+        from "Proyecto"."reservas"
+        group by recurso
+        order by cantidadDeReservas;
     </select>
 
     <update parameterType="int" id="cancelarReserva">

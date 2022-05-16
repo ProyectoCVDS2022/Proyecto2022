@@ -67,7 +67,7 @@
     }
 
     .toggle:checked + .lbl-toggle + .collapsible-content {
-        max-height: 100vh;
+        max-height: 100%;
     }
 
     .toggle:checked + .lbl-toggle {
@@ -99,6 +99,18 @@
 
     .collapsible-content .content2-inner {
         background: rgba(150,150,150,0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, .45);
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .collapsible-content .content3-inner {
+	    color: black;
+	    background-color: rgba(255,255,255,0.8);
         border-bottom: 1px solid rgba(255, 255, 255, .45);
         border-bottom-left-radius: 7px;
         border-bottom-right-radius: 7px;
@@ -176,6 +188,20 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+	}
+
+	div.card {
+        height: 570px;
+		width: 30%;
+		padding: 0 0 0 30px;
+	}
+
+	div.donas{
+        width: 100%;
+        height: 630px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 	}
 
 
@@ -344,6 +370,7 @@
     </h:form>
 
     <br></br>
+
     <h:form id="admin_reservas" prependId="false">
 
         <div class="wrap-collabsible">
@@ -362,12 +389,7 @@
                         <p:column headerText="ID" style="text-align: center;">
                             <h:outputText value="#{reserva.id}" />
                         </p:column>
-                        <p:column headerText="Usuario" style="text-align: center;">
-                            <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getCorreo()}" />
-                        </p:column>
-                        <p:column headerText="Programa" style="text-align: center;">
-                            <h:outputText value="#{adminBean.infoUsuario(reserva.usuario).getPrograma()}" />
-                        </p:column>
+
                         <p:column headerText="Recurso" style="text-align: center;">
                             <h:outputText value="#{adminBean.nombreRecurso(reserva.recurso).getNombre()}" />
                         </p:column>
@@ -377,14 +399,8 @@
                         <p:column headerText="Fecha de solicitud" style="text-align: center;">
                             <h:outputText value="#{reserva.getFechaSolicitudF()}" />
                         </p:column>
-                        <p:column headerText="Fecha de inicio" style="text-align: center;">
-                            <h:outputText value="#{reserva.getFechaInicioF()}" />
-                        </p:column>
-                        <p:column headerText="Fecha de finalización" style="text-align: center;">
-                            <h:outputText value="#{reserva.getFechaFinF()}" />
-                        </p:column>
                         <p:column headerText="Recurrente" style="text-align: center;">
-                            <h:outputText value="#{reserva.recurrente}" />
+                            <h:outputText value="#{reserva.getRecurrenteF()}" />
                         </p:column>
                         <p:column style="width:3rem;text-align: center">
                             <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
@@ -403,16 +419,23 @@
                                 <h:outputText value="#{adminBean.reservaSeleccionada.id}"/>
 
                                 <h:outputText value="Usuario" />
-                                <h:outputText value="#{adminBean.reservaSeleccionada.usuario}"/>
+                                <h:outputText value="#{adminBean.infoUsuario(adminBean.reservaSeleccionada.usuario).getCorreo()}" />
+
+                                <h:outputText value="Programa" />
+                                <h:outputText value="#{adminBean.infoUsuario(adminBean.reservaSeleccionada.usuario).getPrograma()}" />
 
                                 <h:outputText value="Recurso" />
-                                <h:outputText value="#{adminBean.reservaSeleccionada.recurso}"/>
+                                <h:outputText value="#{adminBean.nombreRecurso(adminBean.reservaSeleccionada.recurso).getNombre()}" />
+
+                                <h:outputText value="Recurrencia" />
+                                <h:outputText value="#{adminBean.reservaSeleccionada.recurrencia}"/>
 
                                 <h:outputText value="Fecha de inicio" />
                                 <h:outputText value="#{adminBean.reservaSeleccionada.getFechaInicioF()}"/>
 
                                 <h:outputText value="Fecha de finalización" />
                                 <h:outputText value="#{adminBean.reservaSeleccionada.getFechaFinF()}"/>
+
                             </p:panelGrid>
                         </p:outputPanel>
                     </p:dialog>
@@ -420,6 +443,61 @@
             </div>
         </div>
 
+    </h:form>
+
+    <br></br>
+
+    <h:form id="admin_reporte" prependId="false">
+        <div class="wrap-collabsible">
+            <input id="collapsible3" class="toggle" type="checkbox"/>
+            <label for="collapsible3" class="lbl-toggle">Reporte de ocupación</label>
+            <div class="collapsible-content">
+                <div class="content3-inner">
+
+                    <h1>Ocupación de recursos</h1>
+
+                    <div class="donas">
+                        <div class="card">
+                            <h3>Recursos más usados</h3>
+                            <p:donutChart model="#{adminBean.recursosMasUsados}"/>
+                        </div>
+
+                        <div class="card">
+                            <h3>Recursos menos usados</h3>
+                            <p:donutChart model="#{adminBean.recursosMenosUsados}"/>
+                        </div>
+
+                    </div>
+
+                    <br></br>
+
+                    <h1>Ocupación por horarios</h1>
+
+                    <div class="donas">
+                        <div class="card">
+                            <h3>Horarios de mayor ocupación</h3>
+                            <p:barChart model="#{adminBean.horariosMas}" style="width: 100%; height: 500px;"/>
+                        </div>
+
+                        <div class="card">
+                            <h3>Horarios de menor ocupación</h3>
+                            <p:barChart model="#{adminBean.horariosMenos}" style="width: 100%; height: 500px;"/>
+                        </div>
+                    </div>
+
+                    <br></br>
+
+                    <h1>Cantidad de reservas por programa académico</h1>
+
+                    <div class="donas">
+                        <p:barChart model="#{adminBean.reservasPrograma}" style="width: 100%; height: 500px;"/>
+                    </div>
+
+                    <p:commandButton value="Actualizar reportes" actionListener="#{adminBean.ocupacion()}" icon="pi pi-search" update="admin_reporte"/>
+
+                </div>
+            </div>
+        </div>
     </h:form>
 
     </body>

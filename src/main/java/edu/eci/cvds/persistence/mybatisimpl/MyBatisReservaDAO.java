@@ -8,6 +8,7 @@ import edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaMapper;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 public class MyBatisReservaDAO implements ReservaDAO {
 
@@ -88,6 +89,16 @@ public class MyBatisReservaDAO implements ReservaDAO {
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al cancelar la reserva",e);
         }
+    }
+
+    @Override
+    public List<Map<Integer, Object>> recursosMasReservados() {
+        return reservaMapper.recursosMasReservados();
+    }
+
+    @Override
+    public List<Map<Integer, Object>> recursosMenosReservados() {
+        return reservaMapper.recursosMenosReservados();
     }
 
 }

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.rmi.server.RemoteServer;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 public interface ReservaMapper {
 
@@ -28,4 +29,8 @@ public interface ReservaMapper {
     public List<Reserva> reservasRecurso(@Param("id") int id);
 
     public void cancelarReserva(@Param("id") int id) throws PersistenceException;
+
+    public List<Map<Integer, Object>> recursosMasReservados();
+
+    public List<Map<Integer, Object>> recursosMenosReservados();
 }

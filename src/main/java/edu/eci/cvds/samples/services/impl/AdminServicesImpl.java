@@ -7,6 +7,7 @@ import edu.eci.cvds.persistence.*;
 import edu.eci.cvds.samples.services.AdminServices;
 
 import java.util.List;
+import java.util.Map;
 
 public class AdminServicesImpl implements AdminServices {
 
@@ -118,6 +119,16 @@ public class AdminServicesImpl implements AdminServices {
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar la disponibilidad del recurso" , ex);
         }
+    }
+
+    @Override
+    public List<Map<Integer, Object>> recursosMasReservados() {
+        return reservaDAO.recursosMasReservados();
+    }
+
+    @Override
+    public List<Map<Integer, Object>> recursosMenosReservados() {
+        return reservaDAO.recursosMenosReservados();
     }
 
 }

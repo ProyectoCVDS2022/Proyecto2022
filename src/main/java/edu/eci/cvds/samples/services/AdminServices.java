@@ -4,6 +4,7 @@ import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exceptions.PersistenceException;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AdminServices {
 
@@ -28,4 +29,8 @@ public interface AdminServices {
     public Recurso nombreRecurso(int id) throws PersistenceException;
 
     public List<Reserva> reservasRecurso(int id) throws PersistenceException;
+
+    public List<Map<Integer, Object>> recursosMasReservados();
+
+    public List<Map<Integer, Object>> recursosMenosReservados();
 }

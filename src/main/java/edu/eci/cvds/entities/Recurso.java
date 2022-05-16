@@ -1,8 +1,6 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Recurso implements Serializable {
