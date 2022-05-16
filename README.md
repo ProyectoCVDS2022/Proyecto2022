@@ -12,7 +12,8 @@
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado:
 - **Modelo E-R:**
-![image](https://user-images.githubusercontent.com/98216838/168507698-701ce664-f965-4a23-8689-383a172ff774.png)
+\
+            ![image](https://user-images.githubusercontent.com/98216838/168507698-701ce664-f965-4a23-8689-383a172ff774.png)
 - **Diagrama de clases:**
 - **Descripción de la arquitectura y del Stack:**
 - **Aplicaion en heroku**
