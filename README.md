@@ -25,6 +25,9 @@
   - https://tree.taiga.io/project/estebananot-gestion-de-recursos-biblioteca/timeline
 - **release-burndown chart**
 - **Sprint 1:**
+  - Sprint-backlog
+            ![image](https://user-images.githubusercontent.com/98216838/168508554-f477b635-c22e-42e5-85c4-bf765a373401.png)
+
 - **Sprint 2:**
 - **Sprint 3:**
 - **Reporte de pruebas:**
