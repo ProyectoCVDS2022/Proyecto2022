@@ -40,7 +40,7 @@
  -  **Sprint 3:**
    - Sprint-backlog
    - Sprint-burndown chart
- - **Reporte de pruebas:**
+ ## Reporte de pruebas
  - **Codacy Badge:**\
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0677f1d86193467e9d40545af3c84020)](https://www.codacy.com/gh/ProyectoCVDS2022/Proyecto2022/dashboard?  utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ProyectoCVDS2022/Proyecto2022&amp;utm_campaign=Badge_Grade)
 
