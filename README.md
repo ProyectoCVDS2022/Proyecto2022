@@ -15,6 +15,7 @@
 \
             ![image](https://user-images.githubusercontent.com/98216838/168507698-701ce664-f965-4a23-8689-383a172ff774.png)
 - **Diagrama de clases:**
+  - ![image](https://user-images.githubusercontent.com/98216838/168897746-a1a01c44-f122-492d-ad97-246a27f29dfa.png)
 - **Descripción de la arquitectura y del Stack:**
 - **Aplicaion en heroku**
   - https://dashboard.heroku.com/apps/proyectociclos2022
@@ -39,9 +40,7 @@
 
 - **Sprint 3:**
   - Sprint-backlog
-            ![image](https://user-images.githubusercontent.com/98216838/168880874-358de177-ccc1-49a3-ba72-dbdf2d510bb6.png)
   - Sprint-burndown chart
-            ![image](https://user-images.githubusercontent.com/98216838/168880945-c518b6ec-255e-4d08-9c11-19654c1f057d.png)
 - **Reporte de pruebas:**
 - **Codacy Badge:**\
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0677f1d86193467e9d40545af3c84020)](https://www.codacy.com/gh/ProyectoCVDS2022/Proyecto2022/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ProyectoCVDS2022/Proyecto2022&amp;utm_campaign=Badge_Grade)
