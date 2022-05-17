@@ -52,8 +52,12 @@ public class AdminBean extends BasePageBean{
     private String usuarioBuscarReservas;
     private Reserva reservaSeleccionada;
 
+    private int filtroReservas;
+    private List<Reserva> reservasReportes;
+
     private DonutChartModel recursosMasUsados = new DonutChartModel();
     private DonutChartModel recursosMenosUsados = new DonutChartModel();
+    private DonutChartModel donaReservas = new DonutChartModel();
 
     private BarChartModel horariosMas = new BarChartModel();
     private BarChartModel horariosMenos = new BarChartModel();
@@ -65,6 +69,7 @@ public class AdminBean extends BasePageBean{
         ocupacion();
         ocupacionHorarios();
         ocupacionProgramas();
+        graficoReservas();
     }
 
     /*
@@ -172,6 +177,15 @@ public class AdminBean extends BasePageBean{
         }
     }
 
+    public List<Reserva> buscarReservasReportes() throws PersistenceException{
+        try{
+            reservasEncontradas = services.buscarReservasReportes(filtroReservas);
+            return reservasEncontradas;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al consultar las reservas", ex);
+        }
+    }
+
     public Usuario infoUsuario(int idUsuario) throws PersistenceException{
         try{
             return services.infoUsuario(idUsuario);
@@ -193,25 +207,6 @@ public class AdminBean extends BasePageBean{
             ChartData dataMas = new ChartData();
             ChartData dataMenos = new ChartData();
 
-<<<<<<< HEAD
-        DonutChartDataSet dataSet = new DonutChartDataSet();
-        List<Number> values = new ArrayList<>();
-        //List<Map<Integer, Object>> valoresMas = services.recursosMasReservados();
-        //List<Map<Integer, Object>> valoresMenos = services.recursosMenosReservados();
-        //values.add((int)valoresMas.get(0).get(0));
-        //values.add((int)valoresMas.get(1).get(0));
-        //values.add((int)valoresMas.get(2).get(0));
-        values.add(24);
-        values.add(60);
-        values.add(36);
-        dataSet.setData(values);
-
-        List<String> bgColors = new ArrayList<>();
-        bgColors.add("rgb(110, 17, 17)");
-        bgColors.add("rgb(180, 20, 12)");
-        bgColors.add("rgb(143, 145, 152)");
-        dataSet.setBackgroundColor(bgColors);
-=======
             DonutChartDataSet dataSetMasReservados = new DonutChartDataSet();
             DonutChartDataSet dataSetMenosReservados = new DonutChartDataSet();
             List<Number> recursosMasReservados = new ArrayList<>();
@@ -222,7 +217,6 @@ public class AdminBean extends BasePageBean{
             recursosMasReservados.add(valoresMas.get(1).getValor());
             recursosMasReservados.add(valoresMas.get(2).getValor());
             dataSetMasReservados.setData(recursosMasReservados);
->>>>>>> eb25890d8de046ee471cc83d287895c1624f6690
 
             List<Ocupacion> valoresMenos = services.recursosMenosReservados();
             recursosMenosReservados.add(valoresMenos.get(0).getValor());
@@ -230,13 +224,9 @@ public class AdminBean extends BasePageBean{
             recursosMenosReservados.add(valoresMenos.get(2).getValor());
             dataSetMenosReservados.setData(recursosMenosReservados);
 
-            //values.add(1);
-            //values.add(60);
-            //values.add(25);
-
             List<String> bgColors = new ArrayList<>();
-            bgColors.add("rgb(22, 67, 137)");
-            bgColors.add("rgb(41, 95, 142)");
+            bgColors.add("rgb(110, 17, 17)");
+            bgColors.add("rgb(180, 20, 12)");
             bgColors.add("rgb(143, 145, 152)");
             dataSetMasReservados.setBackgroundColor(bgColors);
             dataSetMenosReservados.setBackgroundColor(bgColors);
@@ -261,7 +251,6 @@ public class AdminBean extends BasePageBean{
         } catch (PersistenceException e) {
             e.printStackTrace();
         }
-
     }
 
     public void ocupacionHorarios() {
@@ -278,8 +267,8 @@ public class AdminBean extends BasePageBean{
         barDataSet.setData(values);
 
         List<String> bgColor = new ArrayList<>();
-        bgColor.add("rgb(22, 67, 137)");
-        bgColor.add("rgb(41, 95, 142)");
+        bgColor.add("rgb(110, 17, 17)");
+        bgColor.add("rgb(180, 20, 12)");
         bgColor.add("rgb(143, 145, 152)");
         barDataSet.setBackgroundColor(bgColor);
 
@@ -314,8 +303,8 @@ public class AdminBean extends BasePageBean{
         hbarDataSet.setData(values);
 
         List<String> bgColor = new ArrayList<>();
-        bgColor.add("rgb(22, 67, 137)");
-        bgColor.add("rgb(41, 95, 142)");
+        bgColor.add("rgb(110, 17, 17)");
+        bgColor.add("rgb(180, 20, 12)");
         bgColor.add("rgb(143, 145, 152)");
         hbarDataSet.setBackgroundColor(bgColor);
 
@@ -345,6 +334,33 @@ public class AdminBean extends BasePageBean{
         cScales.addXAxesData(linearAxes);
         options.setScales(cScales);
         reservasPrograma.setOptions(options);
+    }
+
+    public void graficoReservas(){
+        try {
+            ChartData dataReservas = new ChartData();
+            DonutChartDataSet dataSetReservas = new DonutChartDataSet();
+            List<Number> reservas = new ArrayList<>();
+
+            reservas.add(services.buscarReservasReportes(1).size());
+            reservas.add(services.buscarReservasReportes(2).size());
+            dataSetReservas.setData(reservas);
+
+            List<String> bgColors = new ArrayList<>();
+            bgColors.add("rgb(110, 17, 17)");
+            bgColors.add("rgb(143, 145, 152)");
+            dataSetReservas.setBackgroundColor(bgColors);
+
+            dataReservas.addChartDataSet(dataSetReservas);
+            List<String> labelsReservas = new ArrayList<>();
+            labelsReservas.add("Recurrentes");
+            labelsReservas.add("Canceladas");
+            dataReservas.setLabels(labelsReservas);
+
+            donaReservas.setData(dataReservas);
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -391,9 +407,7 @@ public class AdminBean extends BasePageBean{
 
     public String getObservaciones() {return observaciones;}
 
-
     public String getNombreBuscar() {return nombreBuscar;}
-
 
     public Recurso getRecursoEncontrado() {return recursoEncontrado;}
 
@@ -429,11 +443,9 @@ public class AdminBean extends BasePageBean{
         this.observaciones = observaciones;
     }
 
-
     public void setNombreBuscar(String nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
     }
-
 
     public void setRecursoEncontrado(Recurso recursoEncontrado) {
         this.recursoEncontrado = recursoEncontrado;
@@ -487,5 +499,29 @@ public class AdminBean extends BasePageBean{
 
     public void setReservasPrograma(HorizontalBarChartModel reservasPrograma) {
         this.reservasPrograma = reservasPrograma;
+    }
+
+    public int getFiltroReservas() {
+        return filtroReservas;
+    }
+
+    public void setFiltroReservas(int filtroReservas) {
+        this.filtroReservas = filtroReservas;
+    }
+
+    public List<Reserva> getReservasReportes() {
+        return reservasReportes;
+    }
+
+    public void setReservasReportes(List<Reserva> reservasReportes) {
+        this.reservasReportes = reservasReportes;
+    }
+
+    public DonutChartModel getDonaReservas() {
+        return donaReservas;
+    }
+
+    public void setDonaReservas(DonutChartModel donaReservas) {
+        this.donaReservas = donaReservas;
     }
 }

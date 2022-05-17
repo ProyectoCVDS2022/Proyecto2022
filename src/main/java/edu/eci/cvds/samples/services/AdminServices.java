@@ -33,4 +33,6 @@ public interface AdminServices {
     public List<Ocupacion> recursosMasReservados();
 
     public List<Ocupacion> recursosMenosReservados();
+
+    public List<Reserva> buscarReservasReportes(int filtro) throws PersistenceException;
 }

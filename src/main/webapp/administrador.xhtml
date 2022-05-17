@@ -204,6 +204,10 @@
         align-items: center;
 	}
 
+	.ui-datatable-header {
+        background: #900 !important;
+    }
+
 
 </style>
 </h:head>
@@ -485,7 +489,7 @@
                         </div>
                     </div>
 
-                    <br></br>
+                    <br> </br>
 
                     <h1>Cantidad de reservas por programa académico</h1>
 
@@ -493,7 +497,62 @@
                         <p:barChart model="#{adminBean.reservasPrograma}" style="width: 100%; height: 500px;"/>
                     </div>
 
-                    <p:commandButton value="Actualizar reportes" actionListener="#{adminBean.ocupacion()}" icon="pi pi-search" update="admin_reporte"/>
+                    <br></br>
+
+                    <h1>Reservas</h1>
+
+                    <p:dataTable id="reservasReportes" var="reserva" value="#{adminBean.reservasEncontradas}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:selectOneMenu name="filtro_reservas" value="#{adminBean.filtroReservas}">
+                                    <p:ajax event="change" listener="#{adminBean.buscarReservasReportes}" update="reservasReportes"/>
+                                    <f:selectItem itemLabel="- Filtro -" itemValue="null" noSelectionOption="true"/>
+                                    <f:selectItem itemValue = "1" itemLabel = "Recurrentes" />
+                                    <f:selectItem itemValue = "2" itemLabel = "Canceladas" />
+                                </h:selectOneMenu>
+                                <br> </br>
+                                <p:commandButton value="Generar gráfico" oncomplete="PF('dialogoReservaReporte').show()"
+                                                 icon="pi pi-chart-line" title="View"/>
+                            </p:outputPanel>
+
+                        </f:facet>
+
+                        <p:column headerText="ID" style="text-align: center;">
+                            <h:outputText value="#{reserva.id}" />
+                        </p:column>
+
+                        <p:column headerText="Recurso" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreRecurso(reserva.recurso).getNombre()}" />
+                        </p:column>
+                        <p:column headerText="Tipo" style="text-align: center;">
+                            <h:outputText value="#{adminBean.nombreTipo(adminBean.nombreRecurso(reserva.recurso).getTipo()).getNombre()}" />
+                        </p:column>
+                        <p:column headerText="Fecha de solicitud" style="text-align: center;">
+                            <h:outputText value="#{reserva.getFechaSolicitudF()}" />
+                        </p:column>
+                        <p:column headerText="Recurrente" style="text-align: center;">
+                            <h:outputText value="#{reserva.getRecurrenteF()}" />
+                        </p:column>
+                        <p:column style="width:3rem;text-align: center">
+                            <p:commandButton update=":admin_reservas:detalleReserva" oncomplete="PF('dialogoReserva').show()"
+                                             icon="pi pi-search" title="View">
+                                <f:setPropertyActionListener value="#{reserva}"
+                                                             target="#{adminBean.reservaSeleccionada}"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+
+                    <p:dialog header="Reservas" widgetVar="dialogoReservaReporte" modal="true" showEffect="fold"
+                              hideEffect="fade" resizable="false" height="480" width="500">
+                        <p:outputPanel id="detalleReportes" style="text-align:center;">
+                            <p:donutChart model="#{adminBean.donaReservas}"/>
+                        </p:outputPanel>
+                    </p:dialog>
+
+                    <br> </br>
+
+                    <p:commandButton value="Actualizar reportes" actionListener="#{adminBean.ocupacion()}" icon="pi pi-sync" update="admin_reporte"/>
 
                 </div>
             </div>

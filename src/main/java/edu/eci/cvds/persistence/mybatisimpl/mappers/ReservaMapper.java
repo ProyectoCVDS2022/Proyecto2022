@@ -30,4 +30,8 @@ public interface ReservaMapper {
 
     public void cancelarReserva(@Param("id") int id) throws PersistenceException;
 
+    public List<Reserva> buscarReservasRecurrentes() throws PersistenceException;
+
+    public List<Reserva> buscarReservasCanceladasReportes() throws PersistenceException;
+
 }

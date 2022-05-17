@@ -1,7 +1,6 @@
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.entities.Ocupacion;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.ReservaDAO;
@@ -88,6 +87,20 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al cancelar la reserva",e);
+        }
+    }
+
+    @Override
+    public List<Reserva> buscarReservasReportes(int filtro) throws PersistenceException {
+        try{
+            if(filtro == 1){
+                return reservaMapper.buscarReservasRecurrentes();
+            }else{
+                return reservaMapper.buscarReservasCanceladasReportes();
+            }
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar las reserva",e);
         }
     }
 

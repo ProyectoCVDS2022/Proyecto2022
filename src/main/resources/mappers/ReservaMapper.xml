@@ -50,6 +50,16 @@
         where recurso = #{id};
     </select>
 
+    <select id="buscarReservasRecurrentes" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where recurrente = true;
+    </select>
+
+    <select id="buscarReservasCanceladasReportes" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where cancelada = true;
+    </select>
+
     <update parameterType="int" id="cancelarReserva">
         UPDATE "Proyecto"."reservas"
         SET cancelada = true

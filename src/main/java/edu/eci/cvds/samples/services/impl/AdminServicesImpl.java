@@ -133,4 +133,13 @@ public class AdminServicesImpl implements AdminServices {
         return ocupacionDAO.recursosMenosReservados();
     }
 
+    @Override
+    public List<Reserva> buscarReservasReportes(int filtro) throws PersistenceException {
+        try{
+            return reservaDAO.buscarReservasReportes(filtro);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar la disponibilidad del recurso" , ex);
+        }
+    }
+
 }

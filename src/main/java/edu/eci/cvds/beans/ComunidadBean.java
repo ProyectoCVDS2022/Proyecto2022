@@ -27,6 +27,8 @@ public class ComunidadBean extends BasePageBean{
     private ComunityServices services;
     @Inject
     private CalendarBean calendarBean;
+    @Inject
+    private LoginBean loginBean;
     private String nombreBuscar = "";
     private List<Recurso> recursosEncontrados;
     private int filtro;
@@ -63,6 +65,7 @@ public class ComunidadBean extends BasePageBean{
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
         try{
+            System.out.println(loginBean.getUsername());
             if(!nombreBuscar.equals("")){
                 recursosEncontrados = services.buscarRecursos(nombreBuscar);
             }else{
@@ -330,5 +333,13 @@ public class ComunidadBean extends BasePageBean{
 
     public void setEvent(ScheduleEvent<?> event) {
         this.event = event;
+    }
+
+    public LoginBean getLoginBean() {
+        return loginBean;
+    }
+
+    public void setLoginBean(LoginBean loginBean) {
+        this.loginBean = loginBean;
     }
 }
