@@ -198,14 +198,14 @@ public class AdminBean extends BasePageBean{
         //values.add((int)valoresMas.get(0).get(0));
         //values.add((int)valoresMas.get(1).get(0));
         //values.add((int)valoresMas.get(2).get(0));
-        values.add(1);
+        values.add(24);
         values.add(60);
-        values.add(25);
+        values.add(36);
         dataSet.setData(values);
 
         List<String> bgColors = new ArrayList<>();
-        bgColors.add("rgb(22, 67, 137)");
-        bgColors.add("rgb(41, 95, 142)");
+        bgColors.add("rgb(110, 17, 17)");
+        bgColors.add("rgb(180, 20, 12)");
         bgColors.add("rgb(143, 145, 152)");
         dataSet.setBackgroundColor(bgColors);
 
