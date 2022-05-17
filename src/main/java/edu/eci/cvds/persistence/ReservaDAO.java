@@ -1,5 +1,6 @@
 package edu.eci.cvds.persistence;
 
+import edu.eci.cvds.entities.Ocupacion;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.exceptions.PersistenceException;
 
@@ -22,7 +23,4 @@ public interface ReservaDAO {
 
     public void cancelarReserva(int id) throws PersistenceException;
 
-    public List<Map<Integer, Object>> recursosMasReservados();
-
-    public List<Map<Integer, Object>> recursosMenosReservados();
 }

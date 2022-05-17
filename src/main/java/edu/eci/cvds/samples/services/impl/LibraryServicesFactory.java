@@ -35,6 +35,8 @@ public class LibraryServicesFactory {
                 bind(ComunityServices.class).to(ComunityServicesImpl.class);
                 bind(UserServices.class).to(UserServicesImpl.class);
                 bind(SessionLogger.class).to(ShiroSession.class);
+                bind(OcupacionDAO.class).to(MyBatisOcupacionDAO.class);
+
             }
         });
     }

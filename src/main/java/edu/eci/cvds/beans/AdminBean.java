@@ -188,36 +188,60 @@ public class AdminBean extends BasePageBean{
         }
     }
 
-    public void ocupacion() {
-        ChartData data = new ChartData();
+    public void ocupacion(){
+        try {
+            ChartData dataMas = new ChartData();
+            ChartData dataMenos = new ChartData();
 
-        DonutChartDataSet dataSet = new DonutChartDataSet();
-        List<Number> values = new ArrayList<>();
-        //List<Map<Integer, Object>> valoresMas = services.recursosMasReservados();
-        //List<Map<Integer, Object>> valoresMenos = services.recursosMenosReservados();
-        //values.add((int)valoresMas.get(0).get(0));
-        //values.add((int)valoresMas.get(1).get(0));
-        //values.add((int)valoresMas.get(2).get(0));
-        values.add(1);
-        values.add(60);
-        values.add(25);
-        dataSet.setData(values);
+            DonutChartDataSet dataSetMasReservados = new DonutChartDataSet();
+            DonutChartDataSet dataSetMenosReservados = new DonutChartDataSet();
+            List<Number> recursosMasReservados = new ArrayList<>();
+            List<Number> recursosMenosReservados = new ArrayList<>();
 
-        List<String> bgColors = new ArrayList<>();
-        bgColors.add("rgb(22, 67, 137)");
-        bgColors.add("rgb(41, 95, 142)");
-        bgColors.add("rgb(143, 145, 152)");
-        dataSet.setBackgroundColor(bgColors);
+            List<Ocupacion> valoresMas = services.recursosMasReservados();
+            recursosMasReservados.add(valoresMas.get(0).getValor());
+            recursosMasReservados.add(valoresMas.get(1).getValor());
+            recursosMasReservados.add(valoresMas.get(2).getValor());
+            dataSetMasReservados.setData(recursosMasReservados);
 
-        data.addChartDataSet(dataSet);
-        List<String> labels = new ArrayList<>();
-        labels.add("1");
-        labels.add("2");
-        labels.add("3");
-        data.setLabels(labels);
+            List<Ocupacion> valoresMenos = services.recursosMenosReservados();
+            recursosMenosReservados.add(valoresMenos.get(0).getValor());
+            recursosMenosReservados.add(valoresMenos.get(1).getValor());
+            recursosMenosReservados.add(valoresMenos.get(2).getValor());
+            dataSetMenosReservados.setData(recursosMenosReservados);
 
-        recursosMasUsados.setData(data);
-        recursosMenosUsados.setData(data);
+            //values.add(1);
+            //values.add(60);
+            //values.add(25);
+
+            List<String> bgColors = new ArrayList<>();
+            bgColors.add("rgb(22, 67, 137)");
+            bgColors.add("rgb(41, 95, 142)");
+            bgColors.add("rgb(143, 145, 152)");
+            dataSetMasReservados.setBackgroundColor(bgColors);
+            dataSetMenosReservados.setBackgroundColor(bgColors);
+
+            dataMas.addChartDataSet(dataSetMasReservados);
+            dataMenos.addChartDataSet(dataSetMenosReservados);
+            List<String> labelsMas = new ArrayList<>();
+            labelsMas.add(nombreRecurso(Integer.parseInt(valoresMas.get(0).getFiltro())).getNombre());
+            labelsMas.add(nombreRecurso(Integer.parseInt(valoresMas.get(1).getFiltro())).getNombre());
+            labelsMas.add(nombreRecurso(Integer.parseInt(valoresMas.get(2).getFiltro())).getNombre());
+            dataMas.setLabels(labelsMas);
+
+            List<String> labelsMenos = new ArrayList<>();
+            labelsMenos.add(nombreRecurso(Integer.parseInt(valoresMenos.get(0).getFiltro())).getNombre());
+            labelsMenos.add(nombreRecurso(Integer.parseInt(valoresMenos.get(1).getFiltro())).getNombre());
+
+            labelsMenos.add(nombreRecurso(Integer.parseInt(valoresMenos.get(2).getFiltro())).getNombre());
+            dataMenos.setLabels(labelsMenos);
+
+            recursosMasUsados.setData(dataMas);
+            recursosMenosUsados.setData(dataMenos);
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void ocupacionHorarios() {

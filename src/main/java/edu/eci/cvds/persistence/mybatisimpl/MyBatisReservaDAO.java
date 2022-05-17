@@ -1,6 +1,7 @@
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.entities.Ocupacion;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.persistence.ReservaDAO;
@@ -8,7 +9,6 @@ import edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaMapper;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 public class MyBatisReservaDAO implements ReservaDAO {
 
@@ -91,14 +91,5 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
     }
 
-    @Override
-    public List<Map<Integer, Object>> recursosMasReservados() {
-        return reservaMapper.recursosMasReservados();
-    }
-
-    @Override
-    public List<Map<Integer, Object>> recursosMenosReservados() {
-        return reservaMapper.recursosMenosReservados();
-    }
 
 }
