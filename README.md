@@ -17,6 +17,7 @@
 - **Diagrama de clases:**
 - **Descripción de la arquitectura y del Stack:**
 - **Aplicaion en heroku**
+  - https://dashboard.heroku.com/apps/proyectociclos2022
 - **Despliegue continuo**
   - https://proyectociclos2022.herokuapp.com/
 ## Descripción del proceso:
