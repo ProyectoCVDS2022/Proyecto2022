@@ -50,20 +50,6 @@
         where recurso = #{id};
     </select>
 
-    <select id="recursosMasReservados" resultType="hashmap">
-        select count(*) as cantidadDeReservas, recurso
-        from "Proyecto"."reservas"
-        group by recurso
-        order by cantidadDeReservas desc;
-    </select>
-
-    <select id="recursosMenosReservados" resultMap="ReservaResult">
-        select count(*) as cantidadDeReservas, recurso
-        from "Proyecto"."reservas"
-        group by recurso
-        order by cantidadDeReservas;
-    </select>
-
     <update parameterType="int" id="cancelarReserva">
         UPDATE "Proyecto"."reservas"
         SET cancelada = true

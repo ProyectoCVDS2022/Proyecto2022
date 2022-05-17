@@ -32,6 +32,7 @@ public class MyBatisRecursoDAO implements RecursoDAO {
             throw new PersistenceException("Error al buscar el recurso",e);
         }
     }
+
     @Override
     public List<Recurso> buscarRecursos(String nombreBuscar) throws PersistenceException {
         try{

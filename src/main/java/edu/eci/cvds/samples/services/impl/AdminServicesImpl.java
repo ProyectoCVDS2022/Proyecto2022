@@ -21,6 +21,8 @@ public class AdminServicesImpl implements AdminServices {
     private TipoRecursoDAO tipoRecursoDAO;
     @Inject
     private ReservaDAO reservaDAO;
+    @Inject
+    private OcupacionDAO ocupacionDAO;
 
 
     @Override
@@ -122,13 +124,13 @@ public class AdminServicesImpl implements AdminServices {
     }
 
     @Override
-    public List<Map<Integer, Object>> recursosMasReservados() {
-        return reservaDAO.recursosMasReservados();
+    public List<Ocupacion> recursosMasReservados() {
+        return ocupacionDAO.recursosMasReservados();
     }
 
     @Override
-    public List<Map<Integer, Object>> recursosMenosReservados() {
-        return reservaDAO.recursosMenosReservados();
+    public List<Ocupacion> recursosMenosReservados() {
+        return ocupacionDAO.recursosMenosReservados();
     }
 
 }

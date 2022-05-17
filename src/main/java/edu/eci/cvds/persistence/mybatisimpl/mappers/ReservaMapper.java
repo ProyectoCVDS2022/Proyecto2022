@@ -30,7 +30,4 @@ public interface ReservaMapper {
 
     public void cancelarReserva(@Param("id") int id) throws PersistenceException;
 
-    public List<Map<Integer, Object>> recursosMasReservados();
-
-    public List<Map<Integer, Object>> recursosMenosReservados();
 }

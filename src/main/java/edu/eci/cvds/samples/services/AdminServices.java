@@ -30,7 +30,7 @@ public interface AdminServices {
 
     public List<Reserva> reservasRecurso(int id) throws PersistenceException;
 
-    public List<Map<Integer, Object>> recursosMasReservados();
+    public List<Ocupacion> recursosMasReservados();
 
-    public List<Map<Integer, Object>> recursosMenosReservados();
+    public List<Ocupacion> recursosMenosReservados();
 }
