@@ -1,7 +1,6 @@
 package edu.eci.cvds.beans;
 
 import com.google.inject.Inject;
-import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.ComunityServices;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.*;

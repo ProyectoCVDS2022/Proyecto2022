@@ -1,15 +1,11 @@
 package edu.eci.cvds.beans;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 
 import com.google.inject.Inject;
 import edu.eci.cvds.autenticator.SessionLogger;
 import edu.eci.cvds.exceptions.PersistenceException;
-import edu.eci.cvds.samples.services.impl.LibraryServicesFactory;
-import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.annotation.RequiresGuest;
 
 import java.io.IOException;

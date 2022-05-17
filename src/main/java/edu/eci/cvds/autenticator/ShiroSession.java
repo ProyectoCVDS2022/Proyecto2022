@@ -5,12 +5,6 @@ import edu.eci.cvds.entities.Usuario;
 import edu.eci.cvds.exceptions.PersistenceException;
 import edu.eci.cvds.samples.services.UserServices;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
-import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

@@ -1,14 +1,11 @@
 package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
-import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.Reserva;
 import edu.eci.cvds.exceptions.PersistenceException;
 import org.apache.ibatis.annotations.Param;
 
-import java.rmi.server.RemoteServer;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 public interface ReservaMapper {
 
