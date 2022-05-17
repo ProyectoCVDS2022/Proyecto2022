@@ -1,16 +1,16 @@
 # Proyecto Ciclillos | CVDS | 2022-1
-## Integrantes:
+## Integrantes
 - Santiago Andrés Bayona Cardenas 
 - Juan Carlos Acosta López
 - Julian Esteban Torres Díaz
 - Jaime Nicolás Castro Acuña
 - David Alejandro Leon
-## Descripcion del producto:
+## Descripcion del producto
 - **Descripción general:**
 - 
 - **Manual de usuario:**
 - **Imágenes y descripción de las funcionalidades más importantes:**
-## Arquitectura y Diseño detallado:
+## Arquitectura y Diseño detallado
 - **Modelo E-R:**
 \
             ![image](https://user-images.githubusercontent.com/98216838/168507698-701ce664-f965-4a23-8689-383a172ff774.png)
@@ -21,7 +21,7 @@
   - https://dashboard.heroku.com/apps/proyectociclos2022
 - **Despliegue continuo**
   - https://proyectociclos2022.herokuapp.com/
-## Descripción del proceso:
+## Descripción del proceso
 - **Metodologia:**
 - **Taiga:**
   - https://tree.taiga.io/project/estebananot-gestion-de-recursos-biblioteca/timeline
