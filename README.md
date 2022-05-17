@@ -8,6 +8,13 @@
 ## Descripcion del producto
   - **Descripción general:**
   - **Manual de usuario:**
+  - En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Como se muestra en la siguiente pantalla:
+  - ![image](https://user-images.githubusercontent.com/25957863/168929734-ab34471a-8cf4-44be-9b5f-7f1e78627e03.png)
+  - Inicaremos explicando cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
+  - ![image](https://user-images.githubusercontent.com/25957863/168930347-82e82778-9d17-4ed5-8f00-0c42a4db8c99.png)
+
+  - A continuación veremos como es el funcionamiento de cada uno de estos roles:
+  - 
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
   - **Modelo E-R:**
