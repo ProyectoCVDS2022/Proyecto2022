@@ -80,8 +80,43 @@
 ![image](https://user-images.githubusercontent.com/25957863/168959704-2b7813fe-d378-4eb5-ac51-342896b956a5.png)
 - Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos click en **Iniciar Sesión**:
 ![image](https://user-images.githubusercontent.com/25957863/168953290-2323b6e1-f719-4849-8ac0-c8e76fd72ef6.png)
-- 
-- **Imágenes y descripción de las funcionalidades más importantes:**
+- Luego del inicio de sesión se abrirá la siguiente página:
+![image](https://user-images.githubusercontent.com/25957863/168966401-697290c4-ab1b-4935-8fec-8fb2533e0617.png)
+- Allí tenemos cuatro opciones entre las cuales encontramos:
+![image](https://user-images.githubusercontent.com/25957863/168966660-cd22b4d1-66ef-490b-976d-5a53ae92727c.png)
+- **Agregar recurso:** Allí podremos gestionar los nuevos recursos que deseemos añadir a nuestro portal web. Para añadir un recurso bastará con diligenciar cada uno de los datos que vemos en la pantalla anterior.
+![image](https://user-images.githubusercontent.com/25957863/168968508-56af2396-5243-4143-ad99-af6acea157f5.png)
+- Para nuestro ejemplo agregaremos un nuevo recurso así:
+![image](https://user-images.githubusercontent.com/25957863/168968550-2b879ce6-e97d-4d91-a148-457fb473bf72.png)
+- Damos click en agregar:  
+![image](https://user-images.githubusercontent.com/25957863/168968609-fbcc80b6-f40d-4a4d-8ba9-8db15f426ce2.png)
+- Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
+![image](https://user-images.githubusercontent.com/25957863/168968655-f1940c94-99e6-4b21-a7a8-6b62d0c313ca.png)
+- Procederemos a usar la segunda funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168968838-9f77390a-bdf3-4432-a9ce-e555b66151f9.png)
+- **Editar recurso:** Allí podremos gestionar la disponibilidad de los recursos dentro de nuestro portal web. 
+- Para modificar la disponibilidad de un recurso bastará con:
+1. Buscar el recurso.
+2. Seleccionar el recurso al que desea cambiar la disponibilidad.
+3. Dar click en **cambiar disponibilidad**
+![image](https://user-images.githubusercontent.com/25957863/168969623-b7fd00fb-71e3-4f33-a8da-92e598cfb46c.png)
+- Procederemos a usar la tercerta funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168970288-3c5ebed2-e71c-477b-8c04-f086b54a6e9b.png)
+- **Consultar reservas:** Aquí podremos consultar la reservas de los recursos por usuario. 
+![image](https://user-images.githubusercontent.com/25957863/168970777-160fec89-c6f9-4ffc-a79f-2a5de73f2bf7.png)
+- Para este caso vamos a consultar las reservas del usuario **julian@gmail.com**:
+![image](https://user-images.githubusercontent.com/25957863/168972422-b05f185d-b9bd-4f43-a776-733e919bac58.png)
+- Podemos consultar el detalle de la reserva dando click en la lupa que aparece en la parte derecha:
+![image](https://user-images.githubusercontent.com/25957863/168975228-94f4d764-d5cc-4bc9-a1cc-53faa70584b2.png)
+- Procederemos a usar la cuarta funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168975410-8ea7754f-a948-4f57-b82e-a781f5e4d67b.png)
+- **Reportes de ocupación:** Aquí podremos consultar los reportes de ocupación. 
+![image](https://user-images.githubusercontent.com/25957863/168975569-4cc3c3be-7540-43b7-9e68-e81dbdd2809d.png)
+- A continuación podemos consultar la información de las reservas filtrando entre recurrentes o canceladas.
+![image](https://user-images.githubusercontent.com/25957863/168976329-bf1f960a-5f77-4104-b450-c7cfe9305ee4.png)
+- Además de las funcionalidades anteriormente descritas tenemos la posibilidad de generar una gráfica de dona tanto de las reservas recurrentes como de las reservas canceladas.
+![image](https://user-images.githubusercontent.com/25957863/168976850-7c3993bc-df4d-4c18-8c59-ae870ba1b46e.png)
+
 ## Arquitectura y Diseño detallado
 - **Modelo E-R:**
 \
@@ -90,31 +125,57 @@
 - ![image](https://user-images.githubusercontent.com/98216838/168897746-a1a01c44-f122-492d-ad97-246a27f29dfa.png)
 
 - **Descripción de la arquitectura y del Stack:**
-- **Aplicaion en heroku**
+En este proyecto se usan las siguientes tecnologías: 	
+1. PrimeFaces: Se utiliza para representar y gestionar componentes de la intefaz de usuario.
+2. Guice: Se usa para la inyección de dependencias, permitiendo un mejor manejo de los objetos.
+3. PostgreSQL: Es el sistema de gestión de bases de datos implementado en este proyecto.
+4. Heroku: Heroku es una plataforma como servicio de computación en la Nube, acá está montado el proyecto para el despliegue continuo.
+5. CircleCI: Es una plataforma de integración continua que también se utiliza en el proyecto.
+6. Apache Shiro: Es un marco de seguridad de software de código abierto que realiza autenticación, autorización, criptografía y gestión de sesiones. Es usado en la autenticación del inicio de sesión.
+
+- **Aplicación en Heroku**
     - https://dashboard.heroku.com/apps/proyectociclos2022
 - **Despliegue continuo**
     - https://proyectociclos2022.herokuapp.com/
 ## Descripción del proceso
 - **Metodologia:**
+El proyecto se desarrolló bajo la metodología SCRUM, contando con 3 sprints en los que se desarrollaron las distintas historias de usuario propuestas, logrando un trabajo colaborativo, en equipo y muy cercano a obtener el mejor resultado posible.
 - **Taiga:**
     - https://tree.taiga.io/project/estebananot-gestion-de-recursos-biblioteca/timeline
 - **release-burndown chart**
 - **Sprint 1:**
+- Descripcion del sprint 1 : En este sprint se llevaron a cabo 3 historias de usuario las cuales fueron:
+   - Iniciar Sesion (Terminada)
+   - Registrar Un Recurso (Terminada)
+   - Cambiar estado de un recuso (Terminada)
 - Sprint-backlog
-            ![image](https://user-images.githubusercontent.com/98216838/168508554-f477b635-c22e-42e5-85c4-bf765a373401.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168508554-f477b635-c22e-42e5-85c4-bf765a373401.png)
 - Sprint-burndown chart
-            ![image](https://user-images.githubusercontent.com/98216838/168881077-e07087df-d58d-4b8e-b5af-3460a5f4fa2c.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168881077-e07087df-d58d-4b8e-b5af-3460a5f4fa2c.png)
 
 - **Sprint 2:**
-    -Sprint-backlog
-            ![image](https://user-images.githubusercontent.com/98216838/168880785-e1f58247-6f04-431a-9c41-2fee2020236c.png)
+- Descripcion del sprint 2 : En este sprint se llevaron a cabo 4 historias de usuario las cuales fueron:
+   - Consultar Recursos (Terminada)
+   - Reservar Recurso (Terminada)
+   - Visualizar horario de reserva de recursos (Terminada)
+   - Consultar Reserva (Terminada)
+- Sprint-backlog
+ ![image](https://user-images.githubusercontent.com/98216838/168880785-e1f58247-6f04-431a-9c41-2fee2020236c.png)
             
 - Sprint-burndown chart
-            ![image](https://user-images.githubusercontent.com/98216838/168881016-d45f21a4-4fc2-4d1c-9b73-3f76fe46ee50.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168881016-d45f21a4-4fc2-4d1c-9b73-3f76fe46ee50.png)
 
 - **Sprint 3:**
+- Descripcion del sprint 2 : En este sprint se llevaron a cabo 3 historias de usuario las cuales fueron:
+   - Cancelar Reserva (Terminada)
+   - Reporte De Ocupacion (Terminada)
+   - Visualizar Reservas (Terminada)
 - Sprint-backlog
+ ![image](https://user-images.githubusercontent.com/87088730/168972560-d4eb195a-e1c6-4e0f-9651-02dc311669e0.png)
+
 - Sprint-burndown chart
+ ![image](https://user-images.githubusercontent.com/87088730/168972341-3ec136da-0f27-4a3a-861f-989ed9d966e2.png)
+
  ## Reporte de pruebas
 -  **Codacy Badge:**\
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0677f1d86193467e9d40545af3c84020)](https://www.codacy.com/gh/ProyectoCVDS2022/Proyecto2022/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ProyectoCVDS2022/Proyecto2022&amp;utm_campaign=Badge_Grade)
