@@ -66,8 +66,7 @@
 
 - **Mis reservas:** Otra funcionalidad que posee un usario de la comunidad es el de consultar cada una de las reservas realizadas.
 
-![image](https://user-images.githubusercontent.com/25957863/168932234-f900c8cb-a4d7-436b-9af6-a17ffcbfaac1.png)
-
+![image](https://user-images.githubusercontent.com/25957863/168938034-39340a23-2bca-4e3a-84ec-d1ab787ec395.png)
 
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
