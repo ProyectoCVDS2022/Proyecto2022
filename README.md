@@ -124,10 +124,11 @@
 
 - Si la reserva es de tipo recurrente:
 
-
 1. Damos click sobre la lupa de color azul que aparece en la parte derecha de cada una de las reservas (Activas).
 2. Damos click en cancelar: 
-3. Damos click en 
+3. Damos click aquí si queremos que todas las reservas sean canceladas.
+4. Damos click aquí si queremos queremos cancelar algún evento en particular.
+5. Damos click aquí si queremos cancelar eventos desde una fecha especificada.
 
 ![image](https://user-images.githubusercontent.com/25957863/168960400-fa68e1d1-de26-446f-8f61-6ffe1a88f564.png)
 
