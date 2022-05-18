@@ -9,12 +9,17 @@
   - **Descripción general:**
   - **Manual de usuario:**
   - En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Como se muestra en la siguiente pantalla:
-  - ![image](https://user-images.githubusercontent.com/25957863/168929734-ab34471a-8cf4-44be-9b5f-7f1e78627e03.png)
+![image](https://user-images.githubusercontent.com/25957863/168929734-ab34471a-8cf4-44be-9b5f-7f1e78627e03.png)
   - Inicaremos explicando cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
-  - ![image](https://user-images.githubusercontent.com/25957863/168930347-82e82778-9d17-4ed5-8f00-0c42a4db8c99.png)
+![image](https://user-images.githubusercontent.com/25957863/168930683-9f70deda-d7af-476c-8033-d9d0fae208f4.png)
+  - Luego de dar click en este primer recuadro se nos desplegará la siguiente pantalla:
+![image](https://user-images.githubusercontent.com/25957863/168930793-d2fe20ab-7e62-4fd5-997d-e3f159396d6c.png)
+  - Allí haremos login con las siguientes credenciales:
+**Usuario:**julian@gmail.com
+**Password:**
+  - Hacemos login como se muestra a continuación:
+![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
 
-  - A continuación veremos como es el funcionamiento de cada uno de estos roles:
-  - 
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
   - **Modelo E-R:**
