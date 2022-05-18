@@ -126,7 +126,7 @@ public class ComunidadBean extends BasePageBean{
                     colisiona = true;
                 }
             }
-
+            System.out.println(recursoSeleccionado.getDisponibilidad());
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
                 int id = services.idUsuario(usuario);
                 if(event.getEndDate().isEqual(event.getStartDate().plusHours(2)) || (event.getEndDate().isBefore(event.getStartDate().plusHours(2)) && event.getEndDate().isAfter(event.getStartDate())) || recurrente){
@@ -236,7 +236,12 @@ public class ComunidadBean extends BasePageBean{
         List<Reserva> subReservas = services.buscarSubReservas(String.valueOf(reservaSeleccionada.getId()));
         services.cancelarReserva(reservaSeleccionada.getId());
         for(Reserva reserva: subReservas){
-            if(reserva.getFechaInicio().isAfter(LocalDateTime.now())){
+            if(fechaCancelacion != null){
+                if(reserva.getFechaInicio().isAfter(fechaCancelacion)){
+                    services.cancelarReserva(reserva.getId());
+                }
+            }
+            else if(reserva.getFechaInicio().isAfter(LocalDateTime.now())){
                 services.cancelarReserva(reserva.getId());
             }
         }
