@@ -4,7 +4,7 @@
 - Julian Mauricio Velasco Briceño (Stakeholder)
 
 ## Integrantes
-- Santiago Andrés Bayona Cardenas (Back)
+- Santiago Andrés Bayona Cárdenas (Back)
 - Juan Carlos Acosta López (Front)
 - Julián Esteban Torres Díaz (Back)
 - Jaime Nicolás Castro Acuña (Front)
