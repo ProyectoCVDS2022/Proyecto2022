@@ -89,6 +89,18 @@ public class RecursosBean extends BasePageBean{
         PrimeFaces.current().executeScript("PF('dlg').show()");
     }
 
+    public String getNombreBuscar() {
+        return nombreBuscar;
+    }
+
+    public void setNombreBuscar(String nombreBuscar) {
+        this.nombreBuscar = nombreBuscar;
+    }
+
+    public int getFiltro() {
+        return filtro;
+    }
+
     public List<Recurso> getRecursosEncontrados() {
         return recursosEncontrados;
     }
@@ -103,18 +115,6 @@ public class RecursosBean extends BasePageBean{
 
     public void setServices(ComunityServices services) {
         this.services = services;
-    }
-
-    public String getNombreBuscar() {
-        return nombreBuscar;
-    }
-
-    public void setNombreBuscar(String nombreBuscar) {
-        this.nombreBuscar = nombreBuscar;
-    }
-
-    public int getFiltro() {
-        return filtro;
     }
 
     public void setFiltro(int filtro) {

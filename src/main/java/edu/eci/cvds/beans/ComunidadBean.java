@@ -65,17 +65,6 @@ public class ComunidadBean extends BasePageBean{
         }
     }
 
-
-    public Recurso buscarRecursoReserva() throws PersistenceException{
-        try{
-            Recurso recurso = services.nombreRecurso(reservaSeleccionada.getRecurso());
-            recursoEncontrado = recurso;
-            return recurso;
-        } catch (PersistenceException ex) {
-            throw new PersistenceException("Error al buscar el recurso", ex);
-        }
-    }
-
     public String estaDisponible(int id) throws PersistenceException{
         try{
             List<Reserva> reservas = services.reservasRecurso(id);
@@ -98,6 +87,16 @@ public class ComunidadBean extends BasePageBean{
             }
         }catch (PersistenceException ex){
             throw new PersistenceException("Error al buscar la disponibilidad de los recursos", ex);
+        }
+    }
+
+    public Recurso buscarRecursoReserva() throws PersistenceException{
+        try{
+            Recurso recurso = services.nombreRecurso(reservaSeleccionada.getRecurso());
+            recursoEncontrado = recurso;
+            return recurso;
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el recurso", ex);
         }
     }
 
