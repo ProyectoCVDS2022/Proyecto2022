@@ -123,75 +123,75 @@
 	}
 
 	html {
-        background: url(../IMG/fondo.jpg) no-repeat center fixed;
-        background-size: cover;
+    	background: url(../IMG/fondo.jpg) no-repeat center fixed;
+    	background-size: cover;
     }
 
-	SELECT {
-        color: #787878;
-        font-size: 16px;
-        margin: 0px 0px 7px 0px;
-        padding: 4px 0px 4px 5px;
-        width: 200px;
+    SELECT {
+    	color: #787878;
+    	font-size: 16px;
+    	margin: 0px 0px 7px 0px;
+    	padding: 4px 0px 4px 5px;
+    	width: 200px;
     }
 
     #main-header {
-        background: #900;
-        color: Red;
-        height: 71px;
-		font-family: Ubuntu,sans-serif;
-        width: 100%;
-        left: 0;
-        top: 0;
-        position: fixed;
+    	background: #900;
+    	color: Red;
+    	height: 71px;
+    	font-family: Ubuntu, sans-serif;
+    	width: 100%;
+    	left: 0;
+    	top: 0;
+    	position: fixed;
     }
 
     #main-header a {
-		color: white;
+    	color: white;
     }
 
     #logo-header {
-        float: left;
-        padding: 15px 0 0 20px;
-        text-decoration: none;
+    	float: left;
+    	padding: 15px 0 0 20px;
+    	text-decoration: none;
     }
 
     #logo-header .site-name {
-        font-size: 0.7em;
-        position: absolute;
-        top: 50%;
-        right:0%;
-        transform: translate(-50%, -50%);
+    	font-size: 0.7em;
+    	position: absolute;
+    	top: 50%;
+    	right: 0%;
+    	transform: translate(-50%, -50%);
     }
 
-     .logo-image{
-        width: 46px;
-        height: 46px;
+    .logo-image {
+    	width: 46px;
+    	height: 46px;
     }
 
-     div.a {
-        height: 230px;
-		width: 100%;
-		background-color: rgba(0,0,0,0.7);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-	}
+    div.a {
+    	height: 230px;
+    	width: 100%;
+    	background-color: rgba(0, 0, 0, 0.7);
+    	justify-content: center;
+    	align-items: center;
+    	text-align: center;
+    }
 
-	div.card {
-        height: 570px;
-		width: 30%;
-		padding: 0 0 0 30px;
-	}
+    div.card {
+    	height: 570px;
+    	width: 30%;
+    	padding: 0 0 0 30px;
+    }
 
-	div.donas{
-        width: 100%;
-        height: 630px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-	}
+    div.donas {
+    	width: 100%;
+    	height: 630px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    }
 
-	.ui-datatable-header {
-        background: #900 !important;
+    .ui-datatable-header {
+    	background: #900 !important;
     }
