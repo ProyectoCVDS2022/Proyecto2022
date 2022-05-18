@@ -9,4 +9,5 @@ public interface OcupacionMapper {
 
     public List<Ocupacion> recursosMasReservados();
 
+    public List<Ocupacion> reservasPorPrograma();
 }

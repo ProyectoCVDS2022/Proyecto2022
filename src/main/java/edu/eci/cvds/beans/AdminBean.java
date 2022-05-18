@@ -296,18 +296,27 @@ public class AdminBean extends BasePageBean{
         hbarDataSet.setLabel("Cantidad de reservas");
 
         List<Number> values = new ArrayList<>();
-        values.add(1);
-        values.add(3);
-        values.add(7);
+        List<String> labels = new ArrayList<>();
+        List<Ocupacion> reservas = services.reservasPorPrograma();
+
+        for(Ocupacion reserva : reservas) {
+            values.add(reserva.getValor());
+            labels.add(reserva.getFiltro());
+        }
+
         hbarDataSet.setData(values);
 
         List<String> bgColor = new ArrayList<>();
         bgColor.add("rgb(110, 17, 17)");
         bgColor.add("rgb(180, 20, 12)");
         bgColor.add("rgb(143, 145, 152)");
+        bgColor.add("rgb(213, 48, 40)");
+        bgColor.add("rgb(211, 110, 31)");
         hbarDataSet.setBackgroundColor(bgColor);
 
         List<String> borderColor = new ArrayList<>();
+        borderColor.add("rgb(255, 255, 255)");
+        borderColor.add("rgb(255, 255, 255)");
         borderColor.add("rgb(255, 255, 255)");
         borderColor.add("rgb(255, 255, 255)");
         borderColor.add("rgb(255, 255, 255)");
@@ -315,11 +324,6 @@ public class AdminBean extends BasePageBean{
         hbarDataSet.setBorderWidth(2);
 
         data.addChartDataSet(hbarDataSet);
-
-        List<String> labels = new ArrayList<>();
-        labels.add("Ingeniería de sistemas");
-        labels.add("Ingeniería eléctrica");
-        labels.add("Ingeniería electrónica");
         data.setLabels(labels);
         reservasPrograma.setData(data);
 

@@ -73,6 +73,10 @@ public class RecursosBean extends BasePageBean{
         }
     }
 
+    public void addMessage(String summary) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+    }
+
     public TipoRecurso nombreTipo(int idTipo) throws PersistenceException{
         try{
             return services.nombreTipo(idTipo);
@@ -81,12 +85,16 @@ public class RecursosBean extends BasePageBean{
         }
     }
 
-    public void addMessage(String summary) {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
-    }
-
     public void click() {
         PrimeFaces.current().executeScript("PF('dlg').show()");
+    }
+
+    public List<Recurso> getRecursosEncontrados() {
+        return recursosEncontrados;
+    }
+
+    public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {
+        this.recursosEncontrados = recursosEncontrados;
     }
 
     public ComunityServices getServices() {
@@ -103,14 +111,6 @@ public class RecursosBean extends BasePageBean{
 
     public void setNombreBuscar(String nombreBuscar) {
         this.nombreBuscar = nombreBuscar;
-    }
-
-    public List<Recurso> getRecursosEncontrados() {
-        return recursosEncontrados;
-    }
-
-    public void setRecursosEncontrados(List<Recurso> recursosEncontrados) {
-        this.recursosEncontrados = recursosEncontrados;
     }
 
     public int getFiltro() {

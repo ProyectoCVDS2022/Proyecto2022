@@ -21,4 +21,9 @@ public class MyBatisOcupacionDAO implements OcupacionDAO {
         return ocupacionMapper.recursosMenosReservados();
     }
 
+    @Override
+    public List<Ocupacion> reservasPorPrograma(){
+        return ocupacionMapper.reservasPorPrograma();
+    }
+
 }

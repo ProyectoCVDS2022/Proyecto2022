@@ -275,13 +275,19 @@
                                 <br> </br>
                                 <p:panelGrid id="displayCancelacionRecurrente" columns="2" columnClasses="label,value">
                                     <h:outputText value="Cancelar un evento particular" />
-                                    <p:commandButton oncomplete="PF('dlg_ocupacion').show()" icon="pi pi-search" styleClass="rounded-button"/>
+                                    <p:commandButton oncomplete="PF('dlg_cancelarEvento').show()" icon="pi pi-search" styleClass="rounded-button"/>
 
                                     <h:outputText value="Cancelar todos los eventos a partir de la fecha" />
                                     <p:datePicker id="fechaCancelar" value="#{comunidadBean.fechaCancelacion}" showTime="true"/>
                                 </p:panelGrid>
                                 <br> </br>
                                 <p:commandButton value="Confirmar" icon="pi pi-check" oncomplete="PF('dlg_confirmacion_recurrente').show()"/>
+                            </p:outputPanel>
+                        </p:dialog>
+
+                        <p:dialog modal="true" resizable="false" header="Reservar recurso" widgetVar="dlg_cancelarEvento" showEffect="fold" hideEffect="clip">
+                            <p:outputPanel id = "calendarioAletosoEvento" deferred="true">
+                                <p:schedule id="schedule" value="#{CalendarView.eventModel}" widgetVar="myscheduleEvento" style="width:700px !important; height:800px !important;"/>
                             </p:outputPanel>
                         </p:dialog>
 

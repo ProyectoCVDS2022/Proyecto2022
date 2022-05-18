@@ -19,6 +19,12 @@
         order by cantidadDeReservas;
     </select>
 
+    <select id="reservasPorPrograma" resultMap="OcupacionResult">
+        select count(*), u.programa from "Proyecto"."reservas" r
+        inner join "Proyecto"."usuarios" u on r.usuario = u.id
+        group by u.programa ;
+    </select>
+
     <resultMap type='Ocupacion' id='OcupacionResult'>
         <result property='valor' column='valor'/>
         <result property='filtro' column='filtro'/>

@@ -142,4 +142,9 @@ public class AdminServicesImpl implements AdminServices {
         }
     }
 
+    @Override
+    public List<Ocupacion> reservasPorPrograma() {
+        return ocupacionDAO.reservasPorPrograma();
+    }
+
 }
