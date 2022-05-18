@@ -124,6 +124,7 @@
 
 - Vamos a revisar ahora el perfil del adiministrador, primero seleccionamos entonces **Cerar Sesión** y damos click en el perfil de adiministrador:
 
+![image](https://user-images.githubusercontent.com/25957863/168959704-2b7813fe-d378-4eb5-ac51-342896b956a5.png)
 
 - Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos "Iniciar Sesión":
 
