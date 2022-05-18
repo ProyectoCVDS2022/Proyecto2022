@@ -25,6 +25,10 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168955710-5813c625-c478-4c29-8c83-cfe13fa06e98.png)
 
+- Esta busqueda puede ser filtrada seleccionando el combo box que aparece en la parte media izquierda de la vista:
+
+![image](https://user-images.githubusercontent.com/25957863/168952637-b5c3292d-9e85-40d2-b9ea-5ae025493bf6.png)
+
 - Seguido de esto explicaremos cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
 
 ![image](https://user-images.githubusercontent.com/25957863/168954409-f55675e6-df88-4054-82a1-cc58e8ff0beb.png)
