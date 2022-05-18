@@ -116,7 +116,7 @@
 - ![image](https://user-images.githubusercontent.com/98216838/168897746-a1a01c44-f122-492d-ad97-246a27f29dfa.png)
 
 - **Descripción de la arquitectura y del Stack:**
-Tecnologías utilizadas: En este proyecto se usan las siguientes tecnologías: 	
+En este proyecto se usan las siguientes tecnologías: 	
 1. PrimeFaces: Se utiliza para representar y gestionar componentes de la intefaz de usuario.
 2. Guice: Se usa para la inyección de dependencias, permitiendo un mejor manejo de los objetos.
 3. PostgreSQL: Es el sistema de gestión de bases de datos implementado en este proyecto.
