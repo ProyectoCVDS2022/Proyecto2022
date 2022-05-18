@@ -13,7 +13,7 @@
   - **Descripción general:** Esta página está diseñada para la gestión y reserva de recursos de la biblioteca de la Escuela Colombiana de Ingeniería Julio Garavito, cuenta con interfaces para administradores y estudiantes que la utilicen. Para los estudiantes es posible tanto reservar recursos como consultar reservas, para los administradores es posible registrar recursos, cambiar el estado de los recursos, ver las reservas activas y el reporte de ocupación.
     
   - **Manual de usuario:**
-- En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Y una consulta rápida para el catálogo de los recursos como se muestra en la siguiente pantalla:
+  - En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Y una consulta rápida para el catálogo de los recursos como se muestra en la siguiente pantalla:
 ![image](https://user-images.githubusercontent.com/25957863/168954167-08e2314b-665a-4e6c-ba8c-bd037089358a.png)
 - Iniciaremos explicando el apartado de "Catálogo de Biblioteca"; para esto damos click en el primer recuadro que aparece en la pantalla de inicio:
 ![image](https://user-images.githubusercontent.com/25957863/168954945-08788029-69c6-449d-b1e9-c331b2f6d0e1.png)
