@@ -114,10 +114,9 @@
 ![image](https://user-images.githubusercontent.com/25957863/168975569-4cc3c3be-7540-43b7-9e68-e81dbdd2809d.png)
 - Además de las funcionalidades anteriormente descritas también tenemos la posibilidad de generar una representación gráfica tanto de las reservas recurrentes como de las reservas canceladas.
 ![image](https://user-images.githubusercontent.com/25957863/168976329-bf1f960a-5f77-4104-b450-c7cfe9305ee4.png)
+- A continuación evidenciamos un gráfico de dona con las reservas recurrentes y las reservas canceladas:
+![image](https://user-images.githubusercontent.com/25957863/168976850-7c3993bc-df4d-4c18-8c59-ae870ba1b46e.png)
 
-![image](https://user-images.githubusercontent.com/25957863/168976068-4b6a687c-df7c-4435-af4d-146e68842208.png)
-
-- **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
 - **Modelo E-R:**
 \
