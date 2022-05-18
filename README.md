@@ -122,14 +122,24 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168952100-8cad813c-8fdb-423c-a17a-0685c3bcc8d4.png)
 
+- Si la reserva es de tipo recurrente:
+
+
+1. Damos click sobre la lupa de color azul que aparece en la parte derecha de cada una de las reservas (Activas).
+2. Damos click en cancelar: 
+3. Damos click en 
+
+![image](https://user-images.githubusercontent.com/25957863/168960400-fa68e1d1-de26-446f-8f61-6ffe1a88f564.png)
+
 - Vamos a revisar ahora el perfil del adiministrador, primero seleccionamos entonces **Cerar Sesión** y damos click en el perfil de adiministrador:
 
 ![image](https://user-images.githubusercontent.com/25957863/168959704-2b7813fe-d378-4eb5-ac51-342896b956a5.png)
 
-- Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos "Iniciar Sesión":
+- Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos click en **Iniciar Sesión**:
 
 ![image](https://user-images.githubusercontent.com/25957863/168953290-2323b6e1-f719-4849-8ac0-c8e76fd72ef6.png)
 
+- 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
   - **Modelo E-R:**
