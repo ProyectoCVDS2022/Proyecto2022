@@ -68,11 +68,21 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168938034-39340a23-2bca-4e3a-84ec-d1ab787ec395.png)
 
-- Vemos un combo box en la parte 
+- A continuación vemos un combo box en el cual podemos filtrar la busqueda de las reservas. (Activas, Pasadas y Canceladas)
+
+![image](https://user-images.githubusercontent.com/25957863/168939340-3ad91794-137a-48fe-a767-8b918ff7b926.png)
 
 - En la sección de reservas activas evidenciamos la reserva echa anteriormente al recurso: "Cálculo Diferencial"
 
 ![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
+
+- En las reservas pasadas vemos aquellas echas con fechas anteriores:
+
+![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
+
+- En el filtro de reservas canceladas evidenciamos ...
+
+![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png)
 
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
