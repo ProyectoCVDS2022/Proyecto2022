@@ -55,7 +55,21 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168936230-ea013d38-c21d-4735-81cc-d7e17e56bb2e.png)
 
-- Si la reserva es exitosa veremos un mensaje de confirmación en la parte superior derecha como vemos a continuación:
+- Todo esto lo realizamos en caso de querer una reserva sin recurrencia; en el caso de querer que esta sea recurrente hacemos todos los pasos anteriores pero agregamos lo siguiente:
+
+1. Seleccionamos el check box como se muestra a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168945645-4686d33e-8275-4671-b015-5b3c6d00314b.png)
+
+2. Desplegamos el combo box y seleccionamos la periodicidad con que queremos realizar la reserva:
+
+![image](https://user-images.githubusercontent.com/25957863/168946907-7bcdbd2a-2694-48dd-9d77-b49ee2d66081.png)
+
+3. Damos click por último en "Realizar reserva":
+
+![image](https://user-images.githubusercontent.com/25957863/168947779-f8f8ed94-1c98-49ad-a8b1-cf52fd2e2737.png)
+
+- Si la reserva es exitosa en cualquier de los dos casos (Recurrente o no recurrente) veremos un mensaje de confirmación en la parte superior derecha como vemos a continuación:
 
 ![image](https://user-images.githubusercontent.com/25957863/168936429-95a8bed1-3e29-42a3-a323-12384c0d8ba9.png)
 
@@ -67,17 +81,18 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168939340-3ad91794-137a-48fe-a767-8b918ff7b926.png)
 
-- En la sección de reservas activas evidenciamos la reserva hecha anteriormente al recurso: "Cálculo Diferencial"
+- En la sección de reservas activas evidenciamos la reserva echa anteriormente al recurso: "Cálculo Diferencial"
 
 ![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
 
-- En las reservas pasadas vemos aquellas hechas con fechas anteriores:
+- En las reservas pasadas vemos aquellas echas con fechas anteriores:
 
 ![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
 
-- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron canceladas por el usuario:
+- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron anuladas por el usuario:
 
-![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png)
+![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png).
+
 
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
