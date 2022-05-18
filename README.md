@@ -31,13 +31,14 @@
 
 - Esta vista cuenta con varias funcionalidades que detallaremos aquí:
 
+- **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
+
 ![image](https://user-images.githubusercontent.com/25957863/168936807-57fc7a49-c7a4-4f3e-b70e-6a01157aa065.png)
 
-- **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
+- **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
 
 ![image](https://user-images.githubusercontent.com/25957863/168936919-fa442891-566a-4a47-8a6b-321869a4ab6c.png)
 
-- **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
 
 - En nuestro caso de prueba primero debemos hacer la busqueda de el volúmen: "Cálculo diferencial". Damos click en buscar como se muestra a continuación:
 
