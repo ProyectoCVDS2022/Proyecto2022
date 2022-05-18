@@ -100,6 +100,12 @@
 2. Seleccionar el recurso al que desea cambiar la disponibilidad.
 3. Dar click en **cambiar disponibilidad**
 ![image](https://user-images.githubusercontent.com/25957863/168969623-b7fd00fb-71e3-4f33-a8da-92e598cfb46c.png)
+- Procederemos a usar la tercerta funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168970288-3c5ebed2-e71c-477b-8c04-f086b54a6e9b.png)
+- **Consultar reservas:** Aquí podremos consultar la reservas de los recursos por usuario. 
+![image](https://user-images.githubusercontent.com/25957863/168970777-160fec89-c6f9-4ffc-a79f-2a5de73f2bf7.png)
+- Para este caso vamos a consultar las reservas del usuario **julian@gmail.com**:
+![image](https://user-images.githubusercontent.com/25957863/168972422-b05f185d-b9bd-4f43-a776-733e919bac58.png)
 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
