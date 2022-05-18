@@ -116,6 +116,14 @@
 - ![image](https://user-images.githubusercontent.com/98216838/168897746-a1a01c44-f122-492d-ad97-246a27f29dfa.png)
 
 - **Descripción de la arquitectura y del Stack:**
+- Tecnologías utilizadas: En este proyecto se usan las siguientes tecnologías: 	
+1. PrimeFaces: Se utiliza para representar y gestionar componentes de la intefaz de usuario.
+2. Guice: Se usa para la inyección de dependencias, permitiendo un mejor manejo de los objetos.
+3. PostgreSQL: Es el sistema de gestión de bases de datos implementado en este proyecto.
+4. Heroku: Heroku es una plataforma como servicio de computación en la Nube, acá está montado el proyecto para el despliegue continuo.
+5. CircleCI: Es una plataforma de integración continua que también se utiliza en el proyecto.
+6. Apache Shiro: Es un marco de seguridad de software de código abierto que realiza autenticación, autorización, criptografía y gestión de sesiones. Es usado en la autenticación del inicio de sesión.
+
 - **Aplicaion en heroku**
     - https://dashboard.heroku.com/apps/proyectociclos2022
 - **Despliegue continuo**
