@@ -105,7 +105,14 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168952100-8cad813c-8fdb-423c-a17a-0685c3bcc8d4.png)
 
-  - **Imágenes y descripción de las funcionalidades más importantes:**
+- Vamos a revisar ahora el perfil del adiministrador, primero seleccionamos entonces **Cerar Sesión** y damos click en el perfil de adiministrador:
+
+
+- Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos "Iniciar Sesión":
+
+![image](https://user-images.githubusercontent.com/25957863/168953290-2323b6e1-f719-4849-8ac0-c8e76fd72ef6.png)
+
+- **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
   - **Modelo E-R:**
 \
