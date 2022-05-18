@@ -13,24 +13,24 @@
   - **Descripción general:** Esta página está diseñada para la gestión y reserva de recursos de la biblioteca de la Escuela Colombiana de Ingeniería Julio Garavito, cuenta con interfaces para administradores y estudiantes que la utilicen. Para los estudiantes es posible tanto reservar recursos como consultar reservas, para los administradores es posible registrar recursos, cambiar el estado de los recursos, ver las reservas activas y el reporte de ocupación.
     
   - **Manual de usuario:**
-  -En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Y una consulta rápida para el catálogo de los recursos como se muestra en la siguiente pantalla:
+  - En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Y una consulta rápida para el catálogo de los recursos como se muestra en la siguiente pantalla:
 ![image](https://user-images.githubusercontent.com/25957863/168954167-08e2314b-665a-4e6c-ba8c-bd037089358a.png)
-  -Iniciaremos explicando el apartado de "Catálogo de Biblioteca"; para esto damos click en el primer recuadro que aparece en la pantalla de inicio:
+  - Iniciaremos explicando el apartado de "Catálogo de Biblioteca"; para esto damos click en el primer recuadro que aparece en la pantalla de inicio:
 ![image](https://user-images.githubusercontent.com/25957863/168954945-08788029-69c6-449d-b1e9-c331b2f6d0e1.png)
-  -Veremos la siguiente página en donde podemos hacer la consulta de los recursos sin necesidad de **Iniciar Sesión**:
+  - Veremos la siguiente página en donde podemos hacer la consulta de los recursos sin necesidad de **Iniciar Sesión**:
 ![image](https://user-images.githubusercontent.com/25957863/168955710-5813c625-c478-4c29-8c83-cfe13fa06e98.png)
-  -Esta busqueda puede ser filtrada seleccionando el combo box que aparece en la parte media izquierda de la vista:
+  - Esta busqueda puede ser filtrada seleccionando el combo box que aparece en la parte media izquierda de la vista:
 ![image](https://user-images.githubusercontent.com/25957863/168952637-b5c3292d-9e85-40d2-b9ea-5ae025493bf6.png)
-  -Seguido de esto explicaremos cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
+  - Seguido de esto explicaremos cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
 ![image](https://user-images.githubusercontent.com/25957863/168954409-f55675e6-df88-4054-82a1-cc58e8ff0beb.png)
-  -Luego de dar click se nos desplegará la siguiente pantalla:
+  - Luego de dar click se nos desplegará la siguiente pantalla:
 ![image](https://user-images.githubusercontent.com/25957863/168930793-d2fe20ab-7e62-4fd5-997d-e3f159396d6c.png)
-  -Allí haremos login con las siguientes credenciales:
+  - Allí haremos login con las siguientes credenciales:
 ![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
-  -Esta vista cuenta con varias funcionalidades que detallaremos aquí:
-- **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
+  - Esta vista cuenta con varias funcionalidades que detallaremos aquí:
+  - **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
 ![image](https://user-images.githubusercontent.com/25957863/168936807-57fc7a49-c7a4-4f3e-b70e-6a01157aa065.png)
-- **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
+  - **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
 ![image](https://user-images.githubusercontent.com/25957863/168936919-fa442891-566a-4a47-8a6b-321869a4ab6c.png)
 - Esta busqueda puede ser filtrada seleccionando el combo box que aparece en la parte media izquierda de la vista:
 ![image](https://user-images.githubusercontent.com/25957863/168952637-b5c3292d-9e85-40d2-b9ea-5ae025493bf6.png)
