@@ -112,9 +112,9 @@
 ![image](https://user-images.githubusercontent.com/25957863/168975410-8ea7754f-a948-4f57-b82e-a781f5e4d67b.png)
 - **Reportes de ocupación:** Aquí podremos consultar los reportes de ocupación. 
 ![image](https://user-images.githubusercontent.com/25957863/168975569-4cc3c3be-7540-43b7-9e68-e81dbdd2809d.png)
-- Además de las funcionalidades anteriormente descritas también tenemos la posibilidad de generar una representación gráfica tanto de las reservas recurrentes como de las reservas canceladas.
+- Además de las funcionalidades anteriormente descritas también tenemos la posibilidad de generar una representación gráfica tanto de las reservas recurrentes como de las reservas canceladas. También podemos consultar la información filtrando entre reservas recurrentes y reservas canceladas. 
 ![image](https://user-images.githubusercontent.com/25957863/168976329-bf1f960a-5f77-4104-b450-c7cfe9305ee4.png)
-- A continuación evidenciamos un gráfico de dona con las reservas recurrentes y las reservas canceladas:
+- A continuación evidenciamos un gráfico de dona con las respectivas reservas:
 ![image](https://user-images.githubusercontent.com/25957863/168976850-7c3993bc-df4d-4c18-8c59-ae870ba1b46e.png)
 
 ## Arquitectura y Diseño detallado
