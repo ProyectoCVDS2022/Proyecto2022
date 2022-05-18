@@ -100,7 +100,7 @@
 1. Damos click sobre la lupa de color azul que aparece en la parte derecha de cada una de las reservas (Activas).
 2. Damos click en cancelar: 
 
-![image](https://user-images.githubusercontent.com/25957863/168951825-a7b5b930-95cc-478a-97ff-7be8ee6fe555.png)
+![image](https://user-images.githubusercontent.com/25957863/168952100-8cad813c-8fdb-423c-a17a-0685c3bcc8d4.png)
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
