@@ -60,7 +60,7 @@
     .card .face{
         position: absolute;
         width: 100%;
-        height 100%;
+        height : 100%;
         backface-visibility : hidden;
         border-radius: 10px;
         overflow: hidden;
@@ -76,8 +76,8 @@
 
     .card .front .img{
         position : absolute;
-        width 100%;
-        height 100%;
+        width :100%;
+        height :100%;
         object-fit : cover;
     }
 
@@ -85,7 +85,7 @@
         position : absolute;
         bottom : 0;
         width: 100%;
-        height 45px;
+        height :45px;
         line-height : 45px;
         color: #fff;
         background : rgba(0,0,0,.4);
