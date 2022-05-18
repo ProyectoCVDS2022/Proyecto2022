@@ -81,11 +81,11 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168939340-3ad91794-137a-48fe-a767-8b918ff7b926.png)
 
-- En la sección de reservas activas evidenciamos la reserva echa anteriormente al recurso: "Cálculo Diferencial"
+- En la sección de reservas activas evidenciamos la reserva hecha anteriormente al recurso: "Cálculo Diferencial"
 
 ![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
 
-- En las reservas pasadas vemos aquellas echas con fechas anteriores:
+- En las reservas pasadas vemos aquellas hechas con fechas anteriores:
 
 ![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
 
