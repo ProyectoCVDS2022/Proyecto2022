@@ -139,6 +139,7 @@ En este proyecto se usan las siguientes tecnologías:
     - https://proyectociclos2022.herokuapp.com/
 ## Descripción del proceso
 - **Metodologia:**
+El proyecto se desarrolló bajo la metodología SCRUM, contando con 3 sprints en los que se desarrollaron las distintas historias de usuario propuestas, logrando un trabajo colaborativo, en equipo y muy cercano a obtener el mejor resultado posible.
 - **Taiga:**
     - https://tree.taiga.io/project/estebananot-gestion-de-recursos-biblioteca/timeline
 - **release-burndown chart**
