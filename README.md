@@ -1,27 +1,23 @@
 # Proyecto Ciclillos | CVDS | 2022-1
+
+## Profesor
+  - Julian Mauricio Velasco Briceño (Stakeholder)
+
 ## Integrantes
-  - Santiago Andrés Bayona Cardenas 
-  - Juan Carlos Acosta López
-  - Julian Esteban Torres Díaz
-  - Jaime Nicolás Castro Acuña
-  - David Alejandro Leon
+  - Santiago Andrés Bayona Cardenas (Back)
+  - Juan Carlos Acosta López (Front)
+  - Julian Esteban Torres Díaz (Back)
+  - Jaime Nicolás Castro Acuña (Front)
+  - David Alejandro Leon (UX)
 ## Descripcion del producto
   - **Descripción general:**
+    
   - **Manual de usuario:**
   - En nuestro aplicativo contamos actualmente con dos tipos de usuarios: Administrador, y Comunidad. Y una consulta rápida para el catálogo de los recursos como se muestra en la siguiente pantalla:
 
 ![image](https://user-images.githubusercontent.com/25957863/168954167-08e2314b-665a-4e6c-ba8c-bd037089358a.png)
 
-- Iniciaremos explicando el apartado de "Catálogo de Biblioteca"; para esto damos click en el primer recuadro que aparece en la pantalla de inicio:
-
-![image](https://user-images.githubusercontent.com/25957863/168954945-08788029-69c6-449d-b1e9-c331b2f6d0e1.png)
-
-- Veremos la siguiente página en donde podemos hacer la consulta de los recursos sin necesidad de **Iniciar Sesión**:
-
-![image](https://user-images.githubusercontent.com/25957863/168955710-5813c625-c478-4c29-8c83-cfe13fa06e98.png)
-
-
-- Seguido de esto explicaremos cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
+  - Inicaremos explicando cada una de las funcionalidades que se tienen en el rol de Comunidad. Para esto damos click sobre el primer recuadro como veremos a continuación:
 
 ![image](https://user-images.githubusercontent.com/25957863/168954409-f55675e6-df88-4054-82a1-cc58e8ff0beb.png)
 
@@ -116,7 +112,6 @@
 
 - Vamos a revisar ahora el perfil del adiministrador, primero seleccionamos entonces **Cerar Sesión** y damos click en el perfil de adiministrador:
 
-![image](https://user-images.githubusercontent.com/25957863/168954644-605c4f2b-7026-4e62-b139-8c25cda9e181.png)
 
 - Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos "Iniciar Sesión":
 
