@@ -81,11 +81,11 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168939340-3ad91794-137a-48fe-a767-8b918ff7b926.png)
 
-- En la sección de reservas activas evidenciamos la reserva hecha anteriormente al recurso: "Cálculo Diferencial"
+- En la sección de reservas activas evidenciamos la reserva echa anteriormente al recurso: "Cálculo Diferencial"
 
 ![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
 
-- En las reservas pasadas vemos aquellas hechas con fechas anteriores:
+- En las reservas pasadas vemos aquellas echas con fechas anteriores:
 
 ![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
 
@@ -93,7 +93,14 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png).
 
+- ¿Cómo podemos cancelar las reservas?
 
+- Si la reserva es de tipo NO recurrente:
+
+1. Damos click sobre la lupa de color azul que aparece en la parte derecha de cada una de las reservas (Activas).
+2. Damos click en cancelar: 
+
+![image](https://user-images.githubusercontent.com/25957863/168951825-a7b5b930-95cc-478a-97ff-7be8ee6fe555.png)
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
