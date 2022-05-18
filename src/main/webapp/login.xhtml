@@ -50,7 +50,10 @@
                 <br> </br>
                 <p:password id="contraseña" placeholder="Contraseña" required="false" type="String" value="#{loginBean.password}"/>
                 <br> </br>
-                <p:commandButton id="boton_login" value="Iniciar sesión" actionListener="#{loginBean.login()}"/>
+                <p:commandButton id="boton_login" value="Iniciar sesión" actionListener="#{loginBean.login()}">
+                    <f:setPropertyActionListener value="#{loginBean.username}"
+                                                 target="#{comunidadBean.usuario}"/>
+                </p:commandButton>
         </div>
 
     </h:form>

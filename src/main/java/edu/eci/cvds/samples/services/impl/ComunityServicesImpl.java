@@ -128,4 +128,22 @@ public class ComunityServicesImpl implements ComunityServices {
         }
     }
 
+    @Override
+    public int idUsuario(String usuario) throws PersistenceException{
+        try{
+            return usuarioDAO.idUsuario(usuario);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar el id del usuario" , ex);
+        }
+    }
+
+    @Override
+    public List<Reserva> buscarSubReservas(String id) throws PersistenceException {
+        try{
+            return reservaDAO.buscarSubReservas(id);
+        } catch (PersistenceException ex) {
+            throw new PersistenceException("Error al buscar las reservas" , ex);
+        }
+    }
+
 }

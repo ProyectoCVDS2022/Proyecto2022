@@ -10,4 +10,6 @@ public interface UsuarioDAO {
     public List<Usuario> consultarUsuario(String username, String password) throws PersistenceException;
 
     public Usuario infoUsuario(int idUsuario) throws PersistenceException;
+
+    public int idUsuario(String usuario) throws PersistenceException;
 }

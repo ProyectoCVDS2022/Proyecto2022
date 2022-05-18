@@ -316,7 +316,7 @@
                                     <p:toggleSwitch value="#{comunidadBean.recurrente}" update = "PanelReservas" />
 
                                     <h:outputText value="Recurrencia:" />
-                                    <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}" disabled="#{!comunidadBean.recurrente}">
+                                    <h:selectOneMenu name="recurrencia" value="#{comunidadBean.recurrencia}">
                                         <f:selectItem itemLabel="- Seleccione -" itemValue="null" noSelectionOption="true"/>
                                         <f:selectItem itemValue = "Diaria" itemLabel = "Diaria" />
                                         <f:selectItem itemValue = "Semanal" itemLabel = "Semanal" />
@@ -439,7 +439,7 @@
                         <p:dialog resizable="false" header="¿Cómo desea continuar con la cancelación?" widgetVar="dlg_cancelacion_recurrente" showEffect="clip" hideEffect="fade">
                             <p:outputPanel id="cancelacion_recurrente" style="text-align:center;">
                                 <h:outputText value="Cancelar toda la reserva" />
-                                <p:commandButton oncomplete="PF('dlg_confirmacion').show()" icon="pi pi-times" styleClass="rounded-button ui-button-danger" style="margin-left:40px"/>
+                                <p:commandButton oncomplete="PF('dlg_confirmacion_recurrente').show()" icon="pi pi-times" styleClass="rounded-button ui-button-danger" style="margin-left:40px"/>
                                 <br> </br>
                                 <p:panelGrid id="displayCancelacionRecurrente" columns="2" columnClasses="label,value">
                                     <h:outputText value="Cancelar un evento particular" />

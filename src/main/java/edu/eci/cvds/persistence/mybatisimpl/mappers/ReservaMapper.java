@@ -15,9 +15,9 @@ public interface ReservaMapper {
 
     public List<Reserva> buscarReservasUsuario(@Param("usuario") String usuario);
 
-    public List<Reserva> buscarReservasActivas(@Param("fechactual")LocalDateTime fechactual);
+    public List<Reserva> buscarReservasActivas(@Param("fechactual")LocalDateTime fechactual, @Param("usuario") String usuario);
 
-    public List<Reserva> buscarReservasPasadas(@Param("fechactual")LocalDateTime fechactual);
+    public List<Reserva> buscarReservasPasadas(@Param("fechactual")LocalDateTime fechactual, @Param("usuario") String usuario);
 
     public List<Reserva> buscarReservasCanceladas(@Param("usuario") String usuario);
 
@@ -30,5 +30,7 @@ public interface ReservaMapper {
     public List<Reserva> buscarReservasRecurrentes() throws PersistenceException;
 
     public List<Reserva> buscarReservasCanceladasReportes() throws PersistenceException;
+
+    public List<Reserva> buscarSubReservas(@Param("id") String id) throws PersistenceException;
 
 }

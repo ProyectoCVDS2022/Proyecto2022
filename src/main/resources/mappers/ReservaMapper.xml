@@ -22,15 +22,17 @@
         order by fechaincio ;
     </select>
 
-    <select id="buscarReservasActivas" resultMap="ReservaResult" parameterType="java.time.LocalDateTime">
+    <select id="buscarReservasActivas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where fechaincio >= #{fechactual} and cancelada = false
+        and usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario})
         order by fechaincio ;
     </select>
 
     <select id="buscarReservasPasadas" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where #{fechactual} >= fechaincio and cancelada = false
+        and usuario = (select id from "Proyecto"."usuarios" where correo = #{usuario})
         order by fechaincio ;
     </select>
 
@@ -58,6 +60,11 @@
     <select id="buscarReservasCanceladasReportes" resultMap="ReservaResult">
         select * from "Proyecto"."reservas"
         where cancelada = true;
+    </select>
+
+    <select id="buscarSubReservas" resultMap="ReservaResult">
+        select * from "Proyecto"."reservas"
+        where recurrencia = #{id};
     </select>
 
     <update parameterType="int" id="cancelarReserva">
