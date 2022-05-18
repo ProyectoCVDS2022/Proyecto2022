@@ -85,12 +85,21 @@
 - Allí tenemos cuatro opciones entre las cuales encontramos:
 ![image](https://user-images.githubusercontent.com/25957863/168966660-cd22b4d1-66ef-490b-976d-5a53ae92727c.png)
 - **Agregar recurso:** Allí podremos gestionar los nuevos recursos que deseemos añadir a nuestro portal web. Para añadir un recurso bastará con diligenciar cada uno de los datos que vemos en la pantalla anterior.
-
+![image](https://user-images.githubusercontent.com/25957863/168968508-56af2396-5243-4143-ad99-af6acea157f5.png)
 - Para nuestro ejemplo agregaremos un nuevo recurso así:
-
-Damos click en agregar:  
-
-Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
+![image](https://user-images.githubusercontent.com/25957863/168968550-2b879ce6-e97d-4d91-a148-457fb473bf72.png)
+- Damos click en agregar:  
+![image](https://user-images.githubusercontent.com/25957863/168968609-fbcc80b6-f40d-4a4d-8ba9-8db15f426ce2.png)
+- Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
+![image](https://user-images.githubusercontent.com/25957863/168968655-f1940c94-99e6-4b21-a7a8-6b62d0c313ca.png)
+- Procederemos a usar la segunda funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168968838-9f77390a-bdf3-4432-a9ce-e555b66151f9.png)
+- **Editar recurso:** Allí podremos gestionar la disponibilidad de los recursos dentro de nuestro portal web. 
+- Para modificar la disponibilidad de un recurso bastará con:
+1. Buscar el recurso.
+2. Seleccionar el recurso al que desea cambiar la disponibilidad.
+3. Dar click en **cambiar disponibilidad**
+![image](https://user-images.githubusercontent.com/25957863/168969623-b7fd00fb-71e3-4f33-a8da-92e598cfb46c.png)
 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
