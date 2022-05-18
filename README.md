@@ -129,6 +129,7 @@
 3. Damos click aquí si queremos que todas las reservas sean canceladas.
 4. Damos click aquí si queremos queremos cancelar algún evento en particular.
 5. Damos click aquí si queremos cancelar eventos desde una fecha especificada.
+6. Confirmamos cual haya sido nuestra selección.
 
 ![image](https://user-images.githubusercontent.com/25957863/168960400-fa68e1d1-de26-446f-8f61-6ffe1a88f564.png)
 
