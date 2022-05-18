@@ -34,6 +34,9 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168936919-fa442891-566a-4a47-8a6b-321869a4ab6c.png)
 
+- Esta busqueda puede ser filtrada seleccionando el combo box que aparece en la parte superior izquierda de la vista:
+
+![image](https://user-images.githubusercontent.com/25957863/168952637-b5c3292d-9e85-40d2-b9ea-5ae025493bf6.png)
 
 - En nuestro caso de prueba primero debemos hacer la busqueda de el volúmen: "Cálculo diferencial". Damos click en buscar como se muestra a continuación:
 
