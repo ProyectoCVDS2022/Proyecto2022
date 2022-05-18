@@ -68,6 +68,12 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168938034-39340a23-2bca-4e3a-84ec-d1ab787ec395.png)
 
+- Vemos un combo box en la parte 
+
+- En la sección de reservas activas evidenciamos la reserva echa anteriormente al recurso: "Cálculo Diferencial"
+
+![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
+
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
