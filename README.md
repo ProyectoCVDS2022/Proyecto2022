@@ -29,6 +29,34 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
 
+- Y vemos la siguiente pantalla:
+
+![image](https://user-images.githubusercontent.com/25957863/168931707-291279ff-2153-4674-9e91-149f916c4cb0.png)
+
+- Esta vista cuenta con varias funcionalidades que detallaremos aquí:
+
+![image](https://user-images.githubusercontent.com/25957863/168931880-d7f04d90-bdde-4275-bbc0-2ffe2ad24c1d.png)
+
+- **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
+
+![image](https://user-images.githubusercontent.com/25957863/168932114-5881ae13-1b62-4dbe-ae3a-29add3f6348b.png)
+
+- **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
+
+![image](https://user-images.githubusercontent.com/25957863/168932234-f900c8cb-a4d7-436b-9af6-a17ffcbfaac1.png)
+
+- En nuestro caso de prueba primero debemos hacer la busqueda de el volúmen: "Cálculo diferencial". Damos click en buscar como se muestra a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168932807-51e699aa-f033-4c75-8320-59f2a6c36bb3.png)
+
+- Nos saldrán los siguientes recursos disponibles:
+
+![image](https://user-images.githubusercontent.com/25957863/168933111-db246be4-0db9-4ea9-b62c-d8472f3868d6.png)
+
+
+- **Mis reservas:** 
+
+
   - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
   - **Modelo E-R:**
