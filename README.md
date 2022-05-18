@@ -85,13 +85,12 @@
 - Allí tenemos cuatro opciones entre las cuales encontramos:
 ![image](https://user-images.githubusercontent.com/25957863/168966660-cd22b4d1-66ef-490b-976d-5a53ae92727c.png)
 - **Agregar recurso:** Allí podremos gestionar los nuevos recursos que deseemos añadir a nuestro portal web. Para añadir un recurso bastará con diligenciar cada uno de los datos que vemos en la pantalla anterior.
-![image](https://user-images.githubusercontent.com/25957863/168966925-0a618616-04fc-4195-9690-2daafb6c120d.png)
+
 - Para nuestro ejemplo agregaremos un nuevo recurso así:
-![image](https://user-images.githubusercontent.com/25957863/168967497-dd841211-3d75-44a5-a12d-ef5ce5068c87.png)
-- Damos click en agregar:  
-![image](https://user-images.githubusercontent.com/25957863/168967653-9d96f52d-b688-4991-9840-149f1c12d074.png)
-- Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
-![image](https://user-images.githubusercontent.com/25957863/168967952-56cabc70-043b-4f4e-aee5-374994acab1e.png)
+
+Damos click en agregar:  
+
+Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
