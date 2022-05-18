@@ -10,4 +10,6 @@ public interface OcupacionDAO {
     public List<Ocupacion> recursosMenosReservados();
 
     public List<Ocupacion> reservasPorPrograma();
+
+    public int reservasPorHorario(int i, int f);
 }

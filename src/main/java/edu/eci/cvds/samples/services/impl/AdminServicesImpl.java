@@ -147,4 +147,8 @@ public class AdminServicesImpl implements AdminServices {
         return ocupacionDAO.reservasPorPrograma();
     }
 
+    @Override
+    public int reservasPorHorario(int i, int f){
+        return ocupacionDAO.reservasPorHorario(i, f);
+    }
 }

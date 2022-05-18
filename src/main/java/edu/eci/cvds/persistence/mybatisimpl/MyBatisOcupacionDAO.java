@@ -26,4 +26,8 @@ public class MyBatisOcupacionDAO implements OcupacionDAO {
         return ocupacionMapper.reservasPorPrograma();
     }
 
+    @Override
+    public int reservasPorHorario(int i, int f){
+        return ocupacionMapper.reservasPorHorario(i, f);
+    }
 }

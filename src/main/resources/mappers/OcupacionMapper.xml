@@ -25,6 +25,12 @@
         group by u.programa ;
     </select>
 
+    <select id="reservasPorHorario" resultType="java.lang.Integer">
+        select count(*)
+        from "Proyecto"."reservas" r
+        WHERE date_part('hour', r.fechaincio) BETWEEN #{inicio} AND #{fin};
+    </select>
+
     <resultMap type='Ocupacion' id='OcupacionResult'>
         <result property='valor' column='valor'/>
         <result property='filtro' column='filtro'/>

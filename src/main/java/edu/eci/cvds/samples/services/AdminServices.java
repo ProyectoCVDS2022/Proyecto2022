@@ -37,4 +37,6 @@ public interface AdminServices {
     public List<Reserva> buscarReservasReportes(int filtro) throws PersistenceException;
 
     public List<Ocupacion> reservasPorPrograma();
+
+    public int reservasPorHorario(int i, int f);
 }

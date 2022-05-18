@@ -24,6 +24,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -254,39 +256,72 @@ public class AdminBean extends BasePageBean{
 
     public void ocupacionHorarios() {
         horariosMas = new BarChartModel();
-        ChartData data = new ChartData();
+        horariosMenos = new BarChartModel();
+        ChartData dataMas = new ChartData();
+        ChartData dataMenos = new ChartData();
 
-        BarChartDataSet barDataSet = new BarChartDataSet();
-        barDataSet.setLabel("Cantidad de reservas");
+        int inicial = 7;
+        int Final = 9;
+        int[] ocupacion = new int[6];
+        HashMap<Integer, String> valoresLabels = new HashMap<>();
+        for(int i = 0; i < 5; i++){
+            ocupacion[i] = services.reservasPorHorario(inicial, Final);
+            inicial += 2;
+            Final += 2;
+            valoresLabels.put(ocupacion[i], String.valueOf(inicial).concat(":00 - ").concat(String.valueOf(Final)).concat(":00"));
+        }
+        Arrays.sort(ocupacion);
 
-        List<Number> values = new ArrayList<>();
-        values.add(65);
-        values.add(59);
-        values.add(80);
-        barDataSet.setData(values);
+        BarChartDataSet barDataSetMas = new BarChartDataSet();
+        BarChartDataSet barDataSetMenos = new BarChartDataSet();
+        barDataSetMas.setLabel("Cantidad de reservas");
+        barDataSetMenos.setLabel("Cantidad de reservas");
+
+        List<Number> valuesMas = new ArrayList<>();
+        valuesMas.add(ocupacion[0]);
+        valuesMas.add(ocupacion[1]);
+        valuesMas.add(ocupacion[2]);
+        barDataSetMas.setData(valuesMas);
+
+        List<Number> valuesMenos = new ArrayList<>();
+        valuesMenos.add(ocupacion[ocupacion.length - 1]);
+        valuesMenos.add(ocupacion[ocupacion.length - 2]);
+        valuesMenos.add(ocupacion[ocupacion.length - 3]);
+        barDataSetMenos.setData(valuesMenos);
 
         List<String> bgColor = new ArrayList<>();
         bgColor.add("rgb(110, 17, 17)");
         bgColor.add("rgb(180, 20, 12)");
         bgColor.add("rgb(143, 145, 152)");
-        barDataSet.setBackgroundColor(bgColor);
+        barDataSetMas.setBackgroundColor(bgColor);
+        barDataSetMenos.setBackgroundColor(bgColor);
 
         List<String> borderColor = new ArrayList<>();
         borderColor.add("rgb(255, 255, 255)");
         borderColor.add("rgb(255, 255, 255)");
         borderColor.add("rgb(255, 255, 255)");
-        barDataSet.setBorderColor(borderColor);
-        barDataSet.setBorderWidth(2);
+        barDataSetMas.setBorderColor(borderColor);
+        barDataSetMenos.setBorderColor(borderColor);
+        barDataSetMas.setBorderWidth(2);
+        barDataSetMenos.setBorderWidth(2);
 
-        data.addChartDataSet(barDataSet);
+        dataMas.addChartDataSet(barDataSetMas);
+        dataMenos.addChartDataSet(barDataSetMenos);
 
-        List<String> labels = new ArrayList<>();
-        labels.add("7:00 - 9:00");
-        labels.add("9:00 - 11:00");
-        labels.add("11:00 - 1:00");
-        data.setLabels(labels);
-        horariosMas.setData(data);
-        horariosMenos.setData(data);
+        List<String> labelsMas = new ArrayList<>();
+        labelsMas.add(valoresLabels.get(ocupacion[0]));
+        labelsMas.add(valoresLabels.get(ocupacion[1]));
+        labelsMas.add(valoresLabels.get(ocupacion[2]));
+
+        List<String> labelsMenos = new ArrayList<>();
+        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 1]));
+        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 2]));
+        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 3]));
+
+        dataMas.setLabels(labelsMas);
+        dataMenos.setLabels(labelsMenos);
+        horariosMas.setData(dataMenos);
+        horariosMenos.setData(dataMas);
     }
 
     public void ocupacionProgramas() {
