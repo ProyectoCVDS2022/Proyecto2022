@@ -10,7 +10,7 @@
   - Jaime Nicolás Castro Acuña (Front)
   - David Alejandro Leon (UX)
 ## Descripcion del producto
-  - **Descripción general:** Escuela Colombiana de Ingeniería Julio Garavito, cuenta con interfaces para administradores y estudiantes que la utilicen. Para los estudiantes es posible tanto reservar recursos como consultar reservas, para los administradores es posible registrar recursos, cambiar el estado de los recursos, ver las reservas activas y el reporte de ocupación.
+  - **Descripción general:** Esta página está diseñada para la gestión y reserva de recursos de la biblioteca de la Escuela Colombiana de Ingeniería Julio Garavito, cuenta con interfaces para administradores y estudiantes que la utilicen. Para los estudiantes es posible tanto reservar recursos como consultar reservas, para los administradores es posible registrar recursos, cambiar el estado de los recursos, ver las reservas activas y el reporte de ocupación.
     
   - **Manual de usuario:**
 
