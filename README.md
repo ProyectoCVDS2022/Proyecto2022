@@ -80,7 +80,7 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
 
-- En el filtro de reservas canceladas evidenciamos aquellas que fueron 
+- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron canceladas por el usuario:
 
 ![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png)
 
