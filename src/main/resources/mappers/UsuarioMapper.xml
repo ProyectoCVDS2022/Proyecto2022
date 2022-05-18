@@ -17,6 +17,12 @@
         where id = #{user}
     </select>
 
+    <select id="idUsuario" resultType="java.lang.Integer" >
+        select *
+        from "Proyecto"."usuarios"
+        where correo = #{user}
+    </select>
+
     <resultMap type='Usuario' id='UsuarioResult'>
         <result property='id' column='id'/>
         <result property='rol' column='rol'/>

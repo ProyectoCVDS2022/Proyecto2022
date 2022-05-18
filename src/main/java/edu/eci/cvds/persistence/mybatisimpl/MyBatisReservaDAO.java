@@ -48,9 +48,9 @@ public class MyBatisReservaDAO implements ReservaDAO {
     public List<Reserva> buscarReservasComunidad(int id, String usuario) throws PersistenceException {
         try{
             if(id == 1){
-                return reservaMapper.buscarReservasActivas(LocalDateTime.now());
+                return reservaMapper.buscarReservasActivas(LocalDateTime.now(), usuario);
             }else if(id == 2){
-                return reservaMapper.buscarReservasPasadas(LocalDateTime.now());
+                return reservaMapper.buscarReservasPasadas(LocalDateTime.now(), usuario);
             }else{
                 return reservaMapper.buscarReservasCanceladas(usuario);
             }
@@ -101,6 +101,16 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al buscar las reserva",e);
+        }
+    }
+
+    @Override
+    public List<Reserva> buscarSubReservas(String id) throws PersistenceException {
+        try{
+            return reservaMapper.buscarSubReservas(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al cancelar la reserva",e);
         }
     }
 

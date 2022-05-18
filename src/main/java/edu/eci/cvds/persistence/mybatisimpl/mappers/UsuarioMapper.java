@@ -10,4 +10,6 @@ public interface UsuarioMapper {
     public List<Usuario> consultarUsuario(@Param("user") String username, @Param("password") String password);
 
     public Usuario infoUsuario(@Param("user") int idUsuario);
+
+    public int idUsuario(@Param("user") String usuario);
 }

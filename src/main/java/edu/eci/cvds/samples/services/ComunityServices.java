@@ -34,4 +34,7 @@ public interface ComunityServices {
 
     public void cancelarReserva(int id) throws PersistenceException;
 
+    public int idUsuario(String usuario) throws PersistenceException;
+
+    public List<Reserva> buscarSubReservas(String id) throws PersistenceException;
 }

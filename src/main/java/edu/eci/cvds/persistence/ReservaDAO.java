@@ -23,4 +23,5 @@ public interface ReservaDAO {
 
     public List<Reserva> buscarReservasReportes(int filtro) throws PersistenceException;
 
+    public List<Reserva> buscarSubReservas(String id) throws PersistenceException;
 }

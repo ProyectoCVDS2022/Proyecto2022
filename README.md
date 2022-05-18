@@ -22,28 +22,18 @@
 
 - Allí haremos login con las siguientes credenciales:
 
-**Usuario:** julian@gmail.com  
-**Password:**
-  
-- Hacemos login como se muestra a continuación:
-
 ![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
-
-- Y vemos la siguiente pantalla:
-
-![image](https://user-images.githubusercontent.com/25957863/168931707-291279ff-2153-4674-9e91-149f916c4cb0.png)
 
 - Esta vista cuenta con varias funcionalidades que detallaremos aquí:
 
-![image](https://user-images.githubusercontent.com/25957863/168931880-d7f04d90-bdde-4275-bbc0-2ffe2ad24c1d.png)
-
 - **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
 
-![image](https://user-images.githubusercontent.com/25957863/168932114-5881ae13-1b62-4dbe-ae3a-29add3f6348b.png)
+![image](https://user-images.githubusercontent.com/25957863/168936807-57fc7a49-c7a4-4f3e-b70e-6a01157aa065.png)
 
 - **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
 
-![image](https://user-images.githubusercontent.com/25957863/168932234-f900c8cb-a4d7-436b-9af6-a17ffcbfaac1.png)
+![image](https://user-images.githubusercontent.com/25957863/168936919-fa442891-566a-4a47-8a6b-321869a4ab6c.png)
+
 
 - En nuestro caso de prueba primero debemos hacer la busqueda de el volúmen: "Cálculo diferencial". Damos click en buscar como se muestra a continuación:
 
@@ -53,8 +43,56 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168933111-db246be4-0db9-4ea9-b62c-d8472f3868d6.png)
 
+- Seleccionamos el volúmen como se muestra a continuación:
 
-- **Mis reservas:** 
+![image](https://user-images.githubusercontent.com/25957863/168934416-f2ed6a75-0261-4c4f-abcb-39d083712142.png)
+
+- Seleccionamos el día en el que deseamos reservar el recurso, en esta oportunidad lo reservaremos para el día 18/15/2022, como se muestra:
+
+![image](https://user-images.githubusercontent.com/25957863/168936123-7288c111-8e8b-4d81-ba77-fa2decd93d9a.png)
+
+- Posteriormente selecionamos la hora, y procedemos a realizar la reserva.
+
+![image](https://user-images.githubusercontent.com/25957863/168936230-ea013d38-c21d-4735-81cc-d7e17e56bb2e.png)
+
+- Todo esto lo realizamos en caso de querer una reserva sin recurrencia; en el caso de querer que esta sea recurrente hacemos todos los pasos anteriores pero agregamos lo siguiente:
+
+1. Seleccionamos el check box como se muestra a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168945645-4686d33e-8275-4671-b015-5b3c6d00314b.png)
+
+2. Desplegamos el combo box y seleccionamos la periodicidad con que queremos realizar la reserva:
+
+![image](https://user-images.githubusercontent.com/25957863/168946907-7bcdbd2a-2694-48dd-9d77-b49ee2d66081.png)
+
+3. Damos click por último en "Realizar reserva":
+
+![image](https://user-images.githubusercontent.com/25957863/168947779-f8f8ed94-1c98-49ad-a8b1-cf52fd2e2737.png)
+
+- Si la reserva es exitosa en cualquier de los dos casos (Recurrente o no recurrente) veremos un mensaje de confirmación en la parte superior derecha como vemos a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168936429-95a8bed1-3e29-42a3-a323-12384c0d8ba9.png)
+
+- **Mis reservas:** Otra funcionalidad que posee un usario de la comunidad es el de consultar cada una de las reservas realizadas.
+
+![image](https://user-images.githubusercontent.com/25957863/168938034-39340a23-2bca-4e3a-84ec-d1ab787ec395.png)
+
+- A continuación vemos un combo box en el cual podemos filtrar la busqueda de las reservas. (Activas, Pasadas y Canceladas)
+
+![image](https://user-images.githubusercontent.com/25957863/168939340-3ad91794-137a-48fe-a767-8b918ff7b926.png)
+
+- En la sección de reservas activas evidenciamos la reserva hecha anteriormente al recurso: "Cálculo Diferencial"
+
+![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
+
+- En las reservas pasadas vemos aquellas hechas con fechas anteriores:
+
+![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
+
+- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron anuladas por el usuario:
+
+![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png).
+
 
 
   - **Imágenes y descripción de las funcionalidades más importantes:**

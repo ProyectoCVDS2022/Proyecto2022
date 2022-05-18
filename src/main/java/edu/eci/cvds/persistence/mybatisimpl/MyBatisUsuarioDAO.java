@@ -19,7 +19,7 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
             return usuarioMapper.consultarUsuario(username, password);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error", e);
+            throw new PersistenceException("Error al buscar el usuario", e);
         }
     }
 
@@ -29,7 +29,17 @@ public class MyBatisUsuarioDAO implements UsuarioDAO {
             return usuarioMapper.infoUsuario(idUsuario);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error", e);
+            throw new PersistenceException("Error al buscar la información del usuario", e);
+        }
+    }
+
+    @Override
+    public int idUsuario(String usuario) throws PersistenceException {
+        try{
+            return usuarioMapper.idUsuario(usuario);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al buscar el id del usuario", e);
         }
     }
 }

@@ -13,6 +13,7 @@ import org.primefaces.event.SelectEvent;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -27,8 +28,7 @@ public class ComunidadBean extends BasePageBean{
     private ComunityServices services;
     @Inject
     private CalendarBean calendarBean;
-    @Inject
-    private LoginBean loginBean;
+    private String usuario;
     private String nombreBuscar = "";
     private List<Recurso> recursosEncontrados;
     private int filtro;
@@ -65,7 +65,6 @@ public class ComunidadBean extends BasePageBean{
 
     public List<Recurso> buscarRecursos() throws PersistenceException {
         try{
-            System.out.println(loginBean.getUsername());
             if(!nombreBuscar.equals("")){
                 recursosEncontrados = services.buscarRecursos(nombreBuscar);
             }else{
@@ -128,14 +127,32 @@ public class ComunidadBean extends BasePageBean{
 
     public void reservarRecurso() throws PersistenceException{
         try{
+            List<Reserva> reservasRecurso = services.reservasRecurso(recursoSeleccionado.getId());
+            boolean colisiona = false;
+            for(Reserva reserva: reservasRecurso) {
+                if (event.getStartDate().isAfter(reserva.getFechaInicio()) && event.getStartDate().isBefore(reserva.getFechaFin()) && !reserva.isCancelada() && !reserva.isRecurrente()
+                        || event.getEndDate().isAfter(reserva.getFechaInicio()) && event.getEndDate().isBefore(reserva.getFechaFin()) && !reserva.isCancelada() && !reserva.isRecurrente()) {
+                    colisiona = true;
+                }
+            }
+
             if(recursoSeleccionado.getDisponibilidad().equals("Disponible")){
-                if(event.getEndDate().isEqual(event.getStartDate().plusHours(2)) || (event.getEndDate().isBefore(event.getStartDate().plusHours(2)) && event.getEndDate().isAfter(event.getStartDate()))){
+                int id = services.idUsuario(usuario);
+                if(event.getEndDate().isEqual(event.getStartDate().plusHours(2)) || (event.getEndDate().isBefore(event.getStartDate().plusHours(2)) && event.getEndDate().isAfter(event.getStartDate())) || recurrente){
                     if(event.getStartDate().getHour() >= recursoSeleccionado.getFechaInicio().getHour() && event.getEndDate().getHour() <= recursoSeleccionado.getFechaFin().getHour()){
-                        services.crearReserva(new Reserva(maxIdReserva()+1, 2, recursoSeleccionado.getId(), LocalDateTime.now(), event.getStartDate(), event.getEndDate(), recurrente, recurrencia, false));
-                        services.cambiarDisponibilidad("No disponible", recursoSeleccionado.getId());
-                        addMessage("¡Recurso reservado exitosamente!");
-                        PrimeFaces.current().executeScript("PF('dlg').hide();");
-                        System.out.println("Hacer colisiones con otras reservas");
+                        if(!colisiona){
+                            if(!recurrente){
+                                recurrencia = "";
+                                services.crearReserva(new Reserva(maxIdReserva()+1, id, recursoSeleccionado.getId(), LocalDateTime.now(), event.getStartDate(), event.getEndDate(), recurrente, recurrencia, false));
+                                addMessage("¡Recurso reservado exitosamente!");
+                                PrimeFaces.current().executeScript("PF('dlg').hide();");
+                                PrimeFaces.current().executeScript("PF('dlg_ocupacion').hide();");
+                            }else{
+                                reservaRecurrente();
+                            }
+                        }else{
+                            addMessage("Ya existe una reserva en el horario seleccionado");
+                        }
                     }else{
                         addMessage("La hora seleccionada debe estar en el horario de disponibilidad del recurso");
                     }
@@ -153,6 +170,40 @@ public class ComunidadBean extends BasePageBean{
         }catch (PersistenceException ex) {
             throw new PersistenceException("Error al reservar el recurso", ex);
         }
+    }
+
+    public void reservaRecurrente() throws PersistenceException{
+        int id = services.idUsuario(usuario);
+        LocalDateTime fechaReservaInicial = event.getStartDate();
+        LocalDateTime fechaReservaFinal = event.getEndDate();
+        int idReserva = maxIdReserva()+1;
+        int idSubReserva = 1;
+        services.crearReserva(new Reserva(idReserva, id, recursoSeleccionado.getId(), LocalDateTime.now(), event.getStartDate(), event.getEndDate(), recurrente, recurrencia, false));
+        if(recurrencia.equals("Diaria")){
+            while(fechaReservaInicial.isBefore(event.getEndDate())){
+                services.crearReserva(new Reserva(idReserva * 100 + idSubReserva, id, recursoSeleccionado.getId(), LocalDateTime.now(), fechaReservaInicial, fechaReservaFinal, false, String.valueOf(idReserva), false));
+                fechaReservaInicial = fechaReservaInicial.plusDays(1);
+                fechaReservaFinal = fechaReservaFinal.withDayOfMonth(fechaReservaInicial.getDayOfMonth());
+                idSubReserva += 1;
+            }
+        }else if(recurrencia.equals("Semanal")){
+            while(fechaReservaInicial.isBefore(event.getEndDate())){
+                services.crearReserva(new Reserva(idReserva * 100 + idSubReserva, id, recursoSeleccionado.getId(), LocalDateTime.now(), fechaReservaInicial, fechaReservaFinal, false, String.valueOf(idReserva), false));
+                fechaReservaInicial = fechaReservaInicial.plusDays(7);
+                fechaReservaFinal = fechaReservaFinal.withDayOfMonth(fechaReservaInicial.getDayOfMonth());
+                idSubReserva += 1;
+            }
+        }else{
+            while(fechaReservaInicial.isBefore(event.getEndDate())){
+                services.crearReserva(new Reserva(idReserva * 100 + idSubReserva, id, recursoSeleccionado.getId(), LocalDateTime.now(), fechaReservaInicial, fechaReservaFinal, false, String.valueOf(idReserva), false));
+                fechaReservaInicial = fechaReservaInicial.plusDays(30);
+                fechaReservaFinal = fechaReservaFinal.withDayOfMonth(fechaReservaInicial.getDayOfMonth());
+                idSubReserva += 1;
+            }
+        }
+        addMessage("¡Recurso reservado exitosamente!");
+        PrimeFaces.current().executeScript("PF('dlg').hide();");
+        PrimeFaces.current().executeScript("PF('dlg_ocupacion').hide();");
     }
 
     public void crearEvento(SelectEvent<LocalDateTime> selectEvent){
@@ -173,15 +224,23 @@ public class ComunidadBean extends BasePageBean{
                     services.cambiarDisponibilidad("Disponible", reservaSeleccionada.getRecurso());
                     PrimeFaces.current().executeScript("PF('dlg_detalles').hide();");
                     addMessage("¡Reserva cancelada exitosamente!");
+                }else{
+                    cancelarReservaRecurrente();
                 }
-
             }
         }catch (PersistenceException e){
             throw new PersistenceException("Error al cancelar la reserva",e);
         }
     }
 
-    public void cancelarReservaRecurrente(){
+    public void cancelarReservaRecurrente() throws PersistenceException {
+        List<Reserva> subReservas = services.buscarSubReservas(String.valueOf(reservaSeleccionada.getId()));
+        services.cancelarReserva(reservaSeleccionada.getId());
+        for(Reserva reserva: subReservas){
+            if(reserva.getFechaInicio().isAfter(LocalDateTime.now())){
+                services.cancelarReserva(reserva.getId());
+            }
+        }
         addMessage("¡Reserva cancelada exitosamente!");
     }
 
@@ -207,8 +266,7 @@ public class ComunidadBean extends BasePageBean{
 
     public List<Reserva> buscarReservas() throws PersistenceException {
         try{
-            //reservasEncontradas = services.buscarReservas(loginBean.getUsername());
-            reservasEncontradas = services.buscarReservas(filtroReservas, "julian@gmail.com");
+            reservasEncontradas = services.buscarReservas(filtroReservas, usuario);
             return reservasEncontradas;
         } catch (PersistenceException ex) {
             throw new PersistenceException("Error al buscar las reservas", ex);
@@ -335,11 +393,11 @@ public class ComunidadBean extends BasePageBean{
         this.event = event;
     }
 
-    public LoginBean getLoginBean() {
-        return loginBean;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setLoginBean(LoginBean loginBean) {
-        this.loginBean = loginBean;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }
