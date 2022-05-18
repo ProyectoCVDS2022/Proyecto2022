@@ -22,11 +22,6 @@
 
 - Allí haremos login con las siguientes credenciales:
 
-**Usuario:** julian@gmail.com  
-**Password:**
-  
-- Hacemos login como se muestra a continuación:
-
 ![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
 
 - Esta vista cuenta con varias funcionalidades que detallaremos aquí:
