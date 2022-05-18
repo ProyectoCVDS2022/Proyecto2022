@@ -61,7 +61,7 @@
 ![image](https://user-images.githubusercontent.com/25957863/168938741-fbdb9603-f9ab-4c09-a9fa-1b6340624492.png)
 - En las reservas pasadas vemos aquellas echas con fechas anteriores:
 ![image](https://user-images.githubusercontent.com/25957863/168939557-d58ff8a2-9750-45ef-b30e-039c9be9f030.png)
-- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron anuladas por el usuario:
+- En el filtro de reservas canceladas evidenciamos aquellas reservas pasadas que fueron anuladas por el usuario:  
 ![image](https://user-images.githubusercontent.com/25957863/168939736-66031776-9706-44cf-8137-03f007cc1aa2.png).
 - ¿Cómo podemos cancelar las reservas?
 - Si la reserva es de tipo NO recurrente:
