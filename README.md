@@ -126,7 +126,7 @@
 - **Diagrama de clases:**
 - ![image](https://user-images.githubusercontent.com/98216838/168897746-a1a01c44-f122-492d-ad97-246a27f29dfa.png)
 
-- **Descripción de la arquitectura y del Stack:**
+- **Descripción de las tecnologías utilizadas:**
 En este proyecto se usan las siguientes tecnologías: 	
 1. PrimeFaces: Se utiliza para representar y gestionar componentes de la intefaz de usuario.
 2. Guice: Se usa para la inyección de dependencias, permitiendo un mejor manejo de los objetos.
