@@ -53,6 +53,23 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168933111-db246be4-0db9-4ea9-b62c-d8472f3868d6.png)
 
+- Seleccionamos el volúmen como se muestra a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168934416-f2ed6a75-0261-4c4f-abcb-39d083712142.png)
+
+- Seleccionamos el día en el que deseamos reservar el recurso, en esta oportunidad lo reservaremos para el día 18/15/2022, como se muestra:
+
+![image](https://user-images.githubusercontent.com/25957863/168936123-7288c111-8e8b-4d81-ba77-fa2decd93d9a.png)
+
+- Posteriormente selecionamos la hora, y procedemos a realizar la reserva.
+
+![image](https://user-images.githubusercontent.com/25957863/168936230-ea013d38-c21d-4735-81cc-d7e17e56bb2e.png)
+
+- Si la reserva es exitosa veremos un mensaje de confirmación en la parte superior derecha como vemos a continuación:
+
+![image](https://user-images.githubusercontent.com/25957863/168936429-95a8bed1-3e29-42a3-a323-12384c0d8ba9.png)
+
+
 
 - **Mis reservas:** 
 
