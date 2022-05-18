@@ -29,21 +29,15 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168931190-5c4c4341-cf23-4e00-85d5-1179223af694.png)
 
-- Y vemos la siguiente pantalla:
-
-![image](https://user-images.githubusercontent.com/25957863/168931707-291279ff-2153-4674-9e91-149f916c4cb0.png)
-
 - Esta vista cuenta con varias funcionalidades que detallaremos aquí:
 
-![image](https://user-images.githubusercontent.com/25957863/168931880-d7f04d90-bdde-4275-bbc0-2ffe2ad24c1d.png)
+![image](https://user-images.githubusercontent.com/25957863/168936807-57fc7a49-c7a4-4f3e-b70e-6a01157aa065.png)
 
 - **Cerrar Sesión:** Nos dirigirá a nuestra pantalla principal de elección de usuario (Administrador, Comunidad).
 
-![image](https://user-images.githubusercontent.com/25957863/168932114-5881ae13-1b62-4dbe-ae3a-29add3f6348b.png)
+![image](https://user-images.githubusercontent.com/25957863/168936919-fa442891-566a-4a47-8a6b-321869a4ab6c.png)
 
 - **Reservar:** En este apartado prodemos hacer la búsqueda y posterior reserva de un recurso disponible.
-
-![image](https://user-images.githubusercontent.com/25957863/168932234-f900c8cb-a4d7-436b-9af6-a17ffcbfaac1.png)
 
 - En nuestro caso de prueba primero debemos hacer la busqueda de el volúmen: "Cálculo diferencial". Damos click en buscar como se muestra a continuación:
 
@@ -69,9 +63,10 @@
 
 ![image](https://user-images.githubusercontent.com/25957863/168936429-95a8bed1-3e29-42a3-a323-12384c0d8ba9.png)
 
+- **Mis reservas:** Otra funcionalidad que posee un usario de la comunidad es el de consultar cada una de las reservas realizadas.
 
+![image](https://user-images.githubusercontent.com/25957863/168932234-f900c8cb-a4d7-436b-9af6-a17ffcbfaac1.png)
 
-- **Mis reservas:** 
 
 
   - **Imágenes y descripción de las funcionalidades más importantes:**
