@@ -266,11 +266,13 @@ public class AdminBean extends BasePageBean{
         HashMap<Integer, String> valoresLabels = new HashMap<>();
         for(int i = 0; i < 5; i++){
             ocupacion[i] = services.reservasPorHorario(inicial, Final);
+            valoresLabels.put(ocupacion[i], String.valueOf(inicial).concat(":00 - ").concat(String.valueOf(Final)).concat(":00"));
             inicial += 2;
             Final += 2;
-            valoresLabels.put(ocupacion[i], String.valueOf(inicial).concat(":00 - ").concat(String.valueOf(Final)).concat(":00"));
         }
+
         Arrays.sort(ocupacion);
+
 
         BarChartDataSet barDataSetMas = new BarChartDataSet();
         BarChartDataSet barDataSetMenos = new BarChartDataSet();
@@ -284,9 +286,9 @@ public class AdminBean extends BasePageBean{
         barDataSetMas.setData(valuesMas);
 
         List<Number> valuesMenos = new ArrayList<>();
-        valuesMenos.add(ocupacion[ocupacion.length - 1]);
-        valuesMenos.add(ocupacion[ocupacion.length - 2]);
         valuesMenos.add(ocupacion[ocupacion.length - 3]);
+        valuesMenos.add(ocupacion[ocupacion.length - 2]);
+        valuesMenos.add(ocupacion[ocupacion.length - 1]);
         barDataSetMenos.setData(valuesMenos);
 
         List<String> bgColor = new ArrayList<>();
@@ -314,9 +316,9 @@ public class AdminBean extends BasePageBean{
         labelsMas.add(valoresLabels.get(ocupacion[2]));
 
         List<String> labelsMenos = new ArrayList<>();
-        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 1]));
-        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 2]));
         labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 3]));
+        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 2]));
+        labelsMenos.add(valoresLabels.get(ocupacion[ocupacion.length - 1]));
 
         dataMas.setLabels(labelsMas);
         dataMenos.setLabels(labelsMenos);
