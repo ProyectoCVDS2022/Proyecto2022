@@ -8,128 +8,7 @@
 <head>
     <script src="https://kit.fontawesome.com/311a2545f8.js" crossorigin="anonymous"></script>
     <title>Recursos biblioteca</title>
-    <style type = "text/css">
-
-	html {
-        background: url(fondo3.jpg) no-repeat center fixed;
-        background-size: cover;
-    }
-
-    #main-header {
-        background: #900;
-        color: Red;
-        height: 70px;
-        font-family: Ubuntu,sans-serif;
-        width: 100%;
-        left: 0;
-        top: 0;
-        position: fixed;
-    }
-
-    #main-header a {
-        color: white;
-    }
-
-    #logo-header {
-        float: left;
-        padding: 15px 0 0 20px;
-        text-decoration: none;
-    }
-
-    #logo-header .site-name {
-        font-weight: 1000;
-        font-size: 1.6em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .container{
-        position:relative;
-        width: 700px;
-        height: 350px;
-        margin: 240px auto;
-        background:transparent;
-    }
-
-    .container .box{
-        position: relative;
-        width: calc(350px - 30px);
-        height: calc(350px - 30px);
-        background: #900;
-        float: left;
-        margin: 15px;
-        box-sizing: border-box;
-        overflow: hidden;
-        border-radius:10px;
-    }
-
-    .container .box .icon{
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: 0.5s;
-        z-index: 1;
-    }
-
-    .container .a{
-        color: black;
-    }
-
-    .container .box .icon:hover{
-        top: 20px;
-        left: calc(50% - 20px);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-
-    .container .box .icon .ic{
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        transition: 2s;
-        font-size: 100px;
-    }
-
-    .container .box:hover .icon .ic{
-        height: 40px;
-    }
-
-    .container .box .content{
-        position: absolute;
-        height: calc(100% - 10px);
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
-        top:100%;
-        transition: 0.5s;
-    }
-
-    .container .box:hover .content{
-        top:100px;
-    }
-
-    .container .box .content h3{
-        margin: 0;
-        padding: 0;
-        color: white;
-        font-size: 40px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-family: Ubuntu,sans-serif;
-    }
-
-    .container .box:nth-child(1) .icon{
-        background: transparent;
-        color: white;
-    }
-    </style>
+    <link rel = "stylesheet" href="CSS/inicio.css"></link>
 </head>
 <body>
 <header id="main-header">
@@ -137,26 +16,40 @@
         <span class="site-name">GESTIÓN DE RECURSOS BIBLIOTECA</span>
     </a>
 </header>
-<div class="rox">
-    <div class="container">
-        <a href="/faces/login.xhtml">
-            <div class="box">
-                <div class="icon"><i class="ic fa-solid fa-users-between-lines"/></div>
-                <div class="content">
-                    <br> </br>
-                    <h3>Comunidad</h3>
-                </div>
-            </div>
-        </a>
-        <a href="/faces/login.xhtml">
-            <div class="box">
-                <div class="icon"><i class="ic fa-solid fa-user-tie"/></div>
-                <div class="content">
-                    <br> </br>
-                    <h3>Administrador</h3>
-                </div>
-            </div>
-        </a>
+<div class="card">
+    <div class="face front">
+        <img src="IMG/recursos.png" alt=""></img>
+        <h3></h3>
+    </div>
+    <div class="face back">
+        <h3>Catálogo De Biblioteca</h3>
+        <div class="link">
+            <a href="faces/recursos.xhtml">Ir a la página</a>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="face front">
+        <img src="IMG/comunidad.png" alt=""></img>
+        <h3></h3>
+    </div>
+    <div class="face back">
+        <h3>Pagina De La Comunidad</h3>
+        <div class="link">
+            <a href="faces/login.xhtml">Ingresar</a>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="face front">
+        <img src="IMG/admon.png" alt=""></img>
+        <h3></h3>
+    </div>
+    <div class="face back">
+        <h3>Pagina Administrador</h3>
+        <div class="link">
+            <a href="faces/login.xhtml">Ingresar</a>
+        </div>
     </div>
 </div>
 </body>

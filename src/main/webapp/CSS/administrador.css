@@ -1,0 +1,197 @@
+.wrap-collabsible {
+        margin-bottom: 1.2rem 0;
+    }
+
+    input[type='checkbox'] {
+        display: none;
+    }
+
+    .lbl-toggle {
+        display: block;
+
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-align: center;
+
+        padding: 1rem;
+
+        color: #FFFFFF;
+        background: #ABABAB;
+
+        cursor: pointer;
+
+        border-radius: 7px;
+        transition: all 0.25s ease-out;
+    }
+
+    .lbl-toggle:hover {
+        color: #D8D8D8;
+    }
+
+    .lbl-toggle::before {
+        content: ' ';
+        display: inline-block;
+
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid currentColor;
+        vertical-align: middle;
+        margin-right: .7rem;
+        transform: translateY(-2px);
+
+        transition: transform .2s ease-out;
+    }
+
+    .toggle:checked + .lbl-toggle::before {
+        transform: rotate(90deg) translateX(-3px);
+    }
+
+    .collapsible-content {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height .25s ease-in-out;
+    }
+
+    .toggle:checked + .lbl-toggle + .collapsible-content {
+        max-height: 100%;
+    }
+
+    .toggle:checked + .lbl-toggle {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .collapsible-content .content-inner {
+        background: rgba(150,150,150,0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, .45);
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .collapsible-content .content1-inner {
+        background: rgba(150,150,150,0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, .45);
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .collapsible-content .content2-inner {
+        background: rgba(150,150,150,0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, .45);
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .collapsible-content .content3-inner {
+	    color: black;
+	    background-color: rgba(255,255,255,0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, .45);
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        padding: .5rem 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    html { overflow-y: scroll; }
+
+	body {
+	    position: absolute;
+		width: 100%;
+		height:100%;
+		font-family: 'Candara';
+		font-size: 24px;
+		color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+	}
+
+	html {
+        background: url(../IMG/fondo.jpg) no-repeat center fixed;
+        background-size: cover;
+    }
+
+	SELECT {
+        color: #787878;
+        font-size: 16px;
+        margin: 0px 0px 7px 0px;
+        padding: 4px 0px 4px 5px;
+        width: 200px;
+    }
+
+    #main-header {
+        background: #900;
+        color: Red;
+        height: 71px;
+		font-family: Ubuntu,sans-serif;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+    }
+
+    #main-header a {
+		color: white;
+    }
+
+    #logo-header {
+        float: left;
+        padding: 15px 0 0 20px;
+        text-decoration: none;
+    }
+
+    #logo-header .site-name {
+        font-size: 0.7em;
+        position: absolute;
+        top: 50%;
+        right:0%;
+        transform: translate(-50%, -50%);
+    }
+
+     .logo-image{
+        width: 46px;
+        height: 46px;
+    }
+
+     div.a {
+        height: 230px;
+		width: 100%;
+		background-color: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+	}
+
+	div.card {
+        height: 570px;
+		width: 30%;
+		padding: 0 0 0 30px;
+	}
+
+	div.donas{
+        width: 100%;
+        height: 630px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	}
+
+	.ui-datatable-header {
+        background: #900 !important;
+    }
