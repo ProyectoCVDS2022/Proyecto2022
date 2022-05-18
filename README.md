@@ -127,27 +127,31 @@
 - **release-burndown chart**
 - **Sprint 1:**
 - Descripcion del sprint 1 : En este sprint se llevaron a cabo 3 historias de usuario las cuales fueron:
--   - Iniciar Sesion (Terminada)
--   - Registrar Un Recurso (Terminada)
--   - Cambiar estado de un recuso (Terminada)
+   - Iniciar Sesion (Terminada)
+   - Registrar Un Recurso (Terminada)
+   - Cambiar estado de un recuso (Terminada)
 - Sprint-backlog
-            ![image](https://user-images.githubusercontent.com/98216838/168508554-f477b635-c22e-42e5-85c4-bf765a373401.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168508554-f477b635-c22e-42e5-85c4-bf765a373401.png)
 - Sprint-burndown chart
-            ![image](https://user-images.githubusercontent.com/98216838/168881077-e07087df-d58d-4b8e-b5af-3460a5f4fa2c.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168881077-e07087df-d58d-4b8e-b5af-3460a5f4fa2c.png)
 
 - **Sprint 2:**
 - Descripcion del sprint 2 : En este sprint se llevaron a cabo 4 historias de usuario las cuales fueron:
--   - Consultar Recursos (Terminada)
--   - Reservar Recurso (Terminada)
--   - Visualizar horario de reserva de recursos (Terminada)
--   - Consultar Reserva (Terminada)
--Sprint-backlog
-            ![image](https://user-images.githubusercontent.com/98216838/168880785-e1f58247-6f04-431a-9c41-2fee2020236c.png)
+   - Consultar Recursos (Terminada)
+   - Reservar Recurso (Terminada)
+   - Visualizar horario de reserva de recursos (Terminada)
+   - Consultar Reserva (Terminada)
+- Sprint-backlog
+ ![image](https://user-images.githubusercontent.com/98216838/168880785-e1f58247-6f04-431a-9c41-2fee2020236c.png)
             
 - Sprint-burndown chart
-            ![image](https://user-images.githubusercontent.com/98216838/168881016-d45f21a4-4fc2-4d1c-9b73-3f76fe46ee50.png)
+ ![image](https://user-images.githubusercontent.com/98216838/168881016-d45f21a4-4fc2-4d1c-9b73-3f76fe46ee50.png)
 
 - **Sprint 3:**
+- Descripcion del sprint 2 : En este sprint se llevaron a cabo 3 historias de usuario las cuales fueron:
+   - Cancelar Reserva (Terminada)
+   - Reporte De Ocupacion (Terminada)
+   - Visualizar Reservas (Terminada)
 - Sprint-backlog
  ![image](https://user-images.githubusercontent.com/87088730/168972560-d4eb195a-e1c6-4e0f-9651-02dc311669e0.png)
 
