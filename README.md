@@ -88,10 +88,10 @@
 ![image](https://user-images.githubusercontent.com/25957863/168966925-0a618616-04fc-4195-9690-2daafb6c120d.png)
 - Para nuestro ejemplo agregaremos un nuevo recurso así:
 ![image](https://user-images.githubusercontent.com/25957863/168967497-dd841211-3d75-44a5-a12d-ef5ce5068c87.png)
-- Damos click en agregar:
+- Damos click en agregar:  
 ![image](https://user-images.githubusercontent.com/25957863/168967653-9d96f52d-b688-4991-9840-149f1c12d074.png)
-- Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:
-![image](https://user-images.githubusercontent.com/25957863/168967748-e4a65281-84ac-4cad-a76d-61d35e3c0d99.png)
+- Al finalizar el registro veremos una pantalla con la confirmación del recurso agregado como la siguiente:  
+![image](https://user-images.githubusercontent.com/25957863/168967952-56cabc70-043b-4f4e-aee5-374994acab1e.png)
 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
