@@ -80,7 +80,14 @@
 ![image](https://user-images.githubusercontent.com/25957863/168959704-2b7813fe-d378-4eb5-ac51-342896b956a5.png)
 - Una vez en nuestro perfil de administrador ingresamos nuestras credenciales y damos click en **Iniciar Sesión**:
 ![image](https://user-images.githubusercontent.com/25957863/168953290-2323b6e1-f719-4849-8ac0-c8e76fd72ef6.png)
-- 
+- Luego del inicio de sesión se abrirá la siguiente página:
+![image](https://user-images.githubusercontent.com/25957863/168966401-697290c4-ab1b-4935-8fec-8fb2533e0617.png)
+- Allí tenemos cuatro opciones entre las cuales encontramos:
+![image](https://user-images.githubusercontent.com/25957863/168966660-cd22b4d1-66ef-490b-976d-5a53ae92727c.png)
+- **Agregar recurso**:
+![image](https://user-images.githubusercontent.com/25957863/168966925-0a618616-04fc-4195-9690-2daafb6c120d.png)
+- Allí podremos gestionar los nuevos recursos que deseemos añadir a nuestro portal web. Para añadir un recurso bastará con diligenciar cada uno de los datos que vemos en la pantalla anterior.
+ 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
 - **Modelo E-R:**
