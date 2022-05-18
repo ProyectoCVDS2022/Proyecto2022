@@ -4,11 +4,11 @@
 - Julian Mauricio Velasco Briceño (Stakeholder)
 
 ## Integrantes
-- Santiago Andrés Bayona Cárdenas (Back)
+- Santiago Andrés Bayona Cardenas (Back)
 - Juan Carlos Acosta López (Front)
-- Julián Esteban Torres Díaz (Back)
+- Julian Esteban Torres Díaz (Back)
 - Jaime Nicolás Castro Acuña (Front)
-- David Alejandro León (UX)
+- David Alejandro Leon (UX)
 ## Descripcion del producto
 - **Descripción general:** Esta página está diseñada para la gestión y reserva de recursos de la biblioteca de la Escuela Colombiana de Ingeniería Julio Garavito, cuenta con interfaces para administradores y estudiantes que la utilicen. Para los estudiantes es posible tanto reservar recursos como consultar reservas, para los administradores es posible registrar recursos, cambiar el estado de los recursos, ver las reservas activas y el reporte de ocupación.
     
@@ -106,6 +106,16 @@
 ![image](https://user-images.githubusercontent.com/25957863/168970777-160fec89-c6f9-4ffc-a79f-2a5de73f2bf7.png)
 - Para este caso vamos a consultar las reservas del usuario **julian@gmail.com**:
 ![image](https://user-images.githubusercontent.com/25957863/168972422-b05f185d-b9bd-4f43-a776-733e919bac58.png)
+- Podemos consultar el detalle de la reserva dando click en la lupa que aparece en la parte derecha:
+![image](https://user-images.githubusercontent.com/25957863/168975228-94f4d764-d5cc-4bc9-a1cc-53faa70584b2.png)
+- Procederemos a usar la cuarta funcionalidad que tiene el administrador dentro de nuestro aplicativo:
+![image](https://user-images.githubusercontent.com/25957863/168975410-8ea7754f-a948-4f57-b82e-a781f5e4d67b.png)
+- **Reportes de ocupación:** Aquí podremos consultar los reportes de ocupación. 
+![image](https://user-images.githubusercontent.com/25957863/168975569-4cc3c3be-7540-43b7-9e68-e81dbdd2809d.png)
+- Además de las funcionalidades anteriormente descritas también tenemos la posibilidad de generar una representación gráfica tanto de las reservas recurrentes como de las reservas canceladas.
+![image](https://user-images.githubusercontent.com/25957863/168976329-bf1f960a-5f77-4104-b450-c7cfe9305ee4.png)
+
+![image](https://user-images.githubusercontent.com/25957863/168976068-4b6a687c-df7c-4435-af4d-146e68842208.png)
 
 - **Imágenes y descripción de las funcionalidades más importantes:**
 ## Arquitectura y Diseño detallado
